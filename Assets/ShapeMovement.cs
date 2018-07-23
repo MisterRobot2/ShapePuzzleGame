@@ -11,6 +11,7 @@ public class ShapeMovement : MonoBehaviour
     [SerializeField]
     [Range(0,20)]
     private int movementSpeed = 20;
+    private bool canBeControlled = true;
 
     void Start()
     {
@@ -20,24 +21,26 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (canBeControlled == true)
         {
-            this.gameObject.transform.Translate(new Vector3(-movementSpeed, 0, 0));
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            this.gameObject.transform.Translate(new Vector3(movementSpeed, 0, 0));
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.gameObject.transform.Translate(new Vector3(-movementSpeed, 0, 0));
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                this.gameObject.transform.Translate(new Vector3(movementSpeed, 0, 0));
 
-        }
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            rb.gravityScale = 25;
+            }
+            else if (Input.GetKey(KeyCode.Space))
+            {
+                rb.gravityScale = 25;
+                canBeControlled = false;
+            }
         }
         else
         {
             this.gameObject.transform.Translate(new Vector3(0, 0, 0));
         }
-        
-
     }
 }
