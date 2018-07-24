@@ -54,8 +54,22 @@ public class MeshObjL : MonoBehaviour {
         mesh.vertices = vertices;
         mesh.triangles = tri;
 
-      
-        transform.localRotation = Quaternion.Euler(new Vector3(0,0,90)); 
+        int[] angles = new int[4] {0,90,180,270};
+
+        transform.localRotation = Quaternion.Euler(new Vector3(0,0,angles[Random.Range(0, 3)])); 
+
+
+
+        //COLOR
+        Renderer rend = GetComponent<Renderer>();
+
+        //Set the main Color of the Material to green
+        rend.material.shader = Shader.Find("_Color");
+        rend.material.SetColor("_Color", Color.green);
+
+        //Find the Specular shader and change its Color
+        rend.material.shader = Shader.Find("Specular");
+        rend.material.SetColor("_SpecColor", Color.green);
 
 
 	}
