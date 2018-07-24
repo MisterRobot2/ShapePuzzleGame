@@ -2135,6 +2135,8 @@ MonoBehaviour:
       m_Image: {fileID: 21300000, guid: c064e67cfa4f0f04b96b47be9666ca83, type: 3}
     - m_Text: Purple
       m_Image: {fileID: 21300000, guid: a3f9f1c9e2e0b4148af26bd2d2c8feaa, type: 3}
+    - m_Text: Pink
+      m_Image: {fileID: 21300000, guid: b2029108a1576224687209d12f2bc55f, type: 3}
     - m_Text: Grey
       m_Image: {fileID: 21300000, guid: 27292c9b7177e6e4cbdab7ac5b18c364, type: 3}
     - m_Text: Black
