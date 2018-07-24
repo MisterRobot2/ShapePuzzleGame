@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1235,7 +1235,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 71a0d9fa7cb48b54689f1a4400394e0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05692540ab85014499a221c155675385, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1786,7 +1786,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: White
+  m_Text: Red
 --- !u!114 &114909522181815408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1997,7 +1997,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -2079,14 +2079,14 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: White
-      m_Image: {fileID: 21300000, guid: 71a0d9fa7cb48b54689f1a4400394e0c, type: 3}
     - m_Text: Red
       m_Image: {fileID: 21300000, guid: 05692540ab85014499a221c155675385, type: 3}
     - m_Text: Oreange
       m_Image: {fileID: 21300000, guid: d40f17d03cb24124dba7a8f82470fe65, type: 3}
     - m_Text: yellow
       m_Image: {fileID: 21300000, guid: ce66b7a2f9cd0204180b1c1d4d9333cf, type: 3}
+    - m_Text: Green
+      m_Image: {fileID: 21300000, guid: 60ac1550d093e9f4a9b128257ba14a51, type: 3}
     - m_Text: Blue
       m_Image: {fileID: 21300000, guid: c064e67cfa4f0f04b96b47be9666ca83, type: 3}
     - m_Text: Purple
@@ -2095,8 +2095,8 @@ MonoBehaviour:
       m_Image: {fileID: 21300000, guid: b2029108a1576224687209d12f2bc55f, type: 3}
     - m_Text: Grey
       m_Image: {fileID: 21300000, guid: 27292c9b7177e6e4cbdab7ac5b18c364, type: 3}
-    - m_Text: Black
-      m_Image: {fileID: 21300000, guid: 2983b709e71a65e40a3e635683647377, type: 3}
+    - m_Text: White
+      m_Image: {fileID: 21300000, guid: 71a0d9fa7cb48b54689f1a4400394e0c, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

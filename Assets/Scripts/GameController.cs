@@ -87,37 +87,39 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    Color detectPlayerColorChoice()
+    Color32 detectPlayerColorChoice()
     {
         switch (pickAColorDropdown.value)
         {
+            //red
             case 0:
-                return new Color(255, 255, 255, 255);
-
+                return new Color32(255, 0, 0, 255);
+            //orenge
             case 1:
-                return new Color(255, 0, 0, 255);
-
+                return new Color32(255, 102, 0, 255);
+            //yellow
             case 2:
-                return new Color(255, 102, 0, 255);
+                return new Color32(255, 204, 0, 255);
+
             case 3:
-                return new Color(255, 204, 0, 255);
+                return new Color32(40, 120, 40, 255);
 
             case 4:
-                return new Color(0, 0, 255, 255);
+                return new Color32(0, 0, 255, 255);
 
             case 5:
-                return new Color(113, 55, 255, 255);
+                return new Color32(113, 55, 255, 255);
 
             case 6:
-                return new Color(255, 0, 204, 255);
+                return new Color32(255, 0, 204, 255);
 
             case 7:
-                return new Color(218, 218, 218, 255);
+                return new Color32(218, 218, 218, 255);
 
             case 8:
-                return new Color(0, 0, 255, 255);
+                return new Color32(255, 255, 255, 255);
             default:
-                return new Color(255, 0, 135, 255);
+                return new Color32(255, 0, 135, 255);
         }
     }
 
