@@ -74,9 +74,10 @@ public class GameController : MonoBehaviour {
         if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Team 1")
         {
             team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
-            team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
+            enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
             openNamePannel(2);
             changeTeamColor(1);
+            pickAColorDropdown.value = 0;
         }
         else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Team 2")
         {
@@ -86,42 +87,55 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    void changeTeamColor(int teamNumber)
+    Color detectPlayerColorChoice()
     {
-        Color newColor;
         switch (pickAColorDropdown.value)
         {
             case 0:
-                newColor = new Color(255, 255, 255);
-                break;
+                return new Color(255, 255, 255, 255);
+
             case 1:
-                newColor = new Color(255, 0, 0);
-                break;
+                return new Color(255, 0, 0, 255);
+
             case 2:
-                newColor = new Color(255, 102, 0);
-                break;
+                return new Color(255, 102, 0, 255);
             case 3:
-                newColor = new Color(255, 204, 0);
-                break;
+                return new Color(255, 204, 0, 255);
+
             case 4:
-                newColor = new Color(0, 0, 255);
-                break;
+                return new Color(0, 0, 255, 255);
+
             case 5:
-                newColor = new Color(113, 55, 255);
-                break;
+                return new Color(113, 55, 255, 255);
+
             case 6:
-                newColor = new Color(255, 0, 204);
-                break;
+                return new Color(255, 0, 204, 255);
+
             case 7:
-                newColor = new Color(218, 218, 218);
-                break;
+                return new Color(218, 218, 218, 255);
+
             case 8:
-                newColor = new Color(0, 0, 255);
-                break;
+                return new Color(0, 0, 255, 255);
             default:
-                break;
+                return new Color(255, 0, 135, 255);
         }
-        Debug.Log("SSS");
+    }
+
+    void changeTeamColor(int teamNumber)
+    {
+        
+        if(teamNumber == 1)
+        {
+            team1Color = detectPlayerColorChoice();
+            team1NameText.text = team1Name;
+            team1Background.color = team1Color;
+            Debug.Log(team1Color);
+        }else if (teamNumber == 2)
+        {
+            team2Color = detectPlayerColorChoice();
+            team2NameText.text = team2Name;
+            team2Background.color = team2Color;
+        }
     }
 	
 	// Update is called once per frame
