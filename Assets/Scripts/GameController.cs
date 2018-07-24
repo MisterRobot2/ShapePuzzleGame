@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
     private Image team2Background;
     private Color team1Color;
     private Color team2Color;
+    private Dropdown pickAColorDropdown;
     private string team1Name;
     private string team2Name;
 
@@ -36,9 +37,10 @@ public class GameController : MonoBehaviour {
         team2Arrow = teamUIObject.transform.Find("Team 2 Arrow").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
-        team2Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>(); ;
+        team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
-        team2NameText = team1Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
+        team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
+        pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
 
         //Setup Objects
         team1Arrow.SetActive(false);
@@ -72,13 +74,69 @@ public class GameController : MonoBehaviour {
         if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Team 1")
         {
             team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
-            team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
+            enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
             openNamePannel(2);
+            changeTeamColor(1);
+            pickAColorDropdown.value = 0;
         }
         else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Team 2")
         {
             team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
             enterNamePannel.SetActive(false);
+            changeTeamColor(2);
+        }
+    }
+
+    Color32 detectPlayerColorChoice()
+    {
+        switch (pickAColorDropdown.value)
+        {
+            //red
+            case 0:
+                return new Color32(255, 0, 0, 255);
+            //orenge
+            case 1:
+                return new Color32(255, 102, 0, 255);
+            //yellow
+            case 2:
+                return new Color32(255, 204, 0, 255);
+
+            case 3:
+                return new Color32(40, 120, 40, 255);
+
+            case 4:
+                return new Color32(0, 0, 255, 255);
+
+            case 5:
+                return new Color32(113, 55, 255, 255);
+
+            case 6:
+                return new Color32(255, 0, 204, 255);
+
+            case 7:
+                return new Color32(218, 218, 218, 255);
+
+            case 8:
+                return new Color32(255, 255, 255, 255);
+            default:
+                return new Color32(255, 0, 135, 255);
+        }
+    }
+
+    void changeTeamColor(int teamNumber)
+    {
+        
+        if(teamNumber == 1)
+        {
+            team1Color = detectPlayerColorChoice();
+            team1NameText.text = team1Name;
+            team1Background.color = team1Color;
+            Debug.Log(team1Color);
+        }else if (teamNumber == 2)
+        {
+            team2Color = detectPlayerColorChoice();
+            team2NameText.text = team2Name;
+            team2Background.color = team2Color;
         }
     }
 	

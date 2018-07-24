@@ -20,7 +20,6 @@ public class shapeSpawner : MonoBehaviour
     }
 
     public void ShapeSpawner() {
-
         GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
         newObject.transform.position = this.gameObject.transform.position;
     }
