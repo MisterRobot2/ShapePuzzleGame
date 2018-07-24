@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class UITitleManager : MonoBehaviour
 {
     public void LoadGameScene()
     {      
-        EditorSceneManager.LoadScene("Main");  
+        SceneManager.LoadScene("Main");  
     }
 
     public void QuitGame()
