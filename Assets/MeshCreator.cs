@@ -46,6 +46,18 @@ public class MeshCreator : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = tri;
 
+
+        //COLOR
+        Renderer rend = GetComponent<Renderer>();
+
+        //Set the main Color of the Material to green
+        rend.material.shader = Shader.Find("_Color");
+        rend.material.SetColor("_Color", Color.green);
+
+        //Find the Specular shader and change its Color
+        rend.material.shader = Shader.Find("Specular");
+        rend.material.SetColor("_SpecColor", Color.green);
+
     }
 
     // Update is called once per frame
