@@ -34,3 +34,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Library/
+Library/assetDatabase3
+Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll.mdb
+Library/ScriptAssemblies/Unity.TextMeshPro.dll.mdb
+Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll.mdb
+Library/ScriptAssemblies/UnityEditor.StandardEvents.dll.mdb
+Library/shadercompiler-UnityShaderCompiler.exe0.log
