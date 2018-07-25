@@ -34,13 +34,13 @@ public class ShapeMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.D))
             {
                 this.gameObject.transform.Translate(new Vector3(movementSpeed * Time.deltaTime, 0, 0));
-
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
                 DataBase.score++;
+                StartCoroutine(Freeze());
             }
         }
         else
@@ -57,5 +57,11 @@ public class ShapeMovement : MonoBehaviour
         //    shapeSpawnerScript.ShapeSpawner();
         //    hasSpawn = true;
         //}
+    }
+
+    IEnumerator Freeze()
+    {
+        yield return new WaitForSeconds(3);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }
