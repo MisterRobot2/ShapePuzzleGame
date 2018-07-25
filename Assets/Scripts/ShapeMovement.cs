@@ -16,8 +16,6 @@ public class ShapeMovement : MonoBehaviour
     public GameObject spawner;
     private shapeSpawner shapeSpawnerScript;
     private bool hasSpawn = false;
-    public int blocksPlaced = 0;
-    public Text blocksPlacedText;
 
     void Start()
     {
@@ -42,8 +40,6 @@ public class ShapeMovement : MonoBehaviour
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
-                blocksPlaced++;
-                blocksPlacedText.text = blocksPlaced.ToString();
             }
         }
         else
