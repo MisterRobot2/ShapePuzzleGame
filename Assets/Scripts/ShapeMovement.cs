@@ -25,7 +25,7 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        if (canBeControlled == true && !DataBase.isGameOver)
+        if (canBeControlled == true)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -51,11 +51,11 @@ public class ShapeMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasSpawn == false)
-        {
-            shapeSpawnerScript = spawner.GetComponent<shapeSpawner>();
-            shapeSpawnerScript.ShapeSpawner();
-            hasSpawn = true;
-        }
+        //if (hasSpawn == false)
+        //{
+        //    shapeSpawnerScript = spawner.GetComponent<shapeSpawner>();
+        //    shapeSpawnerScript.ShapeSpawner();
+        //    hasSpawn = true;
+        //}
     }
 }
