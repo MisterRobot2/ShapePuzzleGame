@@ -19,8 +19,16 @@ public class shapeSpawner : MonoBehaviour
         
     }
 
-    public void ShapeSpawner() {
+    public void ShapeSpawner()
+    {
         GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
+        if(DataBase.currentTeamNumber == 1)
+        {
+            newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
+        }else if (DataBase.currentTeamNumber == 2)
+        {
+            newObject.GetComponent<SpriteRenderer>().color = DataBase.team2Color;
+        }
         newObject.transform.position = this.gameObject.transform.position;
     }
 }

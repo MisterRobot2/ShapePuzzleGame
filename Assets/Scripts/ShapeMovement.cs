@@ -40,6 +40,7 @@ public class ShapeMovement : MonoBehaviour
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
+                DataBase.score++;
             }
         }
         else
@@ -50,11 +51,11 @@ public class ShapeMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasSpawn == false)
-        {
-            shapeSpawnerScript = spawner.GetComponent<shapeSpawner>();
-            shapeSpawnerScript.ShapeSpawner();
-            hasSpawn = true;
-        }
+        //if (hasSpawn == false)
+        //{
+        //    shapeSpawnerScript = spawner.GetComponent<shapeSpawner>();
+        //    shapeSpawnerScript.ShapeSpawner();
+        //    hasSpawn = true;
+        //}
     }
 }
