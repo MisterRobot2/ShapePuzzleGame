@@ -2,13 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeshObjL : MonoBehaviour {
+public class MeshObjL : MonoBehaviour
+{
 
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
+       
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void meshCreatorL()
+    {
         MeshFilter mf = GetComponent<MeshFilter>();
         Mesh mesh = new Mesh();
         mf.mesh = mesh;
@@ -16,9 +28,9 @@ public class MeshObjL : MonoBehaviour {
 
         //Vertices
         int widthL = Random.Range(2, 5);
-        int widthS = Random.Range(1, widthL-1);
+        int widthS = Random.Range(1, widthL - 1);
         int heightL = Random.Range(2, 5);
-        int heightS = Random.Range(1, heightL-1);
+        int heightS = Random.Range(1, heightL - 1);
 
 
         Vector3[] vertices = new Vector3[8]
@@ -54,9 +66,9 @@ public class MeshObjL : MonoBehaviour {
         mesh.vertices = vertices;
         mesh.triangles = tri;
 
-        int[] angles = new int[4] {0,90,180,270};
+        int[] angles = new int[4] { 0, 90, 180, 270 };
 
-        transform.localRotation = Quaternion.Euler(new Vector3(0,0,angles[Random.Range(0, 3)])); 
+        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angles[Random.Range(0, 4)]));
 
 
 
@@ -72,10 +84,5 @@ public class MeshObjL : MonoBehaviour {
         rend.material.SetColor("_SpecColor", Color.green);
 
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 }

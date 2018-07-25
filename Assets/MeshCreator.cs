@@ -13,6 +13,19 @@ public class MeshCreator : MonoBehaviour
     void Start()
     {
 
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+
+    }
+
+
+    public void meshCreator(){
         MeshFilter mf = GetComponent<MeshFilter>();
         Mesh mesh = new Mesh();
         mf.mesh = mesh;
@@ -57,14 +70,5 @@ public class MeshCreator : MonoBehaviour
         //Find the Specular shader and change its Color
         rend.material.shader = Shader.Find("Specular");
         rend.material.SetColor("_SpecColor", Color.green);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
     }
 }
