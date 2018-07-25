@@ -6,14 +6,16 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+
+
     [SerializeField]
     private GameObject teamUIPrefab;
+
     private GameObject teamUIObject;
     private GameObject enterNamePannel;
-
-    private Button submitButton;
     private GameObject team1Arrow;
     private GameObject team2Arrow;
+    private Button submitButton;
     private Text team1NameText;
     private Text team2NameText;
     private Image team1Background;
