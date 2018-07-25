@@ -25,7 +25,7 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        if (canBeControlled == true)
+        if (canBeControlled == true && !DataBase.isGameOver)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -40,6 +40,7 @@ public class ShapeMovement : MonoBehaviour
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
+                DataBase.score++;
             }
         }
         else

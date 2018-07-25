@@ -6,8 +6,8 @@ public static class DataBase
 {
     #region PlayerStats
 
-    static int score;
-
+    public static int score = 0;
+    public static bool isGameOver = false;
     #endregion
 
     #region Settings

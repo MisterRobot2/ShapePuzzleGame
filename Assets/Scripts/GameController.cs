@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour {
         team2Arrow.SetActive(false);
         enterNamePannel.SetActive(false);
         submitButton.onClick.AddListener(delegate { submitNamePannel(); });
+        DataBase.score = 0;
 
         //Start Game
         openNamePannel(1);

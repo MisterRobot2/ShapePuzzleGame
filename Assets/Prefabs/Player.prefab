@@ -351,8 +351,6 @@ MonoBehaviour:
   shape: {fileID: 1258429877972242}
   movementSpeed: 5
   spawner: {fileID: 1804820587784642}
-  blocksPlaced: 0
-  blocksPlacedText: {fileID: 0}
 --- !u!212 &212378227162354636
 SpriteRenderer:
   m_ObjectHideFlags: 1
