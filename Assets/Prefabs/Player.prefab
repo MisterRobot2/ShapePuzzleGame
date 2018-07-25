@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001209176918724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 520.8285, y: 179.35298, z: -27.564817}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4788297401493674}
@@ -322,7 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc9b0c695837e94f89738bc19d04ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 0}
+  gameOverUIPrefab: {fileID: 1469687722513884, guid: fb6500bc6c697d341a0c1b740b7d058b,
+    type: 2}
 --- !u!114 &114567151548627534
 MonoBehaviour:
   m_ObjectHideFlags: 1
