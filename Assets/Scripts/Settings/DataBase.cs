@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Info
+public static class DataBase
 {
     #region PlayerStats
 

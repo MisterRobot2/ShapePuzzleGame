@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class GameOverScript : MonoBehaviour {
 
-    public GameObject gameOverUI;
 
-	void Start () {
-        gameOverUI.SetActive(false);
+    public GameObject gameOverUIPrefab;
+
+	void Start ()
+    {
+        //gameOverUIPrefab.SetActive(false);
 	}
 	
 	void Update () {
@@ -17,7 +19,8 @@ public class GameOverScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameOverUI.SetActive(true);
+        //gameOverUIPrefab.SetActive(true);
+        Instantiate(gameOverUIPrefab);
         Time.timeScale = 0.3f;
     }
 }

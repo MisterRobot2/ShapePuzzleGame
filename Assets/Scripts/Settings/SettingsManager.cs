@@ -29,17 +29,17 @@ public class SettingsManager : MonoBehaviour
     {
         if (Screen.fullScreen == true)
         {
-            Info.isFullscreen = false;
+            DataBase.isFullscreen = false;
             Screen.fullScreen = false;
-            Info.isFullscreen = false;
-            Debug.Log(Info.isFullscreen);
+            DataBase.isFullscreen = false;
+            Debug.Log(DataBase.isFullscreen);
         }
         else if(Screen.fullScreen == false)
         {
-            Info.isFullscreen = true;
+            DataBase.isFullscreen = true;
             Screen.fullScreen = true;
-            Info.isFullscreen = true;
-            Debug.Log(Info.isFullscreen);
+            DataBase.isFullscreen = true;
+            Debug.Log(DataBase.isFullscreen);
         }
     }
     #endregion
