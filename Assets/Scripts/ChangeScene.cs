@@ -10,21 +10,25 @@ public class ChangeScene : MonoBehaviour
 
     public void LoadGameScene()
     {      
-        SceneManager.LoadScene("Main");  
+        SceneManager.LoadScene("Main");
+        Time.timeScale = 1.0f;
     }
 
     public void LoadTitleScene()
     {
         SceneManager.LoadScene("Title");
+        Time.timeScale = 1.0f;
     }
 
     public void LoadSceneWithIndex()
     {
         SceneManager.LoadScene(indexOfSceneToLoad);
+        Time.timeScale = 1.0f;
     }
     public void LoadSceneWithName()
     {
         SceneManager.LoadScene(nameOfSceneToLoad);
+        Time.timeScale = 1.0f;
     }
 
     public void QuitGame()
