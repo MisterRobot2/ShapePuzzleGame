@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 197284287}
   - component: {fileID: 197284286}
   - component: {fileID: 197284285}
+  - component: {fileID: 197284288}
   m_Layer: 5
   m_Name: PlayterButtion
   m_TagString: Untagged
@@ -548,7 +549,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1866186598}
+      - m_Target: {fileID: 197284288}
         m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
@@ -595,6 +596,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197284283}
   m_CullTransparentMesh: 0
+--- !u!114 &197284288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197284283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9fd32a143d20c45bc91a0ade1a0923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexOfSceneToLoad: 0
+  nameOfSceneToLoad: Main
 --- !u!1 &254553254
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +845,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &294522384
 Rigidbody2D:
@@ -1443,7 +1457,7 @@ Transform:
   m_LocalScale: {x: 8.05, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380659042
 GameObject:
@@ -6397,46 +6411,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 26.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1866186597
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1866186599}
-  - component: {fileID: 1866186598}
-  m_Layer: 0
-  m_Name: TitleController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1866186598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1866186597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9fd32a143d20c45bc91a0ade1a0923, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1866186599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1866186597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1928086, y: -0.8785343, z: 2.2035193}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883742122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6448,6 +6422,7 @@ GameObject:
   - component: {fileID: 1883742126}
   - component: {fileID: 1883742125}
   - component: {fileID: 1883742124}
+  - component: {fileID: 1883742127}
   m_Layer: 5
   m_Name: Quit Buttion
   m_TagString: Untagged
@@ -6514,7 +6489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1866186598}
+      - m_Target: {fileID: 1883742127}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -6561,6 +6536,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1883742122}
   m_CullTransparentMesh: 0
+--- !u!114 &1883742127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1883742122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9fd32a143d20c45bc91a0ade1a0923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexOfSceneToLoad: 0
+  nameOfSceneToLoad: 
 --- !u!1 &1989074604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,7 +6709,7 @@ RectTransform:
   - {fileID: 813280925}
   - {fileID: 2080277668}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
