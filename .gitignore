@@ -35,3 +35,11 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Library/shadercompiler-UnityShaderCompiler.exe0.log
+<<<<<<< HEAD
+Library/CurrentLayout.dwlt
+Library/assetDatabase3
+Library/shadercompiler-UnityShaderCompiler.exe0.log
+Library/CurrentLayout.dwlt
+Library/assetDatabase3
+=======
+>>>>>>> d444afb70ea0cd84df60a5039a1d0639dc1e7330
