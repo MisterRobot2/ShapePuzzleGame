@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapes:
-  - {fileID: 1595548648208530, guid: 4626345c70309234f91342e9ff3f60e3, type: 2}
+  - {fileID: 0}
 --- !u!212 &212458471641464756
 SpriteRenderer:
   m_ObjectHideFlags: 1

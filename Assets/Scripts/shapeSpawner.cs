@@ -6,11 +6,18 @@ public class shapeSpawner : MonoBehaviour
 {
 
     public GameObject[] shapes = new GameObject[]{};
+    public GameObject parent;
 
     // Use this for initialization
     void Start()
     {
-        
+        if (parent == null)
+        {
+            parent = GameObject.Instantiate(new GameObject(), this.transform);
+            parent = GameObject.Find("New Game Object");
+            parent.name = "ShapeHolder";
+        }
+       
     }
 
     // Update is called once per frame
@@ -21,7 +28,7 @@ public class shapeSpawner : MonoBehaviour
 
     public void ShapeSpawner()
     {
-        GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
+        GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], parent.transform);
         if(DataBase.currentTeamNumber == 1)
         {
             newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
