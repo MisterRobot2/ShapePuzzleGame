@@ -13,14 +13,18 @@ public class ShapeMovement : MonoBehaviour
     [Range(0,20)]
     private int movementSpeed = 20;
     private bool canBeControlled = true;
+    private bool hasSpawn = false;
+    private bool hasCollided;
     public GameObject spawner;
     private shapeSpawner shapeSpawnerScript;
-    private bool hasSpawn = false;
+    private AudioSource blockLanding;
 
     void Start()
     {
         rb = shape.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        hasCollided = false;
+        blockLanding = shape.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -57,11 +61,17 @@ public class ShapeMovement : MonoBehaviour
         //    shapeSpawnerScript.ShapeSpawner();
         //    hasSpawn = true;
         //}
+
+        if(hasCollided == false)
+        {
+            blockLanding.Play();
+            hasCollided = true;
+        }
     }
 
     IEnumerator Freeze()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }

@@ -243,7 +243,7 @@ public class GameController : MonoBehaviour {
     {
 		if(Input.GetKeyUp(KeyCode.Space) && DataBase.isPlayerPlaying)
         {
-            StartCoroutine(placeBlockCountDown(5));
+            StartCoroutine(placeBlockCountDown(0));
         }
 	}
 }
