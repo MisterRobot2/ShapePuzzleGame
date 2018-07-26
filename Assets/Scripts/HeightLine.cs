@@ -8,6 +8,7 @@ public class HeightLine : MonoBehaviour
 
     [SerializeField]
     private float upSpeed = 0.1f;
+    private string blockTag;
 
     //Objects
     private TextMesh text;
@@ -86,29 +87,41 @@ public class HeightLine : MonoBehaviour
     #region LineDetection
     private void OnTriggerStay2D(Collider2D collision)
     {
-        topblock = collision.gameObject;
-        isColliding = true;
+        if (collision.gameObject.tag == blockTag)
+        {
+            topblock = collision.gameObject;
+            isColliding = true;
+        }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isColliding = false;
-        downSequence = true;
-        if (topblock == collision.gameObject)
+        if (collision.gameObject.tag == blockTag)
         {
-            Freeze = false;
+            isColliding = false;
+            downSequence = true;
+            if (topblock == collision.gameObject)
+            {
+                Freeze = false;
+            }
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (topblock == other.gameObject)
+        if (other.gameObject.tag == blockTag)
         {
-            Freeze = true;
+            if (topblock == other.gameObject)
+            {
+                Freeze = true;
+            }
+            else
+            {
+                Freeze = false;
+            }
+            upSequence = true;
         }
-        else
-        {
-            Freeze = false;
-        }
-        upSequence = true;
+        
     }
 
     void UpSequence()
