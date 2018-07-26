@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142294387468514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 518.031, y: 179.53, z: -19.15443}
+  m_LocalPosition: {x: -2.64, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4735792972076162}
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c630ff214e3ab94ab42024c8d059592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1234625565857738, guid: 9fabddf33addc9b48a60c049999af2de, type: 2}
   GoalHeightMax: 10
   goalHeightMin: 3
 --- !u!212 &212497523653753772
