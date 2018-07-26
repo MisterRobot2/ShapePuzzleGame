@@ -8,7 +8,8 @@ public class HeightLine : MonoBehaviour
 
     [SerializeField]
     private float upSpeed = 0.1f;
-    private string blockTag;
+    [SerializeField]
+    private string blockTag = "Block";
 
     //Objects
     private TextMesh text;

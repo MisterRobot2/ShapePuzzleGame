@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDownSequence: 0
   upSpeed: 0.05
+  blockTag: Block
   initalHeight: 0
   height: 0
 --- !u!114 &114546646548592372
