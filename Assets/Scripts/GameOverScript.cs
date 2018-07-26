@@ -7,10 +7,12 @@ public class GameOverScript : MonoBehaviour {
 
 
     public GameObject gameOverUIPrefab;
+    private AudioSource gameOverSound;
 
-	void Start ()
+    void Start ()
     {
-        //gameOverUIPrefab.SetActive(false);
+        gameOverUIPrefab.SetActive(false);
+        gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -21,7 +23,7 @@ public class GameOverScript : MonoBehaviour {
     {
         DataBase.score--;
         //Create Game Over If 
-        if(!GameObject.Find("Game Over") && !DataBase.isGameOver)
+        if(!DataBase.isGameOver)
         {
             DataBase.isGameOver = true;
             GameObject gameOverObject = Instantiate(gameOverUIPrefab);
@@ -29,6 +31,11 @@ public class GameOverScript : MonoBehaviour {
             //blocks placed text 
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
         }
-        Time.timeScale = 0.3f;
+        if(DataBase.isGameOver == true)
+        {
+            gameOverUIPrefab.SetActive(true);
+            gameOverSound.Play();
+            Time.timeScale = 0.3f;
+        }
     }
 }
