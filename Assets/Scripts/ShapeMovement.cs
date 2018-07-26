@@ -16,8 +16,6 @@ public class ShapeMovement : MonoBehaviour
     public GameObject spawner;
     private shapeSpawner shapeSpawnerScript;
     private bool hasSpawn = false;
-    public int blocksPlaced = 0;
-    public Text blocksPlacedText;
 
     void Start()
     {
@@ -36,14 +34,13 @@ public class ShapeMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.D))
             {
                 this.gameObject.transform.Translate(new Vector3(movementSpeed * Time.deltaTime, 0, 0));
-
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
-                blocksPlaced++;
-                blocksPlacedText.text = blocksPlaced.ToString();
+                DataBase.score++;
+                StartCoroutine(Freeze());
             }
         }
         else
@@ -54,11 +51,17 @@ public class ShapeMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasSpawn == false)
-        {
-            shapeSpawnerScript = spawner.GetComponent<shapeSpawner>();
-            shapeSpawnerScript.ShapeSpawner();
-            hasSpawn = true;
-        }
+        //if (hasSpawn == false)
+        //{
+        //    shapeSpawnerScript = spawner.GetComponent<shapeSpawner>();
+        //    shapeSpawnerScript.ShapeSpawner();
+        //    hasSpawn = true;
+        //}
+    }
+
+    IEnumerator Freeze()
+    {
+        yield return new WaitForSeconds(3);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }
