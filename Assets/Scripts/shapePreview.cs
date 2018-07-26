@@ -9,8 +9,9 @@ public class shapePreview : MonoBehaviour {
 
     public List<GameObject> createdShapes = new List<GameObject>();
 
+    public Camera pcam;
 
-
+    private GameObject newestObject;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,11 @@ public class shapePreview : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        //Debug.Log("running");
+        //if (newestObject != null)
+        //{
+        //    pcam.transform.LookAt(newestObject.transform);
+        //}
 	}
 
 
@@ -27,13 +32,21 @@ public class shapePreview : MonoBehaviour {
         GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
         newObject.transform.position = this.gameObject.transform.position;
 
+        //newObject.transform.position = pcam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, pcam.nearClipPlane));
+        //newObject.transform.Translate(0, 0, 5);
+
+        //Vector3 center = newObject.GetComponent<Renderer>().bounds.center;
+
+    
+
+
         if(newObject.GetComponent<MeshCreator>() == true){
             newObject.GetComponent<MeshCreator>().meshCreator();
         } else if(newObject.GetComponent<MeshObjL>() == true){
             newObject.GetComponent<MeshObjL>().meshCreatorL();
         }
 
-
+        newestObject = newObject;
 
         createdShapes.Add(newObject);
 

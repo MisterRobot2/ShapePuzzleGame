@@ -66,10 +66,14 @@ public class MeshObjL : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = tri;
 
+
+
         int[] angles = new int[4] { 0, 90, 180, 270 };
 
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angles[Random.Range(0, 4)]));
+        // transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angles[Random.Range(0, 4)]));
 
+
+        transform.RotateAround(gameObject.GetComponent<Renderer>().bounds.center, Vector3.forward, angles[Random.Range(0, 4)]);
 
 
         //COLOR
