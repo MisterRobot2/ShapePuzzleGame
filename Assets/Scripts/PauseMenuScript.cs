@@ -24,7 +24,7 @@ public class PauseMenuScript : MonoBehaviour {
             Time.timeScale = 0.0f;
             pauseMenuClick.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isGamePaused == true)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isGamePaused == true && !OptionsUI.activeSelf)
         {
             PauseMenuUI.SetActive(false);
             isGamePaused = false;
