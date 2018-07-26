@@ -357,21 +357,16 @@ RectTransform:
   m_GameObject: {fileID: 197284283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5071876, y: 4.2609777, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 966962053}
+  - {fileID: 511886536}
   m_Father: {fileID: 1502739366}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: 0.0000019073486}
-  m_SizeDelta: {x: 488.9, y: 46.6}
-=======
   m_AnchoredPosition: {x: 0, y: -54.3}
   m_SizeDelta: {x: 663.9, y: 229.2}
->>>>>>> d3af601ead450f1cc1013fe7d08af8914128e3a4
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &197284285
 MonoBehaviour:
@@ -392,9 +387,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 0.3764706}
+    m_NormalColor: {r: 0, g: 1, b: 0.116336346, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -448,18 +443,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1990477, g: 0.6698113, b: 0.2486018, a: 0.8235294}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
-  m_Sprite: {fileID: 0}
-=======
   m_Sprite: {fileID: 21300000, guid: 05d87a5b74eee4cbe9e017a71ee00d18, type: 3}
->>>>>>> d3af601ead450f1cc1013fe7d08af8914128e3a4
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -830,10 +821,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
-<<<<<<< HEAD
-=======
 --- !u!1 &511886535
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +973,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 650810286}
   m_CullTransparentMesh: 0
->>>>>>> d3af601ead450f1cc1013fe7d08af8914128e3a4
 --- !u!1 &813280924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1484963924206302, guid: 5de0623b57fed314d867ea341eb7773e,
@@ -1158,83 +1146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Object: {fileID: 813280924}
-<<<<<<< HEAD
---- !u!1 &966962052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 966962053}
-  - component: {fileID: 966962055}
-  - component: {fileID: 966962054}
-  m_Layer: 5
-  m_Name: PlayButtonText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &966962053
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 966962052}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6137347, y: 0.23468941, z: 1}
-  m_Children: []
-  m_Father: {fileID: 197284284}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000050529, y: -9.1}
-  m_SizeDelta: {x: 796.59, y: 198.56}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!114 &966962054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 966962052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: ee4ddaf2ad3be5848bf465ec4deec4e9, type: 3}
-    m_FontSize: 10
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 0
-    m_MaxSize: 300
-    m_Alignment: 1
-    m_AlignByGeometry: 1
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 5
-  m_Text: 'Play '
---- !u!222 &966962055
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 966962052}
-  m_CullTransparentMesh: 0
-=======
 --- !u!50 &863453356
 Rigidbody2D:
   serializedVersion: 4
@@ -1280,7 +1191,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 400, y: 100}
   m_EdgeRadius: 0
->>>>>>> d3af601ead450f1cc1013fe7d08af8914128e3a4
 --- !u!1 &1163576754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1526,7 @@ Camera:
   m_GameObject: {fileID: 1553403104}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -1971,7 +1881,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.7
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2024,7 +1934,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3112,7 +3022,7 @@ ParticleSystem:
         key6: {r: 0.9882353, g: 0.01805649, b: 0, a: 1}
         key7: {r: 1, g: 0.18431373, b: 0, a: 1}
         ctime0: 0
-        ctime1: 26407
+        ctime1: 5975
         ctime2: 42791
         ctime3: 50501
         ctime4: 63800
@@ -5362,7 +5272,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5467,7 +5377,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 1
+    radiusScale: 0.0001
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295

@@ -138,7 +138,7 @@ public class GameController : MonoBehaviour {
             currentTeamNumber = 1;
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel("Go "+team1Name+"!", 2));
+            StartCoroutine(showNotificationPannel(" "+team1Name+"!", 2));
         }
         DataBase.currentTeamNumber = currentTeamNumber;
         DataBase.isPlayerPlaying = true;
@@ -205,7 +205,7 @@ public class GameController : MonoBehaviour {
         DataBase.isPlayerPlaying = false;
         for (int i = time; i >= 0; i--)
         {
-            StartCoroutine(showNotificationPannel(i.ToString(), 1));
+            //StartCoroutine(showNotificationPannel(i.ToString(), 1));
             yield return new WaitForSeconds(1);
             //if there is a game over
             if(DataBase.isGameOver)
