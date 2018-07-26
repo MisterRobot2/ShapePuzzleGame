@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33707007985542098}
   - component: {fileID: 23259647912075304}
   - component: {fileID: 114819622784809522}
-  - component: {fileID: 50245816445548202}
+  - component: {fileID: 50027079871945222}
   m_Layer: 0
   m_Name: MeshObjL
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898138333694052}
   m_Mesh: {fileID: 0}
---- !u!50 &50245816445548202
+--- !u!50 &50027079871945222
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
