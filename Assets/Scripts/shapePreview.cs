@@ -55,6 +55,13 @@ public class shapePreview : MonoBehaviour {
         GameObject newObject2 = GameObject.Instantiate(createdShapes[createdShapes.Count-2]);
         newObject2.transform.position = new Vector3(0,0,0);
         newObject2.GetComponent<Rigidbody2D>().gravityScale = 1;
+        newObject2.AddComponent<EdgeCollider2D>();
+
+
+
+
+        //newObject2.GetComponent<EdgeCollider2D>().points = GetComponent<MeshCreator>.;
+
 
         Destroy(createdShapes[createdShapes.Count - 2]);
     }

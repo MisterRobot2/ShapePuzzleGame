@@ -39,13 +39,13 @@ public class GameController : MonoBehaviour {
 
         //Get Objects
         enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
-        team1Arrow = teamUIObject.transform.Find("Team 1 Arrow").gameObject;
-        team2Arrow = teamUIObject.transform.Find("Team 2 Arrow").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
         team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
         team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
+        team1Arrow = team1Background.transform.Find("Team 1 Arrow").gameObject;
+        team2Arrow = team2Background.transform.Find("Team 2 Arrow").gameObject;
         pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
         teamUIAnimator = teamUIObject.GetComponent<Animator>();
         notificationPannelText = teamUIObject.transform.Find("NotificationPannel").transform.Find("Text").GetComponent<Text>();
@@ -174,8 +174,8 @@ public class GameController : MonoBehaviour {
             case 7:
                 return new Color32(218, 218, 218, 255);
 
-            case 8:
-                return new Color32(255, 255, 255, 255);
+            //case 8:
+            //    return new Color32(255, 255, 255, 255);
             default:
                 return new Color32(255, 0, 135, 255);
         }
