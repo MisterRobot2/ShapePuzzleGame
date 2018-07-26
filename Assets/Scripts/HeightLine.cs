@@ -9,13 +9,11 @@ public class HeightLine : MonoBehaviour
     [SerializeField]
     private float upSpeed = 0.1f;
 
-    
-
     //Objects
-      [SerializeField]
     private TextMesh text;
     private GameObject Spawner;
     private GameObject mainCamera;
+    private MoveText moveTextScript;
 
     //Camera movement
     private float heightTilMoveup = 5;
@@ -23,46 +21,67 @@ public class HeightLine : MonoBehaviour
     private float currentMoveProgress = 0;
     
     //line movement
-    private float initalHeight;
-    private float Height;
+    [HideInInspector]
+    public float initalHeight;
+    [HideInInspector]
+    public float height;
     private bool isColliding = true;
     private bool Freeze;
     private bool upSequence;
     private bool downSequence;
     private GameObject topblock = null;
-    
-    
-	void Start ()
+
+
+    private void Awake()
+    {
+        initalHeight = this.transform.position.y;
+    }
+
+    void Start ()
     {
         upSequence = true;
-        initalHeight = this.transform.position.y;
-
-        Spawner = GameObject.Find("Spawner");
-        mainCamera = GameObject.Find("Main Camera");
+        DebugCheck();
     }
 	
 	void Update ()
     {
-        if (upSequence == true)
-        {    
-            if (isColliding == true && Freeze == false)
-            {
-                transform.Translate(new Vector2(0, upSpeed));
-            }
-        }
-
-        if (downSequence == true)
-        {  
-            if (isColliding == false && Freeze == false)
-            {
-                transform.Translate(new Vector2(0, -upSpeed));
-            }
-        }
-
+        UpSequence();
+        DownSequence();
         MoveCameraUp();
         MoveCameraDown();
         CalculateHeight();
 	}
+
+    
+
+    #region debugCheckFunctions
+    void DebugCheck()
+    {
+
+        Spawner = GameObject.Find("Spawner");
+        mainCamera = GameObject.Find("Main Camera");
+        text = GameObject.Find("Height Text").GetComponent<TextMesh>();
+        moveTextScript = text.GetComponent<MoveText>();
+
+
+        if (Spawner == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Spawner' in scene, Please Make sure you name it correctly or change the name in the script.");
+        }
+        if (mainCamera == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Main Camera' in scene, Please Make sure you name it correctly or change the name in the script.");
+        }
+        if (text == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Main Camera' in scene, Please Make sure you name it correctly or change the name in the script.");
+        }
+        if (moveTextScript == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " please make sure that the MoveText component is on it");
+        }
+    }
+    #endregion
 
     #region LineDetection
     private void OnTriggerStay2D(Collider2D collision)
@@ -91,20 +110,42 @@ public class HeightLine : MonoBehaviour
         }
         upSequence = true;
     }
+
+    void UpSequence()
+    {
+        if (upSequence == true)
+        {
+            if (isColliding == true && Freeze == false)
+            {
+                transform.Translate(new Vector2(0, upSpeed));
+            }
+        }
+    }
+    void DownSequence()
+    {
+        if (downSequence == true)
+        {
+            if (isColliding == false && Freeze == false)
+            {
+                transform.Translate(new Vector2(0, -upSpeed));
+            }
+        }
+    }
     #endregion 
 
     #region Camera movement
     void CalculateHeight()
     {
-        Height = (Mathf.Round((this.transform.position.y - initalHeight)*10))/10;
-        text.text = Height + "Ft";
+        height = (Mathf.Round((this.transform.position.y - initalHeight)*10))/10;
+        moveTextScript.UpdateText(height + "Ft");
+        text.text = height + "Ft";
     }
 
     void MoveCameraUp()
     {
         if (moveDownSequence == false)
         {
-            if (heightTilMoveup + maxhightTilMoveUp - Height <= 0)
+            if (heightTilMoveup + maxhightTilMoveUp - height <= 0)
             {
                 mainCamera.transform.Translate(new Vector2(0, +upSpeed));
                 Spawner.transform.Translate(new Vector2(0, +upSpeed));
@@ -119,8 +160,6 @@ public class HeightLine : MonoBehaviour
                 currentMoveProgress = 0;
             }
         }
-        
-       
     }
 
     void MoveCameraDown()
@@ -143,7 +182,6 @@ public class HeightLine : MonoBehaviour
                 maxhightTilMoveUp = 0;
             }
         }
-        
     }
-    #endregion 
+    #endregion
 }

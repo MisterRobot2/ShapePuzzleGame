@@ -8,8 +8,17 @@ using UnityEngine;
 
 public class shapeSpawner : MonoBehaviour
 {
+<<<<<<< HEAD
     public GameObject[] shapes = new GameObject[] { };
     public GameObject parent;
+=======
+
+// HEAD
+
+    public GameObject[] shapes = new GameObject[]{};
+    public GameObject parent;
+ //b19220783b44c635eff6398c5b936f25f7a1bfeb
+>>>>>>> ed8d5843c35ce296bbfe24b8225fcf997dc36e49
 
     // Use this for initialization
     void Start()
@@ -31,6 +40,7 @@ public class shapeSpawner : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
     //public List<GameObject> createdShapes2 = List<GameObject> GetComponent<shapePreview>().createdShapes;
     //shapePreview s1;
 
@@ -60,6 +70,12 @@ public class shapeSpawner : MonoBehaviour
         //currentShape.transform.position = this.gameObject.transform.position;
     }*/
 
+=======
+ //HEAD
+ 
+   
+
+>>>>>>> ed8d5843c35ce296bbfe24b8225fcf997dc36e49
     public void ShapeSpawner()
     {
         if (DataBase.currentTeamNumber != 0)
@@ -75,5 +91,10 @@ public class shapeSpawner : MonoBehaviour
             }
             newObject.transform.position = this.gameObject.transform.position;
         }
+<<<<<<< HEAD
+=======
+        newObject.transform.position = this.gameObject.transform.position;
+ //b19220783b44c635eff6398c5b936f25f7a1bfeb
+>>>>>>> ed8d5843c35ce296bbfe24b8225fcf997dc36e49
     }
 }
