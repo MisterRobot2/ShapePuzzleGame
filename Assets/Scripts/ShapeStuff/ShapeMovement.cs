@@ -5,16 +5,22 @@ using UnityEngine.UI;
 
 public class ShapeMovement : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
+    public bool isFrozen;
+    public GameObject shape;
+>>>>>>> 2311aadffea0aa22dd19e0fca137ff442ab75b26
     private Rigidbody2D rb;
-    private Vector3 v;
     [SerializeField]
     [Range(0,20)]
     private int movementSpeed = 20;
+<<<<<<< HEAD
     public bool canBeControlled = true;
     private bool hasSpawn = false;
+=======
+    private bool canBeControlled = true;
+>>>>>>> 2311aadffea0aa22dd19e0fca137ff442ab75b26
     private bool hasCollided;
-    public GameObject spawner;
-    private shapeSpawner shapeSpawnerScript;
     private AudioSource blockLanding;
 
     void Start()
@@ -53,7 +59,10 @@ public class ShapeMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2311aadffea0aa22dd19e0fca137ff442ab75b26
         if(hasCollided == false)
         {
             blockLanding.Play();
@@ -65,5 +74,6 @@ public class ShapeMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        isFrozen = true;
     }
 }

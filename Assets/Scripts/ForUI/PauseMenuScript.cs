@@ -29,7 +29,6 @@ public class PauseMenuScript : MonoBehaviour {
             PauseMenuUI.SetActive(false);
             isGamePaused = false;
             Time.timeScale = 1.0f;
-            pauseMenuClick.Play();
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class HeightLine : MonoBehaviour
@@ -8,14 +9,26 @@ public class HeightLine : MonoBehaviour
 
     [SerializeField]
     private float upSpeed = 0.1f;
+
+    //tags
     [SerializeField]
     private string blockTag = "Block";
+    [SerializeField]
+    private string platformTag = "Platform";
 
     //Objects
     private TextMesh text;
     private GameObject Spawner;
     private GameObject mainCamera;
     private MoveText moveTextScript;
+    [SerializeField]
+    private GameObject gameOverTrigger;
+
+    //GameOverTrigger
+    [SerializeField]
+    private float gameOverTriggerOffset = -5;
+    [SerializeField]
+    private Text totalHeightText;
 
     //Camera movement
     private float heightTilMoveup = 5;
@@ -52,6 +65,7 @@ public class HeightLine : MonoBehaviour
         MoveCameraUp();
         MoveCameraDown();
         CalculateHeight();
+        GameOverTriggerFollow();
 	}
 
     
@@ -62,6 +76,7 @@ public class HeightLine : MonoBehaviour
 
         Spawner = GameObject.Find("Spawner");
         mainCamera = GameObject.Find("Main Camera");
+        gameOverTrigger = GameObject.Find("GameOverTrigger");
         text = GameObject.Find("Height Text").GetComponent<TextMesh>();
         moveTextScript = text.GetComponent<MoveText>();
 
@@ -78,6 +93,10 @@ public class HeightLine : MonoBehaviour
         {
             Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Main Camera' in scene, Please Make sure you name it correctly or change the name in the script.");
         }
+        if (gameOverTrigger == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'GameOverTrigger' in scene, Please Make sure you name it correctly or change the name in the script.");
+        }
         if (moveTextScript == null)
         {
             Debug.LogWarning(this.gameObject.name + " please make sure that the MoveText component is on it");
@@ -88,7 +107,7 @@ public class HeightLine : MonoBehaviour
     #region LineDetection
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == blockTag)
+        if (collision.gameObject.tag == blockTag || collision.gameObject.tag == platformTag)
         {
             topblock = collision.gameObject;
             isColliding = true;
@@ -97,7 +116,7 @@ public class HeightLine : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == blockTag)
+        if (collision.gameObject.tag == blockTag || collision.gameObject.tag == platformTag)
         {
             isColliding = false;
             downSequence = true;
@@ -110,7 +129,7 @@ public class HeightLine : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == blockTag)
+        if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
             if (topblock == other.gameObject)
             {
@@ -145,7 +164,25 @@ public class HeightLine : MonoBehaviour
             }
         }
     }
-    #endregion 
+    #endregion
+
+    #region GameOverCollider
+
+    void GameOverTriggerFollow()
+    {
+        gameOverTrigger.transform.position = (new Vector2(this.transform.position.x, this.transform.position.y + gameOverTriggerOffset));
+        if (height <= 0)
+        {
+            totalHeightText.text = "How Did you lose with " + height + "Ft "+" Are you even trying?";
+        }
+        else
+        {
+            totalHeightText.text = "You Reached " + height + "Ft!";
+        }
+        
+    }
+
+    #endregion
 
     #region Camera movement
     void CalculateHeight()
