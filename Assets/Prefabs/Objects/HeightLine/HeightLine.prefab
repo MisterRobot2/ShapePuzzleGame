@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1757771150884986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.18, z: 0}
+  m_LocalPosition: {x: -2.64, y: -1.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4922757000118064}
@@ -222,6 +222,7 @@ MonoBehaviour:
   platformTag: Platform
   gameOverTrigger: {fileID: 0}
   gameOverTriggerOffset: -6
+  totalHeightText: {fileID: 0}
   initalHeight: 0
   height: 0
 --- !u!114 &114546646548592372
