@@ -33,11 +33,15 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        //Create UI Elements/Objects
+        #region Create Objects
         //Create TeamUI
         teamUIObject = Instantiate(teamUIPrefab);
         teamUIObject.transform.position = Vector3.zero;
+        #endregion
 
         //Get Objects
+        #region get objects
         enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
@@ -50,14 +54,17 @@ public class GameController : MonoBehaviour {
         teamUIAnimator = teamUIObject.GetComponent<Animator>();
         notificationPannelText = teamUIObject.transform.Find("NotificationPannel").transform.Find("Text").GetComponent<Text>();
         spawner = GameObject.FindGameObjectWithTag("Spawner");
+        #endregion
 
         //Setup Objects
+        #region Setup Objects
         team1Arrow.SetActive(false);
         team2Arrow.SetActive(false);
         enterNamePannel.SetActive(false);
         submitButton.onClick.AddListener(delegate { submitNamePannel(); });
         DataBase.score = 0;
         DataBase.isGameOver = true;
+        #endregion
 
         //Start Game
         openNamePannel(1);
@@ -65,6 +72,7 @@ public class GameController : MonoBehaviour {
 
     void openNamePannel(int teamNumber)
     {
+        //if team 1
         enterNamePannel.SetActive(true);
         if (teamNumber == 1)
         {
@@ -72,6 +80,7 @@ public class GameController : MonoBehaviour {
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
         }
+        //if team 2
         else if(teamNumber == 2)
         {
             enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 2";
@@ -82,6 +91,7 @@ public class GameController : MonoBehaviour {
 
     public void submitNamePannel()
     {
+        //Team 1
         if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
         {
             team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
@@ -90,6 +100,7 @@ public class GameController : MonoBehaviour {
             changeTeamColor(1);
             pickAColorDropdown.value = 0;
         }
+        //Team 2
         else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
         {
             team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
@@ -145,8 +156,10 @@ public class GameController : MonoBehaviour {
         spawner.GetComponent<shapeSpawner>().ShapeSpawner();
     }
 
+    //Returns color that player picked
     Color32 detectPlayerColorChoice()
     {
+        #region colors
         switch (pickAColorDropdown.value)
         {
             //red
@@ -158,39 +171,37 @@ public class GameController : MonoBehaviour {
             //yellow
             case 2:
                 return new Color32(255, 204, 0, 255);
-
+            //Green
             case 3:
                 return new Color32(40, 120, 40, 255);
-
+            //Blue
             case 4:
                 return new Color32(0, 0, 255, 255);
-
+            //Purple
             case 5:
                 return new Color32(113, 55, 255, 255);
-
+            //Pink
             case 6:
                 return new Color32(255, 0, 204, 255);
-
+            //Grey
             case 7:
                 return new Color32(218, 218, 218, 255);
-
-            //case 8:
-            //    return new Color32(255, 255, 255, 255);
             default:
                 return new Color32(255, 0, 135, 255);
         }
+        #endregion
     }
 
     void changeTeamColor(int teamNumber)
     {
-        
+        //for team 1
         if(teamNumber == 1)
         {
             team1Color = detectPlayerColorChoice();
             team1NameText.text = team1Name;
             team1Background.color = team1Color;
             DataBase.team1Color = team1Color;
-            Debug.Log(team1Color);
+        //for team 2
         }else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();
@@ -203,9 +214,9 @@ public class GameController : MonoBehaviour {
     IEnumerator placeBlockCountDown(int time)
     {
         DataBase.isPlayerPlaying = false;
+        #region countdown
         for (int i = time; i >= 0; i--)
         {
-            //StartCoroutine(showNotificationPannel(i.ToString(), 1));
             yield return new WaitForSeconds(1);
             //if there is a game over
             if(DataBase.isGameOver)
@@ -221,6 +232,8 @@ public class GameController : MonoBehaviour {
                 break;
             }           
         }
+        #endregion
+        #region end of turn
         if (currentTeamNumber == 1 && !DataBase.isGameOver)
         {
             StartCoroutine(showNotificationPannel("Good Job " + team1Name, 2));
@@ -236,10 +249,11 @@ public class GameController : MonoBehaviour {
             Turns();
             
         }
+        #endregion
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
 		if(Input.GetKeyUp(KeyCode.Space) && DataBase.isPlayerPlaying)
         {
