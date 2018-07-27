@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4879418773446280}
   - component: {fileID: 20990486854310554}
-  - component: {fileID: 81128126114211476}
   m_Layer: 0
   m_Name: Preview Camera
   m_TagString: Untagged
@@ -111,13 +110,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &81128126114211476
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1682291784112742}
-  m_Enabled: 1
 --- !u!114 &114262683708591660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,5 +124,7 @@ MonoBehaviour:
   shapes:
   - {fileID: 1031416327311304, guid: f11ebc5810aa54d41b40b3fdd7001c10, type: 2}
   - {fileID: 1898138333694052, guid: a9eb2b9fb3aa8425dbf343d957f32e51, type: 2}
+  - {fileID: 1674289691882778, guid: ccb072460f117db4a8e7e18264aa7b71, type: 2}
+  - {fileID: 1595548648208530, guid: 4626345c70309234f91342e9ff3f60e3, type: 2}
   createdShapes: []
   pcam: {fileID: 20990486854310554}

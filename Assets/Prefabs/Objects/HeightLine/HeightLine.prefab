@@ -182,7 +182,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.88, y: 0.05}
+  m_Size: {x: 9.88, y: 0.1}
   m_EdgeRadius: 0
 --- !u!102 &102490819508827564
 TextMesh:
@@ -219,6 +219,10 @@ MonoBehaviour:
   moveDownSequence: 0
   upSpeed: 0.05
   blockTag: Block
+  platformTag: Platform
+  gameOverTrigger: {fileID: 0}
+  gameOverTriggerOffset: -6
+  totalHeightText: {fileID: 0}
   initalHeight: 0
   height: 0
 --- !u!114 &114546646548592372
@@ -267,7 +271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 05d87a5b74eee4cbe9e017a71ee00d18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
