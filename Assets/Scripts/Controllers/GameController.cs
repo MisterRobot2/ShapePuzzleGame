@@ -165,7 +165,7 @@ public class GameController : MonoBehaviour {
             //red
             case 0:
                 return new Color32(255, 0, 0, 255);
-            //orenge
+            //orange
             case 1:
                 return new Color32(255, 102, 0, 255);
             //yellow
@@ -201,7 +201,11 @@ public class GameController : MonoBehaviour {
             team1NameText.text = team1Name;
             team1Background.color = team1Color;
             DataBase.team1Color = team1Color;
+
+            //Debug.Log(team1Color);
+
         //for team 2
+
         }else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();
