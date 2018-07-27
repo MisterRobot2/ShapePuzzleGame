@@ -201,11 +201,11 @@ public class GameController : MonoBehaviour {
             team1NameText.text = team1Name;
             team1Background.color = team1Color;
             DataBase.team1Color = team1Color;
-<<<<<<< HEAD
+
             //Debug.Log(team1Color);
-=======
+
         //for team 2
->>>>>>> 3236fcba3d17a2a2ed3595c16a4cbb2f74343bb4
+
         }else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();
