@@ -37,22 +37,25 @@ public class GameOverScript : MonoBehaviour
         //Create Game Over If 
         if (!DataBase.isGameOver)
         {
-            DataBase.isGameOver = true;
-            GameObject gameOverObject = Instantiate(gameOverUIPrefab);
-            gameOverObject.name = "Game Over";
-            heightLineScript.moveDownSequence = true;
-            //blocks placed text 
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
-            if (DataBase.score > PlayerPrefs.GetInt("High Score"))
-            {
-                PlayerPrefs.SetInt("High Score", DataBase.score);
-            }
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("High Score");
-            PlayerPrefs.SetInt("Total Blocks Placed", totalScore);
-            PlayerPrefs.SetInt("Total Blocks Lost", lossCounter);
             if (collision.tag == "Block")
             {
                 shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
+
+                if (shapeMovementScript.isFrozen == false) {
+                    DataBase.isGameOver = true;
+                    GameObject gameOverObject = Instantiate(gameOverUIPrefab);
+                    gameOverObject.name = "Game Over";
+                    heightLineScript.moveDownSequence = true;
+                    //blocks placed text 
+                    GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
+                    if (DataBase.score > PlayerPrefs.GetInt("High Score"))
+                    {
+                        PlayerPrefs.SetInt("High Score", DataBase.score);
+                    }
+                    GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("High Score");
+                    PlayerPrefs.SetInt("Total Blocks Placed", totalScore);
+                    PlayerPrefs.SetInt("Total Blocks Lost", lossCounter);
+                }
             }
 
             if (collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)

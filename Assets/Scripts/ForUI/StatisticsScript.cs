@@ -9,19 +9,13 @@ public class StatisticsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        statsUI.SetActive(false);
-	}
+        GameObject.Find("UICanvas").transform.Find("Stats Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("High Score");
+        GameObject.Find("UICanvas").transform.Find("Stats Panel").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + PlayerPrefs.GetInt("Total Blocks Placed");
+        GameObject.Find("UICanvas").transform.Find("Stats Panel").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + PlayerPrefs.GetInt("Total Blocks Lost");
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-    public void StatsButton()
-    {
-        GameObject.Find("UICanvas").transform.Find("Stats Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("High Score");
-        GameObject.Find("UICanvas").transform.Find("Stats Panel").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + PlayerPrefs.GetInt("Total Blocks Placed");
-        GameObject.Find("UICanvas").transform.Find("Stats Panel").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + PlayerPrefs.GetInt("Total Blocks Lost");
-        statsUI.SetActive(true);
-    }
 }

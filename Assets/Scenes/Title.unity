@@ -908,6 +908,7 @@ GameObject:
   - component: {fileID: 499360283}
   - component: {fileID: 499360282}
   - component: {fileID: 499360281}
+  - component: {fileID: 499360280}
   m_Layer: 5
   m_Name: Stats Button
   m_TagString: Untagged
@@ -934,6 +935,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030518, y: -260}
   m_SizeDelta: {x: 305.2, y: 84.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &499360280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 499360278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e01700dc8e2ee4eaf42c0a5e3495f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1242645772}
 --- !u!114 &499360281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,8 +986,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242645776}
-        m_MethodName: StatsButton
+      - m_Target: {fileID: 499360280}
+        m_MethodName: ClosePannel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
