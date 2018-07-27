@@ -68,13 +68,13 @@ public class GameController : MonoBehaviour {
         enterNamePannel.SetActive(true);
         if (teamNumber == 1)
         {
-            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Team 1";
+            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 1";
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
         }
         else if(teamNumber == 2)
         {
-            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Team 2";
+            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 2";
             team1Arrow.SetActive(false);
             team2Arrow.SetActive(true);
         }
@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour {
 
     public void submitNamePannel()
     {
-        if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Team 1")
+        if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
         {
             team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
             enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour {
             changeTeamColor(1);
             pickAColorDropdown.value = 0;
         }
-        else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Team 2")
+        else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
         {
             team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
             enterNamePannel.SetActive(false);
@@ -132,13 +132,13 @@ public class GameController : MonoBehaviour {
             currentTeamNumber = 2;
             team2Arrow.SetActive(true);
             team1Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel(" "+team2Name+"!", 2));
+            StartCoroutine(showNotificationPannel("Your Turn, " + team2Name+"!", 2));
         }else if (currentTeamNumber == 2)
         {
             currentTeamNumber = 1;
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel(" "+team1Name+"!", 2));
+            StartCoroutine(showNotificationPannel("Your Turn, "+team1Name+"!", 2));
         }
         DataBase.currentTeamNumber = currentTeamNumber;
         DataBase.isPlayerPlaying = true;
