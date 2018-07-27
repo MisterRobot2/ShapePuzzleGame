@@ -2091,7 +2091,6 @@ MonoBehaviour:
     m_Options:
     - m_Text: Red
       m_Image: {fileID: 21300000, guid: 05692540ab85014499a221c155675385, type: 3}
-    - m_Text: Oreange
       m_Image: {fileID: 21300000, guid: d40f17d03cb24124dba7a8f82470fe65, type: 3}
     - m_Text: yellow
       m_Image: {fileID: 21300000, guid: ce66b7a2f9cd0204180b1c1d4d9333cf, type: 3}
