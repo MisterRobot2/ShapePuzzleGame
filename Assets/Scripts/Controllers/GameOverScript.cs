@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverScript : MonoBehaviour {
-
-
+public class GameOverScript : MonoBehaviour
+{
     public GameObject gameOverUIPrefab;
     private AudioSource gameOverSound;
+    private ShapeMovement shapeMovementScript;
 
     void Start ()
     {
@@ -15,27 +15,37 @@ public class GameOverScript : MonoBehaviour {
         gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
 	}
 	
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DataBase.score--;
-        //Create Game Over If 
-        if(!DataBase.isGameOver)
+        if(collision.tag == "Block")
         {
-            DataBase.isGameOver = true;
-            GameObject gameOverObject = Instantiate(gameOverUIPrefab);
-            gameOverObject.name = "Game Over";
-            //blocks placed text 
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
+            shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
         }
-        if(DataBase.isGameOver == true)
+        
+        if (collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
         {
-            gameOverUIPrefab.SetActive(true);
-            gameOverSound.Play();
-            Time.timeScale = 0.3f;
+            DataBase.score--;
+            //Create Game Over If 
+            if (!DataBase.isGameOver)
+            {
+                DataBase.isGameOver = true;
+                GameObject gameOverObject = Instantiate(gameOverUIPrefab);
+                gameOverObject.name = "Game Over";
+                //blocks placed text 
+                GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
+            }
+            if (DataBase.isGameOver == true)
+            {
+                gameOverUIPrefab.SetActive(true);
+                gameOverSound.Play();
+                Time.timeScale = 0.3f;
+            }
         }
+        
     }
 }

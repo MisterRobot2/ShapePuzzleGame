@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour {
             team1NameText.text = team1Name;
             team1Background.color = team1Color;
             DataBase.team1Color = team1Color;
-            Debug.Log(team1Color);
+            //Debug.Log(team1Color);
         }else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();

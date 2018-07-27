@@ -3,12 +3,15 @@
 public class GoalLine : MonoBehaviour
 {
     //objects
+    [SerializeField]
+    private GameObject platform;
     private TextMesh text;
     private HeightLine heightScript;
     private MoveText moveTextScript;
     private GameObject heightLine;
-    [SerializeField]
-    private GameObject platform;
+    
+    //Platforms
+    private float platformCount;
 
     //Goal height values
     [SerializeField]
@@ -51,7 +54,7 @@ public class GoalLine : MonoBehaviour
         moveTextScript.UpdateText(height + "Ft");
         text.text = height+ "Ft";
     }
-
+    #region GoalMatch
     void GoalMatch()
     {
         //Detects when Goal is met :D 
@@ -70,8 +73,12 @@ public class GoalLine : MonoBehaviour
         GameObject holder = GameObject.Find("ShapeHolder");
         GameObject spawnedPlatform = Instantiate(platform, holder.transform);
         GameObject chiled = spawnedPlatform.transform.GetChild(0).gameObject;
-        chiled.transform.position = (new Vector2(-2.636017f, heightLine.transform.position.y+.25f));
+        chiled.transform.position = (new Vector2(0, heightLine.transform.position.y+.25f));
+        chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount/100), chiled.transform.localScale.y, chiled.transform.localScale.z));
+        
+        platformCount++;
     }
+    #endregion
 
     #region debugCheckFunctions
     void DebugCheck()
