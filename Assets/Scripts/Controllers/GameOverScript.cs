@@ -8,6 +8,8 @@ public class GameOverScript : MonoBehaviour
     public GameObject gameOverUIPrefab;
     private AudioSource gameOverSound;
 <<<<<<< HEAD
+    private int totalScore = 0;
+    private int lossCounter = 0;
 =======
     private ShapeMovement shapeMovementScript;
 <<<<<<< HEAD
@@ -32,6 +34,24 @@ public class GameOverScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 <<<<<<< HEAD
+        DataBase.score--;
+        totalScore = PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.score;
+        lossCounter = PlayerPrefs.GetInt("Total Blocks Lost") + 1;
+        //Create Game Over If 
+        if (!DataBase.isGameOver)
+        {
+            DataBase.isGameOver = true;
+            GameObject gameOverObject = Instantiate(gameOverUIPrefab);
+            gameOverObject.name = "Game Over";
+            //blocks placed text 
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
+            if (DataBase.score > PlayerPrefs.GetInt("High Score"))
+            {
+                PlayerPrefs.SetInt("High Score", DataBase.score);
+            }
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("High Score");
+            PlayerPrefs.SetInt("Total Blocks Placed", totalScore);
+            PlayerPrefs.SetInt("Total Blocks Lost", lossCounter);
 =======
         if(collision.tag == "Block")
         {
