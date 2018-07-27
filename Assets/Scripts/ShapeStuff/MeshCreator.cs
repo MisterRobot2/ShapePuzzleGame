@@ -24,6 +24,10 @@ public class MeshCreator : MonoBehaviour
 
     }
 
+   public Vector3[] vertices = new Vector3[4];
+
+
+
 
     public void meshCreator(){
         MeshFilter mf = GetComponent<MeshFilter>();
@@ -35,22 +39,28 @@ public class MeshCreator : MonoBehaviour
         int width = Random.Range(1, 5);
         int height = Random.Range(1, 5);
 
-        Vector3[] vertices = new Vector3[4]
-        {
-            new Vector3(0,0,0), new Vector3(width,0,0), new Vector3(0,height,0), new Vector3(width, height, 0)
-        };
+
+
+        vertices[0] = new Vector3(0, 0, 0);
+        vertices[1] = new Vector3(0, height, 0);
+        vertices[2] = new Vector3(width, height, 0);
+        vertices[3] = new Vector3(width, 0, 0);
+
+
+
+
 
         //Triangles
 
         int[] tri = new int[6];
 
         tri[0] = 0;
-        tri[1] = 2;
-        tri[2] = 1;
+        tri[1] = 1;
+        tri[2] = 2;
 
-        tri[3] = 2;
-        tri[4] = 3;
-        tri[5] = 1;
+        tri[3] = 0;
+        tri[4] = 2;
+        tri[5] = 3;
 
 
 
@@ -71,4 +81,11 @@ public class MeshCreator : MonoBehaviour
         rend.material.shader = Shader.Find("Specular");
         rend.material.SetColor("_SpecColor", Color.green);
     }
+
+
+
+
+
+
+
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33025483663538226}
   - component: {fileID: 23341113999187468}
   - component: {fileID: 114472123163997062}
-  - component: {fileID: 50536163271803034}
+  - component: {fileID: 50051922424629526}
   m_Layer: 0
   m_Name: MeshObj
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031416327311304}
   m_Mesh: {fileID: 0}
---- !u!50 &50536163271803034
+--- !u!50 &50051922424629526
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -116,3 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b62e774516584191bc3a774fc1d78b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vertices:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
