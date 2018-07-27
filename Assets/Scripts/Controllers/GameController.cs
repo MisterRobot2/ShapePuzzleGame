@@ -165,7 +165,7 @@ public class GameController : MonoBehaviour {
             //red
             case 0:
                 return new Color32(255, 0, 0, 255);
-            //orenge
+            //orange
             case 1:
                 return new Color32(255, 102, 0, 255);
             //yellow
