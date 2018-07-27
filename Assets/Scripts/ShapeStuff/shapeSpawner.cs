@@ -10,6 +10,7 @@ public class shapeSpawner : MonoBehaviour
 {
     public GameObject[] shapes = new GameObject[] { };
     public GameObject parent;
+    private GameObject shapePreview;
 
     // Use this for initialization
     void Start()
@@ -20,7 +21,7 @@ public class shapeSpawner : MonoBehaviour
             parent = GameObject.Find("New Game Object");
             parent.name = "ShapeHolder";
         }
-
+        shapePreview = GameObject.FindGameObjectWithTag("ShapePreview");
         DataBase.currentTeamNumber = 1;
 
     }
@@ -59,20 +60,11 @@ public class shapeSpawner : MonoBehaviour
         //currentShape.transform.position = this.gameObject.transform.position;
     }*/
 
-    public void ShapeSpawner()
+    public void SpawnShape()
     {
         if (DataBase.currentTeamNumber != 0)
         {
-            GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], parent.transform);
-            if (DataBase.currentTeamNumber == 1)
-            {
-                newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
-            }
-            else if (DataBase.currentTeamNumber == 2)
-            {
-                newObject.GetComponent<SpriteRenderer>().color = DataBase.team2Color;
-            }
-            newObject.transform.position = this.gameObject.transform.position;
+            shapePreview.GetComponent<shapePreview>().calculatePreview();
         }
     }
 }

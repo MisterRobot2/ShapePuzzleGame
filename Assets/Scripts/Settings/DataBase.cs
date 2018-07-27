@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class DataBase
 {
+
+    public static GameObject nextShape;
     #region PlayerStats
 
     public static int score = 0;

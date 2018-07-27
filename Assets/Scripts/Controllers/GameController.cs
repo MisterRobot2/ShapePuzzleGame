@@ -112,7 +112,9 @@ public class GameController : MonoBehaviour {
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
             DataBase.isPlayerPlaying = true;
-            spawner.GetComponent<shapeSpawner>().ShapeSpawner();
+            GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
+            spawner.GetComponent<shapeSpawner>().SpawnShape();
+
         }
     }
 
@@ -153,7 +155,7 @@ public class GameController : MonoBehaviour {
         }
         DataBase.currentTeamNumber = currentTeamNumber;
         DataBase.isPlayerPlaying = true;
-        spawner.GetComponent<shapeSpawner>().ShapeSpawner();
+        spawner.GetComponent<shapeSpawner>().SpawnShape();
     }
 
     //Returns color that player picked

@@ -1,69 +1,84 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class shapePreview : MonoBehaviour {
 
 
     public GameObject[] shapes = new GameObject[] { };
-
     public List<GameObject> createdShapes = new List<GameObject>();
 
-    public Camera pcam;
+    private Camera previewCamera;
+    private GameObject nextShape;
+    private GameObject objectToSpawn;
 
-    private GameObject newestObject;
-
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //Debug.Log("running");
-        //if (newestObject != null)
-        //{
-        //    pcam.transform.LookAt(newestObject.transform);
-        //}
-	}
-
-
-    public void ShapePreview()
+    private void Start()
     {
-        GameObject newObject = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
-        newObject.transform.position = this.gameObject.transform.position;
+        previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
+       
+    }
 
-        //newObject.transform.position = pcam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, pcam.nearClipPlane));
-        //newObject.transform.Translate(0, 0, 5);
+    public void SpawnFirstShape()
+    {
+        //Creates Preview
+        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)]);
+        nextShape.transform.position = this.gameObject.transform.position;
+        //Get Mesh Creator
+        if (nextShape.GetComponent<MeshCreator>() == true)
+        {
+            nextShape.GetComponent<MeshCreator>().meshCreator();
+        }
+        else if (nextShape.GetComponent<MeshObjL>() == true)
+        {
+            nextShape.GetComponent<MeshObjL>().meshCreatorL();
+        }
+    }
 
-        //Vector3 center = newObject.GetComponent<Renderer>().bounds.center;
+    public void calculatePreview()
+    {
+        //Takes preview and puts it to spawn spot
+        GameObject newObject = nextShape;
+        newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
+        nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
+        
 
-    
+        if (newObject.GetComponent<SpriteRenderer>())
+        {
 
-
-        if(newObject.GetComponent<MeshCreator>() == true){
-            newObject.GetComponent<MeshCreator>().meshCreator();
-        } else if(newObject.GetComponent<MeshObjL>() == true){
-            newObject.GetComponent<MeshObjL>().meshCreatorL();
+            if (DataBase.currentTeamNumber == 1)
+            {
+                newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
+            }
+            else if (DataBase.currentTeamNumber == 2)
+            {
+                newObject.GetComponent<SpriteRenderer>().color = DataBase.team2Color;
+            }
+        }
+        else if (newObject.GetComponent<MeshRenderer>())
+        {
+            if (DataBase.currentTeamNumber == 1)
+            {
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+            }
+            else if (DataBase.currentTeamNumber == 2)
+            {
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+            }
+        }
+        
+        //Make new Preview
+        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
+        nextShape.transform.position = this.gameObject.transform.position;
+        nextShape.GetComponent<ShapeMovement>().canBeControlled = false;
+        //Get Mesh Creator
+        if (nextShape.GetComponent<MeshCreator>() == true)
+        {
+            nextShape.GetComponent<MeshCreator>().meshCreator();
+        }
+        else if (nextShape.GetComponent<MeshObjL>() == true)
+        {
+            nextShape.GetComponent<MeshObjL>().meshCreatorL();
         }
 
-        newestObject = newObject;
-
-        createdShapes.Add(newObject);
-
-
-
-        GameObject newObject2 = GameObject.Instantiate(createdShapes[createdShapes.Count-2]);
-        newObject2.transform.position = new Vector3(0,0,0);
-        newObject2.GetComponent<Rigidbody2D>().gravityScale = 1;
-        newObject2.AddComponent<EdgeCollider2D>();
-
-
-
-
-        //newObject2.GetComponent<EdgeCollider2D>().points = GetComponent<MeshCreator>.;
-
-
-        Destroy(createdShapes[createdShapes.Count - 2]);
     }
 
   

@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - Spawner
   - Block
+  - ShapePreview
   layers:
   - Default
   - TransparentFX
