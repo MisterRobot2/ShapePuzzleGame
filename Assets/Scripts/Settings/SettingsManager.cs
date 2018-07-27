@@ -13,7 +13,7 @@ public class SettingsManager : MonoBehaviour
 
     void Start ()
     {
-        DontDestroyOnLoad(this.gameObject);
+      //  DontDestroyOnLoad(this.gameObject);
         FullscreenSetUp();
 	}
 

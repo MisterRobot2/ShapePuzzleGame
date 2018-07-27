@@ -23,11 +23,13 @@ public class Instructions : MonoBehaviour {
         {
             instructionsUI.SetActive(true);
             instructionsOpen = true;
+            Time.timeScale = 0;
         }
         else if(instructionsOpen == true)
         {
             instructionsUI.SetActive(false);
             instructionsOpen = false;
+            Time.timeScale = 1;
         }
     }
 }
