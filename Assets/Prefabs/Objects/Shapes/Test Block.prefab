@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4116120a8e75d4fa792b1debd8720e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFrozen: 0
   shape: {fileID: 1595548648208530}
   movementSpeed: 5
-  spawner: {fileID: 0}
 --- !u!212 &212780674673071588
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class HeightLine : MonoBehaviour
@@ -8,6 +9,8 @@ public class HeightLine : MonoBehaviour
 
     [SerializeField]
     private float upSpeed = 0.1f;
+
+    //tags
     [SerializeField]
     private string blockTag = "Block";
     [SerializeField]
@@ -24,6 +27,8 @@ public class HeightLine : MonoBehaviour
     //GameOverTrigger
     [SerializeField]
     private float gameOverTriggerOffset = -5;
+    [SerializeField]
+    private Text totalHeightText;
 
     //Camera movement
     private float heightTilMoveup = 5;
@@ -166,6 +171,15 @@ public class HeightLine : MonoBehaviour
     void GameOverTriggerFollow()
     {
         gameOverTrigger.transform.position = (new Vector2(this.transform.position.x, this.transform.position.y + gameOverTriggerOffset));
+        if (height <= 0)
+        {
+            totalHeightText.text = "How Did you lose with " + height + "Ft "+" Are you even trying?";
+        }
+        else
+        {
+            totalHeightText.text = "You Reached " + height + "Ft!";
+        }
+        
     }
 
     #endregion
