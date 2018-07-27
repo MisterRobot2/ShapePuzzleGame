@@ -7,6 +7,8 @@ public static class DataBase
     #region PlayerStats
 
     public static int score = 0;
+    public static int highScore = 0;
+    public static int totalScore = 0;
     public static bool isGameOver = true;
     public static bool isPlayerPlaying = false;
     public static int currentTeamNumber;

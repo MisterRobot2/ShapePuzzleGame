@@ -7,9 +7,15 @@ public class GameOverScript : MonoBehaviour
 {
     public GameObject gameOverUIPrefab;
     private AudioSource gameOverSound;
+<<<<<<< HEAD
+=======
     private ShapeMovement shapeMovementScript;
+<<<<<<< HEAD
     private GameObject heightLine;
     private HeightLine heightLineScript;
+=======
+>>>>>>> 7671b9fa843161f5ab9b9b10f0164c0b4532e7ac
+>>>>>>> b3484f85711489bf8e2802be7954f3e477d2c68f
 
     void Start ()
     {
@@ -25,9 +31,12 @@ public class GameOverScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+<<<<<<< HEAD
+=======
         if(collision.tag == "Block")
         {
             shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
+>>>>>>> 7671b9fa843161f5ab9b9b10f0164c0b4532e7ac
         }
         
         if (collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
