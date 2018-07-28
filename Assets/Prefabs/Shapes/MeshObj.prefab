@@ -22,15 +22,11 @@ GameObject:
   - component: {fileID: 33025483663538226}
   - component: {fileID: 23341113999187468}
   - component: {fileID: 114472123163997062}
-<<<<<<< HEAD:Assets/Prefabs/MeshObj.prefab
   - component: {fileID: 50051922424629526}
-=======
-  - component: {fileID: 50536163271803034}
-  - component: {fileID: 114877177003154804}
->>>>>>> 32dcf72e678504133d0c2d9a52d391d11d14df3a:Assets/Prefabs/Objects/MeshObj.prefab
+  - component: {fileID: 114966662582012566}
   m_Layer: 0
   m_Name: MeshObj
-  m_TagString: Block
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,14 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b62e774516584191bc3a774fc1d78b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:Assets/Prefabs/MeshObj.prefab
   vertices:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-=======
---- !u!114 &114877177003154804
+--- !u!114 &114966662582012566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,6 +135,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   shape: {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 20
   canBeControlled: 1
->>>>>>> 32dcf72e678504133d0c2d9a52d391d11d14df3a:Assets/Prefabs/Objects/MeshObj.prefab
