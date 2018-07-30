@@ -44,6 +44,8 @@ public class shapePreview : MonoBehaviour {
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
         
 
+
+
         if (newObject.GetComponent<SpriteRenderer>())
         {
 
@@ -70,6 +72,10 @@ public class shapePreview : MonoBehaviour {
 
         //Add gravity
         newObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+        //Scale Size
+        newObject.GetComponent<Transform>().localScale = new Vector3(0.9f, 0.9f, 0);
+
 
         //Add Colliders
         if(nextShape.GetComponent<MeshCreator>() == true){
