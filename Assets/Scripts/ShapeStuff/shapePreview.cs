@@ -22,13 +22,7 @@ public class shapePreview : MonoBehaviour {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
     }
 
-    private void Update()
-    {
-        if (destroyBlock == true)
-        {
-            newObject.transform.position = nextShape.transform.position;
-            destroyBlock = false;
-        }
+    private void Update() {
     }
 
     public void SpawnFirstShape()
@@ -54,10 +48,6 @@ public class shapePreview : MonoBehaviour {
         newObject = nextShape;
         newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
-        
-
-
-
         if (newObject.GetComponent<SpriteRenderer>())
         {
 
@@ -82,12 +72,10 @@ public class shapePreview : MonoBehaviour {
             }
         }
 
-        //Add gravity
-        newObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-
         //Scale Size
         newObject.GetComponent<Transform>().localScale = new Vector3(0.9f, 0.9f, 0);
 
+  
 
         //Add Colliders
         if(nextShape.GetComponent<MeshCreator>() == true){
@@ -107,7 +95,10 @@ public class shapePreview : MonoBehaviour {
             newObject.GetComponent<PolygonCollider2D>().SetPath(0, vertices2);
         }
 
-
+        if(destroyBlock == true)
+        {
+            Destroy(newObject);
+        }
 
                  
         
@@ -127,9 +118,9 @@ public class shapePreview : MonoBehaviour {
 
     }
 
-    public void ShapeSkip()
+    /*public void ShapeSkip()
     {
         destroyBlock = true;
-        //calculatePreview();
-    }
+        calculatePreview();
+       }*/
 }

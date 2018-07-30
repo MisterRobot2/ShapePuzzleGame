@@ -786,7 +786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752b395c90ed9b946b26002b5f980adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionsUI: {fileID: 1970480155}
 --- !u!1 &710681225
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +855,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114567151548627534, guid: 4687ba142aad28c489d75051be563666,
+        type: 2}
+      propertyPath: shapes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4332947288202006, guid: 4687ba142aad28c489d75051be563666, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -946,6 +950,18 @@ Prefab:
       propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 114567151548627534, guid: 4687ba142aad28c489d75051be563666,
+        type: 2}
+      propertyPath: shapes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1031416327311304, guid: 7ca5599d720d8d441b340e98463229ee,
+        type: 2}
+    - target: {fileID: 114567151548627534, guid: 4687ba142aad28c489d75051be563666,
+        type: 2}
+      propertyPath: shapes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1898138333694052, guid: 25b6a9b63688db643a436291e7f2efd6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4687ba142aad28c489d75051be563666, type: 2}
   m_IsPrefabAsset: 0
@@ -1769,6 +1785,7 @@ MonoBehaviour:
   createdShapes: []
   nextShape: {fileID: 0}
   newObject: {fileID: 0}
+  MeshObjL: {fileID: 0}
 --- !u!114 &1858857441
 MonoBehaviour:
   m_ObjectHideFlags: 0
