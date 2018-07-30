@@ -85,10 +85,7 @@ public class shapePreview : MonoBehaviour {
                 vertices2[i] = new Vector2(tempV3.x, tempV3.y);
             }
             vertices2 [temp.Length] = new Vector2(temp[0].x, temp[0].y);
-            foreach (var point in vertices2)
-            {
-                Debug.Log(point);
-            }
+
             newObject.GetComponent<PolygonCollider2D>().SetPath(0, vertices2);
         }
 
