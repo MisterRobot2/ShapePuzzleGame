@@ -42,7 +42,6 @@ public class ShapeMovement : MonoBehaviour
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
-                DataBase.score++;
                 StartCoroutine(Freeze());
             }
         }
@@ -57,6 +56,7 @@ public class ShapeMovement : MonoBehaviour
         if(hasCollided == false)
         {
             blockLanding.Play();
+            DataBase.blocksPlacedInGame++;
             hasCollided = true;
         }
     }

@@ -214,7 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFrozen: 0
+<<<<<<< HEAD
   shape: {fileID: 0}
+=======
+  shape: {fileID: 1898138333694052}
+>>>>>>> 3145c5dc200103af0d5b1648e650bf6011283db1
   canBeControlled: 1
   movementSpeed: 20
 --- !u!114 &114819622784809522
