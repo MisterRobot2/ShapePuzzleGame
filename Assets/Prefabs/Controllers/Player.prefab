@@ -911,7 +911,7 @@ MonoBehaviour:
   upSpeed: 0.05
   blockTag: Block
   platformTag: Platform
-  gameOverTrigger: {fileID: 0}
+  gameOverTrigger: {fileID: 1633189174309790}
   gameOverTriggerOffset: -6
   totalHeightText: {fileID: 0}
   initalHeight: 0
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapes:
-  - {fileID: 1031416327311304, guid: f11ebc5810aa54d41b40b3fdd7001c10, type: 2}
-  - {fileID: 1898138333694052, guid: a9eb2b9fb3aa8425dbf343d957f32e51, type: 2}
+  - {fileID: 1031416327311304, guid: 7ca5599d720d8d441b340e98463229ee, type: 2}
+  - {fileID: 1898138333694052, guid: 25b6a9b63688db643a436291e7f2efd6, type: 2}
   - {fileID: 1674289691882778, guid: ccb072460f117db4a8e7e18264aa7b71, type: 2}
   - {fileID: 1595548648208530, guid: 4626345c70309234f91342e9ff3f60e3, type: 2}
   createdShapes: []
