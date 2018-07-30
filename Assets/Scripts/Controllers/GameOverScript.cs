@@ -42,6 +42,7 @@ public class GameOverScript : MonoBehaviour
                 shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
 
                 if (shapeMovementScript.isFrozen == false) {
+                    Debug.Log(collision.name);
                     DataBase.isGameOver = true;
                     GameObject gameOverObject = Instantiate(gameOverUIPrefab);
                     gameOverObject.name = "Game Over";

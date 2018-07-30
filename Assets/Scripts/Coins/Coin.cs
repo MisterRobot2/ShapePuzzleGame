@@ -8,9 +8,29 @@ public class Coin : MonoBehaviour
     {
         if (collision.tag == "Block")
         {
-            CollectCoin();
+            ShapeMovement shapeMove = collision.gameObject.GetComponent<ShapeMovement>();
+            if (shapeMove.canBeControlled == false)
+            {
+                CollectCoin();
+            }
+            
+
         }
          
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Block")
+        {
+            ShapeMovement shapeMove = other.gameObject.GetComponent<ShapeMovement>();
+            if (shapeMove.canBeControlled == false)
+            {
+                CollectCoin();
+            }
+
+
+        }
     }
 
     void CollectCoin()

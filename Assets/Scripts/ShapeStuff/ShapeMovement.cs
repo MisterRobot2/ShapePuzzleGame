@@ -7,11 +7,13 @@ public class ShapeMovement : MonoBehaviour
 {
     public bool isFrozen;
     public GameObject shape;
+    public bool canBeControlled = true;
+
     private Rigidbody2D rb;
     [SerializeField]
     [Range(0,20)]
     private int movementSpeed = 20;
-    public bool canBeControlled = true;
+    
     private bool hasSpawn = false;
     private bool hasCollided;
     private AudioSource blockLanding;
