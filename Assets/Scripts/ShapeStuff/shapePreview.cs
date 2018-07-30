@@ -8,13 +8,25 @@ public class shapePreview : MonoBehaviour {
     public List<GameObject> createdShapes = new List<GameObject>();
 
     private Camera previewCamera;
+    [SerializeField]
     private GameObject nextShape;
     private GameObject objectToSpawn;
+    [SerializeField]
+    private GameObject newObject;
+    private bool destroyBlock = false;
 
     private void Start()
     {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
-       
+    }
+
+    private void Update()
+    {
+        if (destroyBlock == true)
+        {
+            newObject.transform.position = nextShape.transform.position;
+            destroyBlock = false;
+        }
     }
 
     public void SpawnFirstShape()
@@ -37,7 +49,7 @@ public class shapePreview : MonoBehaviour {
     public void calculatePreview()
     {
         //Takes preview and puts it to spawn spot
-        GameObject newObject = nextShape;
+        newObject = nextShape;
         newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
         
@@ -65,7 +77,7 @@ public class shapePreview : MonoBehaviour {
                 newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
             }
         }
-        
+
         //Make new Preview
         nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
         nextShape.transform.position = this.gameObject.transform.position;
@@ -82,6 +94,9 @@ public class shapePreview : MonoBehaviour {
 
     }
 
-  
-
+    public void ShapeSkip()
+    {
+        destroyBlock = true;
+        //calculatePreview();
+    }
 }

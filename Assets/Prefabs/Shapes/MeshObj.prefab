@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFrozen: 0
-  shape: {fileID: 0}
-  movementSpeed: 20
+  shape: {fileID: 1031416327311304}
   canBeControlled: 1
+  movementSpeed: 20
