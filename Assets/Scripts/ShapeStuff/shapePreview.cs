@@ -15,6 +15,8 @@ public class shapePreview : MonoBehaviour {
     private GameObject newObject;
     private bool destroyBlock = false;
 
+    public MeshCreator MeshObjL;
+
     private void Start()
     {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
@@ -78,6 +80,31 @@ public class shapePreview : MonoBehaviour {
             }
         }
 
+        //Add gravity
+        newObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+        //Add Colliders
+        if(nextShape.GetComponent<MeshCreator>() == true){
+            newObject.AddComponent<BoxCollider2D>();
+        }else if (nextShape.GetComponent<MeshObjL>() == true){
+            newObject.AddComponent<PolygonCollider2D>();
+            Vector3[] temp = new Vector3[8];
+            temp = newObject.GetComponent<MeshObjL>().vertices;
+            Vector2[] vertices2 = new Vector2[temp.Length + 1];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                Vector3 tempV3 = temp[i];
+                vertices2[i] = new Vector2(tempV3.x, tempV3.y);
+            }
+            vertices2 [temp.Length] = new Vector2(temp[0].x, temp[0].y);
+
+            newObject.GetComponent<PolygonCollider2D>().SetPath(0, vertices2);
+        }
+
+
+
+                 
+        
         //Make new Preview
         nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
         nextShape.transform.position = this.gameObject.transform.position;

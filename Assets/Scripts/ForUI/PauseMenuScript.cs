@@ -9,28 +9,31 @@ public class PauseMenuScript : MonoBehaviour {
     public GameObject OptionsUI;
     private bool isGamePaused = false;
     private AudioSource pauseMenuClick;
-
+    /*
 	void Start () {
         PauseMenuUI.SetActive(false);
         OptionsUI.SetActive(false);
         pauseMenuClick = PauseMenuUI.GetComponent<AudioSource>();
 	}
+    */
 
     void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape) && isGamePaused == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
             PauseMenuUI.SetActive(true);
             isGamePaused = true;
             Time.timeScale = 0.0f;
             pauseMenuClick.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isGamePaused == true && !OptionsUI.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0) //&& !OptionsUI.activeSelf)
         {
             PauseMenuUI.SetActive(false);
+            OptionsUI.SetActive(false);
             isGamePaused = false;
             Time.timeScale = 1.0f;
         }
     }
+    /*
 
     public void ContinueButton()
     {
@@ -45,4 +48,5 @@ public class PauseMenuScript : MonoBehaviour {
         OptionsUI.SetActive(true);
         pauseMenuClick.Play();
     }
+    */
 }

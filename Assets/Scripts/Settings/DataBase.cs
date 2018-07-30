@@ -6,16 +6,26 @@ public static class DataBase
 {
 
     public static GameObject nextShape;
-    #region PlayerStats
+    #region GameVaribles
 
-    public static int score = 0;
-    public static int highScore = 0;
+    public static int blocksPlacedInGame = 0;
     public static int totalScore = 0;
-    public static bool isGameOver = true;
+
     public static bool isPlayerPlaying = false;
     public static int currentTeamNumber;
+
     public static Color32 team1Color;
     public static Color32 team2Color;
+
+    #endregion
+
+    #region PlayerStats
+    public static int totalBlocksPlaced;
+    public static int totalBlocksLost;
+    public static float highScore;
+    
+    public static bool isGameOver = true;
+    
     #endregion
 
     #region Settings

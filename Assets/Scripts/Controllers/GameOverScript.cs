@@ -24,16 +24,9 @@ public class GameOverScript : MonoBehaviour
         gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
     }
 
-    void Update()
-    {
-
-    }
-
+    #region Gameover
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DataBase.score--;
-        totalScore = PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.score;
-        lossCounter = PlayerPrefs.GetInt("Total Blocks Lost") + 1;
         //Create Game Over If 
         if (!DataBase.isGameOver)
         {
@@ -41,21 +34,17 @@ public class GameOverScript : MonoBehaviour
             {
                 shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
 
-                if (shapeMovementScript.isFrozen == false) {
-                    Debug.Log(collision.name);
-                    DataBase.isGameOver = true;
-                    GameObject gameOverObject = Instantiate(gameOverUIPrefab);
-                    gameOverObject.name = "Game Over";
-                    heightLineScript.moveDownSequence = true;
-                    //blocks placed text 
-                    GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.score;
-                    if (DataBase.score > PlayerPrefs.GetInt("High Score"))
-                    {
-                        PlayerPrefs.SetInt("High Score", DataBase.score);
-                    }
-                    GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("High Score");
-                    PlayerPrefs.SetInt("Total Blocks Placed", totalScore);
-                    PlayerPrefs.SetInt("Total Blocks Lost", lossCounter);
+                //real game over sequence
+                if (shapeMovementScript.isFrozen == false)
+                {
+                    lossCounter++;
+                    totalScore = Mathf.RoundToInt(heightLineScript.height);
+                    DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
+                    PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
+
+                    SetGameOverVaribles();
+                    UpdateDataBase();
+                    
                 }
             }
 
@@ -71,6 +60,38 @@ public class GameOverScript : MonoBehaviour
 
         }
     }
+
+    void SetGameOverVaribles()
+    {
+        DataBase.isGameOver = true;
+        heightLineScript.moveDownSequence = true;
+
+        GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.blocksPlacedInGame;
+        GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + DataBase.highScore;
+    }
+
+    void UpdateDataBase()
+    {
+        //High score
+        if (heightLineScript.height >= totalScore)
+        {
+            DataBase.highScore = heightLineScript.height;
+        }
+
+
+        PlayerPrefs.SetInt("Total Blocks Lost", PlayerPrefs.GetInt("Total Blocks Lost") + lossCounter);
+        DataBase.totalBlocksLost = PlayerPrefs.GetInt("Total Blocks Lost", lossCounter);
+
+        if (DataBase.totalScore >= PlayerPrefs.GetInt("High Score"))
+        {
+            DataBase.highScore = DataBase.totalScore;
+            PlayerPrefs.SetFloat("High Score", DataBase.highScore); 
+        }
+
+    }
+
+    #endregion
+
     #region debugCheckFunctions
     void DebugCheck()
     {
