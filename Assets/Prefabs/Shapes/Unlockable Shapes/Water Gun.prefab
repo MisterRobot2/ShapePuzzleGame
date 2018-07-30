@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4963508559391308}
   - component: {fileID: 198945669905118672}
   - component: {fileID: 199260326994161778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4486463990523682}
   - component: {fileID: 198793270548764156}
   - component: {fileID: 199432225693916998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Water (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4463030119124730}
   - component: {fileID: 198912159247588612}
   - component: {fileID: 199803992054702466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Waterfall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 50615045353722338}
   - component: {fileID: 114197863556418948}
   - component: {fileID: 60142172617203202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Water Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4730662523057742}
   - component: {fileID: 198051808816608296}
   - component: {fileID: 199894105663437484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,8 +258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doOnCollisionEnter: 1
-  isParticle: 1
+  doPlayParticle: 0
+  sprites: []
+  animator: {fileID: 0}
+  AnimationTriggerNames: []
   timeToBeEnabled: 5
+  rarityOfChangingAnimation: 0
+  rarityOfChangingSprite: 0
   objectToBeActivated: {fileID: 1748249529424234}
 --- !u!198 &198051808816608296
 ParticleSystem:
