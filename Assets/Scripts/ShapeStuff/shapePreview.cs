@@ -22,7 +22,13 @@ public class shapePreview : MonoBehaviour {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
     }
 
-    private void Update() {
+    private void Update()
+    {
+        if (destroyBlock == true)
+        {
+            newObject.transform.position = nextShape.transform.position;
+            destroyBlock = false;
+        }
     }
 
     public void SpawnFirstShape()
@@ -42,12 +48,13 @@ public class shapePreview : MonoBehaviour {
         }
     }
 
-    public void calculatePreview()
+    public void calculatePreview(bool doSkipShape)
     {
         //Takes preview and puts it to spawn spot
         newObject = nextShape;
         newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
+
         if (newObject.GetComponent<SpriteRenderer>())
         {
 
@@ -73,14 +80,15 @@ public class shapePreview : MonoBehaviour {
         }
 
         //Scale Size
-        newObject.GetComponent<Transform>().localScale = new Vector3(0.9f, 0.9f, 0);
+        //newObject.GetComponent<Transform>().localScale = new Vector3(0.9f, 0.9f, 0);
 
-  
+
+
 
         //Add Colliders
-        if(nextShape.GetComponent<MeshCreator>() == true){
+        if (newObject.GetComponent<MeshCreator>() == true){
             newObject.AddComponent<BoxCollider2D>();
-        }else if (nextShape.GetComponent<MeshObjL>() == true){
+        }else if (newObject.GetComponent<MeshObjL>() == true){
             newObject.AddComponent<PolygonCollider2D>();
             Vector3[] temp = new Vector3[8];
             temp = newObject.GetComponent<MeshObjL>().vertices;
@@ -95,13 +103,13 @@ public class shapePreview : MonoBehaviour {
             newObject.GetComponent<PolygonCollider2D>().SetPath(0, vertices2);
         }
 
-        if(destroyBlock == true)
+
+        if (doSkipShape)
         {
-            Destroy(newObject);
+            
         }
 
-                 
-        
+
         //Make new Preview
         nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
         nextShape.transform.position = this.gameObject.transform.position;
@@ -116,11 +124,59 @@ public class shapePreview : MonoBehaviour {
             nextShape.GetComponent<MeshObjL>().meshCreatorL();
         }
 
+        if(doSkipShape)
+        {
+            calculatePreview(false);
+        }
     }
 
-    /*public void ShapeSkip()
+    public void ShapeSkip()
     {
-        destroyBlock = true;
-        calculatePreview();
-       }*/
+        GameObject.Destroy(newObject);
+
+        newObject = nextShape;
+        newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
+        nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
+
+        if (newObject.GetComponent<SpriteRenderer>())
+        {
+
+            if (DataBase.currentTeamNumber == 1)
+            {
+                newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
+            }
+            else if (DataBase.currentTeamNumber == 2)
+            {
+                newObject.GetComponent<SpriteRenderer>().color = DataBase.team2Color;
+            }
+        }
+        else if (newObject.GetComponent<MeshRenderer>())
+        {
+            if (DataBase.currentTeamNumber == 1)
+            {
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+            }
+            else if (DataBase.currentTeamNumber == 2)
+            {
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+            }
+        }
+
+        //Add gravity
+        //newObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+        //Make new Preview
+        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
+        nextShape.transform.position = this.gameObject.transform.position;
+        nextShape.GetComponent<ShapeMovement>().canBeControlled = false;
+        //Get Mesh Creator
+        if (nextShape.GetComponent<MeshCreator>() == true)
+        {
+            nextShape.GetComponent<MeshCreator>().meshCreator();
+        }
+        else if (nextShape.GetComponent<MeshObjL>() == true)
+        {
+            nextShape.GetComponent<MeshObjL>().meshCreatorL();
+        }
+    }
 }

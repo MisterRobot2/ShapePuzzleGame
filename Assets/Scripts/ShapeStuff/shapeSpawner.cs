@@ -64,7 +64,7 @@ public class shapeSpawner : MonoBehaviour
     {
         if (DataBase.currentTeamNumber != 0)
         {
-            shapePreview.GetComponent<shapePreview>().calculatePreview();
+            shapePreview.GetComponent<shapePreview>().calculatePreview(false);
         }
     }
 }
