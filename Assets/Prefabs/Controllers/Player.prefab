@@ -990,6 +990,8 @@ MonoBehaviour:
   - {fileID: 1898138333694052, guid: 25b6a9b63688db643a436291e7f2efd6, type: 2}
   - {fileID: 1674289691882778, guid: ccb072460f117db4a8e7e18264aa7b71, type: 2}
   - {fileID: 1595548648208530, guid: 4626345c70309234f91342e9ff3f60e3, type: 2}
+  - {fileID: 1518463489967666, guid: b9559dcf33d68b544b3c60285d88b82f, type: 2}
+  - {fileID: 1890792804275456, guid: 35b4b0ceac7024f4f883545ae5f37da9, type: 2}
   createdShapes: []
   nextShape: {fileID: 0}
   newObject: {fileID: 0}
