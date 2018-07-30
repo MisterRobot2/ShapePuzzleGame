@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeshObjL : MonoBehaviour
 {
 
+    public Vector3[] vertices = new Vector3[8];
 
     // Use this for initialization
     void Start()
@@ -32,12 +33,19 @@ public class MeshObjL : MonoBehaviour
         int heightS = Random.Range(1, heightL - 1);
 
 
-        Vector3[] vertices = new Vector3[8]
-        {
-            new Vector3(0,0,0), new Vector3(0,heightS,0), new Vector3(0,heightL,0), new Vector3(widthS,heightL,0), new Vector3(widthS,heightS,0), new Vector3(widthL, heightS, 0), new Vector3(widthL, 0, 0), new Vector3(widthS,0,0)
+        vertices[0] = new Vector3(0, 0, 0);
+        vertices[1] = new Vector3(0, heightS, 0);
+        vertices[2] = new Vector3(0, heightL, 0);
+        vertices[3] = new Vector3(widthS, heightL, 0);
+        vertices[4] = new Vector3(widthS, heightS, 0);
+        vertices[5] = new Vector3(widthL, heightS, 0);
+        vertices[6] = new Vector3(widthL, 0, 0);
+        vertices[7] = new Vector3(widthS, 0, 0);
 
-        };
-
+        //foreach(var point in vertices)
+        //{
+        //    Debug.Log(point);
+        //}
 
         //Triangles
 
@@ -66,8 +74,6 @@ public class MeshObjL : MonoBehaviour
         mesh.triangles = tri;
 
         int[] angles = new int[4] { 0, 90, 180, 270 };
-
-        // transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angles[Random.Range(0, 4)]));
 
 
         transform.RotateAround(gameObject.GetComponent<Renderer>().bounds.center, Vector3.forward, angles[Random.Range(0, 4)]);
