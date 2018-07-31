@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     private GameObject spawner;
     private Button submitButton;
     private Button skipButton;
+    private Button buySkipButton;
     private Text team1NameText;
     private Text team2NameText;
     private Text notificationPannelText;
@@ -51,6 +52,7 @@ public class GameController : MonoBehaviour {
         enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
         skipButton = GameObject.Find("Shape Skip Button").GetComponent<Button>();
+        buySkipButton = GameObject.Find("Buy Skip Button").GetComponent<Button>();
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
         team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
@@ -72,6 +74,7 @@ public class GameController : MonoBehaviour {
         team2Arrow.SetActive(false);
         enterNamePannel.SetActive(false);
         submitButton.onClick.AddListener(delegate { submitNamePannel(); });
+        buySkipButton.gameObject.SetActive(false);
         DataBase.blocksPlacedInGame = 0;
         DataBase.isGameOver = true;
         #endregion
@@ -304,22 +307,42 @@ public class GameController : MonoBehaviour {
             skipButtonText.text = "Skips Left: " + DataBase.team1Skips;
             if(DataBase.team1Skips == 0){
                 skipButton.enabled = false;
+                buySkipButton.gameObject.SetActive(true);
+                if (DataBase.team1coins >= 3)
+                {
+                    buySkipButton.enabled = true;
+                }
+                else
+                {
+                    buySkipButton.enabled = false;
+                }
             } else{
                 skipButton.enabled = true;
+                buySkipButton.gameObject.SetActive(false);
             }
         } else if (currentTeamNumber == 2){
             skipButtonText.text = "Skips Left: " + DataBase.team2Skips;
             if (DataBase.team2Skips == 0)
             {
                 skipButton.enabled = false;
+                buySkipButton.gameObject.SetActive(true);
+                if (DataBase.team2coins >= 3)
+                {
+                    buySkipButton.enabled = true;
+                }
+                else
+                {
+                    buySkipButton.enabled = false;
+                }
             } else{
                 skipButton.enabled = true;
+                buySkipButton.gameObject.SetActive(false);
+
             }
         }
 
 
-
-
-
 	}
+
+
 }
