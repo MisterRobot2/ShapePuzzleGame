@@ -9,8 +9,10 @@ public class SettingsManager : MonoBehaviour
     public Toggle windowMode;
     private bool isFullScreen;
     #endregion
-    public Slider speedSlider;
 
+    #region SpeedSlider
+    public Slider speedSlider;
+    #endregion
     void Start ()
     {
       //  DontDestroyOnLoad(this.gameObject);
@@ -23,6 +25,7 @@ public class SettingsManager : MonoBehaviour
     {
         DataBase.speed = speedSlider.value;
     }
+
     #region Fullscreen
     void FullscreenSetUp()
     {

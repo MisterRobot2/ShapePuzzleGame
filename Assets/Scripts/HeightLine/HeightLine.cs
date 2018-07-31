@@ -58,7 +58,7 @@ public class HeightLine : MonoBehaviour
         DebugCheck();
     }
 	
-	void Update ()
+	void FixedUpdate ()
     {
         UpSequence();
         DownSequence();

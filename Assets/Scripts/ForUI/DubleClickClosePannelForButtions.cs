@@ -31,13 +31,8 @@ public class DubleClickClosePannelForButtions : MonoBehaviour
 
     private void Update()
     {
-        if (activeByKey == true)
-        {
-            if (Input.GetKeyDown(keyToTrigger))
-            {
-                ClosePannel();
-            }
-        }
+        PauseGameIfPanneIsOpen();
+        IfPressKey();  
     }
 
 
@@ -54,22 +49,69 @@ public class DubleClickClosePannelForButtions : MonoBehaviour
                 Object.gameObject.SetActive(false);
                 isActive = false;
 
-                if (pauseWhenActive == true)
-                {
-                    Time.timeScale = 1;
-                }
+                PauseGame();
             }
             else
             {
                 Object.gameObject.SetActive(true);
                 isActive = true;
 
-                if (pauseWhenActive == true)
-                {
-                    Time.timeScale = 0;
-                }
+                PauseGame();
             }
         }  
         
+    }
+
+
+    void IfPressKey()
+    {
+        //Key detection
+        if (activeByKey == true)
+        {
+            if (Input.GetKeyDown(keyToTrigger))
+            {
+                ClosePannel();
+                PauseGame();
+            }
+        }
+    }
+
+    void PauseGame()
+    {
+        if (pauseWhenActive == true )
+        {
+            foreach (var Object in ToggleObject)
+            {
+                if (Object.activeInHierarchy == true)
+                {
+                    Time.timeScale = 0;
+
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                }
+            }
+            
+
+        }
+
+        if (pauseWhenActive == false)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    void PauseGameIfPanneIsOpen()
+    {
+        //Pauses game with mutiple pannels open
+        foreach (var Object in ToggleObject)
+        {
+            if (Object.activeInHierarchy == true)
+            {
+                Time.timeScale = 0;
+
+            }
+        }
     }
 }
