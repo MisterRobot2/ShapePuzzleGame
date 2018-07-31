@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -364,9 +364,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114547726797805780, guid: a3086a5450d3d1749a1b9753bebc0d07,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 537476791}
+    - target: {fileID: 224100264954154160, guid: a3086a5450d3d1749a1b9753bebc0d07,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 224100264954154160, guid: a3086a5450d3d1749a1b9753bebc0d07,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 26.49
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3086a5450d3d1749a1b9753bebc0d07, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &537476791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114839475701619868, guid: 4687ba142aad28c489d75051be563666,
+    type: 2}
+  m_PrefabInternal: {fileID: 743409253}
+  m_Script: {fileID: 11500000, guid: 7df0e44c1dbc74455b71d2d70c614118, type: 3}
 --- !u!1001 &743409253
 Prefab:
   m_ObjectHideFlags: 0

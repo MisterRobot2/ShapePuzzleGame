@@ -17,11 +17,13 @@ public class GameController : MonoBehaviour {
     private GameObject team2Arrow;
     private GameObject spawner;
     private Button submitButton;
+    private Button skipButton;
     private Text team1NameText;
     private Text team2NameText;
     private Text notificationPannelText;
     private Text team1CoinText;
     private Text team2CoinText;
+    private Text skipButtonText;
     private Image team1Background;
     private Image team2Background;
     private Color team1Color;
@@ -48,12 +50,14 @@ public class GameController : MonoBehaviour {
         #region get objects
         enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
+        skipButton = GameObject.Find("Shape Skip Button").GetComponent<Button>();
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
         team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
         team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
         team1CoinText = team1Background.transform.Find("team1CoinText").GetComponent<Text>();
         team2CoinText = team2Background.transform.Find("team2CoinText").GetComponent<Text>();
+        skipButtonText = GameObject.Find("skipCounter").GetComponent<Text>();
         team1Arrow = team1Background.transform.Find("Team 1 Arrow").gameObject;
         team2Arrow = team2Background.transform.Find("Team 2 Arrow").gameObject;
         pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
@@ -287,6 +291,27 @@ public class GameController : MonoBehaviour {
 
         team1CoinText.text = DataBase.team1coins.ToString();
         team2CoinText.text = DataBase.team2coins.ToString();
+
+        if(currentTeamNumber == 1){
+            skipButtonText.text = "Skips Left: " + DataBase.team1Skips;
+            if(DataBase.team1Skips == 0){
+                skipButton.enabled = false;
+            } else{
+                skipButton.enabled = true;
+            }
+        } else if (currentTeamNumber == 2){
+            skipButtonText.text = "Skips Left: " + DataBase.team2Skips;
+            if (DataBase.team2Skips == 0)
+            {
+                skipButton.enabled = false;
+            } else{
+                skipButton.enabled = true;
+            }
+        }
+
+
+
+
 
 	}
 }
