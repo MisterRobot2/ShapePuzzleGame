@@ -62,11 +62,11 @@ public class ShapeMovement : MonoBehaviour
             DataBase.blocksPlacedInGame++;
             hasCollided = true;
         }
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform") // add this in the platform controller for better results - Ethan
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isFrozen = true;
-        }
+        }                                           //<-----
     }
 
     IEnumerator Freeze()

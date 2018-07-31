@@ -9,10 +9,16 @@ public class SettingsManager : MonoBehaviour
     public Toggle windowMode;
     private bool isFullScreen;
     #endregion
+<<<<<<< HEAD
     public Slider speedSlider;
     public Toggle sound;
     private bool isAudioPaused = false;
+=======
+>>>>>>> ad705f06c6b951dfcd9294516a1260f863499a2f
 
+    #region SpeedSlider
+    public Slider speedSlider;
+    #endregion
     void Start ()
     {
       //  DontDestroyOnLoad(this.gameObject);
@@ -26,6 +32,7 @@ public class SettingsManager : MonoBehaviour
         DataBase.speed = speedSlider.value;
     }
 
+<<<<<<< HEAD
     public void ToggleSound()
     {
         if (sound)
@@ -37,6 +44,8 @@ public class SettingsManager : MonoBehaviour
             AudioListener.pause = false;
         }
     }
+=======
+>>>>>>> ad705f06c6b951dfcd9294516a1260f863499a2f
     #region Fullscreen
     void FullscreenSetUp()
     {
