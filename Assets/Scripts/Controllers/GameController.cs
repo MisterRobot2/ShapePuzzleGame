@@ -17,13 +17,9 @@ public class GameController : MonoBehaviour {
     private GameObject team2Arrow;
     private GameObject spawner;
     private Button submitButton;
-    private Button skipButton;
     private Text team1NameText;
     private Text team2NameText;
     private Text notificationPannelText;
-    private Text team1CoinText;
-    private Text team2CoinText;
-    private Text skipButtonText;
     private Image team1Background;
     private Image team2Background;
     private Color team1Color;
@@ -34,7 +30,6 @@ public class GameController : MonoBehaviour {
     private int currentTeamNumber;
     private Animator teamUIAnimator;
     private int team1ColorValue;
-
 
 	// Use this for initialization
 	void Start ()
@@ -50,14 +45,10 @@ public class GameController : MonoBehaviour {
         #region get objects
         enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
-        skipButton = GameObject.Find("Shape Skip Button").GetComponent<Button>();
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
         team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
         team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
-        team1CoinText = team1Background.transform.Find("team1CoinText").GetComponent<Text>();
-        team2CoinText = team2Background.transform.Find("team2CoinText").GetComponent<Text>();
-        skipButtonText = GameObject.Find("skipCounter").GetComponent<Text>();
         team1Arrow = team1Background.transform.Find("Team 1 Arrow").gameObject;
         team2Arrow = team2Background.transform.Find("Team 2 Arrow").gameObject;
         pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
@@ -109,15 +100,7 @@ public class GameController : MonoBehaviour {
             openNamePannel(2);
             changeTeamColor(1);
             team1ColorValue = pickAColorDropdown.value;
-            //make player 2 color, a color behind player 1
-            if(team1ColorValue != 0)
-            {
-                pickAColorDropdown.value = team1ColorValue - 1;
-            }else // if player 1 color is 0 then make player 2 color, 1
-            {
-                pickAColorDropdown.value = 1;
-            }
-            
+            pickAColorDropdown.value = 0;
             currentTeamNumber = 2;
         }
         //Team 2
@@ -162,12 +145,14 @@ public class GameController : MonoBehaviour {
     {
         if(currentTeamNumber == 1)
         {
+            
             team2Arrow.SetActive(true);
             team1Arrow.SetActive(false);
             StartCoroutine(showNotificationPannel("Your Turn, " + team2Name+"!", 2));
             currentTeamNumber = 2;
         }else if (currentTeamNumber == 2)
         {
+            
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
             StartCoroutine(showNotificationPannel("Your Turn, "+team1Name+"!", 2));
@@ -281,7 +266,7 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if((enterNamePannel.activeInHierarchy == true) && currentTeamNumber == 2){
+        if((enterNamePannel.active == true) && currentTeamNumber == 2){
             if((team1ColorValue == pickAColorDropdown.value)){
                 enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Different Color";
                 submitButton.enabled = false;
@@ -296,30 +281,5 @@ public class GameController : MonoBehaviour {
         {
             StartCoroutine(placeBlockCountDown(0));
         }
-
-        team1CoinText.text = DataBase.team1coins.ToString();
-        team2CoinText.text = DataBase.team2coins.ToString();
-
-        if(currentTeamNumber == 1){
-            skipButtonText.text = "Skips Left: " + DataBase.team1Skips;
-            if(DataBase.team1Skips == 0){
-                skipButton.enabled = false;
-            } else{
-                skipButton.enabled = true;
-            }
-        } else if (currentTeamNumber == 2){
-            skipButtonText.text = "Skips Left: " + DataBase.team2Skips;
-            if (DataBase.team2Skips == 0)
-            {
-                skipButton.enabled = false;
-            } else{
-                skipButton.enabled = true;
-            }
-        }
-
-
-
-
-
 	}
 }

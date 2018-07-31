@@ -10,11 +10,6 @@ public class SettingsManager : MonoBehaviour
     private bool isFullScreen;
     #endregion
     public Toggle sound;
-<<<<<<< HEAD
-=======
-    private bool isAudioPaused = false;
-
->>>>>>> e2b6feac06400dbcb7ea7d656fe3ff43dd2d72e8
 
     #region SpeedSlider
     public Slider speedSlider;
@@ -33,11 +28,7 @@ public class SettingsManager : MonoBehaviour
         DataBase.speed = speedSlider.value;
     }
 
-<<<<<<< HEAD
     public void SoundToggle()
-=======
-    public void ToggleSound()
->>>>>>> e2b6feac06400dbcb7ea7d656fe3ff43dd2d72e8
     {
         if (DataBase.isSoundPaused == false)
         {
