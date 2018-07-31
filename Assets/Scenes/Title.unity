@@ -347,34 +347,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a85a40b7fd86e478caa890a43e2734, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &499360278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1280673531287660, guid: ce702e1cd664a6c4fafc69d7c6053478,
-    type: 2}
-  m_PrefabInternal: {fileID: 1751968055}
---- !u!114 &499360284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 499360278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73572d87ba6bc6d448efd88fe8ad2aa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statsUI: {fileID: 1242645772}
 --- !u!114 &754764870 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114046365150846740, guid: ce702e1cd664a6c4fafc69d7c6053478,
     type: 2}
-  m_PrefabInternal: {fileID: 1751968055}
+  m_PrefabInternal: {fileID: 1600834341}
   m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &1242645772 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1718039427284360, guid: ce702e1cd664a6c4fafc69d7c6053478,
-    type: 2}
-  m_PrefabInternal: {fileID: 1751968055}
 --- !u!1 &1553403104
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +526,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1751968055
+--- !u!1001 &1600834341
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -650,22 +628,7 @@ Prefab:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2080277667}
-    - target: {fileID: 224312869033222958, guid: ce702e1cd664a6c4fafc69d7c6053478,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 9.699707
-      objectReference: {fileID: 0}
-    - target: {fileID: 224312869033222958, guid: ce702e1cd664a6c4fafc69d7c6053478,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -78.200066
-      objectReference: {fileID: 0}
-    - target: {fileID: 1718039427284360, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114379382605947986, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2080277666

@@ -11,8 +11,9 @@ public class ShapeMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField]
-    [Range(0,20)]
-    private int movementSpeed = 20;
+    [Range(0, 20)]
+    public float movementSpeed = DataBase.speed;
+    
     
     private bool hasSpawn = false;
     private bool hasCollided;
@@ -28,6 +29,8 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
+        movementSpeed = DataBase.speed;
+
         if (canBeControlled == true && DataBase.isPlayerPlaying)
         {
             if (Input.GetKey(KeyCode.A))
@@ -59,11 +62,11 @@ public class ShapeMovement : MonoBehaviour
             DataBase.blocksPlacedInGame++;
             hasCollided = true;
         }
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform") // add this in the platform controller for better results - Ethan
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isFrozen = true;
-        }
+        }                                           //<-----
     }
 
     IEnumerator Freeze()
