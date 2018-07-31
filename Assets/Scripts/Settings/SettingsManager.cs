@@ -9,6 +9,9 @@ public class SettingsManager : MonoBehaviour
     public Toggle windowMode;
     private bool isFullScreen;
     #endregion
+    public Toggle sound;
+    private bool isAudioPaused = false;
+
 
     #region SpeedSlider
     public Slider speedSlider;
@@ -24,6 +27,18 @@ public class SettingsManager : MonoBehaviour
     void Update()
     {
         DataBase.speed = speedSlider.value;
+    }
+
+    public void ToggleSound()
+    {
+        if (sound)
+        {
+            AudioListener.pause = true;
+        }
+        else if(!sound)
+        {
+            AudioListener.pause = false;
+        }
     }
 
     #region Fullscreen
