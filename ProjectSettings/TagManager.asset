@@ -8,8 +8,11 @@ TagManager:
   - Spawner
   - Block
   - ShapePreview
+<<<<<<< HEAD
   - Camera
   - GoalLine
+=======
+>>>>>>> e4161d1cd2eb176a7d9f3d816c0b7d01344b6ed6
   layers:
   - Default
   - TransparentFX

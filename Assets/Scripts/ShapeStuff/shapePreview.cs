@@ -209,4 +209,19 @@ public class shapePreview : MonoBehaviour {
             nextShape.GetComponent<MeshObjL>().meshCreatorL();
         }
     }
+
+
+    public void buySkips(){
+        if (DataBase.currentTeamNumber == 1)
+        {
+            DataBase.team1coins -= 3;
+            DataBase.team1Skips++;
+        }
+        else if (DataBase.currentTeamNumber == 2)
+        {
+            DataBase.team2coins -= 3;
+            DataBase.team2Skips++;
+        }
+    }
+
 }
