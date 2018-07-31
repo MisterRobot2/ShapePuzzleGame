@@ -15,15 +15,22 @@ public class GameOverScript : MonoBehaviour
 
     private GameObject heightLine;
     private HeightLine heightLineScript;
+    [SerializeField]
+    private GameObject mainCamera;
+    private CameraController camController;
 
 
     void Start()
     {
-        DebugCheck();
+        
         gameOverUIPrefab.SetActive(false);
         gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
     }
 
+    private void Awake()
+    {
+        Getvaribles();
+    }
     #region Gameover
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,7 +71,8 @@ public class GameOverScript : MonoBehaviour
     void SetGameOverVaribles()
     {
         DataBase.isGameOver = true;
-        heightLineScript.moveDownSequence = true;
+        camController.goDown = true;
+        Debug.Log("Happy");
 
         GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.blocksPlacedInGame;
         GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + DataBase.highScore;
@@ -93,19 +101,13 @@ public class GameOverScript : MonoBehaviour
     #endregion
 
     #region debugCheckFunctions
-    void DebugCheck()
+    void Getvaribles()
     {
         heightLine = GameObject.Find("HeightLine");
         heightLineScript = heightLine.GetComponent<HeightLine>();
-
-        if (heightLine == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'HeightLine' in scene, Please Make sure you name it correctly or change the name in the script.");
-        }
-        if (heightLineScript == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'HeightLine' in HeightLine, Please Make sure you attacjh the component or change the name in the script.");
-        }
+        mainCamera = GameObject.Find("Main Camera");
+        mainCamera = GameObject.FindGameObjectWithTag("Camera");
+        camController = mainCamera.gameObject.GetComponent<CameraController>();
     }
     #endregion
 }

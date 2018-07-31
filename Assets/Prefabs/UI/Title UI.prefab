@@ -238,42 +238,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
-=======
---- !u!1 &1520574328914266
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 224037888481422070}
-  - component: {fileID: 114351074038999654}
-  m_Layer: 5
-  m_Name: Fullscreen toggle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1555446125192678
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 224891202232348486}
-  - component: {fileID: 222913771906965230}
-  - component: {fileID: 114788049981139738}
-  m_Layer: 5
-  m_Name: Options Pannel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
->>>>>>> 8fd289a32602c1bd0d856ca2d1ee78bde03e1d76
 --- !u!1 &1562493165191028
 GameObject:
   m_ObjectHideFlags: 0

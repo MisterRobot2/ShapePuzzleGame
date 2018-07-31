@@ -12,17 +12,17 @@ public class SettingsManager : MonoBehaviour
     public Toggle sound;
     private bool isAudioPaused = false;
 
+
     #region SpeedSlider
     public Slider speedSlider;
     #endregion
     void Start ()
     {
-        //DontDestroyOnLoad(this.gameObject);
+      //  DontDestroyOnLoad(this.gameObject);
         FullscreenSetUp();
         speedSlider.minValue = 0;
         speedSlider.maxValue = 20;
-       
-    }
+	}
 
     void Update()
     {
@@ -30,17 +30,14 @@ public class SettingsManager : MonoBehaviour
     }
 
     public void ToggleSound()
-
     {
-        if (DataBase.isSoundPaused == false)
+        if (sound)
         {
-            AudioListener.volume = 0f;
-            DataBase.isSoundPaused = true;
+            AudioListener.pause = true;
         }
-        else if (DataBase.isSoundPaused == true)
+        else if(!sound)
         {
-            AudioListener.volume = 1f;
-            DataBase.isSoundPaused = false;
+            AudioListener.pause = false;
         }
     }
 
