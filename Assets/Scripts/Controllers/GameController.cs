@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour {
     private string team2Name;
     private int currentTeamNumber;
     private Animator teamUIAnimator;
+    private int team1ColorValue;
 
 	// Use this for initialization
 	void Start ()
@@ -98,7 +99,9 @@ public class GameController : MonoBehaviour {
             enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
             openNamePannel(2);
             changeTeamColor(1);
+            team1ColorValue = pickAColorDropdown.value;
             pickAColorDropdown.value = 0;
+            currentTeamNumber = 2;
         }
         //Team 2
         else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
@@ -142,16 +145,18 @@ public class GameController : MonoBehaviour {
     {
         if(currentTeamNumber == 1)
         {
-            currentTeamNumber = 2;
+            
             team2Arrow.SetActive(true);
             team1Arrow.SetActive(false);
             StartCoroutine(showNotificationPannel("Your Turn, " + team2Name+"!", 2));
+            currentTeamNumber = 2;
         }else if (currentTeamNumber == 2)
         {
-            currentTeamNumber = 1;
+            
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
             StartCoroutine(showNotificationPannel("Your Turn, "+team1Name+"!", 2));
+            currentTeamNumber = 1;
         }
         DataBase.currentTeamNumber = currentTeamNumber;
         DataBase.isPlayerPlaying = true;
@@ -261,6 +266,17 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if((enterNamePannel.active == true) && currentTeamNumber == 2){
+            if((team1ColorValue == pickAColorDropdown.value)){
+                enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Different Color";
+                submitButton.enabled = false;
+            } else{
+                enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Color";
+                submitButton.enabled = true;
+            }
+        }
+
+
 		if(Input.GetKeyUp(KeyCode.Space) && DataBase.isPlayerPlaying)
         {
             StartCoroutine(placeBlockCountDown(0));
