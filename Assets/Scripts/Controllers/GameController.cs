@@ -109,7 +109,15 @@ public class GameController : MonoBehaviour {
             openNamePannel(2);
             changeTeamColor(1);
             team1ColorValue = pickAColorDropdown.value;
-            pickAColorDropdown.value = 0;
+            //make player 2 color, a color behind player 1
+            if(team1ColorValue != 0)
+            {
+                pickAColorDropdown.value = team1ColorValue - 1;
+            }else // if player 1 color is 0 then make player 2 color, 1
+            {
+                pickAColorDropdown.value = 1;
+            }
+            
             currentTeamNumber = 2;
         }
         //Team 2
