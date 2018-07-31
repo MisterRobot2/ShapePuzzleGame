@@ -27,11 +27,12 @@ public static class DataBase
     public static float highScore;
     
     public static bool isGameOver = true;
-    
+
     #endregion
 
     #region Settings
     static public bool isFullscreen;
+    public static bool isSoundPaused = false;
 
     #endregion
 
