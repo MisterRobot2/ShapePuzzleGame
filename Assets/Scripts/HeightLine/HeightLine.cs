@@ -7,8 +7,7 @@ public class HeightLine : MonoBehaviour
 {
     public bool moveDownSequence;
 
-    [SerializeField]
-    private float upSpeed = 0.1f;
+    public float upSpeed = 0.1f;
 
     //tags
     [SerializeField]
@@ -19,7 +18,6 @@ public class HeightLine : MonoBehaviour
     //Objects
     private TextMesh text;
     private GameObject Spawner;
-    private GameObject mainCamera;
     private MoveText moveTextScript;
     [SerializeField]
     private GameObject gameOverTrigger;
@@ -55,15 +53,13 @@ public class HeightLine : MonoBehaviour
     void Start ()
     {
         upSequence = true;
-        DebugCheck();
+        SetVaribles();
     }
 	
 	void FixedUpdate ()
     {
         UpSequence();
         DownSequence();
-        MoveCameraUp();
-        MoveCameraDown();
         CalculateHeight();
         GameOverTriggerFollow();
 	}
@@ -71,36 +67,13 @@ public class HeightLine : MonoBehaviour
     
 
     #region debugCheckFunctions
-    void DebugCheck()
+    void SetVaribles()
     {
-
         Spawner = GameObject.Find("Spawner");
-        mainCamera = GameObject.Find("Main Camera");
         gameOverTrigger = GameObject.Find("GameOverTrigger");
         text = GameObject.Find("Height Text").GetComponent<TextMesh>();
         moveTextScript = text.GetComponent<MoveText>();
 
-
-        if (Spawner == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Spawner' in scene, Please Make sure you name it correctly or change the name in the script.");
-        }
-        if (mainCamera == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Main Camera' in scene, Please Make sure you name it correctly or change the name in the script.");
-        }
-        if (text == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Main Camera' in scene, Please Make sure you name it correctly or change the name in the script.");
-        }
-        if (gameOverTrigger == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'GameOverTrigger' in scene, Please Make sure you name it correctly or change the name in the script.");
-        }
-        if (moveTextScript == null)
-        {
-            Debug.LogWarning(this.gameObject.name + " please make sure that the MoveText component is on it");
-        }
     }
     #endregion
 
@@ -184,55 +157,14 @@ public class HeightLine : MonoBehaviour
 
     #endregion
 
-    #region Camera movement
+    #region UpdateHeightText
+
     void CalculateHeight()
     {
-        height = (Mathf.Round((this.transform.position.y - initalHeight)*10))/10;
+        height = (Mathf.Round((this.transform.position.y - initalHeight) * 10)) / 10;
         moveTextScript.UpdateText(height + "Ft");
         text.text = height + "Ft";
     }
 
-    void MoveCameraUp()
-    {
-        if (moveDownSequence == false)
-        {
-            if (heightTilMoveup + maxhightTilMoveUp - height <= 0)
-            {
-                mainCamera.transform.Translate(new Vector2(0, +upSpeed));
-                Spawner.transform.Translate(new Vector2(0, +upSpeed));
-                currentMoveProgress += upSpeed;
-
-            }
-
-            if (currentMoveProgress >= 5) // set move up
-            {
-                heightTilMoveup = 5;
-                maxhightTilMoveUp += 5;
-                currentMoveProgress = 0;
-            }
-        }
-    }
-
-    void MoveCameraDown()
-    {
-        if (moveDownSequence == true)
-        {
-            if (moveDownSequence == true && (maxhightTilMoveUp != 0))// set move down
-            {
-                mainCamera.transform.Translate(new Vector2(0, -upSpeed));
-                Spawner.transform.Translate(new Vector2(0, -upSpeed));
-
-                maxhightTilMoveUp -= upSpeed;
-
-            }
-
-            if (maxhightTilMoveUp <= 0) // set move up
-            {
-                heightTilMoveup = 5;
-                currentMoveProgress = 0;
-                maxhightTilMoveUp = 0;
-            }
-        }
-    }
     #endregion
 }

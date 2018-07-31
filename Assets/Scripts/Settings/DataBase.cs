@@ -19,6 +19,13 @@ public static class DataBase
     public static Color32 team1Color;
     public static Color32 team2Color;
 
+    public static int team1coins;
+    public static int team2coins;
+
+    public static int team1Skips = 3;
+    public static int team2Skips = 3;
+
+
     #endregion
 
     #region PlayerStats
@@ -27,12 +34,11 @@ public static class DataBase
     public static float highScore;
     
     public static bool isGameOver = true;
-
+    
     #endregion
 
     #region Settings
     static public bool isFullscreen;
-    public static bool isSoundPaused = false;
 
     #endregion
 

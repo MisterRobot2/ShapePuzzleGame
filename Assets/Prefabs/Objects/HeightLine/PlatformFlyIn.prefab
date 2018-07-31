@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 61890646398490944}
   - component: {fileID: 61728711266438006}
   - component: {fileID: 252250423650444342}
+  - component: {fileID: 114479360090741238}
   m_Layer: 0
   m_Name: PlatformFlyIn
   m_TagString: Platform
@@ -131,7 +132,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.9114256}
+  m_Offset: {x: 0.06422603, y: -5.9114256}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,7 +143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 12.894039}
+  m_Size: {x: 1.5236888, y: 12.894039}
   m_EdgeRadius: 0
 --- !u!111 &111026870823894386
 Animation:
@@ -159,6 +160,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114479360090741238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1308571308183432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244e58f9e50428c42a93240cac812957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTilNoFreeze: 1.05
 --- !u!212 &212489402041666754
 SpriteRenderer:
   m_ObjectHideFlags: 1
