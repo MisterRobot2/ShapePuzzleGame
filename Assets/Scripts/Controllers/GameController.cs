@@ -145,14 +145,12 @@ public class GameController : MonoBehaviour {
     {
         if(currentTeamNumber == 1)
         {
-            
             team2Arrow.SetActive(true);
             team1Arrow.SetActive(false);
             StartCoroutine(showNotificationPannel("Your Turn, " + team2Name+"!", 2));
             currentTeamNumber = 2;
         }else if (currentTeamNumber == 2)
         {
-            
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
             StartCoroutine(showNotificationPannel("Your Turn, "+team1Name+"!", 2));
