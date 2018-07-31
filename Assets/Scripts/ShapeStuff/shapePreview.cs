@@ -55,6 +55,8 @@ public class shapePreview : MonoBehaviour {
         newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
 
+        Debug.Log(DataBase.currentTeamNumber);
+
         if (newObject.GetComponent<SpriteRenderer>())
         {
 
@@ -75,7 +77,7 @@ public class shapePreview : MonoBehaviour {
             }
             else if (DataBase.currentTeamNumber == 2)
             {
-                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team2Color);
             }
         }
 
