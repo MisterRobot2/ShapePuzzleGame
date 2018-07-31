@@ -105,13 +105,16 @@ public class DubleClickClosePannelForButtions : MonoBehaviour
     void PauseGameIfPanneIsOpen()
     {
         //Pauses game with mutiple pannels open
-        foreach (var Object in ToggleObject)
+        if (pauseWhenActive)
         {
-            if (Object.activeInHierarchy == true)
+            foreach (var Object in ToggleObject)
             {
-                Time.timeScale = 0;
+                if (Object.activeInHierarchy == true)
+                {
+                    Time.timeScale = 0;
 
-            }
+                }
+            } 
         }
     }
 }
