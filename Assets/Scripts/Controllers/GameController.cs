@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour {
     private Text team1NameText;
     private Text team2NameText;
     private Text notificationPannelText;
+    private Text team1CoinText;
+    private Text team2CoinText;
     private Image team1Background;
     private Image team2Background;
     private Color team1Color;
@@ -30,6 +32,7 @@ public class GameController : MonoBehaviour {
     private int currentTeamNumber;
     private Animator teamUIAnimator;
     private int team1ColorValue;
+
 
 	// Use this for initialization
 	void Start ()
@@ -49,6 +52,8 @@ public class GameController : MonoBehaviour {
         team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
         team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
+        team1CoinText = team1Background.transform.Find("team1CoinText").GetComponent<Text>();
+        team2CoinText = team2Background.transform.Find("team2CoinText").GetComponent<Text>();
         team1Arrow = team1Background.transform.Find("Team 1 Arrow").gameObject;
         team2Arrow = team2Background.transform.Find("Team 2 Arrow").gameObject;
         pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
@@ -279,5 +284,9 @@ public class GameController : MonoBehaviour {
         {
             StartCoroutine(placeBlockCountDown(0));
         }
+
+        team1CoinText.text = DataBase.team1coins.ToString();
+        team2CoinText.text = DataBase.team2coins.ToString();
+
 	}
 }

@@ -19,6 +19,9 @@ public static class DataBase
     public static Color32 team1Color;
     public static Color32 team2Color;
 
+    public static int team1coins;
+    public static int team2coins;
+
     #endregion
 
     #region PlayerStats
