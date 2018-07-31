@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,12 +207,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+<<<<<<< HEAD
 --- !u!114 &55046693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114724011266444692, guid: 5de0623b57fed314d867ea341eb7773e,
     type: 2}
   m_PrefabInternal: {fileID: 1583563485}
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+=======
+--- !u!114 &95715614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114839475701619868, guid: 4687ba142aad28c489d75051be563666,
+    type: 2}
+  m_PrefabInternal: {fileID: 743409253}
+  m_Script: {fileID: 11500000, guid: 7df0e44c1dbc74455b71d2d70c614118, type: 3}
+>>>>>>> 48ec1f24bf58f1d32f95cc57a1924a4e317d7154
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,8 +285,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 624702706}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &243284907
 Prefab:
@@ -316,7 +325,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4934983376432786, guid: 60753f91c3e39a747bc8cf1066734722, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1799800930314542, guid: 60753f91c3e39a747bc8cf1066734722, type: 2}
       propertyPath: m_IsActive
@@ -558,7 +567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 489806758}
+      - m_Target: {fileID: 0}
         m_MethodName: InstructionsButton
         m_Mode: 1
         m_Arguments:
@@ -695,7 +704,6 @@ GameObject:
   - component: {fileID: 489806756}
   - component: {fileID: 489806755}
   - component: {fileID: 489806754}
-  - component: {fileID: 489806758}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -781,6 +789,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+<<<<<<< HEAD
 --- !u!114 &489806758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,6 +803,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowMode: {fileID: 1583563488}
   speedSlider: {fileID: 55046693}
+=======
+--- !u!4 &624702706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4332947288202006, guid: 4687ba142aad28c489d75051be563666,
+    type: 2}
+  m_PrefabInternal: {fileID: 743409253}
+>>>>>>> 48ec1f24bf58f1d32f95cc57a1924a4e317d7154
 --- !u!1 &710681225
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +914,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4332947288202006, guid: 4687ba142aad28c489d75051be563666, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114316991502390856, guid: 4687ba142aad28c489d75051be563666,
         type: 2}
@@ -944,7 +960,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4596307209321484, guid: 4687ba142aad28c489d75051be563666, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.77
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 4054037963392074, guid: 4687ba142aad28c489d75051be563666, type: 2}
       propertyPath: m_LocalPosition.x
@@ -970,6 +986,18 @@ Prefab:
       value: 
       objectReference: {fileID: 1898138333694052, guid: 25b6a9b63688db643a436291e7f2efd6,
         type: 2}
+    - target: {fileID: 4788297401493674, guid: 4687ba142aad28c489d75051be563666, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788297401493674, guid: 4687ba142aad28c489d75051be563666, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788297401493674, guid: 4687ba142aad28c489d75051be563666, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -6.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4687ba142aad28c489d75051be563666, type: 2}
   m_IsPrefabAsset: 0
@@ -1225,7 +1253,7 @@ Transform:
   - {fileID: 1527793434}
   - {fileID: 710681228}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1136243554
 Prefab:
@@ -1729,7 +1757,6 @@ GameObject:
   - component: {fileID: 1858857443}
   - component: {fileID: 1858857442}
   - component: {fileID: 1858857441}
-  - component: {fileID: 1858857440}
   m_Layer: 5
   m_Name: Shape Skip Button
   m_TagString: Untagged
@@ -1756,22 +1783,6 @@ RectTransform:
   m_AnchoredPosition: {x: -299, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1858857440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1858857438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df0e44c1dbc74455b71d2d70c614118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapes: []
-  createdShapes: []
-  nextShape: {fileID: 0}
-  newObject: {fileID: 0}
-  MeshObjL: {fileID: 0}
 --- !u!114 &1858857441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,7 +1822,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1858857440}
+      - m_Target: {fileID: 95715614}
         m_MethodName: ShapeSkip
         m_Mode: 1
         m_Arguments:

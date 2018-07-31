@@ -62,6 +62,11 @@ public class ShapeMovement : MonoBehaviour
             DataBase.blocksPlacedInGame++;
             hasCollided = true;
         }
+        if (collision.gameObject.tag == "Platform")
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            isFrozen = true;
+        }
     }
 
     IEnumerator Freeze()
