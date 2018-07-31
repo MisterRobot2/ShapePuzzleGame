@@ -55,7 +55,6 @@ public class shapePreview : MonoBehaviour {
         newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
 
-        Debug.Log(DataBase.currentTeamNumber);
 
         if (newObject.GetComponent<SpriteRenderer>())
         {
