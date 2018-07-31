@@ -17,11 +17,8 @@ public class GameController : MonoBehaviour {
     private GameObject team2Arrow;
     private GameObject spawner;
     private Button submitButton;
-<<<<<<< HEAD
     private Button skipButton;
     private Button buySkipButton;
-=======
->>>>>>> f4a805e8b0743fb29a42b947fadb26d54c92600a
     private Text team1NameText;
     private Text team2NameText;
     private Text notificationPannelText;
@@ -50,11 +47,8 @@ public class GameController : MonoBehaviour {
         #region get objects
         enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
         submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
-<<<<<<< HEAD
         skipButton = GameObject.Find("Shape Skip Button").GetComponent<Button>();
         buySkipButton = GameObject.Find("Buy Skip Button").GetComponent<Button>();
-=======
->>>>>>> f4a805e8b0743fb29a42b947fadb26d54c92600a
         team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
         team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
         team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
@@ -292,7 +286,6 @@ public class GameController : MonoBehaviour {
         {
             StartCoroutine(placeBlockCountDown(0));
         }
-<<<<<<< HEAD
 
         team1CoinText.text = DataBase.team1coins.ToString();
         team2CoinText.text = DataBase.team2coins.ToString();
@@ -339,7 +332,5 @@ public class GameController : MonoBehaviour {
 	}
 
 
-=======
 	}
->>>>>>> f4a805e8b0743fb29a42b947fadb26d54c92600a
 }
