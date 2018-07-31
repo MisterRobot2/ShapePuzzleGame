@@ -9,6 +9,7 @@ TagManager:
   - Block
   - ShapePreview
   - Camera
+  - GoalLine
   layers:
   - Default
   - TransparentFX

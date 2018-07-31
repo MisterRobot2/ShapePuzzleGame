@@ -328,6 +328,10 @@ Prefab:
       propertyPath: totalHeightText
       value: 
       objectReference: {fileID: 1194816684}
+    - target: {fileID: 1404336761698488, guid: 4687ba142aad28c489d75051be563666, type: 2}
+      propertyPath: m_Name
+      value: SpawnerIcon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4687ba142aad28c489d75051be563666, type: 2}
   m_IsPrefabAsset: 0

@@ -72,7 +72,6 @@ public class GameOverScript : MonoBehaviour
     {
         DataBase.isGameOver = true;
         camController.goDown = true;
-        Debug.Log("Happy");
 
         GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.blocksPlacedInGame;
         GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + DataBase.highScore;

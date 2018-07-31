@@ -10,13 +10,12 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     bool isGoingUp;
 
-    
-
     //Upsequence
     bool iscolliding = false;
 
     float Speed;
     float initalHeight;
+    public float UpAmount;
 
     //Objects
     GameObject goalLine;
@@ -40,48 +39,16 @@ public class CameraController : MonoBehaviour
         MoveCameraDown();
     }
 
-    #region Detection
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Platform")
-        {
-            iscolliding = true;
-            isGoingUp = true;
-        }
-        
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Platform")
-        {
-            iscolliding = true;
-            isGoingUp = true;
-        }
-        
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Platform")
-        {
-            iscolliding = false;
-            isGoingUp = false;
-        }
-        
-    }
-    #endregion
-
     #region CameraMovement
 
     void moveCameraUp()
     {
-        if (iscolliding == true)
+        if (freeze == false && UpAmount > 0)
         {
-            if (freeze == false)
-            {
-                transform.Translate(new Vector2(0, Speed));
-            }
+            transform.Translate(new Vector2(0, Speed));
+            UpAmount -= Speed;
         }
+        
     }
 
     void MoveCameraDown()
@@ -96,9 +63,6 @@ public class CameraController : MonoBehaviour
         }
     }
     #endregion
-
-
-
     #region DebugCheck
 
     void GetVaribles()
