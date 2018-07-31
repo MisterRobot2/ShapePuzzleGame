@@ -36,13 +36,6 @@ public class Coin : MonoBehaviour
     void CollectCoin()
     {
         GameObject.Destroy(this.gameObject);
-        if(DataBase.currentTeamNumber == 1){
-            DataBase.team1coins++;
-        } 
-        else if (DataBase.currentTeamNumber == 2)
-        {
-            DataBase.team2coins++;
-        }
     }
 
     #region debugCheckFunctions

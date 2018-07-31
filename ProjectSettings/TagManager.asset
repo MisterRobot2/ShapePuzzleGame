@@ -8,7 +8,6 @@ TagManager:
   - Spawner
   - Block
   - ShapePreview
-  - Camera
   layers:
   - Default
   - TransparentFX
