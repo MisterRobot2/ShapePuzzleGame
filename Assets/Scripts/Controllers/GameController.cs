@@ -266,7 +266,7 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if((enterNamePannel.active == true) && currentTeamNumber == 2){
+        if((enterNamePannel.activeInHierarchy == true) && currentTeamNumber == 2){
             if((team1ColorValue == pickAColorDropdown.value)){
                 enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Different Color";
                 submitButton.enabled = false;
