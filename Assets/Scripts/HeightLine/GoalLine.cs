@@ -23,13 +23,13 @@ public class GoalLine : MonoBehaviour
     private float goalHeight;
     
     private float initalHeight;
-    public float height;
+    private float height;
 
 
     // Use this for initialization
     void Start ()
     {
-        GetVaribles();
+        DebugCheck();
         heightScript = heightLine.GetComponent<HeightLine>();
         initalHeight = heightScript.initalHeight;
         goalHeight += Random.Range(Mathf.Round(goalHeightMin),Mathf.Round(GoalHeightMax));
@@ -81,12 +81,25 @@ public class GoalLine : MonoBehaviour
     #endregion
 
     #region debugCheckFunctions
-    void GetVaribles()
+    void DebugCheck()
     {
         heightLine = GameObject.Find("HeightLine");
         text = GameObject.Find("Goal Text").GetComponent<TextMesh>();
         moveTextScript = text.GetComponent<MoveText>();
 
+        if (heightLine == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'HeightLine' in scene, Please Make sure you name it correctly or change the name in the script.");
+        }
+
+        if (text == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " Cant find refrence Of: 'Goal Text' in scene, Please Make sure you name it correctly or change the name in the script.");
+        }
+        if (moveTextScript == null)
+        {
+            Debug.LogWarning(this.gameObject.name + " please make sure that the MoveText component is on it");
+        }
     }
     #endregion
 }

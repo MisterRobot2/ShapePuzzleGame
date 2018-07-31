@@ -8,8 +8,8 @@ public class ShapeMovement : MonoBehaviour
     public bool isFrozen;
     public GameObject shape;
     public bool canBeControlled = true;
-    public Rigidbody2D rb;
 
+    private Rigidbody2D rb;
     [SerializeField]
     [Range(0, 20)]
     public float movementSpeed = DataBase.speed;
@@ -62,6 +62,11 @@ public class ShapeMovement : MonoBehaviour
             DataBase.blocksPlacedInGame++;
             hasCollided = true;
         }
+        if (collision.gameObject.tag == "Platform") // add this in the platform controller for better results - Ethan
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            isFrozen = true;
+        }                                           //<-----
     }
 
     IEnumerator Freeze()
