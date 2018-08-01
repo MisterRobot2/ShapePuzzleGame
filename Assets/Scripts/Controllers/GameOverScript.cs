@@ -40,7 +40,7 @@ public class GameOverScript : MonoBehaviour
                 {
                     lossCounter++;
                     DataBase.canSpawnShape = false;
-                    totalScore = Mathf.RoundToInt(heightLineScript.height);
+                    totalScore = heightLineScript.height;
                     DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
                     PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
 

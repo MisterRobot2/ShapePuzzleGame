@@ -30,8 +30,9 @@ public class ObjectEffectsScript : MonoBehaviour {
 
     IEnumerator particleTimer()
     {
-        if(doParticleWhenHitBlock)
+        if(doParticleWhenHitBlock || doOnlyParticlesWhenChange)
         {
+            objectToBeActivated.GetComponent<ParticleSystem>().Stop();
             objectToBeActivated.GetComponent<ParticleSystem>().Play();
         }else
         {
@@ -56,7 +57,7 @@ public class ObjectEffectsScript : MonoBehaviour {
             //if you want the block to swap sprites when hitting a block
             if (sprites.Length != 0)
             {
-                if (currentAnimationNumber >= AnimationTriggerNames.Length)
+                if (currentSpriteNumber >= sprites.Length)
                 {
                     return;
                 }
@@ -94,8 +95,11 @@ public class ObjectEffectsScript : MonoBehaviour {
                     }
                 }
             }
-
-            StartCoroutine(particleTimer());
+            if(!doOnlyParticlesWhenChange)
+            {
+                StartCoroutine(particleTimer());
+            }
+            
         }
            
     }
@@ -103,9 +107,9 @@ public class ObjectEffectsScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-	    if(doParticleWhenHitBlock)
+	    if(doParticleWhenHitBlock || doOnlyParticlesWhenChange)
         {
-            objectToBeActivated.GetComponent<ParticleSystem>().Pause();
+            objectToBeActivated.GetComponent<ParticleSystem>().Stop();
         }
 
         //makes first sprite in sprites the sprite to render
