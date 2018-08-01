@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 114959539669540658}
   - component: {fileID: 114716520376518824}
   - component: {fileID: 60222702378943204}
+  - component: {fileID: 82867949160019352}
+  - component: {fileID: 50523938081996288}
   m_Layer: 9
   m_Name: Bookshelf
   m_TagString: Block
@@ -74,6 +76,26 @@ Transform:
   m_Father: {fileID: 4564403160835222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!50 &50523938081996288
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861447394262514}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60222702378943204
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -115,6 +137,101 @@ PolygonCollider2D:
       - {x: 0.6438126, y: -1.1344507}
       - {x: 0.64, y: -1.2049999}
       - {x: 0.88, y: -1.2049999}
+--- !u!82 &82867949160019352
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861447394262514}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 66544cb8bc5a669489cbb01b1a7e89f7, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114716520376518824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,9 +257,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad54dfe69420ca4448d80d209d4f4338, type: 3}
   - {fileID: 21300000, guid: 94c913b73b1b33e4a8900c727b863168, type: 3}
   AnimationTriggerNames: []
-  timeToBeEnabled: 0
-  rarityOfChangingAnimation: 2
-  rarityOfChangingSprite: 0
+  timeToBeEnabled: 1
+  rarityOfChangingAnimation: 0
+  rarityOfChangingSprite: 3
   objectToBeActivated: {fileID: 1661564065192222}
 --- !u!114 &114959539669540658
 MonoBehaviour:
@@ -167,7 +284,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661564065192222}
   serializedVersion: 5
-  lengthInSec: 2
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   looping: 1
@@ -1096,7 +1213,7 @@ ParticleSystem:
       cycleCount: 1
       repeatInterval: 0.01
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1109,19 +1226,46 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          time: 0.030863069
+          value: 0.9393942
+          inSlope: -0.03243982
+          outSlope: -0.03243982
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
+          outWeight: 0.23550676
+        - serializedVersion: 3
+          time: 0.49276882
+          value: 0.9698684
+          inSlope: -0.064382516
+          outSlope: -0.064382516
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 1
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.9412429
+          value: 0.95771956
+          inSlope: 0.030062003
+          outSlope: 0.030062003
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.18279038
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -1.9695776
+          outSlope: -1.9695776
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.5126051
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4788,7 +4932,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_RenderMode: 0
-  m_SortMode: 0
+  m_SortMode: 2
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
