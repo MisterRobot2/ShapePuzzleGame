@@ -6,11 +6,12 @@ public class ObjectEffectsScript : MonoBehaviour {
 
     public bool doOnCollisionEnter;
     [Tooltip("Should the object play a particle when hitting a block?")]
-    public bool doPlayParticle;
+    public bool doParticleWhenHitBlock;
+    [Tooltip("Should the object play a particle when hitting a block? and only when changing sprites")]
+    public bool doOnlyParticlesWhenChange;
     [Tooltip("Sprites to change to when colliding")]
     public Sprite[] sprites;
-    [Tooltip("Animator you want to play animation from")]
-    public Animator animator;
+
     [Tooltip("Names of triggers you want to play in order")]
     public string[] AnimationTriggerNames;
     
@@ -25,10 +26,11 @@ public class ObjectEffectsScript : MonoBehaviour {
 
     private int currentAnimationNumber = 0;
     private int currentSpriteNumber = 0;
+    private Animator animator;
 
-    IEnumerator timer()
+    IEnumerator particleTimer()
     {
-        if(doPlayParticle)
+        if(doParticleWhenHitBlock)
         {
             objectToBeActivated.GetComponent<ParticleSystem>().Play();
         }else
@@ -37,7 +39,7 @@ public class ObjectEffectsScript : MonoBehaviour {
         }
             
         yield return new WaitForSeconds(timeToBeEnabled);
-        if (doPlayParticle)
+        if (doParticleWhenHitBlock && !doOnlyParticlesWhenChange)
         {
             objectToBeActivated.GetComponent<ParticleSystem>().Stop();
         }else
@@ -62,6 +64,11 @@ public class ObjectEffectsScript : MonoBehaviour {
                 {
                     if (Random.Range(0, rarityOfChangingSprite) == 0)
                     {
+                        //when you particles come during sprite change
+                        if(doOnlyParticlesWhenChange)
+                        {
+                            StartCoroutine(particleTimer());
+                        }
                         this.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSpriteNumber];
                         currentSpriteNumber++;
                     }
@@ -77,13 +84,18 @@ public class ObjectEffectsScript : MonoBehaviour {
                 {
                     if(Random.Range(0,rarityOfChangingAnimation) == 0)
                     {
+                        //when you particles come during animation change
+                        if (doOnlyParticlesWhenChange)
+                        {
+                            StartCoroutine(particleTimer());
+                        }
                         animator.SetBool(AnimationTriggerNames[currentAnimationNumber], true);
                         currentAnimationNumber++;
                     }
                 }
             }
 
-            StartCoroutine(timer());
+            StartCoroutine(particleTimer());
         }
            
     }
@@ -91,14 +103,17 @@ public class ObjectEffectsScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-	    if(doPlayParticle)
+	    if(doParticleWhenHitBlock)
         {
             objectToBeActivated.GetComponent<ParticleSystem>().Pause();
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+        //makes first sprite in sprites the sprite to render
+        if(sprites.Length != 0)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+        }
+
+        animator = this.gameObject.GetComponent<Animator>();
 	}
 }
