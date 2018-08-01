@@ -345,9 +345,10 @@ public class GameController : MonoBehaviour {
     {
         if (DataBase.isPlayerPlaying && DataBase.canSpawnShape == true)
         {
+            dueForBlock = false;
             StartCoroutine(placeBlockCountDown(0));
         }
-        if (DataBase.canSpawnShape == false)
+        else if (DataBase.canSpawnShape == false)
         {
             dueForBlock = true;
         }
@@ -357,9 +358,7 @@ public class GameController : MonoBehaviour {
     {
         if (dueForBlock == true)
         {
-            Debug.Log(dueForBlock);
             SpawnNewBlock();
-            dueForBlock = false;
         }
     }
 

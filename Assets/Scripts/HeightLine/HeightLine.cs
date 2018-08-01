@@ -47,6 +47,7 @@ public class HeightLine : MonoBehaviour
     private bool upSequence;
     private bool downSequence;
     private GameObject topblock = null;
+    private GameObject oldBlock = null;
     private ShapeMovement shapeMoveScript;
     private GameObject collidingObject;
 
@@ -90,7 +91,7 @@ public class HeightLine : MonoBehaviour
         {
             collidingObject = other.gameObject;
 
-            if (topblock == other.gameObject)
+            if (topblock == other.gameObject && other.gameObject == oldBlock)
             {
                 Freeze = true;
             }
@@ -119,6 +120,7 @@ public class HeightLine : MonoBehaviour
     {
         if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
+            oldBlock = other.gameObject;
             collidingObject = other.gameObject;
 
             isColliding = false;
