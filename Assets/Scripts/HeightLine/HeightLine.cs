@@ -9,6 +9,14 @@ public class HeightLine : MonoBehaviour
 
     public float upSpeed = 0.1f;
 
+    // Hiddin public varibles
+
+    // Line movement
+    [HideInInspector]
+    public float initalHeight;
+    [HideInInspector]
+    public float height;
+
     //tags
     [SerializeField]
     private string blockTag = "Block";
@@ -34,15 +42,13 @@ public class HeightLine : MonoBehaviour
     private float currentMoveProgress = 0;
     
     //line movement
-    [HideInInspector]
-    public float initalHeight;
-    [HideInInspector]
-    public float height;
     private bool isColliding = true;
     private bool Freeze;
     private bool upSequence;
     private bool downSequence;
     private GameObject topblock = null;
+    private ShapeMovement shapeMoveScript;
+    private GameObject collidingObject;
 
 
     private void Awake()
@@ -64,8 +70,6 @@ public class HeightLine : MonoBehaviour
         GameOverTriggerFollow();
 	}
 
-    
-
     #region debugCheckFunctions
     void SetVaribles()
     {
@@ -78,32 +82,14 @@ public class HeightLine : MonoBehaviour
     #endregion
 
     #region LineDetection
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == blockTag || collision.gameObject.tag == platformTag)
-        {
-            topblock = collision.gameObject;
-            isColliding = true;
-        }
-        
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == blockTag || collision.gameObject.tag == platformTag)
-        {
-            isColliding = false;
-            downSequence = true;
-            if (topblock == collision.gameObject)
-            {
-                Freeze = false;
-            }
-        }
-        
-    }
+
+    //Trigger enter
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
+            collidingObject = other.gameObject;
+
             if (topblock == other.gameObject)
             {
                 Freeze = true;
@@ -114,19 +100,63 @@ public class HeightLine : MonoBehaviour
             }
             upSequence = true;
         }
+    }
+
+    //Stay colliding
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
+        {
+            collidingObject = other.gameObject;
+
+            topblock = other.gameObject;
+            isColliding = true;
+        }
         
     }
+    //Exit colliding 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
+        {
+            collidingObject = other.gameObject;
+
+            isColliding = false;
+            downSequence = true;
+            if (topblock == other.gameObject)
+            {
+                Freeze = false;
+            }
+        }
+        
+    }
+   
 
     void UpSequence()
     {
-        if (upSequence == true)
+        if (upSequence == true )//&& collidingObject != null)
         {
             if (isColliding == true && Freeze == false)
             {
+                /* if (collidingObject.tag == "Block")
+                 {
+                     if (collidingObject.GetComponent<ShapeMovement>().isFrozen == true)
+                     {
+                         transform.Translate(new Vector2(0, upSpeed));
+                     }
+                 }
+                 else if(collidingObject.tag == "Platform")
+                 {
+
+                 }
+
+                 transform.Translate(new Vector2(0, upSpeed));
+                 */
                 transform.Translate(new Vector2(0, upSpeed));
             }
         }
     }
+
     void DownSequence()
     {
         if (downSequence == true)

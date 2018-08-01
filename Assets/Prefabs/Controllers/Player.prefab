@@ -365,7 +365,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160833954762524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.95, z: -21.56}
+  m_LocalPosition: {x: 0, y: 4, z: -21.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4233724619480396}
@@ -1162,13 +1162,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDownSequence: 0
   upSpeed: 0.05
+  initalHeight: 0
+  height: 0
   blockTag: Block
   platformTag: Platform
   gameOverTrigger: {fileID: 1633189174309790}
   gameOverTriggerOffset: -6
   totalHeightText: {fileID: 0}
-  initalHeight: 0
-  height: 0
 --- !u!114 &114117535844436488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1251,6 +1251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showLine: 0
   UpAmount: 5
+  DebugToggle: {fileID: 0}
 --- !u!114 &114567151548627534
 MonoBehaviour:
   m_ObjectHideFlags: 1

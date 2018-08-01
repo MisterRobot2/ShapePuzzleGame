@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class CameraGoalLine : MonoBehaviour
 {
-    [SerializeField]
-    private bool showLine;
+    public bool showLine;
     [SerializeField]
     private float UpAmount;
 
+    [SerializeField]
+    private Toggle DebugToggle;
     private float lineheight;
 
     //objects
@@ -30,7 +31,7 @@ public class CameraGoalLine : MonoBehaviour
 
     private void Update()
     {
-        HideLine();
+        ShowLine();
     }
 
     //moves the camera up if the height line collides
@@ -65,17 +66,32 @@ public class CameraGoalLine : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         camcontroller = mainCamera.GetComponent<CameraController>();
     }
-    void HideLine()
+
+    void ShowLine()
     {
         if (showLine == false)
         {
             text.GetComponent<MeshRenderer>().enabled = false;
             textureObj.GetComponent<SpriteRenderer>().enabled = false;
+            DebugToggle.isOn = false;
         }
         if (showLine == true)
         {
             text.GetComponent<MeshRenderer>().enabled = true;
             textureObj.GetComponent<SpriteRenderer>().enabled = true;
+            DebugToggle.isOn = true;
+        }
+    }
+
+    public void ToggleLine()
+    {
+        if (showLine == false)
+        {
+            showLine = true;
+        }
+        else if (showLine == true)
+        {
+            showLine = false;
         }
     }
 }
