@@ -147,8 +147,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1518463489967666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.084445, y: 2.0679967, z: 7.057617}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4730662523057742}
   - {fileID: 4486463990523682}
@@ -355,9 +355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doOnCollisionEnter: 1
-  doPlayParticle: 0
+  doParticleWhenHitBlock: 0
+  doOnlyParticlesWhenChange: 0
   sprites: []
-  animator: {fileID: 0}
   AnimationTriggerNames: []
   timeToBeEnabled: 5
   rarityOfChangingAnimation: 0
@@ -377,6 +377,7 @@ MonoBehaviour:
   isFrozen: 0
   shape: {fileID: 0}
   canBeControlled: 1
+  rb: {fileID: 0}
   movementSpeed: 5
 --- !u!198 &198051808816608296
 ParticleSystem:
@@ -511,7 +512,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 18
-      minScalar: 15
+      minScalar: 16
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4136,7 +4137,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 311
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -17933,7 +17934,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 311
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
