@@ -198,6 +198,7 @@ MonoBehaviour:
   isFrozen: 0
   shape: {fileID: 1595548648208530}
   canBeControlled: 1
+  rb: {fileID: 0}
   movementSpeed: 14.899647
 --- !u!212 &212780674673071588
 SpriteRenderer:

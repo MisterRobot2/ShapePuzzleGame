@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     private GameObject teamUIPrefab;
+    [SerializeField]
+    private InputField debugFeild;
 
     private GameObject teamUIObject;
     private GameObject enterNamePannel;
@@ -35,6 +37,8 @@ public class GameController : MonoBehaviour {
     private int currentTeamNumber;
     private Animator teamUIAnimator;
     private int team1ColorValue;
+    private bool dueForBlock = false;
+    private float waitTime;
 
 
 	// Use this for initialization
@@ -266,14 +270,14 @@ public class GameController : MonoBehaviour {
         if (currentTeamNumber == 1 && !DataBase.isGameOver)
         {
             StartCoroutine(showNotificationPannel("Good Job " + team1Name, 2));
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(waitTime);
             StartCoroutine(showNotificationPannel("Now go " + team2Name + "!", 2));
             Turns();
         }
         else if (currentTeamNumber == 2 && !DataBase.isGameOver)
         {
             StartCoroutine(showNotificationPannel("Good Job " + team2Name, 2));
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(waitTime);
             StartCoroutine(showNotificationPannel("Now go " + team1Name + "!", 2));
             Turns();
             
@@ -284,7 +288,9 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if((enterNamePannel.activeInHierarchy == true) && currentTeamNumber == 2){
+        CheckDueForBlock();
+
+        if ((enterNamePannel.activeInHierarchy == true) && currentTeamNumber == 2){
             if((team1ColorValue == pickAColorDropdown.value)){
                 enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Different Color";
                 submitButton.enabled = false;
@@ -293,13 +299,7 @@ public class GameController : MonoBehaviour {
                 submitButton.enabled = true;
             }
         }
-
-
-		if(Input.GetKeyUp(KeyCode.Space) && DataBase.isPlayerPlaying)
-        {
-            StartCoroutine(placeBlockCountDown(0));
-        }
-
+  
         team1CoinText.text = DataBase.team1coins.ToString();
         team2CoinText.text = DataBase.team2coins.ToString();
 
@@ -337,12 +337,33 @@ public class GameController : MonoBehaviour {
             } else{
                 skipButton.enabled = true;
                 buySkipButton.gameObject.SetActive(false);
-
             }
-        }
-
-
+        }  
 	}
 
+    public void SpawnNewBlock()
+    {
+        if (DataBase.isPlayerPlaying && DataBase.canSpawnShape == true)
+        {
+            dueForBlock = false;
+            StartCoroutine(placeBlockCountDown(0));
+        }
+        else if (DataBase.canSpawnShape == false)
+        {
+            dueForBlock = true;
+        }
+    }
 
+    void CheckDueForBlock()
+    {
+        if (dueForBlock == true)
+        {
+            SpawnNewBlock();
+        }
+    }
+
+    public void ChangeWaitTime()
+    {
+        waitTime = float.Parse(debugFeild.text);
+    }
 }
