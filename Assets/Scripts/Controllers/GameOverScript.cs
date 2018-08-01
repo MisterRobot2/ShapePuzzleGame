@@ -8,7 +8,7 @@ public class GameOverScript : MonoBehaviour
     public GameObject gameOverUIPrefab;
     private AudioSource gameOverSound;
 
-    private int totalScore = 0;
+    private float totalScore = 0;
     private int lossCounter = 0;
 
     private ShapeMovement shapeMovementScript;
@@ -19,11 +19,12 @@ public class GameOverScript : MonoBehaviour
     private GameObject mainCamera;
     private CameraController camController;
 
+    public GameObject newHighScoreText;
+
 
     void Start()
     {
-        
-        
+        Debug.Log(DataBase.highScore);
     }
 
     private void Awake()
@@ -44,6 +45,7 @@ public class GameOverScript : MonoBehaviour
                 if (shapeMovementScript.isFrozen == false)
                 {
                     lossCounter++;
+                    DataBase.canSpawnShape = false;
                     totalScore = Mathf.RoundToInt(heightLineScript.height);
                     DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
                     PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
@@ -79,20 +81,14 @@ public class GameOverScript : MonoBehaviour
 
     void UpdateDataBase()
     {
-        //High score
-        if (heightLineScript.height >= totalScore)
-        {
-            DataBase.highScore = heightLineScript.height;
-        }
-
-
         PlayerPrefs.SetInt("Total Blocks Lost", PlayerPrefs.GetInt("Total Blocks Lost") + lossCounter);
         DataBase.totalBlocksLost = PlayerPrefs.GetInt("Total Blocks Lost", lossCounter);
 
-        if (DataBase.totalScore >= PlayerPrefs.GetInt("High Score"))
+        if (totalScore > PlayerPrefs.GetFloat("High Score"))
         {
-            DataBase.highScore = DataBase.totalScore;
-            PlayerPrefs.SetFloat("High Score", DataBase.highScore); 
+            DataBase.highScore = totalScore;
+            PlayerPrefs.SetFloat("High Score", DataBase.highScore);
+            newHighScoreText.SetActive(true);
         }
 
     }

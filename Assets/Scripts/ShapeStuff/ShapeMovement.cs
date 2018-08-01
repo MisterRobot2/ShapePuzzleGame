@@ -92,4 +92,13 @@ public class ShapeMovement : MonoBehaviour
             
         }
     }
+
+    void destoryBlockOnGameOver()
+    {
+        if (DataBase.isGameOver == true && canBeControlled == true)
+        {
+            Destroy(this.gameObject);
+
+        }
+    }
 }

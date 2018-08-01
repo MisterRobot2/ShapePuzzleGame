@@ -45,10 +45,6 @@ public class GoalLine : MonoBehaviour
 
     void SetLineHeight()
     {
-        if (true)
-        {
-
-        }
         //Sets the position of the Line
         this.transform.position = heightLine.transform.position;
         transform.Translate(new Vector2(0, goalHeightIncrement));

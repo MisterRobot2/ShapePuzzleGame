@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &75458784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1899675595477264, guid: 5de0623b57fed314d867ea341eb7773e,
+    type: 2}
+  m_PrefabInternal: {fileID: 642044498}
 --- !u!1 &294522380
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +687,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114247453891816498, guid: 5de0623b57fed314d867ea341eb7773e,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1800260207}
+    - target: {fileID: 114247453891816498, guid: 5de0623b57fed314d867ea341eb7773e,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114663845154989480, guid: 5de0623b57fed314d867ea341eb7773e,
+        type: 2}
+      propertyPath: checkmark
+      value: 
+      objectReference: {fileID: 75458784}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5de0623b57fed314d867ea341eb7773e, type: 2}
   m_IsPrefabAsset: 0
@@ -968,6 +988,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1484963924206302, guid: 5de0623b57fed314d867ea341eb7773e,
     type: 2}
   m_PrefabInternal: {fileID: 642044498}
+--- !u!114 &1800260207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114663845154989480, guid: 5de0623b57fed314d867ea341eb7773e,
+    type: 2}
+  m_PrefabInternal: {fileID: 642044498}
+  m_Script: {fileID: 11500000, guid: 86f4da92dbfa4dd4697915074c017a98, type: 3}
 --- !u!224 &1800260209 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224944094262479022, guid: 5de0623b57fed314d867ea341eb7773e,
