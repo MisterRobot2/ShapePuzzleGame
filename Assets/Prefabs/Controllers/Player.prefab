@@ -1206,8 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39aa64c8349bbd644a5c2dee63df5c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinSpawnXMin: -10
-  coinSpawnXMax: 10
+  coinSpawnXMin: -5
+  coinSpawnXMax: 5
   coinSpawnTimeMin: 0
   coinSpawnTimeMax: 1
   speed: 0.1
