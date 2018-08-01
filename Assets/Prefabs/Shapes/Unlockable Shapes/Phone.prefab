@@ -263,7 +263,10 @@ MonoBehaviour:
   isFrozen: 0
   shape: {fileID: 0}
   canBeControlled: 1
+  rb: {fileID: 0}
   movementSpeed: 5
+  boxCollider: {fileID: 0}
+  polycollider2D: {fileID: 60672990726517102}
 --- !u!114 &114585615265010494
 MonoBehaviour:
   m_ObjectHideFlags: 1

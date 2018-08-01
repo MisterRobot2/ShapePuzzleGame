@@ -21,12 +21,6 @@ public class GameOverScript : MonoBehaviour
 
     public GameObject newHighScoreText;
 
-
-    void Start()
-    {
-        Debug.Log(DataBase.highScore);
-    }
-
     private void Awake()
     {
         Getvaribles();

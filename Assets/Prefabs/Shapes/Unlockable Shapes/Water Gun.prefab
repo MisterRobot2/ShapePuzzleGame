@@ -377,7 +377,10 @@ MonoBehaviour:
   isFrozen: 0
   shape: {fileID: 0}
   canBeControlled: 1
+  rb: {fileID: 0}
   movementSpeed: 5
+  boxCollider: {fileID: 0}
+  polycollider2D: {fileID: 60142172617203202}
 --- !u!198 &198051808816608296
 ParticleSystem:
   m_ObjectHideFlags: 1
