@@ -16,6 +16,8 @@ public class CoinGenerator : MonoBehaviour
     private float speed;
     [SerializeField]
     private float heightOffset;
+    [SerializeField]
+    private GameObject parent;
    
     [SerializeField]
     private GameObject coin;
@@ -57,7 +59,7 @@ public class CoinGenerator : MonoBehaviour
         isMakeingCoins = true;
         
         //makes coins
-        Instantiate(coin,new Vector3(this.transform.position.x + Random.Range(coinSpawnXMin,coinSpawnXMax),this.transform.position.y,this.transform.position.z),Quaternion.identity);
+        Instantiate(coin,new Vector3(this.transform.position.x + Random.Range(coinSpawnXMin,coinSpawnXMax),this.transform.position.y,this.transform.position.z),Quaternion.identity,parent.transform);
 
         yield return new WaitForSeconds(Random.Range(coinSpawnTimeMin, coinSpawnTimeMax));
         isMakeingCoins = false;

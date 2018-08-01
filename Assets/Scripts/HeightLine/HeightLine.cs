@@ -28,10 +28,10 @@ public class HeightLine : MonoBehaviour
     private GameObject Spawner;
     private MoveText moveTextScript;
     [SerializeField]
-    private GameObject gameOverTrigger;
+    //private GameObject gameOverTrigger;
 
     //GameOverTrigger
-    [SerializeField]
+   // [SerializeField]
     private float gameOverTriggerOffset = -5;
     [SerializeField]
     private Text totalHeightText;
@@ -75,7 +75,7 @@ public class HeightLine : MonoBehaviour
     void SetVaribles()
     {
         Spawner = GameObject.Find("Spawner");
-        gameOverTrigger = GameObject.Find("GameOverTrigger");
+        //gameOverTrigger = GameObject.Find("GameOverTrigger");
         text = GameObject.Find("Height Text").GetComponent<TextMesh>();
         moveTextScript = text.GetComponent<MoveText>();
 
@@ -175,7 +175,7 @@ public class HeightLine : MonoBehaviour
 
     void GameOverTriggerFollow()
     {
-        gameOverTrigger.transform.position = (new Vector2(this.transform.position.x, this.transform.position.y + gameOverTriggerOffset));
+       // gameOverTrigger.transform.position = (new Vector2(this.transform.position.x, this.transform.position.y + gameOverTriggerOffset));
         if (height <= 0)
         {
             totalHeightText.text = "How Did you lose with " + height + "Ft "+" Are you even trying?";

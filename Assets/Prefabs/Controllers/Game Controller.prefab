@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamUIPrefab: {fileID: 1580934139083114, guid: feae7a10b0ce60245a689e4b608c26b7,
     type: 2}
+  debugFeild: {fileID: 0}
