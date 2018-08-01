@@ -290,7 +290,7 @@ MonoBehaviour:
   shape: {fileID: 0}
   canBeControlled: 1
   rb: {fileID: 0}
-  movementSpeed: 20
+  movementSpeed: 5
 --- !u!198 &198111456851445206
 ParticleSystem:
   m_ObjectHideFlags: 1
