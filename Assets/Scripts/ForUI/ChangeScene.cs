@@ -9,31 +9,30 @@ public class ChangeScene : MonoBehaviour
     public string nameOfSceneToLoad;
 
     public void LoadGameScene()
-    {      
-        SceneManager.LoadScene("Main");
+    {
         Time.timeScale = 1.0f;
         DataBase.team1coins = 0;
         DataBase.team2coins = 0;
         DataBase.team1Skips = 3;
         DataBase.team2Skips = 3;
-
+        SceneManager.LoadScene("Main");
     }
 
     public void LoadTitleScene()
     {
-        SceneManager.LoadScene("Title");
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Title"); 
     }
 
     public void LoadSceneWithIndex()
     {
-        SceneManager.LoadScene(indexOfSceneToLoad);
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene(indexOfSceneToLoad); 
     }
     public void LoadSceneWithName()
     {
-        SceneManager.LoadScene(nameOfSceneToLoad);
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene(nameOfSceneToLoad);
     }
 
     public void QuitGame()

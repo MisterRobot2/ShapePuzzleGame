@@ -23,8 +23,7 @@ public class GameOverScript : MonoBehaviour
     void Start()
     {
         
-        gameOverUIPrefab.SetActive(false);
-        gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
+        
     }
 
     private void Awake()
@@ -60,6 +59,7 @@ public class GameOverScript : MonoBehaviour
                 if (DataBase.isGameOver == true)
                 {
                     gameOverUIPrefab.SetActive(true);
+                    gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
                     gameOverSound.Play();
                     Time.timeScale = 0.3f;
                 }
