@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     float Speed;
     float initalHeight;
     public float UpAmount;
+    private float oldPos;
 
     //Objects
     GameObject goalLine;
@@ -35,8 +36,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        oldPos = this.transform.position.y;
         moveCameraUp();
         MoveCameraDown();
+        CheckPosition();
     }
 
     #region CameraMovement
@@ -48,6 +51,7 @@ public class CameraController : MonoBehaviour
             transform.Translate(new Vector2(0, Speed));
             UpAmount -= Speed;
         }
+
         
     }
 
@@ -62,7 +66,24 @@ public class CameraController : MonoBehaviour
             }
         }
     }
+
+
     #endregion
+
+    #region Block spawn Check
+    void CheckPosition()
+    {
+        if (oldPos != this.transform.position.y)
+        {
+            DataBase.canSpawnShape = false;
+        }
+        else if(oldPos == this.transform.position.y)
+        {
+            DataBase.canSpawnShape = true;
+        }
+    }
+    #endregion
+
     #region DebugCheck
 
     void GetVaribles()
