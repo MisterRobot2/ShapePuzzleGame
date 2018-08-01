@@ -9,7 +9,6 @@ public static class DataBase
     #region GameVaribles
 
     public static int blocksPlacedInGame = 0;
-    public static int totalScore = 0;
 
     public static bool isPlayerPlaying = false;
     public static int currentTeamNumber;

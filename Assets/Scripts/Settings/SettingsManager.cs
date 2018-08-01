@@ -10,19 +10,33 @@ public class SettingsManager : MonoBehaviour
     private bool isFullScreen;
     #endregion
     public Toggle sound;
-    private bool isAudioPaused = false;
-
+    private int gameCounter = 0;
+    public GameObject checkmark;
 
     #region SpeedSlider
     public Slider speedSlider;
     #endregion
     void Start ()
     {
-      //  DontDestroyOnLoad(this.gameObject);
+        //  DontDestroyOnLoad(this.gameObject);
         FullscreenSetUp();
         speedSlider.minValue = 0;
         speedSlider.maxValue = 20;
-	}
+
+        checkmark.SetActive(false);
+
+        if (gameCounter == 0)
+        {
+            PlayerPrefs.SetInt("Is Audio Paused", 0);
+            checkmark.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("Is Audio Paused") == 0 && gameCounter > 1)
+        {
+            checkmark.SetActive(true);
+        }
+
+        gameCounter++;
+    }
 
     void Update()
     {
@@ -31,13 +45,15 @@ public class SettingsManager : MonoBehaviour
 
     public void ToggleSound()
     {
-        if (sound)
+        if (PlayerPrefs.GetInt("Is Audio Paused") == 0)
         {
-            AudioListener.pause = true;
+            AudioListener.volume = 0;
+            PlayerPrefs.SetInt("Is Audio Paused", 1);
         }
-        else if(!sound)
+        else if(PlayerPrefs.GetInt("Is Audio Paused") == 1)
         {
-            AudioListener.pause = false;
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt("Is Audio Paused", 0);
         }
     }
 
