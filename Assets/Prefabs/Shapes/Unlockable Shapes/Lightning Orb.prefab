@@ -70,8 +70,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377639577798350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22513771, y: 1.702322, z: -9.207751}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4223034160442828}
   m_Father: {fileID: 0}
@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doOnCollisionEnter: 1
-  doPlayParticle: 0
+  doParticleWhenHitBlock: 0
+  doOnlyParticlesWhenChange: 0
   sprites: []
-  animator: {fileID: 95642145855447058}
   AnimationTriggerNames:
   - isCracked
   - isBroken
@@ -291,6 +291,8 @@ MonoBehaviour:
   canBeControlled: 1
   rb: {fileID: 0}
   movementSpeed: 5
+  boxCollider: {fileID: 0}
+  polycollider2D: {fileID: 60548256082731132}
 --- !u!198 &198111456851445206
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -423,7 +425,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -3.67
+      scalar: 1.18
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -945,7 +947,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.73
+      value: 0.09
       mode: 0
       spread: 0
       speed:

@@ -221,6 +221,8 @@ MonoBehaviour:
   canBeControlled: 1
   rb: {fileID: 0}
   movementSpeed: 5
+  boxCollider: {fileID: 0}
+  polycollider2D: {fileID: 60039553031526358}
 --- !u!212 &212666934450026668
 SpriteRenderer:
   m_ObjectHideFlags: 1

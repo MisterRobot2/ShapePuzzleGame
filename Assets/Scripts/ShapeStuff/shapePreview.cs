@@ -14,6 +14,9 @@ public class shapePreview : MonoBehaviour {
     [SerializeField]
     private GameObject newObject;
     private bool destroyBlock = false;
+    [SerializeField]
+    [Tooltip("Place where shapes spawn")]
+    private GameObject parent;
 
     public MeshCreator MeshObjL;
 
@@ -35,7 +38,7 @@ public class shapePreview : MonoBehaviour {
     {
         
         //Creates Preview
-        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)]);
+        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], parent.transform);
         nextShape.transform.position = this.gameObject.transform.position;
         //Get Mesh Creator
         if (nextShape.GetComponent<MeshCreator>() == true)
@@ -53,6 +56,7 @@ public class shapePreview : MonoBehaviour {
         //Takes preview and puts it to spawn spot
         newObject = nextShape;
         newObject.transform.position = GameObject.FindGameObjectWithTag("Spawner").transform.position;
+        newObject.transform.parent = parent.transform;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = true;
 
 

@@ -9,6 +9,8 @@ public class GoalLine : MonoBehaviour
     private HeightLine heightScript;
     private MoveText moveTextScript;
     private GameObject heightLine;
+    [SerializeField]
+    private GameObject parent;
     
     //Platforms
     private float platformCount;
@@ -70,8 +72,7 @@ public class GoalLine : MonoBehaviour
 
     void MakePlatforms()
     {
-        GameObject holder = GameObject.Find("ShapeHolder");
-        GameObject spawnedPlatform = Instantiate(platform, holder.transform);
+        GameObject spawnedPlatform = Instantiate(platform, parent.transform);
         GameObject chiled = spawnedPlatform.transform.GetChild(0).gameObject;
         chiled.transform.position = (new Vector2(0, heightLine.transform.position.y+.25f));
         chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount/100), chiled.transform.localScale.y, chiled.transform.localScale.z));

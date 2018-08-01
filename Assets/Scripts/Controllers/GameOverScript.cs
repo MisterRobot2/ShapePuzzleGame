@@ -21,11 +21,6 @@ public class GameOverScript : MonoBehaviour
 
     public GameObject newHighScoreText;
 
-
-    void Start()
-    {
-    }
-
     private void Awake()
     {
         Getvaribles();

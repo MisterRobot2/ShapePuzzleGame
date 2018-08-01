@@ -41,11 +41,7 @@ sysinfo.txt
 Library/shadercompiler-UnityShaderCompiler.exe0.log
 Library/CurrentLayout.dwlt
 Library/assetDatabase3
-Library/shadercompiler-UnityShaderCompiler.exe0.log
-Library/CurrentLayout.dwlt
-Library/assetDatabase3
-Library/CurrentLayout.dwlt
-Library/assetDatabase3
-Library/CurrentLayout.dwlt
-Library/shadercompiler-UnityShaderCompiler.exe0.log
 
+# strange files from Visual Studio :D 
+.vs/slnx.sqlite
+*.sqlite
