@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 222320827963269320}
   - component: {fileID: 114316440620536826}
   m_Layer: 5
-  m_Name: Options Pannel
+  m_Name: Options Pannel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
