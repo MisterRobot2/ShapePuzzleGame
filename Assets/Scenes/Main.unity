@@ -287,6 +287,10 @@ Prefab:
       propertyPath: cameraGoalLineText
       value: 
       objectReference: {fileID: 1850599098}
+    - target: {fileID: 1006148697972222, guid: 31159758283fc974a94ec1023e6b628d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31159758283fc974a94ec1023e6b628d, type: 2}
   m_IsPrefabAsset: 0
