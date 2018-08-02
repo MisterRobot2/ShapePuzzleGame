@@ -32,7 +32,7 @@ public static class DataBase
     public static int team2Skips = 3;
 
     public static bool canSpawnShape = true;
-
+    //is Toggle on
     public static bool iceBlockToggleIsOn = false;
     public static bool phoneToggleIsOn = false;
     public static bool waterGunToggleIsOn = false;
@@ -40,6 +40,14 @@ public static class DataBase
     public static bool tableToggleIsOn = false;
     public static bool bookToggleIsOn = false;
     public static bool bookShelfToggleIsOn = false;
+    //purchesed
+    public static bool iceBlockBought = false;
+    public static bool phoneBought = false;
+    public static bool waterGunBought = false;
+    public static bool orbBought = false;
+    public static bool tableBought = false;
+    public static bool bookBought = false;
+    public static bool bookShelfBought = false;
 
 
 
