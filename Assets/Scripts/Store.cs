@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public static class Toggles
-{
-    public static bool iceBlockToggleIsOn = false;
-    public static bool phoneToggleIsOn = false;
-    public static bool waterGunToggleIsOn = false;
-    public static bool orbToggleIsOn = false;
-    public static bool tableToggleIsOn = false;
-}
 
 
 public class Store : MonoBehaviour {
@@ -87,45 +79,45 @@ public class Store : MonoBehaviour {
         }
 
         if(iceBlockToggle.isOn == true){
-            Toggles.iceBlockToggleIsOn = true;
+            DataBase.iceBlockToggleIsOn = true;
         } else{
-            Toggles.iceBlockToggleIsOn = false;
+            DataBase.iceBlockToggleIsOn = false;
         }
 
         if (phoneToggle.isOn == true)
         {
-            Toggles.phoneToggleIsOn = true;
+            DataBase.phoneToggleIsOn = true;
         }
         else
         {
-            Toggles.phoneToggleIsOn = false;
+            DataBase.phoneToggleIsOn = false;
         }
 
         if (waterGunToggle.isOn == true)
         {
-            Toggles.waterGunToggleIsOn = true;
+            DataBase.waterGunToggleIsOn = true;
         }
         else
         {
-            Toggles.waterGunToggleIsOn = false;
+            DataBase.waterGunToggleIsOn = false;
         }
 
         if (orbToggle.isOn == true)
         {
-            Toggles.orbToggleIsOn = true;
+            DataBase.orbToggleIsOn = true;
         }
         else
         {
-            Toggles.orbToggleIsOn = false;
+            DataBase.orbToggleIsOn = false;
         }
 
         if (tableToggle.isOn == true)
         {
-            Toggles.tableToggleIsOn = true;
+            DataBase.tableToggleIsOn = true;
         }
         else
         {
-            Toggles.tableToggleIsOn = false;
+            DataBase.tableToggleIsOn = false;
         }
 
 	}
