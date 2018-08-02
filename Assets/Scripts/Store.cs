@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public static class Toggles
+{
+    public static bool iceBlockToggleIsOn = false;
+    public static bool phoneToggleIsOn = false;
+    public static bool waterGunToggleIsOn = false;
+    public static bool orbToggleIsOn = false;
+    public static bool tableToggleIsOn = false;
+}
+
 
 public class Store : MonoBehaviour {
 
@@ -78,8 +87,47 @@ public class Store : MonoBehaviour {
         }
 
         if(iceBlockToggle.isOn == true){
-            
+            Toggles.iceBlockToggleIsOn = true;
+        } else{
+            Toggles.iceBlockToggleIsOn = false;
         }
+
+        if (phoneToggle.isOn == true)
+        {
+            Toggles.phoneToggleIsOn = true;
+        }
+        else
+        {
+            Toggles.phoneToggleIsOn = false;
+        }
+
+        if (waterGunToggle.isOn == true)
+        {
+            Toggles.waterGunToggleIsOn = true;
+        }
+        else
+        {
+            Toggles.waterGunToggleIsOn = false;
+        }
+
+        if (orbToggle.isOn == true)
+        {
+            Toggles.orbToggleIsOn = true;
+        }
+        else
+        {
+            Toggles.orbToggleIsOn = false;
+        }
+
+        if (tableToggle.isOn == true)
+        {
+            Toggles.tableToggleIsOn = true;
+        }
+        else
+        {
+            Toggles.tableToggleIsOn = false;
+        }
+
 	}
 
 
