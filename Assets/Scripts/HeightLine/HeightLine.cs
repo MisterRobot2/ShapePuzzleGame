@@ -103,7 +103,6 @@ public class HeightLine : MonoBehaviour
             {
                 Freeze = false;
             }
-            upSequence = true;
         }
     }
 

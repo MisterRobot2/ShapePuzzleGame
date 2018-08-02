@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour {
     private Animator teamUIAnimator;
     private int team1ColorValue;
     private bool dueForBlock = false;
-    private float waitTime;
+    private float waitTime = 2;
 
 
 	// Use this for initialization
