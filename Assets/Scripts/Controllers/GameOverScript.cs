@@ -57,7 +57,8 @@ public class GameOverScript : MonoBehaviour
                     gameOverUIPrefab.SetActive(true);
                     gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
                     gameOverSound.Play();
-                    Time.timeScale = 0.3f;
+                    DataBase.gameSpeed = 0.3f;
+                    DataBase.freezeGameSpeed = true;
                 }
             }
 

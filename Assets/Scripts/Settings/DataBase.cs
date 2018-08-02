@@ -29,6 +29,11 @@ public static class DataBase
     public static bool canSpawnShape = true;
 
 
+    //Game Speed
+    public static float gameSpeed = 1f;
+    public static bool freezeGameSpeed = false;
+
+
     #endregion
 
     #region PlayerStats
