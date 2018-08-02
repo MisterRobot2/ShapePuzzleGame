@@ -25,7 +25,7 @@ public static class DataBase
     public static int team1coins;
     public static int team2coins;
 
-    public static int totalCoins = 33;
+    public static int totalCoins = 0;
 
     public static int team1Skips = 3;
     public static int team2Skips = 3;
