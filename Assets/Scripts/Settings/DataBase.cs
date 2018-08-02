@@ -14,6 +14,7 @@ public static class DataBase
     public static int currentTeamNumber;
 
     public static float speed;
+    public static float currentHeight;
 
     public static Color32 team1Color;
     public static Color32 team2Color;
