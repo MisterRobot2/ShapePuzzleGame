@@ -44,68 +44,102 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //Create UI Elements/Objects
         #region Create Objects
-        //Create TeamUI
-        teamUIObject = Instantiate(teamUIPrefab);
-        teamUIObject.transform.position = Vector3.zero;
+        //Pass and Play
+        if(DataBase.selectedMode == GameMode.PassAndPlay)
+        {
+            teamUIObject = Instantiate(teamUIPrefab);
+            teamUIObject.transform.position = Vector3.zero;
+        }
+        //Singleplayer
+        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        {
+
+        }
         #endregion
 
-        //Get Objects
-        #region get objects
-        enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
-        submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
+        #region Get Objects
+        //Pass and Play
+        if(DataBase.selectedMode == GameMode.PassAndPlay)
+        {
+            enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
+            submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
+            team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
+            team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>();
+            team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
+            team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
+            team1CoinText = team1Background.transform.Find("team1CoinText").GetComponent<Text>();
+            team2CoinText = team2Background.transform.Find("team2CoinText").GetComponent<Text>();
+            team1Arrow = team1Background.transform.Find("Team 1 Arrow").gameObject;
+            team2Arrow = team2Background.transform.Find("Team 2 Arrow").gameObject;
+            pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
+            teamUIAnimator = teamUIObject.GetComponent<Animator>();
+            notificationPannelText = teamUIObject.transform.Find("NotificationPannel").transform.Find("Text").GetComponent<Text>();
+        }
+        
+        //SinglePlayer
+        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        {
+            
+        }
+
+        //Game Objects
         skipButton = GameObject.Find("Shape Skip Button").GetComponent<Button>();
         buySkipButton = GameObject.Find("Buy Skip Button").GetComponent<Button>();
-        team1Background = teamUIObject.transform.Find("Team Names").Find("Team 1 Background").GetComponent<Image>();
-        team2Background = teamUIObject.transform.Find("Team Names").Find("Team 2 Background").GetComponent<Image>(); ;
-        team1NameText = team1Background.gameObject.transform.Find("Team 1 Name Text").GetComponent<Text>();
-        team2NameText = team2Background.gameObject.transform.Find("Team 2 Name Text").GetComponent<Text>();
-        team1CoinText = team1Background.transform.Find("team1CoinText").GetComponent<Text>();
-        team2CoinText = team2Background.transform.Find("team2CoinText").GetComponent<Text>();
         skipButtonText = GameObject.Find("skipCounter").GetComponent<Text>();
-        team1Arrow = team1Background.transform.Find("Team 1 Arrow").gameObject;
-        team2Arrow = team2Background.transform.Find("Team 2 Arrow").gameObject;
-        pickAColorDropdown = enterNamePannel.transform.Find("Pick a Color Dropdown").gameObject.GetComponent<Dropdown>();
-        teamUIAnimator = teamUIObject.GetComponent<Animator>();
-        notificationPannelText = teamUIObject.transform.Find("NotificationPannel").transform.Find("Text").GetComponent<Text>();
         spawner = GameObject.FindGameObjectWithTag("Spawner");
         #endregion
 
-        //Setup Objects
         #region Setup Objects
-        team1Arrow.SetActive(false);
-        team2Arrow.SetActive(false);
-        enterNamePannel.SetActive(false);
-        submitButton.onClick.AddListener(delegate { submitNamePannel(); });
+        //pass and play
+        if(DataBase.selectedMode == GameMode.PassAndPlay)
+        {
+            team1Arrow.SetActive(false);
+            team2Arrow.SetActive(false);
+            enterNamePannel.SetActive(false);
+            submitButton.onClick.AddListener(delegate { submitNamePannel(); });
+        }
+
+        //Game Setup
         buySkipButton.gameObject.SetActive(false);
         DataBase.blocksPlacedInGame = 0;
         DataBase.isGameOver = true;
         #endregion
 
-        //Start Game
-        openNamePannel(1);
-	}
+        #region Start Game
+        //Pass and Play
+        if (DataBase.selectedMode == GameMode.PassAndPlay)
+        {
+            openNamePannel(1);
+        }
+        //SinglePlayer
+        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        {
 
-    void openNamePannel(int teamNumber)
-    {
-        //if team 1
-        enterNamePannel.SetActive(true);
-        if (teamNumber == 1)
-        {
-            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 1";
-            team1Arrow.SetActive(true);
-            team2Arrow.SetActive(false);
         }
-        //if team 2
-        else if(teamNumber == 2)
-        {
-            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 2";
-            team1Arrow.SetActive(false);
-            team2Arrow.SetActive(true);
-        }
+        #endregion
     }
 
+    void Update()
+    {
+        #region Game Functions
+        CheckDueForBlock();
+        #endregion
+
+        #region MultyPlayer
+        //Pass and Play
+        if (DataBase.selectedMode == GameMode.PassAndPlay)
+        {
+
+            updateTeamValues();
+            testForSameColor();
+            testIfShouldShowSkips();
+        }
+        #endregion
+    }
+
+    #region Multyplayer
+    //public
     public void submitNamePannel()
     {
         //Team 1
@@ -117,14 +151,15 @@ public class GameController : MonoBehaviour {
             changeTeamColor(1);
             team1ColorValue = pickAColorDropdown.value;
             //make player 2 color, a color behind player 1
-            if(team1ColorValue != 0)
+            if (team1ColorValue != 0)
             {
                 pickAColorDropdown.value = team1ColorValue - 1;
-            }else // if player 1 color is 0 then make player 2 color, 1
+            }
+            else // if player 1 color is 0 then make player 2 color, 1
             {
                 pickAColorDropdown.value = 1;
             }
-            
+
             currentTeamNumber = 2;
         }
         //Team 2
@@ -145,44 +180,134 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    IEnumerator showNotificationPannel(string whatToSay,int waitTime)
+    //private
+    void updateTeamValues()
     {
-        notificationPannelText.text = whatToSay;
-        teamUIAnimator.SetBool("isNotificationPannelOpen", true);
-        yield return new WaitForSeconds(waitTime);
-        teamUIAnimator.SetBool("isNotificationPannelOpen", false);
+        //Set Values
+        team1CoinText.text = DataBase.team1coins.ToString();
+        team2CoinText.text = DataBase.team2coins.ToString();
     }
-
-    void showNotificationPannel(string whatToSay,bool StayForever)
+    void testForSameColor()
     {
-        if(StayForever)
+        //Same Color Detection for enterNamePannel
+        if ((enterNamePannel.activeInHierarchy == true) && currentTeamNumber == 2)
+        {
+            if ((team1ColorValue == pickAColorDropdown.value))
+            {
+                enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Different Color";
+                submitButton.enabled = false;
+            }
+            else
+            {
+                enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Color";
+                submitButton.enabled = true;
+            }
+        }
+    }
+    void testIfShouldShowSkips()
+    {
+        //When skips are zero then show buy skips
+        if (currentTeamNumber == 1)
+        {
+            skipButtonText.text = "Skips Left: " + DataBase.team1Skips;
+            if (DataBase.team1Skips == 0)
+            {
+                skipButton.enabled = false;
+                buySkipButton.gameObject.SetActive(true);
+                if (DataBase.team1coins >= 3)
+                {
+                    buySkipButton.enabled = true;
+                }
+                else
+                {
+                    buySkipButton.enabled = false;
+                }
+            }
+            else
+            {
+                skipButton.enabled = true;
+                buySkipButton.gameObject.SetActive(false);
+            }
+        }
+        else if (currentTeamNumber == 2)
+        {
+            skipButtonText.text = "Skips Left: " + DataBase.team2Skips;
+            if (DataBase.team2Skips == 0)
+            {
+                skipButton.enabled = false;
+                buySkipButton.gameObject.SetActive(true);
+                if (DataBase.team2coins >= 3)
+                {
+                    buySkipButton.enabled = true;
+                }
+                else
+                {
+                    buySkipButton.enabled = false;
+                }
+            }
+            else
+            {
+                skipButton.enabled = true;
+                buySkipButton.gameObject.SetActive(false);
+            }
+        }
+    }
+    void openNamePannel(int teamNumber)
+    {
+        //if team 1
+        enterNamePannel.SetActive(true);
+        if (teamNumber == 1)
+        {
+            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 1";
+            team1Arrow.SetActive(true);
+            team2Arrow.SetActive(false);
+        }
+        //if team 2
+        else if (teamNumber == 2)
+        {
+            enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text = "Player 2";
+            team1Arrow.SetActive(false);
+            team2Arrow.SetActive(true);
+        }
+    }
+    void showNotificationPannel(string whatToSay, bool StayForever)
+    {
+        if (StayForever)
         {
             notificationPannelText.text = whatToSay;
             teamUIAnimator.SetBool("isNotificationPannelOpen", true);
-        }else
+        }
+        else
         {
             teamUIAnimator.SetBool("isNotificationPannelOpen", false);
         }
     }
-
     void Turns()
     {
-        if(currentTeamNumber == 1)
+        if (currentTeamNumber == 1)
         {
             team2Arrow.SetActive(true);
             team1Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel("Your Turn, " + team2Name+"!", 2));
+            StartCoroutine(showNotificationPannel("Your Turn, " + team2Name + "!", 2));
             currentTeamNumber = 2;
-        }else if (currentTeamNumber == 2)
+        }
+        else if (currentTeamNumber == 2)
         {
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel("Your Turn, "+team1Name+"!", 2));
+            StartCoroutine(showNotificationPannel("Your Turn, " + team1Name + "!", 2));
             currentTeamNumber = 1;
         }
         DataBase.currentTeamNumber = currentTeamNumber;
         DataBase.isPlayerPlaying = true;
         spawner.GetComponent<shapeSpawner>().SpawnShape();
+    }
+    IEnumerator showNotificationPannel(string whatToSay, int waitTime)
+    {
+        notificationPannelText.text = whatToSay;
+        teamUIAnimator.SetBool("isNotificationPannelOpen", true);
+        yield return new WaitForSeconds(waitTime);
+        teamUIAnimator.SetBool("isNotificationPannelOpen", false);
     }
 
     //Returns color that player picked
@@ -224,7 +349,7 @@ public class GameController : MonoBehaviour {
     void changeTeamColor(int teamNumber)
     {
         //for team 1
-        if(teamNumber == 1)
+        if (teamNumber == 1)
         {
             team1Color = detectPlayerColorChoice();
             team1NameText.text = team1Name;
@@ -233,9 +358,10 @@ public class GameController : MonoBehaviour {
 
             //Debug.Log(team1Color);
 
-        //for team 2
+            //for team 2
 
-        }else if (teamNumber == 2)
+        }
+        else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();
             team2NameText.text = team2Name;
@@ -243,7 +369,12 @@ public class GameController : MonoBehaviour {
             DataBase.team2Color = team2Color;
         }
     }
-	
+    #endregion
+
+    #region singleplayer
+    #endregion
+
+    #region Game Functions
     IEnumerator placeBlockCountDown(int time)
     {
         DataBase.isPlayerPlaying = false;
@@ -252,18 +383,18 @@ public class GameController : MonoBehaviour {
         {
             yield return new WaitForSeconds(1);
             //if there is a game over
-            if(DataBase.isGameOver)
+            if (DataBase.isGameOver)
             {
-                if(currentTeamNumber == 1)
+                if (currentTeamNumber == 1)
                 {
-                    showNotificationPannel("" + team2Name + " WINS!",true);
+                    showNotificationPannel("" + team2Name + " WINS!", true);
                 }
                 else if (currentTeamNumber == 2)
                 {
                     showNotificationPannel("" + team1Name + " WINS!", true);
                 }
                 break;
-            }           
+            }
         }
         #endregion
         #region end of turn
@@ -280,66 +411,13 @@ public class GameController : MonoBehaviour {
             yield return new WaitForSeconds(waitTime);
             StartCoroutine(showNotificationPannel("Now go " + team1Name + "!", 2));
             Turns();
-            
+
         }
         #endregion
     }
 
     // Update is called once per frame
-    void Update ()
-    {
-        CheckDueForBlock();
 
-        if ((enterNamePannel.activeInHierarchy == true) && currentTeamNumber == 2){
-            if((team1ColorValue == pickAColorDropdown.value)){
-                enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Different Color";
-                submitButton.enabled = false;
-            } else{
-                enterNamePannel.transform.Find("Pick a Color Text").GetComponent<Text>().text = "Pick a Color";
-                submitButton.enabled = true;
-            }
-        }
-  
-        team1CoinText.text = DataBase.team1coins.ToString();
-        team2CoinText.text = DataBase.team2coins.ToString();
-
-        if(currentTeamNumber == 1){
-            skipButtonText.text = "Skips Left: " + DataBase.team1Skips;
-            if(DataBase.team1Skips == 0){
-                skipButton.enabled = false;
-                buySkipButton.gameObject.SetActive(true);
-                if (DataBase.team1coins >= 3)
-                {
-                    buySkipButton.enabled = true;
-                }
-                else
-                {
-                    buySkipButton.enabled = false;
-                }
-            } else{
-                skipButton.enabled = true;
-                buySkipButton.gameObject.SetActive(false);
-            }
-        } else if (currentTeamNumber == 2){
-            skipButtonText.text = "Skips Left: " + DataBase.team2Skips;
-            if (DataBase.team2Skips == 0)
-            {
-                skipButton.enabled = false;
-                buySkipButton.gameObject.SetActive(true);
-                if (DataBase.team2coins >= 3)
-                {
-                    buySkipButton.enabled = true;
-                }
-                else
-                {
-                    buySkipButton.enabled = false;
-                }
-            } else{
-                skipButton.enabled = true;
-                buySkipButton.gameObject.SetActive(false);
-            }
-        }  
-	}
 
     public void SpawnNewBlock()
     {
@@ -366,4 +444,7 @@ public class GameController : MonoBehaviour {
     {
         waitTime = float.Parse(debugFeild.text);
     }
+    #endregion
+
+
 }

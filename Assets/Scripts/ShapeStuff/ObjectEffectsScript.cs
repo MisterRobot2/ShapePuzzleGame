@@ -95,7 +95,7 @@ public class ObjectEffectsScript : MonoBehaviour {
                     }
                 }
             }
-            if(!doOnlyParticlesWhenChange)
+            if(!doOnlyParticlesWhenChange && objectToBeActivated != null)
             {
                 StartCoroutine(particleTimer());
             }

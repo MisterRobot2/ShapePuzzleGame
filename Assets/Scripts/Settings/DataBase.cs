@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameMode { SinglePlayer, PassAndPlay, Online };
+
 public static class DataBase
 {
 
     public static GameObject nextShape;
+    public static GameMode selectedMode = GameMode.PassAndPlay;
+
     #region GameVaribles
 
     public static int blocksPlacedInGame = 0;
