@@ -67,8 +67,24 @@ public class shapePreview : MonoBehaviour {
         {
             shapes[7].gameObject.tag = "Untagged";
         }
+        if (DataBase.bookToggleIsOn == true)
+        {
+            shapes[8].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[8].gameObject.tag = "Untagged";
+        }
+        if (DataBase.bookShelfToggleIsOn == true)
+        {
+            shapes[9].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[9].gameObject.tag = "Untagged";
+        }
 
-        foreach(GameObject shape in shapes){
+        foreach (GameObject shape in shapes){
             if(shape.gameObject.tag == "Block"){
                 includedShapes.Add(shape);
             }

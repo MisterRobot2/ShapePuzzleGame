@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1015650247633524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,13 +2590,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006148697972222}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0010000087, y: 0.004999999, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4706114278992950}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4706114278992950
 Transform:
   m_ObjectHideFlags: 1
@@ -3147,7 +3147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 0.2356515}
+  m_Size: {x: 10, y: 0.1}
   m_EdgeRadius: 0
 --- !u!61 &61935994927505716
 BoxCollider2D:
@@ -3692,6 +3692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexOfSceneToLoad: 1
   nameOfSceneToLoad: 
+  selectGameMode: 0
 --- !u!114 &114030534891923370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3931,6 +3932,9 @@ MonoBehaviour:
   - {fileID: 1890792804275456, guid: 35b4b0ceac7024f4f883545ae5f37da9, type: 2}
   - {fileID: 1377639577798350, guid: 75d895e8c1f272248b866de819abb0e9, type: 2}
   - {fileID: 1420998318122754, guid: 8d563f0870856994eae9e3e93ce6cd9c, type: 2}
+  - {fileID: 1336741821316144, guid: 531011ede44215c419a477c31058196c, type: 2}
+  - {fileID: 1861447394262514, guid: 439c78e5ee281b94da31a5b952bd3753, type: 2}
+  includedShapes: []
   createdShapes: []
   nextShape: {fileID: 0}
   newObject: {fileID: 0}
@@ -6624,7 +6628,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224010033301684248}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 20
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 20
   m_OnValueChanged:
@@ -7156,6 +7160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexOfSceneToLoad: 0
   nameOfSceneToLoad: 
+  selectGameMode: 0
 --- !u!114 &114747155942052360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7414,6 +7419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexOfSceneToLoad: 0
   nameOfSceneToLoad: 
+  selectGameMode: 0
 --- !u!114 &114808608980726392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7882,7 +7888,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3bdc6c70857eb47863a80c2b898468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stars: {fileID: 198745416258923564}
+  starsGameObject: {fileID: 1006148697972222}
+  heightText: {fileID: 1562292449717322}
+  goalLineText: {fileID: 1785159072781232}
+  cameraGoalLineText: {fileID: 1471942260523284}
 --- !u!114 &114943787123885570
 MonoBehaviour:
   m_ObjectHideFlags: 1
