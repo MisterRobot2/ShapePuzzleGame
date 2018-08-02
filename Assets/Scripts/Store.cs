@@ -3,182 +3,175 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+public enum ItemType {Orb,Phone,Table,IceCube,Book,Bookshelf,WaterGun}
 
 public class Store : MonoBehaviour {
 
-    private Button iceBlockBtn;
-    private Button phoneBtn;
-    private Button waterGunBtn;
-    private Button orbBtn;
-    private Button tableBtn;
- 
-    private Toggle iceBlockToggle;
-    private Toggle phoneToggle;
-    private Toggle waterGunToggle;
-    private Toggle orbToggle;
-    private Toggle tableToggle;
-
-
+    public ItemType item;
+    public int cost;
     private Text totalCoinsText;
 
-
-	// Use this for initialization
-	void Start () {
-
-        iceBlockBtn = GameObject.Find("Buy Button (Ice Block)").gameObject.GetComponent<Button>();
-        phoneBtn = GameObject.Find("Buy Button (Phone)").gameObject.GetComponent<Button>();
-        waterGunBtn = GameObject.Find("Buy Button (Water Gun)").gameObject.GetComponent<Button>();
-        orbBtn = GameObject.Find("Buy Button (Orb)").gameObject.GetComponent<Button>();
-        tableBtn = GameObject.Find("Buy Button (Table)").gameObject.GetComponent<Button>();
-
-
-
-        iceBlockToggle = GameObject.Find("Include Toggle (Ice Block)").gameObject.GetComponent<Toggle>();
-        phoneToggle = GameObject.Find("Include Toggle (Phone)").gameObject.GetComponent<Toggle>();
-        waterGunToggle = GameObject.Find("Include Toggle (Water Gun)").gameObject.GetComponent<Toggle>();
-        orbToggle = GameObject.Find("Include Toggle (Orb)").gameObject.GetComponent<Toggle>();
-        tableToggle = GameObject.Find("Include Toggle (Table)").gameObject.GetComponent<Toggle>();
-
-
+    void Start()
+    {
         totalCoinsText = GameObject.Find("Total Coins Text").gameObject.GetComponent<Text>();
-
-
-        //set up
-        iceBlockBtn.enabled = false;
-        phoneBtn.enabled = false;
-        waterGunBtn.enabled = false;
-        orbBtn.enabled = false;
-        tableBtn.enabled = false;
-
-        iceBlockToggle.enabled = false;
-        phoneToggle.enabled = false;
-        waterGunToggle.enabled = false;
-        orbToggle.enabled = false;
-        tableToggle.enabled = false;
-
-
         totalCoinsText.text = DataBase.totalCoins.ToString();
+        
+        this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#af6f01>$"+cost+"</color>";
+        this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().onValueChanged.AddListener(delegate { toggleChange(); });
+        this.gameObject.GetComponent<Button>().onClick.AddListener(delegate { buttonClick(); });
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if(DataBase.totalCoins >= 10){
-            iceBlockBtn.enabled = true;
-            phoneBtn.enabled = true;
-            waterGunBtn.enabled = true;
-            orbBtn.enabled = true;
-            tableBtn.enabled = true;
-        } else{
-            iceBlockBtn.enabled = false;
-            phoneBtn.enabled = false;
-            waterGunBtn.enabled = false;
-            orbBtn.enabled = false;
-            tableBtn.enabled = false;
-        }
+    private void Awake()
+    {
+        this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = false;
+        this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = false;
+    }
 
-        if(iceBlockToggle.isOn == true){
-            DataBase.iceBlockToggleIsOn = true;
-        } else{
-            DataBase.iceBlockToggleIsOn = false;
-        }
-
-        if (phoneToggle.isOn == true)
+    // Update is called once per frame
+    void Update()
+    {
+        if (DataBase.totalCoins >= 10)
         {
-            DataBase.phoneToggleIsOn = true;
+            this.gameObject.GetComponent<Button>().enabled = true;
         }
         else
         {
-            DataBase.phoneToggleIsOn = false;
+            this.gameObject.GetComponent<Button>().enabled = false;
         }
+    }
 
-        if (waterGunToggle.isOn == true)
+    public void buttonClick()
+    {
+        switch (item)
         {
-            DataBase.waterGunToggleIsOn = true;
-        }
-        else
-        {
-            DataBase.waterGunToggleIsOn = false;
-        }
+            case ItemType.Phone:
+                buyItem();
+                DataBase.phoneToggleIsOn = true;
+                break;
+            case ItemType.IceCube:
+                buyItem();
+                DataBase.iceBlockToggleIsOn = true;
+                break;
+            case ItemType.Book:
+                buyItem();
+                DataBase.bookToggleIsOn = true;
+                break;
+            case ItemType.Bookshelf:
+                buyItem();
+                DataBase.bookShelfToggleIsOn = true;
 
-        if (orbToggle.isOn == true)
-        {
-            DataBase.orbToggleIsOn = true;
-        }
-        else
-        {
-            DataBase.orbToggleIsOn = false;
-        }
+                break;
+            case ItemType.WaterGun:
+                buyItem();
+                DataBase.waterGunToggleIsOn = true;
+                break;
+            case ItemType.Orb:
+                buyItem();
+                DataBase.orbToggleIsOn = true;
+                break;
+            case ItemType.Table:
+                buyItem();
+                DataBase.tableToggleIsOn = true;
+                break;
 
-        if (tableToggle.isOn == true)
-        {
-            DataBase.tableToggleIsOn = true;
+            default:
+                break;
         }
-        else
-        {
-            DataBase.tableToggleIsOn = false;
-        }
-
-	}
-
+    }
 
     public void updateCoins(){
-        DataBase.totalCoins -= 10;
+        DataBase.totalCoins -= cost;
         totalCoinsText.text = DataBase.totalCoins.ToString();  
     }
 
-    public void iceBlockBtnClick(){
-        iceBlockBtn.gameObject.GetComponentInChildren<Text>().text = "Purchased";
-        iceBlockBtn.transform.Find("Image").GetComponent<Image>().enabled = false;
-        iceBlockBtn.GetComponent<Image>().enabled = false;
-        iceBlockToggle.enabled = true;
-        iceBlockToggle.isOn = true;
+    void toggleChange()
+    {
+        switch (item)
+        {
+            case ItemType.Phone:
+                if(gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
+                
+                break;
+            case ItemType.IceCube:
+                if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }
+                else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
+                break;
+            case ItemType.Book:
+                if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }
+                else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
+                break;
+            case ItemType.Bookshelf:
+                if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }
+                else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
 
-        updateCoins();
+                break;
+            case ItemType.WaterGun:
+                if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }
+                else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
+                break;
+            case ItemType.Orb:
+                if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }
+                else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
+                break;
+            case ItemType.Table:
+                if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
+                {
+                    DataBase.phoneToggleIsOn = true;
+                }
+                else
+                {
+                    DataBase.phoneToggleIsOn = false;
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
-    public void phoneBtnClick()
+   void buyItem()
     {
-        phoneBtn.gameObject.GetComponentInChildren<Text>().text = "Purchased";
-        phoneBtn.transform.Find("Image").GetComponent<Image>().enabled = false;
-        phoneBtn.GetComponent<Image>().enabled = false;
-        phoneToggle.enabled = true;
-        phoneToggle.isOn = true;
-
-        updateCoins();
-    }
-
-    public void waterGunBtnClick()
-    {
-        waterGunBtn.gameObject.GetComponentInChildren<Text>().text = "Purchased";
-        waterGunBtn.transform.Find("Image").GetComponent<Image>().enabled = false;
-        waterGunBtn.GetComponent<Image>().enabled = false;
-        waterGunToggle.enabled = true;
-        waterGunToggle.isOn = true;
-
-        updateCoins();
-    }
-
-    public void orbBtnClick()
-    {
-        orbBtn.gameObject.GetComponentInChildren<Text>().text = "Purchased";
-        orbBtn.transform.Find("Image").GetComponent<Image>().enabled = false;
-        orbBtn.GetComponent<Image>().enabled = false;
-        orbToggle.enabled = true;
-        orbToggle.isOn = true;
-
-        updateCoins();
-    }
-
-    public void tableBtnClick()
-    {
-        tableBtn.gameObject.GetComponentInChildren<Text>().text = "Purchased";
-        tableBtn.transform.Find("Image").GetComponent<Image>().enabled = false;
-        tableBtn.GetComponent<Image>().enabled = false;
-        tableToggle.enabled = true;
-        tableToggle.isOn = true;
-
+        this.gameObject.transform.Find("Text").GetComponentInChildren<Text>().text = "<color=#4b9b00>Purchased</color>";
+        this.gameObject.GetComponent<Image>().enabled = false;
+        this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
+        this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
+        this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
         updateCoins();
     }
 }

@@ -25,7 +25,7 @@ public static class DataBase
     public static int team1coins;
     public static int team2coins;
 
-    public static int totalCoins = 0;
+    public static int totalCoins = 9999999;
 
     public static int team1Skips = 3;
     public static int team2Skips = 3;
@@ -37,6 +37,8 @@ public static class DataBase
     public static bool waterGunToggleIsOn = false;
     public static bool orbToggleIsOn = false;
     public static bool tableToggleIsOn = false;
+    public static bool bookToggleIsOn = false;
+    public static bool bookShelfToggleIsOn = false;
 
 
 
