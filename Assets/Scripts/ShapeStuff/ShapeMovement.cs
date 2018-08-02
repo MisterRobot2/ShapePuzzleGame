@@ -39,6 +39,12 @@ public class ShapeMovement : MonoBehaviour
     {
         movementSpeed = DataBase.speed;
 
+        if (canBeControlled == true)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
+        }
+        
+
         if (canBeControlled == true && DataBase.isPlayerPlaying)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -113,6 +119,7 @@ public class ShapeMovement : MonoBehaviour
     {
         if (DataBase.isGameOver == true && canBeControlled == true)
         {
+            Debug.Log(DataBase.isGameOver);
             Destroy(this.gameObject);
 
         }
