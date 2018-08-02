@@ -155,7 +155,7 @@ public class Store : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (DataBase.totalCoins >= 10)
+        if (DataBase.totalCoins >= cost)
         {
             this.gameObject.GetComponent<Button>().enabled = true;
         }
