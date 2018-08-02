@@ -95,6 +95,8 @@ public class shapePreview : MonoBehaviour {
             newObject.AddComponent<BoxCollider2D>();
         }else if (newObject.GetComponent<MeshObjL>() == true){
             newObject.AddComponent<PolygonCollider2D>();
+            newObject.GetComponent<ShapeMovement>().polycollider2D = newObject.GetComponent<PolygonCollider2D>();
+            newObject.GetComponent<ShapeMovement>().RemoveColliders();
             Vector3[] temp = new Vector3[8];
             temp = newObject.GetComponent<MeshObjL>().vertices;
             Vector2[] vertices2 = new Vector2[temp.Length + 1];
@@ -181,6 +183,8 @@ public class shapePreview : MonoBehaviour {
         if (newObject.GetComponent<MeshCreator>() == true)
         {
             newObject.AddComponent<BoxCollider2D>();
+            newObject.GetComponent<ShapeMovement>().boxCollider = newObject.GetComponent<BoxCollider2D>();
+            newObject.GetComponent<ShapeMovement>().RemoveColliders();
         }
         else if (newObject.GetComponent<MeshObjL>() == true)
         {
