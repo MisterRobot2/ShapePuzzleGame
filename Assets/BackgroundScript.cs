@@ -26,7 +26,7 @@ public class BackgroundScript : MonoBehaviour {
 	
 	void Update () {
 
-        if (DataBase.currentHeight >= 50)
+        if (DataBase.currentHeight >= 40)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.Lerp(currentColor, Color.black, progress);
 
@@ -44,7 +44,7 @@ public class BackgroundScript : MonoBehaviour {
                 cameraGoalLineText.GetComponent<TextMesh>().color = Color.white;
             }
         }
-        else if(DataBase.currentHeight < 50)
+        else if(DataBase.currentHeight < 40)
         {
            // stars.Stop();
            // starsGameObject.SetActive(false);
