@@ -58,7 +58,7 @@ public class ShapeMovement : MonoBehaviour
                 this.gameObject.transform.Translate(new Vector3(movementSpeed * Time.deltaTime, 0, 0), Space.World);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
-            else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) && DataBase.canSpawnShape == true)
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
@@ -109,7 +109,7 @@ public class ShapeMovement : MonoBehaviour
             if (canBeControlled == true)
             {
                 GameObject spawner = GameObject.Find("Spawner");
-                this.transform.position = new Vector2(this.transform.position.x, spawner.transform.position.y);
+                this.transform.position = new Vector3(this.transform.position.x, spawner.transform.position.y,-1);
             }
             
         }
