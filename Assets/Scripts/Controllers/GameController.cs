@@ -4,15 +4,17 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-public class GameController : MonoBehaviour {
-
-
+public class GameController : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject teamUIPrefab;
     [SerializeField]
+    private GameObject singlePlayerPrefab;
+    [SerializeField]
     private InputField debugFeild;
 
+    private GameObject singlePlayerObject;
     private GameObject teamUIObject;
     private GameObject enterNamePannel;
     private GameObject team1Arrow;
@@ -37,7 +39,7 @@ public class GameController : MonoBehaviour {
     private int currentTeamNumber;
     private Animator teamUIAnimator;
     private int team1ColorValue;
-    private bool dueForBlock = false;
+    private bool isDueForBlock = false;
     private float waitTime;
 
 
@@ -54,7 +56,8 @@ public class GameController : MonoBehaviour {
         //Singleplayer
         if(DataBase.selectedMode == GameMode.SinglePlayer)
         {
-
+            singlePlayerObject = Instantiate(singlePlayerPrefab);
+            singlePlayerObject.transform.position = Vector3.zero;
         }
         #endregion
 
@@ -115,7 +118,8 @@ public class GameController : MonoBehaviour {
         //SinglePlayer
         if(DataBase.selectedMode == GameMode.SinglePlayer)
         {
-
+            singlePlayerObject.SetActive(true);
+            GameObject.Find("Play Button").GetComponent<Button>().onClick.AddListener(delegate { startSingleplayerGame(); });
         }
         #endregion
     }
@@ -372,6 +376,12 @@ public class GameController : MonoBehaviour {
     #endregion
 
     #region singleplayer
+    void startSingleplayerGame()
+    {
+        GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
+        singlePlayerObject.SetActive(false);
+        DataBase.isPlayerPlaying = true;
+    }
     #endregion
 
     #region Game Functions
@@ -423,18 +433,18 @@ public class GameController : MonoBehaviour {
     {
         if (DataBase.isPlayerPlaying && DataBase.canSpawnShape == true)
         {
-            dueForBlock = false;
+            isDueForBlock = false;
             StartCoroutine(placeBlockCountDown(0));
         }
         else if (DataBase.canSpawnShape == false)
         {
-            dueForBlock = true;
+            isDueForBlock = true;
         }
     }
 
     void CheckDueForBlock()
     {
-        if (dueForBlock == true)
+        if (isDueForBlock == true)
         {
             SpawnNewBlock();
         }
