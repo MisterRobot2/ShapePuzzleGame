@@ -32,6 +32,13 @@ public static class DataBase
 
     public static bool canSpawnShape = true;
 
+    public static bool iceBlockToggleIsOn = false;
+    public static bool phoneToggleIsOn = false;
+    public static bool waterGunToggleIsOn = false;
+    public static bool orbToggleIsOn = false;
+    public static bool tableToggleIsOn = false;
+
+
 
     //Game Speed
     public static float gameSpeed = 1f;

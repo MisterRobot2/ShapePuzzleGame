@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class Store : MonoBehaviour {
 
     private Button iceBlockBtn;
@@ -78,8 +79,47 @@ public class Store : MonoBehaviour {
         }
 
         if(iceBlockToggle.isOn == true){
-            
+            DataBase.iceBlockToggleIsOn = true;
+        } else{
+            DataBase.iceBlockToggleIsOn = false;
         }
+
+        if (phoneToggle.isOn == true)
+        {
+            DataBase.phoneToggleIsOn = true;
+        }
+        else
+        {
+            DataBase.phoneToggleIsOn = false;
+        }
+
+        if (waterGunToggle.isOn == true)
+        {
+            DataBase.waterGunToggleIsOn = true;
+        }
+        else
+        {
+            DataBase.waterGunToggleIsOn = false;
+        }
+
+        if (orbToggle.isOn == true)
+        {
+            DataBase.orbToggleIsOn = true;
+        }
+        else
+        {
+            DataBase.orbToggleIsOn = false;
+        }
+
+        if (tableToggle.isOn == true)
+        {
+            DataBase.tableToggleIsOn = true;
+        }
+        else
+        {
+            DataBase.tableToggleIsOn = false;
+        }
+
 	}
 
 
