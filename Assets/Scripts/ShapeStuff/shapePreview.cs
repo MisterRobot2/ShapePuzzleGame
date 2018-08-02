@@ -5,6 +5,7 @@ public class shapePreview : MonoBehaviour {
 
 
     public GameObject[] shapes = new GameObject[] { };
+    public List<GameObject> includedShapes = new List<GameObject>();
     public List<GameObject> createdShapes = new List<GameObject>();
 
     private Camera previewCamera;
@@ -23,6 +24,57 @@ public class shapePreview : MonoBehaviour {
     private void Start()
     {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
+
+        //Check toggle in store to figure out which shapes to include
+        if(DataBase.iceBlockToggleIsOn == true){
+            shapes[2].gameObject.tag = "Block";
+        }else{
+            shapes[2].gameObject.tag = "Untagged";
+        }
+
+        if (DataBase.phoneToggleIsOn == true)
+        {
+            shapes[5].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[5].gameObject.tag = "Untagged";
+        }
+
+        if (DataBase.waterGunToggleIsOn == true)
+        {
+            shapes[4].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[4].gameObject.tag = "Untagged";
+        }
+
+        if (DataBase.orbToggleIsOn == true)
+        {
+            shapes[6].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[6].gameObject.tag = "Untagged";
+        }
+
+        if (DataBase.tableToggleIsOn == true)
+        {
+            shapes[7].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[7].gameObject.tag = "Untagged";
+        }
+
+        foreach(GameObject shape in shapes){
+            if(shape.gameObject.tag == "Block"){
+                includedShapes.Add(shape);
+            }
+        }
+
+
     }
 
     private void Update()
@@ -38,7 +90,7 @@ public class shapePreview : MonoBehaviour {
     {
         
         //Creates Preview
-        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], parent.transform);
+        nextShape = GameObject.Instantiate(includedShapes[Random.Range(0, includedShapes.Count)], parent.transform);
         nextShape.transform.position = this.gameObject.transform.position;
         //Get Mesh Creator
         if (nextShape.GetComponent<MeshCreator>() == true)
@@ -118,7 +170,7 @@ public class shapePreview : MonoBehaviour {
 
 
         //Make new Preview
-        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
+        nextShape = GameObject.Instantiate(includedShapes[Random.Range(0, includedShapes.Count)], this.gameObject.transform);
         nextShape.transform.position = this.gameObject.transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = false;
         //Get Mesh Creator
@@ -204,7 +256,7 @@ public class shapePreview : MonoBehaviour {
 
 
         //Make new Preview
-        nextShape = GameObject.Instantiate(shapes[Random.Range(0, shapes.Length)], this.gameObject.transform);
+        nextShape = GameObject.Instantiate(includedShapes[Random.Range(0, includedShapes.Count)], this.gameObject.transform);
         nextShape.transform.position = this.gameObject.transform.position;
         nextShape.GetComponent<ShapeMovement>().canBeControlled = false;
         //Get Mesh Creator

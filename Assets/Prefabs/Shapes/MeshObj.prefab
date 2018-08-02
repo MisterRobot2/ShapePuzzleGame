@@ -232,4 +232,7 @@ MonoBehaviour:
   isFrozen: 0
   shape: {fileID: 0}
   canBeControlled: 1
+  rb: {fileID: 0}
   movementSpeed: 20
+  boxCollider: {fileID: 0}
+  polycollider2D: {fileID: 0}

@@ -7,6 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
     public int indexOfSceneToLoad;
     public string nameOfSceneToLoad;
+    public GameMode selectGameMode;
 
     public void LoadGameScene()
     {
@@ -22,16 +23,20 @@ public class ChangeScene : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Title"); 
+        DataBase.team1coins = 0;
+        DataBase.team2coins = 0;
     }
 
     public void LoadSceneWithIndex()
     {
         Time.timeScale = 1.0f;
+        DataBase.selectedMode = selectGameMode;
         SceneManager.LoadScene(indexOfSceneToLoad); 
     }
     public void LoadSceneWithName()
     {
         Time.timeScale = 1.0f;
+        DataBase.selectedMode = selectGameMode;
         SceneManager.LoadScene(nameOfSceneToLoad);
     }
 

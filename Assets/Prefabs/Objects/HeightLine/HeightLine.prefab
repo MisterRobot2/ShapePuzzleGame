@@ -171,7 +171,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.005978644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -182,7 +182,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.88, y: 0.1}
+  m_Size: {x: 9.88, y: 0.243487}
   m_EdgeRadius: 0
 --- !u!102 &102490819508827564
 TextMesh:
@@ -218,13 +218,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDownSequence: 0
   upSpeed: 0.05
-  blockTag: Block
-  platformTag: Platform
-  gameOverTrigger: {fileID: 0}
-  gameOverTriggerOffset: -6
-  totalHeightText: {fileID: 0}
   initalHeight: 0
   height: 0
+  blockTag: Block
+  platformTag: Platform
+  gameOverTriggerOffset: -6
+  totalHeightText: {fileID: 0}
 --- !u!114 &114546646548592372
 MonoBehaviour:
   m_ObjectHideFlags: 1

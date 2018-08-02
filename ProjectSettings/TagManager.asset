@@ -10,6 +10,7 @@ TagManager:
   - ShapePreview
   - Camera
   - GoalLine
+  - IncludeBlock
   layers:
   - Default
   - TransparentFX

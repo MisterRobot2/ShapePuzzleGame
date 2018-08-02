@@ -6,12 +6,19 @@ public class PauseGame : MonoBehaviour
 {
    public void Pause()
     {
-        Time.timeScale = 0;
+        if (DataBase.freezeGameSpeed == false)
+        {
+            Time.timeScale = 0;
+        }
+        
     }
 
    public void Continue()
     {
-        Time.timeScale = 1
-            ;
+        if (DataBase.freezeGameSpeed == false)
+        {
+            Time.timeScale = 1;
+        }
+        
     }
 }

@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameMode { SinglePlayer, PassAndPlay, Online };
+
 public static class DataBase
 {
 
     public static GameObject nextShape;
+    public static GameMode selectedMode = GameMode.PassAndPlay;
+
     #region GameVaribles
 
     public static int blocksPlacedInGame = 0;
@@ -22,12 +26,24 @@ public static class DataBase
     public static int team1coins;
     public static int team2coins;
 
-    public static int totalCoins = 33;
+    public static int totalCoins = 0;
 
     public static int team1Skips = 3;
     public static int team2Skips = 3;
 
     public static bool canSpawnShape = true;
+
+    public static bool iceBlockToggleIsOn = false;
+    public static bool phoneToggleIsOn = false;
+    public static bool waterGunToggleIsOn = false;
+    public static bool orbToggleIsOn = false;
+    public static bool tableToggleIsOn = false;
+
+
+
+    //Game Speed
+    public static float gameSpeed = 1f;
+    public static bool freezeGameSpeed = false;
 
 
     #endregion

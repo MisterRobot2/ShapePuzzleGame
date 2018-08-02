@@ -47,9 +47,12 @@ public class HeightLine : MonoBehaviour
     private bool upSequence;
     private bool downSequence;
     private GameObject topblock = null;
-    private GameObject oldBlock = null;
     private ShapeMovement shapeMoveScript;
     private GameObject collidingObject;
+
+    [Range(0,1)]
+    [SerializeField]
+    private float time;
 
 
     private void Awake()
@@ -69,6 +72,7 @@ public class HeightLine : MonoBehaviour
         DownSequence();
         CalculateHeight();
         GameOverTriggerFollow();
+        
 	}
 
     #region debugCheckFunctions
@@ -91,7 +95,7 @@ public class HeightLine : MonoBehaviour
         {
             collidingObject = other.gameObject;
 
-            if (topblock == other.gameObject && other.gameObject == oldBlock)
+            if (topblock == other.gameObject) // <-- Jitter issue
             {
                 Freeze = true;
             }
@@ -111,6 +115,7 @@ public class HeightLine : MonoBehaviour
             collidingObject = other.gameObject;
 
             topblock = other.gameObject;
+            upSequence = true;
             isColliding = true;
         }
         
@@ -120,7 +125,6 @@ public class HeightLine : MonoBehaviour
     {
         if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
-            oldBlock = other.gameObject;
             collidingObject = other.gameObject;
 
             isColliding = false;
@@ -132,8 +136,7 @@ public class HeightLine : MonoBehaviour
         }
         
     }
-   
-
+  
     void UpSequence()
     {
         if (upSequence == true )//&& collidingObject != null)
