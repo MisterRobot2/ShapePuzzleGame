@@ -26,7 +26,7 @@ public class BackgroundScript : MonoBehaviour {
 	
 	void Update () {
 
-        if (DataBase.currentHeight >= 5)
+        if (DataBase.currentHeight >= 50)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.Lerp(currentColor, Color.black, progress);
 

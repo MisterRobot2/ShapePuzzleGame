@@ -6,7 +6,7 @@ public class UpdateGameSpeed : MonoBehaviour
 {
 	void Update ()
     {
-        Time.timeScale = DataBase.gameSpeed;	
+        Time.timeScale = DataBase.gameSpeed;
 	}
 
     private void Start()
