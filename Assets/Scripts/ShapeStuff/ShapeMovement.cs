@@ -20,11 +20,9 @@ public class ShapeMovement : MonoBehaviour
     private AudioSource blockLanding;
     private GameController gamecontroller;
     [Tooltip("Put it in if it has it ")]
-    [SerializeField]
-    private BoxCollider2D boxCollider;
+    public BoxCollider2D boxCollider;
     [Tooltip("Put it in if it has it ")]
-    [SerializeField]
-    private PolygonCollider2D polycollider2D;
+    public PolygonCollider2D polycollider2D;
 
     void Start()
     {
@@ -34,14 +32,7 @@ public class ShapeMovement : MonoBehaviour
         hasCollided = false;
         blockLanding = this.GetComponent<AudioSource>();
 
-        if (polycollider2D != null)
-        {
-            polycollider2D.enabled = false;
-        }
-        else if(boxCollider != null)
-        {
-            boxCollider.enabled = false;
-        }
+        RemoveColliders();
     }
 
     void Update()
@@ -124,6 +115,18 @@ public class ShapeMovement : MonoBehaviour
         {
             Destroy(this.gameObject);
 
+        }
+    }
+
+    public void RemoveColliders()
+    {
+        if (polycollider2D != null)
+        {
+            polycollider2D.enabled = false;
+        }
+        else if (boxCollider != null)
+        {
+            boxCollider.enabled = false;
         }
     }
 }
