@@ -21,6 +21,9 @@ public class GameOverScript : MonoBehaviour
 
     public GameObject newHighScoreText;
 
+    private string winner;
+
+
     private void Awake()
     {
         Getvaribles();
@@ -70,7 +73,16 @@ public class GameOverScript : MonoBehaviour
         DataBase.isGameOver = true;
         camController.goDown = true;
 
-        GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.blocksPlacedInGame;
+        if (DataBase.currentTeamNumber == 1)
+        {
+            winner = DataBase.team2Name;
+        }
+        else if (DataBase.currentTeamNumber == 2)
+        {
+            winner = DataBase.team1Name;
+        }
+
+        GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
         GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + DataBase.highScore;
     }
 

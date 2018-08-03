@@ -78,10 +78,14 @@ public class HeightLine : MonoBehaviour
     #region debugCheckFunctions
     void SetVaribles()
     {
+        GameObject totalHeightTextobject = GameObject.Find("Game Over");
+        totalHeightTextobject.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        totalHeightText = GameObject.Find("New High Score Text").GetComponent<Text>();
         Spawner = GameObject.Find("Spawner");
         //gameOverTrigger = GameObject.Find("GameOverTrigger");
         text = GameObject.Find("Height Text").GetComponent<TextMesh>();
         moveTextScript = text.GetComponent<MoveText>();
+        totalHeightTextobject.gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
     }
     #endregion

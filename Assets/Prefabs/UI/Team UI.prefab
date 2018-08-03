@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 224073260043716578}
   - component: {fileID: 222163659907823576}
   - component: {fileID: 114370706543868878}
-  - component: {fileID: 114806131957810338}
   m_Layer: 5
   m_Name: Enter Name Pannel
   m_TagString: Untagged
@@ -1907,17 +1906,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114806131957810338
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1964432701528006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12543f7f6010d354aa281245be06e13f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114852528591405916
 MonoBehaviour:
   m_ObjectHideFlags: 1

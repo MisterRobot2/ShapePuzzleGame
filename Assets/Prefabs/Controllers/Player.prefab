@@ -553,7 +553,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910544774020232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9, z: -19}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
   m_LocalScale: {x: 8.753036, y: 0.4025112, z: 1}
   m_Children: []
   m_Father: {fileID: 4298895314296478}
@@ -1284,6 +1284,7 @@ MonoBehaviour:
   platformTag: Platform
   gameOverTriggerOffset: -6
   totalHeightText: {fileID: 0}
+  time: 0
 --- !u!114 &114117535844436488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1419,6 +1420,7 @@ MonoBehaviour:
   - {fileID: 1890792804275456, guid: 35b4b0ceac7024f4f883545ae5f37da9, type: 2}
   - {fileID: 1377639577798350, guid: 75d895e8c1f272248b866de819abb0e9, type: 2}
   - {fileID: 1420998318122754, guid: 8d563f0870856994eae9e3e93ce6cd9c, type: 2}
+  includedShapes: []
   createdShapes: []
   nextShape: {fileID: 0}
   newObject: {fileID: 0}
@@ -1482,7 +1484,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 05d87a5b74eee4cbe9e017a71ee00d18, type: 3}
   m_Color: {r: 0.9813129, g: 1, b: 0, a: 1}
   m_FlipX: 0

@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class UpdateGameSpeed : MonoBehaviour
 {
+    private bool iscalled;
 	void Update ()
     {
+        if (iscalled == false)
+        {
+            FirstRun();
+        }
         Time.timeScale = DataBase.gameSpeed;
 	}
 
-    private void Start()
+    void FirstRun()
     {
         DataBase.freezeGameSpeed = false;
-        Time.timeScale = 1;
-        DataBase.gameSpeed = Time.timeScale;
+        DataBase.gameSpeed = 1f;
+        Time.timeScale = 1f;
+        iscalled = true;
     }
+
 }

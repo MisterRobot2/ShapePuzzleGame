@@ -31,6 +31,10 @@ public static class DataBase
     public static int team1Skips = 3;
     public static int team2Skips = 3;
 
+    public static string team1Name;
+    public  static string team2Name;
+
+
     public static bool canSpawnShape = true;
     //is Toggle on
     public static bool iceBlockToggleIsOn = false;
@@ -51,8 +55,12 @@ public static class DataBase
 
     //Game Speed
     public static float gameSpeed = 1f;
+    public static float oldSpeed;
     public static bool freezeGameSpeed = false;
 
+
+    //tutorial
+    public static bool isFirstTime = true;
 
     #endregion
 
