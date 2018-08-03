@@ -50,12 +50,14 @@ public class ShapeMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0),Space.World);
+                this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9),this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             }
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 this.gameObject.transform.Translate(new Vector3(movementSpeed * Time.deltaTime, 0, 0), Space.World);
+                this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9), this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) && DataBase.canSpawnShape == true)
