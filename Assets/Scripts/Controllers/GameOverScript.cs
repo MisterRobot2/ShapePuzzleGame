@@ -82,8 +82,17 @@ public class GameOverScript : MonoBehaviour
             winner = DataBase.team1Name;
         }
 
-        GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
-        GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + DataBase.highScore;
+        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        {
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff><b>" + DataBase.blocksPlacedInGame+"</b></color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore + "</b></color>";
+        }
+        else if(DataBase.selectedMode == GameMode.PassAndPlay)
+        {
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
+        }
+        
     }
 
     void UpdateDataBase()

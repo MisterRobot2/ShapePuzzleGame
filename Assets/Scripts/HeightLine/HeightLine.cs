@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class HeightLine : MonoBehaviour
 {
-    public bool moveDownSequence;
-
     public float upSpeed = 0.1f;
 
     // Hiddin public varibles
@@ -17,42 +15,34 @@ public class HeightLine : MonoBehaviour
     [HideInInspector]
     public float height;
 
+    //Private Varibles
+
     //tags
-    [SerializeField]
     private string blockTag = "Block";
-    [SerializeField]
     private string platformTag = "Platform";
 
     //Objects
     private TextMesh text;
     private GameObject Spawner;
     private MoveText moveTextScript;
-    [SerializeField]
-    //private GameObject gameOverTrigger;
-
-    //GameOverTrigger
-   // [SerializeField]
     private float gameOverTriggerOffset = -5;
-    [SerializeField]
     private Text totalHeightText;
 
     //Camera movement
     private float heightTilMoveup = 5;
     private float maxhightTilMoveUp;
     private float currentMoveProgress = 0;
-    
-    //line movement
-    private bool isColliding = true;
-    private bool Freeze;
-    private bool upSequence;
-    private bool downSequence;
-    private GameObject topblock = null;
-    private ShapeMovement shapeMoveScript;
-    private GameObject collidingObject;
 
-    [Range(0,1)]
+    //line movement
     [SerializeField]
-    private float time;
+    private List<GameObject> collidingObject;
+    [SerializeField]
+    private List<GameObject> collidingObjectHistory;
+    
+    private bool Freeze;
+    private bool setToFreeze;
+    private bool upSequence = false;
+    private bool downSequence = false;
 
 
     private void Awake()
@@ -62,17 +52,15 @@ public class HeightLine : MonoBehaviour
 
     void Start ()
     {
-        upSequence = true;
         SetVaribles();
     }
 	
-	void FixedUpdate ()
+	void Update ()
     {
         UpSequence();
         DownSequence();
         CalculateHeight();
         GameOverTriggerFollow();
-        
 	}
 
     #region debugCheckFunctions
@@ -82,7 +70,6 @@ public class HeightLine : MonoBehaviour
         totalHeightTextobject.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         totalHeightText = GameObject.Find("New High Score Text").GetComponent<Text>();
         Spawner = GameObject.Find("Spawner");
-        //gameOverTrigger = GameObject.Find("GameOverTrigger");
         text = GameObject.Find("Height Text").GetComponent<TextMesh>();
         moveTextScript = text.GetComponent<MoveText>();
         totalHeightTextobject.gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -92,21 +79,46 @@ public class HeightLine : MonoBehaviour
 
     #region LineDetection
 
+
     //Trigger enter
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
-            collidingObject = other.gameObject;
+            collidingObject.Add(other.gameObject);
+            
+            //If history dosnt contain currently collided objects Go Up
+            foreach (var item in collidingObject)
+            {
+                if (!collidingObjectHistory.Contains(other.gameObject))
+                {
+                    Freeze = false;
+                    collidingObjectHistory.Clear();
+                    upSequence = true;
+                    downSequence = false;
+                }
+            }
 
-            if (topblock == other.gameObject) // <-- Jitter issue
+            //Freeze the object after colliding with self
+            if (Freeze == false && setToFreeze == true)
             {
-                Freeze = true;
+                foreach (var item in collidingObject)
+                {
+                    if (collidingObjectHistory.Contains(item) && setToFreeze == true)
+                    {
+                        Freeze = true;
+                        setToFreeze = false;
+                    }
+                }
             }
-            else
+
+            //go up if somthing is colliding with it
+            if (collidingObject.Count != 0)
             {
-                Freeze = false;
+                upSequence = true;
+                downSequence = false;
             }
+
         }
     }
 
@@ -115,65 +127,85 @@ public class HeightLine : MonoBehaviour
     {
         if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
-            collidingObject = other.gameObject;
+            if (collidingObject.Count != 0)
+            {
+                upSequence = true;
+                downSequence = false;
+            }
 
-            topblock = other.gameObject;
-            upSequence = true;
-            isColliding = true;
         }
         
     }
+
     //Exit colliding 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == blockTag || other.gameObject.tag == platformTag)
         {
-            collidingObject = other.gameObject;
-
-            isColliding = false;
-            downSequence = true;
-            if (topblock == other.gameObject)
+            // If not in history undo freeze and add it
+            foreach (var item in collidingObject)
             {
+                if (!collidingObjectHistory.Contains(other.gameObject))
+                {
+                    collidingObjectHistory.Add(other.gameObject);
+                    Freeze = false;
+                }
+            }
+            collidingObject.Remove(other.gameObject);
+
+            // set to freeze it if colliding count is 0
+            if (collidingObject.Count == 0 && Freeze == false)
+            {
+                downSequence = true;
+                upSequence = false;
+                setToFreeze = true;
+            }
+
+            if (collidingObject.Count == 0 && Freeze == true)
+            {
+                downSequence = true;
+                upSequence = false;
+                setToFreeze = false;
+            }
+
+            //Self detection after getting passed
+            if (Freeze == true)
+            {
+                collidingObjectHistory.Clear();
                 Freeze = false;
             }
+            
         }
         
     }
   
+    //Moves the line Up
     void UpSequence()
     {
-        if (upSequence == true )//&& collidingObject != null)
+        if (upSequence == true && Freeze == false && collidingObject.Count != 0)
         {
-            if (isColliding == true && Freeze == false)
-            {
-                /* if (collidingObject.tag == "Block")
-                 {
-                     if (collidingObject.GetComponent<ShapeMovement>().isFrozen == true)
-                     {
-                         transform.Translate(new Vector2(0, upSpeed));
-                     }
-                 }
-                 else if(collidingObject.tag == "Platform")
-                 {
-
-                 }
-
-                 transform.Translate(new Vector2(0, upSpeed));
-                 */
-                transform.Translate(new Vector2(0, upSpeed));
-            }
+            transform.Translate(new Vector2(0, upSpeed));
+            downSequence = false;
         }
+       
     }
 
+    //Moves the Line down
     void DownSequence()
     {
-        if (downSequence == true)
+        if (downSequence == true && Freeze == false && collidingObject.Count == 0)
         {
-            if (isColliding == false && Freeze == false)
-            {
-                transform.Translate(new Vector2(0, -upSpeed));
-            }
+            transform.Translate(new Vector2(0, -upSpeed));
+            upSequence = false;
         }
+
+        //Forces it to move down if frozen
+        if (Freeze == true && collidingObject.Count == 0)
+        {
+            Freeze = false;
+            downSequence = true;
+        }
+        
     }
     #endregion
 
@@ -181,7 +213,6 @@ public class HeightLine : MonoBehaviour
 
     void GameOverTriggerFollow()
     {
-       // gameOverTrigger.transform.position = (new Vector2(this.transform.position.x, this.transform.position.y + gameOverTriggerOffset));
         if (height <= 0)
         {
             totalHeightText.text = "How Did you lose with " + height + "Ft "+" Are you even trying?";
