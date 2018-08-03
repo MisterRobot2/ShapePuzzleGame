@@ -104,8 +104,11 @@ public class shapePreview : MonoBehaviour {
 
     public void SpawnFirstShape()
     {
-        
+
         //Creates Preview
+        Debug.Log(includedShapes.Count);
+        Debug.Log("S");
+        Debug.LogWarning("FIX THIS NOW >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         nextShape = GameObject.Instantiate(includedShapes[Random.Range(0, includedShapes.Count)], parent.transform);
         nextShape.transform.position = this.gameObject.transform.position;
         //Get Mesh Creator
