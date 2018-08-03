@@ -69,6 +69,7 @@ public static class DataBase
 
     #region Settings
     static public bool isFullscreen;
+    static public bool isAudioOn = true;
 
     #endregion
 
