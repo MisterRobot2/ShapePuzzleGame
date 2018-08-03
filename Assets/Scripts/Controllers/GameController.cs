@@ -176,7 +176,10 @@ public class GameController : MonoBehaviour {
             DataBase.isPlayerPlaying = true;
             GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
             spawner.GetComponent<shapeSpawner>().SpawnShape();
-
+            if(DataBase.isFirstTime){
+                GameObject.Find("Instructions Canvas").transform.Find("Instructions Panel").transform.gameObject.SetActive(true);
+                DataBase.isFirstTime = false;
+            }
         }
     }
 
