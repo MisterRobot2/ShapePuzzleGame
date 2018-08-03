@@ -11,6 +11,7 @@ public class CameraGoalLine : MonoBehaviour
 
     [SerializeField]
     private Toggle DebugToggle;
+    private GameObject debugPannel;
     private float lineheight;
 
     //objects
@@ -56,8 +57,11 @@ public class CameraGoalLine : MonoBehaviour
 
     void SetVaribles()
     {
+        debugPannel = GameObject.Find("Debug Canvas");
+        debugPannel.transform.GetChild(0).gameObject.SetActive(true);
         texture = GameObject.Find("Camera Goal Line Image").GetComponent<Image>();
         textureObj = GameObject.Find("Camera Goal Line Image");
+        DebugToggle = GameObject.Find("ShowLine toggle").GetComponent<Toggle>();
         this.transform.position = new Vector2(0, lineheight);
 
         textObj = GameObject.Find("Camera Goal Text");
@@ -65,6 +69,7 @@ public class CameraGoalLine : MonoBehaviour
 
         mainCamera = GameObject.Find("Main Camera");
         camcontroller = mainCamera.GetComponent<CameraController>();
+        debugPannel.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     void ShowLine()
