@@ -8,7 +8,7 @@ public static class DataBase
 {
 
     public static GameObject nextShape;
-    public static GameMode selectedMode = GameMode.SinglePlayer;
+    public static GameMode selectedMode = GameMode.PassAndPlay;
 
     #region GameVaribles
 
