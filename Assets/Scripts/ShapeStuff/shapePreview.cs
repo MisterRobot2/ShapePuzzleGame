@@ -209,6 +209,7 @@ public class shapePreview : MonoBehaviour {
     {
         if(DataBase.currentTeamNumber == 1){
             DataBase.team1Skips--;
+            Debug.Log(DataBase.team1Skips);
         } else if(DataBase.currentTeamNumber == 2){
             DataBase.team2Skips--;
         }

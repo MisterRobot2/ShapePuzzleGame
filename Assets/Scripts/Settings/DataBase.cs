@@ -59,6 +59,9 @@ public static class DataBase
     public static bool freezeGameSpeed = false;
 
 
+    //tutorial
+    public static bool isFirstTime = true;
+
     #endregion
 
     #region PlayerStats
