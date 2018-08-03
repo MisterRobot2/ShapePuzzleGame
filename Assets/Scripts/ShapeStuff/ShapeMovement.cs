@@ -44,9 +44,20 @@ public class ShapeMovement : MonoBehaviour
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
         }
         
-
+        // slows block down 
         if (canBeControlled == true && DataBase.isPlayerPlaying)
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
+                DataBase.oldSpeed = movementSpeed;
+                DataBase.speed = movementSpeed / 2;
+
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            {
+                DataBase.speed = DataBase.oldSpeed;
+            }
+
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0),Space.World);
