@@ -20,8 +20,6 @@ public class BackgroundScript : MonoBehaviour {
         gameObject.GetComponent<Renderer>().material.color = new Color32(0, 252, 255, 255);
         currentColor = gameObject.GetComponent<Renderer>().material.color = new Color32(0, 252, 255, 255);
         stars = starsGameObject.GetComponent<ParticleSystem>();
-       // stars.Stop();
-        //starsGameObject.SetActive(false);
     }
 	
 	void Update () {
@@ -34,20 +32,20 @@ public class BackgroundScript : MonoBehaviour {
             {
                 progress += Time.deltaTime / duration;
             }
-            else if(progress >= 50)
+            else if(progress >= 1)
             {
-                //starsGameObject.SetActive(true);
-                //stars.Play();
+                starsGameObject.SetActive(true);
+                stars.Play();
 
                 heightText.GetComponent<TextMesh>().color = Color.white;
                 goalLineText.GetComponent<TextMesh>().color = Color.white;
                 cameraGoalLineText.GetComponent<TextMesh>().color = Color.white;
             }
         }
-        else if(DataBase.currentHeight < 40)
+        else if(DataBase.currentHeight < 50)
         {
-           // stars.Stop();
-           // starsGameObject.SetActive(false);
+            stars.Stop();
+            starsGameObject.SetActive(false);
         }
 }
     }

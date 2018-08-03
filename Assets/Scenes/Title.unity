@@ -113,6 +113,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &70495629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1657477524915284, guid: ce702e1cd664a6c4fafc69d7c6053478,
+    type: 2}
+  m_PrefabInternal: {fileID: 1527706673}
+--- !u!114 &70495630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70495629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4da92dbfa4dd4697915074c017a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowMode: {fileID: 2045047267}
+  sound: {fileID: 766913110}
+  checkmark: {fileID: 582364366}
+  speedSlider: {fileID: 799273235}
 --- !u!1 &294522380
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +507,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a85a40b7fd86e478caa890a43e2734, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &582364366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1443651400563204, guid: ce702e1cd664a6c4fafc69d7c6053478,
+    type: 2}
+  m_PrefabInternal: {fileID: 1527706673}
+--- !u!114 &766913110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114959786397184766, guid: ce702e1cd664a6c4fafc69d7c6053478,
+    type: 2}
+  m_PrefabInternal: {fileID: 1527706673}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &799273235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114050515503428168, guid: ce702e1cd664a6c4fafc69d7c6053478,
+    type: 2}
+  m_PrefabInternal: {fileID: 1527706673}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1527706673
 Prefab:
   m_ObjectHideFlags: 0
@@ -494,6 +531,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114050515503428168, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224567780752362874, guid: ce702e1cd664a6c4fafc69d7c6053478,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -588,6 +630,50 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662581115224360, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224516170336530546, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000045776367
+      objectReference: {fileID: 0}
+    - target: {fileID: 114959786397184766, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 70495630}
+    - target: {fileID: 114959786397184766, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050515503428168, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050515503428168, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050515503428168, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 70495629}
+    - target: {fileID: 114934242821813950, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 70495630}
+    - target: {fileID: 114934242821813950, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleFullScreen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
@@ -765,6 +851,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2045047267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114934242821813950, guid: ce702e1cd664a6c4fafc69d7c6053478,
+    type: 2}
+  m_PrefabInternal: {fileID: 1527706673}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2127655931
 GameObject:
   m_ObjectHideFlags: 0
