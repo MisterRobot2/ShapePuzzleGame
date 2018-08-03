@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 222302088283019878}
   - component: {fileID: 114661342956892590}
   - component: {fileID: 114171961247051188}
-  - component: {fileID: 114907670642497680}
+  - component: {fileID: 114648753813192398}
   m_Layer: 5
   m_Name: Solo Button
   m_TagString: Untagged
@@ -1092,8 +1092,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
-    m_HighlightedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+    m_NormalColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+    m_HighlightedColor: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114907670642497680}
+      - m_Target: {fileID: 114648753813192398}
         m_MethodName: LoadSceneWithIndex
         m_Mode: 1
         m_Arguments:
@@ -1209,9 +1209,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Solo
-
-    <i><color=#fc3737> *New* </color></i>'
+  m_Text: '  Solo  '
 --- !u!114 &114202521108447590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1661,8 +1659,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
-    m_HighlightedColor: {r: 0.5411765, g: 0.5411765, b: 0.5411765, a: 1}
+    m_NormalColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+    m_HighlightedColor: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2205,6 +2203,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114648753813192398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168506506245386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9fd32a143d20c45bc91a0ade1a0923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexOfSceneToLoad: 1
+  nameOfSceneToLoad: 
+  selectGameMode: 0
 --- !u!114 &114650823554997156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2855,20 +2867,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114907670642497680
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168506506245386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9fd32a143d20c45bc91a0ade1a0923, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indexOfSceneToLoad: 1
-  nameOfSceneToLoad: 
-  selectGameMode: 0
 --- !u!114 &114922233403418272
 MonoBehaviour:
   m_ObjectHideFlags: 1

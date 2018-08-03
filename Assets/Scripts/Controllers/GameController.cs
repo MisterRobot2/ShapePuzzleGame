@@ -108,6 +108,8 @@ public class GameController : MonoBehaviour
         buySkipButton.gameObject.SetActive(false);
         DataBase.blocksPlacedInGame = 0;
         DataBase.isGameOver = true;
+        DataBase.team1Skips = 3;
+        DataBase.team2Skips = 3;
         #endregion
 
         #region Start Game
@@ -133,12 +135,14 @@ public class GameController : MonoBehaviour
 
         #region MultyPlayer
         //Pass and Play
+        testIfShouldShowSkips();
+
         if (DataBase.selectedMode == GameMode.PassAndPlay)
         {
 
             updateTeamValues();
             testForSameColor();
-            testIfShouldShowSkips();
+            
         }
 
         if(DataBase.selectedMode == GameMode.SinglePlayer)
@@ -186,8 +190,8 @@ public class GameController : MonoBehaviour
             DataBase.isPlayerPlaying = true;
             GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
             spawner.GetComponent<shapeSpawner>().SpawnShape();
-            if(DataBase.isFirstTime){
-                GameObject.Find("Instructions Canvas").transform.Find("Instructions Panel").transform.gameObject.SetActive(true);
+            if(DataBase.isFirstTime && DataBase.selectedMode == GameMode.PassAndPlay){
+                GameObject.Find("Instructions Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
                 DataBase.isFirstTime = false;
             }
         }
