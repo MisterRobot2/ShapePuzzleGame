@@ -32,8 +32,8 @@ public class GameController : MonoBehaviour {
     private Color team1Color;
     private Color team2Color;
     private Dropdown pickAColorDropdown;
-    private string team1Name;
-    private string team2Name;
+    //private string team1Name;
+    //private string team2Name;
     private int currentTeamNumber;
     private Animator teamUIAnimator;
     private int team1ColorValue;
@@ -145,7 +145,7 @@ public class GameController : MonoBehaviour {
         //Team 1
         if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
         {
-            team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+            DataBase.team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
             enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
             openNamePannel(2);
             changeTeamColor(1);
@@ -165,11 +165,11 @@ public class GameController : MonoBehaviour {
         //Team 2
         else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
         {
-            team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+            DataBase.team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
             enterNamePannel.SetActive(false);
             changeTeamColor(2);
             DataBase.isGameOver = false;
-            StartCoroutine(showNotificationPannel("Go first " + team1Name, 2));
+            StartCoroutine(showNotificationPannel("Go first " + DataBase.team1Name, 2));
             currentTeamNumber = 1;
             team1Arrow.SetActive(true);
             team2Arrow.SetActive(false);
@@ -284,23 +284,25 @@ public class GameController : MonoBehaviour {
     }
     void Turns()
     {
-        if (currentTeamNumber == 1)
-        {
-            team2Arrow.SetActive(true);
-            team1Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel("Your Turn, " + team2Name + "!", 2));
-            currentTeamNumber = 2;
+        if(!DataBase.isGameOver){
+            if (currentTeamNumber == 1)
+            {
+                team2Arrow.SetActive(true);
+                team1Arrow.SetActive(false);
+                StartCoroutine(showNotificationPannel("Your Turn, " + DataBase.team2Name + "!", 2));
+                currentTeamNumber = 2;
+            }
+            else if (currentTeamNumber == 2)
+            {
+                team1Arrow.SetActive(true);
+                team2Arrow.SetActive(false);
+                StartCoroutine(showNotificationPannel("Your Turn, " + DataBase.team1Name + "!", 2));
+                currentTeamNumber = 1;
+            }
+            DataBase.currentTeamNumber = currentTeamNumber;
+            DataBase.isPlayerPlaying = true;
+            spawner.GetComponent<shapeSpawner>().SpawnShape();
         }
-        else if (currentTeamNumber == 2)
-        {
-            team1Arrow.SetActive(true);
-            team2Arrow.SetActive(false);
-            StartCoroutine(showNotificationPannel("Your Turn, " + team1Name + "!", 2));
-            currentTeamNumber = 1;
-        }
-        DataBase.currentTeamNumber = currentTeamNumber;
-        DataBase.isPlayerPlaying = true;
-        spawner.GetComponent<shapeSpawner>().SpawnShape();
     }
     IEnumerator showNotificationPannel(string whatToSay, int waitTime)
     {
@@ -352,7 +354,7 @@ public class GameController : MonoBehaviour {
         if (teamNumber == 1)
         {
             team1Color = detectPlayerColorChoice();
-            team1NameText.text = team1Name;
+            team1NameText.text = DataBase.team1Name;
             team1Background.color = team1Color;
             DataBase.team1Color = team1Color;
 
@@ -364,7 +366,7 @@ public class GameController : MonoBehaviour {
         else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();
-            team2NameText.text = team2Name;
+            team2NameText.text = DataBase.team2Name;
             team2Background.color = team2Color;
             DataBase.team2Color = team2Color;
         }
@@ -385,31 +387,31 @@ public class GameController : MonoBehaviour {
             //if there is a game over
             if (DataBase.isGameOver)
             {
-                if (currentTeamNumber == 1)
-                {
-                    showNotificationPannel("" + team2Name + " WINS!", true);
-                }
-                else if (currentTeamNumber == 2)
-                {
-                    showNotificationPannel("" + team1Name + " WINS!", true);
-                }
-                break;
+                //if (currentTeamNumber == 1)
+                //{
+                //    DataBase.winner = "hi";
+                //}
+                //else if (currentTeamNumber == 2)
+                //{
+                //    DataBase.winner = DataBase.team1Name;
+                //}
+                //break;
             }
         }
         #endregion
         #region end of turn
         if (currentTeamNumber == 1 && !DataBase.isGameOver)
         {
-            StartCoroutine(showNotificationPannel("Good Job " + team1Name, 2));
+            StartCoroutine(showNotificationPannel("Good Job " + DataBase.team1Name, 2));
             yield return new WaitForSeconds(waitTime);
-            StartCoroutine(showNotificationPannel("Now go " + team2Name + "!", 2));
+            StartCoroutine(showNotificationPannel("Now go " + DataBase.team2Name + "!", 2));
             Turns();
         }
         else if (currentTeamNumber == 2 && !DataBase.isGameOver)
         {
-            StartCoroutine(showNotificationPannel("Good Job " + team2Name, 2));
+            StartCoroutine(showNotificationPannel("Good Job " + DataBase.team2Name, 2));
             yield return new WaitForSeconds(waitTime);
-            StartCoroutine(showNotificationPannel("Now go " + team1Name + "!", 2));
+            StartCoroutine(showNotificationPannel("Now go " + DataBase.team1Name + "!", 2));
             Turns();
 
         }
