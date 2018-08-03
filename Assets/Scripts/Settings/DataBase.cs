@@ -55,6 +55,7 @@ public static class DataBase
 
     //Game Speed
     public static float gameSpeed = 1f;
+    public static float oldSpeed;
     public static bool freezeGameSpeed = false;
 
 
