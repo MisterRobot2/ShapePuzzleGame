@@ -18,6 +18,7 @@ public static class DataBase
     public static int currentTeamNumber;
 
     public static float speed;
+    public static float currentHeight;
 
     public static Color32 team1Color;
     public static Color32 team2Color;
@@ -25,13 +26,28 @@ public static class DataBase
     public static int team1coins;
     public static int team2coins;
 
-    public static int totalCoins = 33;
+    public static int totalCoins = 9999999;
 
     public static int team1Skips = 3;
     public static int team2Skips = 3;
 
     public static bool canSpawnShape = true;
-
+    //is Toggle on
+    public static bool iceBlockToggleIsOn = false;
+    public static bool phoneToggleIsOn = false;
+    public static bool waterGunToggleIsOn = false;
+    public static bool orbToggleIsOn = false;
+    public static bool tableToggleIsOn = false;
+    public static bool bookToggleIsOn = false;
+    public static bool bookShelfToggleIsOn = false;
+    //purchesed
+    public static bool iceBlockBought = false;
+    public static bool phoneBought = false;
+    public static bool waterGunBought = false;
+    public static bool orbBought = false;
+    public static bool tableBought = false;
+    public static bool bookBought = false;
+    public static bool bookShelfBought = false;
 
     //Game Speed
     public static float gameSpeed = 1f;
@@ -51,6 +67,7 @@ public static class DataBase
 
     #region Settings
     static public bool isFullscreen;
+    static public bool isAudioOn = true;
 
     #endregion
 

@@ -23,6 +23,8 @@ public class ChangeScene : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Title"); 
+        DataBase.team1coins = 0;
+        DataBase.team2coins = 0;
     }
 
     public void LoadSceneWithIndex()

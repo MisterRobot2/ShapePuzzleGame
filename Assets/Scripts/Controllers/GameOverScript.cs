@@ -78,6 +78,8 @@ public class GameOverScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Total Blocks Lost", PlayerPrefs.GetInt("Total Blocks Lost") + lossCounter);
         DataBase.totalBlocksLost = PlayerPrefs.GetInt("Total Blocks Lost", lossCounter);
+        DataBase.totalCoins += (DataBase.team1coins + DataBase.team2coins);
+
 
         if (totalScore > PlayerPrefs.GetFloat("High Score"))
         {

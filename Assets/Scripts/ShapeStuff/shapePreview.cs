@@ -26,13 +26,13 @@ public class shapePreview : MonoBehaviour {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
 
         //Check toggle in store to figure out which shapes to include
-        if(Toggles.iceBlockToggleIsOn == true){
+        if(DataBase.iceBlockToggleIsOn == true){
             shapes[2].gameObject.tag = "Block";
         }else{
             shapes[2].gameObject.tag = "Untagged";
         }
 
-        if (Toggles.phoneToggleIsOn == true)
+        if (DataBase.phoneToggleIsOn == true)
         {
             shapes[5].gameObject.tag = "Block";
         }
@@ -41,7 +41,7 @@ public class shapePreview : MonoBehaviour {
             shapes[5].gameObject.tag = "Untagged";
         }
 
-        if (Toggles.waterGunToggleIsOn == true)
+        if (DataBase.waterGunToggleIsOn == true)
         {
             shapes[4].gameObject.tag = "Block";
         }
@@ -50,7 +50,7 @@ public class shapePreview : MonoBehaviour {
             shapes[4].gameObject.tag = "Untagged";
         }
 
-        if (Toggles.orbToggleIsOn == true)
+        if (DataBase.orbToggleIsOn == true)
         {
             shapes[6].gameObject.tag = "Block";
         }
@@ -59,7 +59,7 @@ public class shapePreview : MonoBehaviour {
             shapes[6].gameObject.tag = "Untagged";
         }
 
-        if (Toggles.tableToggleIsOn == true)
+        if (DataBase.tableToggleIsOn == true)
         {
             shapes[7].gameObject.tag = "Block";
         }
@@ -67,8 +67,24 @@ public class shapePreview : MonoBehaviour {
         {
             shapes[7].gameObject.tag = "Untagged";
         }
+        if (DataBase.bookToggleIsOn == true)
+        {
+            shapes[8].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[8].gameObject.tag = "Untagged";
+        }
+        if (DataBase.bookShelfToggleIsOn == true)
+        {
+            shapes[9].gameObject.tag = "Block";
+        }
+        else
+        {
+            shapes[9].gameObject.tag = "Untagged";
+        }
 
-        foreach(GameObject shape in shapes){
+        foreach (GameObject shape in shapes){
             if(shape.gameObject.tag == "Block"){
                 includedShapes.Add(shape);
             }
