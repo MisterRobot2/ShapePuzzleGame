@@ -49,8 +49,6 @@ public static class DataBase
     public static bool bookBought = false;
     public static bool bookShelfBought = false;
 
-
-
     //Game Speed
     public static float gameSpeed = 1f;
     public static bool freezeGameSpeed = false;
