@@ -71,7 +71,7 @@ public class ShapeMovement : MonoBehaviour
                 this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9), this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
-            else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) && DataBase.canSpawnShape == true)
+            else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && DataBase.canSpawnShape == true)
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
