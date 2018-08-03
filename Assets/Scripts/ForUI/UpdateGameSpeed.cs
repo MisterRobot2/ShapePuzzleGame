@@ -12,7 +12,6 @@ public class UpdateGameSpeed : MonoBehaviour
             FirstRun();
         }
         Time.timeScale = DataBase.gameSpeed;
-        Debug.Log(DataBase.gameSpeed);
 	}
 
     void FirstRun()
