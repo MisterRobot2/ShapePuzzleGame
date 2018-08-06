@@ -59,8 +59,9 @@ public static class DataBase
     public static bool freezeGameSpeed = false;
 
 
-    //tutorial
+    //tutorial + first time things
     public static bool isFirstTime = true;
+    public static bool namesExist = false;
 
     #endregion
 
@@ -70,6 +71,7 @@ public static class DataBase
     public static float highScore;
     
     public static bool isGameOver = true;
+    public static bool canGameOver;
     
     #endregion
 

@@ -19,7 +19,10 @@ public class GameOverScript : MonoBehaviour
     private GameObject mainCamera;
     private CameraController camController;
 
-    public GameObject newHighScoreText;
+    public Text newHighScoreText;
+    public Text highScoreText;
+    public Text highScoreWords;
+
 
     private string winner;
 
@@ -46,6 +49,7 @@ public class GameOverScript : MonoBehaviour
                     totalScore = heightLineScript.height;
                     DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
                     PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
+                    
 
                     SetGameOverVaribles();
                     UpdateDataBase();
@@ -90,6 +94,7 @@ public class GameOverScript : MonoBehaviour
         else if(DataBase.selectedMode == GameMode.PassAndPlay)
         {
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
+            Debug.Log(winner);
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
         }
         
@@ -100,16 +105,35 @@ public class GameOverScript : MonoBehaviour
         PlayerPrefs.SetInt("Total Blocks Lost", PlayerPrefs.GetInt("Total Blocks Lost") + lossCounter);
         DataBase.totalBlocksLost = PlayerPrefs.GetInt("Total Blocks Lost", lossCounter);
         DataBase.totalCoins += (DataBase.team1coins + DataBase.team2coins);
+        DataBase.highScore = PlayerPrefs.GetFloat("High Score");
+
+        //Updates the words of your score
+        if (DataBase.currentHeight <= 1)
+        {
+            highScoreWords.GetComponent<Text>().text = "How Did you lose with " + DataBase.currentHeight + "Ft " + " Are you even trying?";
+        }
+        else
+        {
+            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff><b>" + "You Reached: " + DataBase.currentHeight + " Ft!" + "</b></color>";
+        }
 
 
         if (totalScore > PlayerPrefs.GetFloat("High Score"))
         {
             DataBase.highScore = totalScore;
             PlayerPrefs.SetFloat("High Score", DataBase.highScore);
-            newHighScoreText.SetActive(true);
+            newHighScoreText.gameObject.SetActive(true);
+            newHighScoreText.GetComponent<Text>().text = "New High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
         }
+        else
+        {
+            newHighScoreText.gameObject.SetActive(false);
+        }
+        highScoreText.GetComponent<Text>().text = "High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
+
 
     }
+
 
     #endregion
 
@@ -121,6 +145,10 @@ public class GameOverScript : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         mainCamera = GameObject.FindGameObjectWithTag("Camera");
         camController = mainCamera.gameObject.GetComponent<CameraController>();
+        highScoreWords = GameObject.Find("Game Over Words").GetComponent<Text>();
+        highScoreText = GameObject.Find("High Score Text").GetComponent<Text>();
+        newHighScoreText = GameObject.Find("New High Score Text").GetComponent<Text>();
+
     }
     #endregion
 }
