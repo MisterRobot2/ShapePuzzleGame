@@ -50,6 +50,11 @@ public class CameraController : MonoBehaviour
         {
             transform.Translate(new Vector2(0, Speed));
             UpAmount -= Speed;
+            DataBase.canGameOver = false;
+        }
+        else if (UpAmount == 0)
+        {
+            DataBase.canGameOver = true;
         }
 
         

@@ -71,6 +71,7 @@ public static class DataBase
     public static float highScore;
     
     public static bool isGameOver = true;
+    public static bool canGameOver;
     
     #endregion
 
