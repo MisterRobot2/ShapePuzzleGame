@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine;
 
 public class GoalLine : MonoBehaviour
 {
@@ -62,12 +65,23 @@ public class GoalLine : MonoBehaviour
         //Detects when Goal is met :D 
         if (heightScript.height >= height)
         {
+            StartCoroutine(GoalLineDelay());
+            
+        }
+    }
+
+    IEnumerator GoalLineDelay()
+    {
+        yield return new WaitForSeconds(.75f);
+        if (heightScript.height >= height)
+        {
             goalHeightIncrement = Random.Range(Mathf.Round(goalHeightMin), Mathf.Round(GoalHeightMax));
             goalHeight += goalHeightIncrement;
             SetLineHeight();
 
             MakePlatforms();
         }
+        
     }
 
     void MakePlatforms()
