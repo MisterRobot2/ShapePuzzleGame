@@ -94,7 +94,7 @@ public class GameOverScript : MonoBehaviour
         }
         else if(DataBase.selectedMode == GameMode.PassAndPlay)
         {
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Winner Text").GetComponent<Text>().text = winner + " Wins!";
             Debug.Log(winner);
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
         }
@@ -124,13 +124,12 @@ public class GameOverScript : MonoBehaviour
             DataBase.highScore = totalScore;
             PlayerPrefs.SetFloat("High Score", DataBase.highScore);
             newHighScoreText.gameObject.SetActive(true);
-            newHighScoreText.GetComponent<Text>().text = "New High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
         }
         else
         {
             newHighScoreText.gameObject.SetActive(false);
         }
-        highScoreText.GetComponent<Text>().text = "High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
+        highScoreText.GetComponent<Text>().text = "High Score: " + DataBase.highScore + " Ft!";
 
 
     }
@@ -148,7 +147,7 @@ public class GameOverScript : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         mainCamera = GameObject.FindGameObjectWithTag("Camera");
         camController = mainCamera.gameObject.GetComponent<CameraController>();
-        highScoreWords = GameObject.Find("Game Over Words").GetComponent<Text>();
+        highScoreWords = GameObject.Find("Blocks Placed Text").GetComponent<Text>();
         highScoreText = GameObject.Find("High Score Text").GetComponent<Text>();
         newHighScoreText = GameObject.Find("New High Score Text").GetComponent<Text>();
         gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(false);
