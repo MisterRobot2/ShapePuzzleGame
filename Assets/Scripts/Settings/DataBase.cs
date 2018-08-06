@@ -71,6 +71,7 @@ public static class DataBase
     public static float highScore;
     
     public static bool isGameOver = true;
+    public static bool canGameOver;
     
     #endregion
 
@@ -79,6 +80,16 @@ public static class DataBase
     static public bool isAudioOn = true;
 
     #endregion
+
+    #region TutorialVariables
+
+    public static bool firstDrop = false;
+    public static bool firstGoalLine = false;
+    public static bool firstSkip = false;
+    public static bool firstSlowDown = false;
+
+    #endregion
+
 
 
 

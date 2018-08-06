@@ -92,6 +92,7 @@ public class GoalLine : MonoBehaviour
         chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount/100), chiled.transform.localScale.y, chiled.transform.localScale.z));
         
         platformCount++;
+        DataBase.firstGoalLine = true;
     }
     #endregion
 
