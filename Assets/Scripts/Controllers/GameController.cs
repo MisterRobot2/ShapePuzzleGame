@@ -114,9 +114,25 @@ public class GameController : MonoBehaviour
 
         #region Start Game
         //Pass and Play
+        //WORKING HERE
         if (DataBase.selectedMode == GameMode.PassAndPlay)
         {
-            openNamePannel(1);
+            if(DataBase.namesExist){
+                currentTeamNumber = 1;
+                team1Arrow.SetActive(true);
+                team2Arrow.SetActive(false);
+                team1NameText.text = DataBase.team1Name;
+                team1Background.color = DataBase.team1Color;
+                team2NameText.text = DataBase.team2Name;
+                team2Background.color = DataBase.team2Color;
+                DataBase.isPlayerPlaying = true;
+                DataBase.isGameOver = false;
+                GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
+                spawner.GetComponent<shapeSpawner>().SpawnShape();
+            } else{
+                openNamePannel(1);
+            }
+
         }
         //SinglePlayer
         if(DataBase.selectedMode == GameMode.SinglePlayer)
@@ -156,45 +172,48 @@ public class GameController : MonoBehaviour
     //public
     public void submitNamePannel()
     {
-        //Team 1
-        if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
-        {
-            DataBase.team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
-            enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
-            openNamePannel(2);
-            changeTeamColor(1);
-            team1ColorValue = pickAColorDropdown.value;
-            //make player 2 color, a color behind player 1
-            if (team1ColorValue != 0)
+            //Team 1
+            if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
             {
-                pickAColorDropdown.value = team1ColorValue - 1;
+                DataBase.team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+                enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
+                openNamePannel(2);
+                changeTeamColor(1);
+                team1ColorValue = pickAColorDropdown.value;
+                //make player 2 color, a color behind player 1
+                if (team1ColorValue != 0)
+                {
+                    pickAColorDropdown.value = team1ColorValue - 1;
+                }
+                else // if player 1 color is 0 then make player 2 color, 1
+                {
+                    pickAColorDropdown.value = 1;
+                }
+
+                currentTeamNumber = 2;
             }
-            else // if player 1 color is 0 then make player 2 color, 1
+            //Team 2
+            else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
             {
-                pickAColorDropdown.value = 1;
+                DataBase.team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+                enterNamePannel.SetActive(false);
+                changeTeamColor(2);
+                DataBase.isGameOver = false;
+                StartCoroutine(showNotificationPannel("Go first " + DataBase.team1Name, 2));
+                currentTeamNumber = 1;
+                team1Arrow.SetActive(true);
+                team2Arrow.SetActive(false);
+                DataBase.isPlayerPlaying = true;
+                GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
+                spawner.GetComponent<shapeSpawner>().SpawnShape();
+                if (DataBase.isFirstTime && DataBase.selectedMode == GameMode.PassAndPlay)
+                {
+                    GameObject.Find("Instructions Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
+                    DataBase.isFirstTime = false;
+                }
+                DataBase.namesExist = true;
             }
 
-            currentTeamNumber = 2;
-        }
-        //Team 2
-        else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
-        {
-            DataBase.team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
-            enterNamePannel.SetActive(false);
-            changeTeamColor(2);
-            DataBase.isGameOver = false;
-            StartCoroutine(showNotificationPannel("Go first " + DataBase.team1Name, 2));
-            currentTeamNumber = 1;
-            team1Arrow.SetActive(true);
-            team2Arrow.SetActive(false);
-            DataBase.isPlayerPlaying = true;
-            GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
-            spawner.GetComponent<shapeSpawner>().SpawnShape();
-            if(DataBase.isFirstTime && DataBase.selectedMode == GameMode.PassAndPlay){
-                GameObject.Find("Instructions Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
-                DataBase.isFirstTime = false;
-            }
-        }
     }
 
     //private
