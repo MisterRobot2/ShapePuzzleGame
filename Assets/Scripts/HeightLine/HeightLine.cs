@@ -78,7 +78,6 @@ public class HeightLine : MonoBehaviour
 
     #region LineDetection
 
-
     //Trigger enter
     private void OnTriggerEnter2D(Collider2D other)
     {

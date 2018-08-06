@@ -8,11 +8,14 @@ public class CameraGoalLine : MonoBehaviour
     public bool showLine;
     [SerializeField]
     private float UpAmount;
+    [SerializeField]
+    private float upDelay = .5f;
 
     [SerializeField]
     private Toggle DebugToggle;
     private GameObject debugPannel;
     private float lineheight;
+    private bool isColliding;
 
     //objects
     private CameraController camcontroller;
@@ -40,13 +43,42 @@ public class CameraGoalLine : MonoBehaviour
     {
         if (other.gameObject.tag == "GoalLine")
         {
-            camcontroller.UpAmount += UpAmount;
-            lineheight += UpAmount;
-            this.transform.Translate(new Vector2(0, UpAmount));  
+            isColliding = true;
+            StartCoroutine(CameraMoveUpDelay());
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "GoalLine")
+        {
+            isColliding = false;
+            
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "GoalLine")
+        {
+            isColliding = true;
+            
+        }
+    }
     
+    IEnumerator CameraMoveUpDelay()
+    {
+        yield return new WaitForSeconds(upDelay);
+        if (isColliding == true)
+        {
+            camcontroller.UpAmount += UpAmount;
+            lineheight += UpAmount;
+            this.transform.Translate(new Vector2(0, UpAmount));
+        }
+
+    }
+
+
     void UpdateText()
     {
         if (showLine == true)
