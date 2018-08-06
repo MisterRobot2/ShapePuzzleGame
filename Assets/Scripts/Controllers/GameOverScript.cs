@@ -8,6 +8,8 @@ public class GameOverScript : MonoBehaviour
     public GameObject gameOverUIPrefab;
     [SerializeField]
     private AudioSource gameOverSound;
+    [SerializeField]
+    private bool forceGameOver;
 
     private float totalScore = 0;
     private int lossCounter = 0;
@@ -43,7 +45,7 @@ public class GameOverScript : MonoBehaviour
                 shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
 
                 //real game over sequence
-                if (shapeMovementScript.isFrozen == false)
+                if (shapeMovementScript.isFrozen == false && DataBase.canGameOver == true)
                 {
                     lossCounter++;
                     DataBase.canSpawnShape = false;
@@ -55,6 +57,18 @@ public class GameOverScript : MonoBehaviour
                     SetGameOverVaribles();
                     UpdateDataBase();
                     
+                }
+                if (forceGameOver == true && shapeMovementScript.isFrozen == false)
+                {
+                    lossCounter++;
+                    DataBase.canSpawnShape = false;
+                    totalScore = heightLineScript.height;
+                    DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
+                    PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
+
+
+                    SetGameOverVaribles();
+                    UpdateDataBase();
                 }
             }
 
@@ -95,7 +109,6 @@ public class GameOverScript : MonoBehaviour
         else if(DataBase.selectedMode == GameMode.PassAndPlay)
         {
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
-            Debug.Log(winner);
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
         }
         

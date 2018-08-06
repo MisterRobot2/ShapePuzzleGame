@@ -52,7 +52,7 @@ public class CameraController : MonoBehaviour
             UpAmount -= Speed;
             DataBase.canGameOver = false;
         }
-        else if (UpAmount == 0)
+        else if (UpAmount <= 0)
         {
             DataBase.canGameOver = true;
         }
