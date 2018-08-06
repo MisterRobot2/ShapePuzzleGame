@@ -26,6 +26,8 @@ public class GameOverScript : MonoBehaviour
     public Text highScoreText;
     public Text highScoreWords;
 
+    public GameObject tryHarderText; // Text for tutorial
+
 
     private string winner;
 
@@ -37,8 +39,13 @@ public class GameOverScript : MonoBehaviour
     #region Gameover
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(DataBase.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
+        {
+            StartCoroutine(ShowMessage());
+        }
+
         //Create Game Over If 
-        if (!DataBase.isGameOver)
+       else if (!DataBase.isGameOver)
         {
             if (collision.tag == "Block")
             {
@@ -137,13 +144,12 @@ public class GameOverScript : MonoBehaviour
             DataBase.highScore = totalScore;
             PlayerPrefs.SetFloat("High Score", DataBase.highScore);
             newHighScoreText.gameObject.SetActive(true);
-            newHighScoreText.GetComponent<Text>().text = "New High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
         }
         else
         {
             newHighScoreText.gameObject.SetActive(false);
         }
-        highScoreText.GetComponent<Text>().text = "High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
+        highScoreText.GetComponent<Text>().text = "High Score: " + DataBase.highScore + " Ft!";
 
 
     }
@@ -161,11 +167,18 @@ public class GameOverScript : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         mainCamera = GameObject.FindGameObjectWithTag("Camera");
         camController = mainCamera.gameObject.GetComponent<CameraController>();
-        highScoreWords = GameObject.Find("Game Over Words").GetComponent<Text>();
+        highScoreWords = GameObject.Find("Blocks Placed Text").GetComponent<Text>();
         highScoreText = GameObject.Find("High Score Text").GetComponent<Text>();
         newHighScoreText = GameObject.Find("New High Score Text").GetComponent<Text>();
         gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(false);
 
     }
     #endregion
+
+    IEnumerator ShowMessage()
+    {
+        tryHarderText.SetActive(true);
+        yield return new WaitForSeconds(3);
+        tryHarderText.SetActive(false);
+    }
 }
