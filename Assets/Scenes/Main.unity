@@ -352,6 +352,18 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099501619}
+    - target: {fileID: 114699081651108432, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f30170e5b91ea442b20b3071381d8d6,
+        type: 3}
+    - target: {fileID: 114937753655850804, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a55f51dcdd533f7479075acf21fa569f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
