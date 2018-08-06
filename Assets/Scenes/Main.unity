@@ -356,6 +356,29 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099501619}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_Text
+      value: "Objectives\n<b><color=#ffd400>---------------</color></b> \nBust through
+        the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins
+        to buy skips and purchase new shapes.\n\nIf the block falls off the platform
+        you lose!"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
@@ -404,6 +427,11 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114064797937617644, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: gameOverUIPrefab
+      value: 
+      objectReference: {fileID: 720856638}
+    - target: {fileID: 114834850166550144, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
       propertyPath: gameOverUIPrefab
       value: 

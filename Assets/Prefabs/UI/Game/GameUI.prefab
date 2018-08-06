@@ -3070,18 +3070,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ee4ddaf2ad3be5848bf465ec4deec4e9, type: 3}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 2
-    m_MaxSize: 94
+    m_MinSize: 1
+    m_MaxSize: 90
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \n\n"
+  m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \nBust through
+    the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins to buy
+    skips and purchase new shapes.\n\nIf the block falls off the platform you lose!"
 --- !u!114 &114515602100481380
 MonoBehaviour:
   m_ObjectHideFlags: 1
