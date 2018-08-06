@@ -23,8 +23,8 @@ public static class DataBase
     public static Color32 team1Color;
     public static Color32 team2Color;
 
-    public static int team1coins;
-    public static int team2coins;
+    public static int team1coins = 0;
+    public static int team2coins = 0;
 
     public static int totalCoins = 9999999;
 
