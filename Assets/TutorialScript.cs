@@ -24,6 +24,7 @@ public class TutorialScript : MonoBehaviour {
     private bool step3 = false;
 
     void Start () {
+        DataBase.isTutorial = true;
         MovementText.SetActive(true);
         skipButton.SetActive(false);
     }

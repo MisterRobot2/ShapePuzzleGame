@@ -56,7 +56,10 @@ public class ShapeMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             {
                 DataBase.speed = DataBase.oldSpeed;
-                DataBase.firstSlowDown = true;
+                if (DataBase.firstSkip == true)
+                {
+                    DataBase.firstSlowDown = true;
+                }
             }
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))

@@ -8,6 +8,8 @@ public class GameOverScript : MonoBehaviour
     public GameObject gameOverUIPrefab;
     [SerializeField]
     private AudioSource gameOverSound;
+    [SerializeField]
+    private bool forceGameOver;
 
     private float totalScore = 0;
     private int lossCounter = 0;
@@ -24,6 +26,8 @@ public class GameOverScript : MonoBehaviour
     public Text highScoreText;
     public Text highScoreWords;
 
+    public GameObject tryHarderText; // Text for tutorial
+
 
     private string winner;
 
@@ -35,15 +39,20 @@ public class GameOverScript : MonoBehaviour
     #region Gameover
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(DataBase.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
+        {
+            StartCoroutine(ShowMessage());
+        }
+
         //Create Game Over If 
-        if (!DataBase.isGameOver)
+       else if (!DataBase.isGameOver)
         {
             if (collision.tag == "Block")
             {
                 shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
 
                 //real game over sequence
-                if (shapeMovementScript.isFrozen == false)
+                if (shapeMovementScript.isFrozen == false && DataBase.canGameOver == true)
                 {
                     lossCounter++;
                     DataBase.canSpawnShape = false;
@@ -55,6 +64,18 @@ public class GameOverScript : MonoBehaviour
                     SetGameOverVaribles();
                     UpdateDataBase();
                     
+                }
+                if (forceGameOver == true && shapeMovementScript.isFrozen == false)
+                {
+                    lossCounter++;
+                    DataBase.canSpawnShape = false;
+                    totalScore = heightLineScript.height;
+                    DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
+                    PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
+
+
+                    SetGameOverVaribles();
+                    UpdateDataBase();
                 }
             }
 
@@ -95,7 +116,6 @@ public class GameOverScript : MonoBehaviour
         else if(DataBase.selectedMode == GameMode.PassAndPlay)
         {
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
-            Debug.Log(winner);
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
         }
         
@@ -124,13 +144,12 @@ public class GameOverScript : MonoBehaviour
             DataBase.highScore = totalScore;
             PlayerPrefs.SetFloat("High Score", DataBase.highScore);
             newHighScoreText.gameObject.SetActive(true);
-            newHighScoreText.GetComponent<Text>().text = "New High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
         }
         else
         {
             newHighScoreText.gameObject.SetActive(false);
         }
-        highScoreText.GetComponent<Text>().text = "High Score: <color=#d1e53bff><b>" + DataBase.highScore + " Ft!" + "</b></color>";
+        highScoreText.GetComponent<Text>().text = "High Score: " + DataBase.highScore + " Ft!";
 
 
     }
@@ -148,11 +167,18 @@ public class GameOverScript : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera");
         mainCamera = GameObject.FindGameObjectWithTag("Camera");
         camController = mainCamera.gameObject.GetComponent<CameraController>();
-        highScoreWords = GameObject.Find("Game Over Words").GetComponent<Text>();
+        highScoreWords = GameObject.Find("Blocks Placed Text").GetComponent<Text>();
         highScoreText = GameObject.Find("High Score Text").GetComponent<Text>();
         newHighScoreText = GameObject.Find("New High Score Text").GetComponent<Text>();
         gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(false);
 
     }
     #endregion
+
+    IEnumerator ShowMessage()
+    {
+        tryHarderText.SetActive(true);
+        yield return new WaitForSeconds(3);
+        tryHarderText.SetActive(false);
+    }
 }

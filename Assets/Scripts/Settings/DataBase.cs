@@ -83,6 +83,7 @@ public static class DataBase
 
     #region TutorialVariables
 
+    public static bool isTutorial = false;
     public static bool firstDrop = false;
     public static bool firstGoalLine = false;
     public static bool firstSkip = false;

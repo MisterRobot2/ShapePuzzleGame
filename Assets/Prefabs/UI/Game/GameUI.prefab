@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1095954565252736
 GameObject:
   m_ObjectHideFlags: 1
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 222476314977647326}
   - component: {fileID: 114779636930080208}
   m_Layer: 5
-  m_Name: Game Over Words
+  m_Name: Blocks Placed Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 222323703607613014}
   - component: {fileID: 114189836912613750}
   m_Layer: 5
-  m_Name: Blocks Placed Text
+  m_Name: Winner Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1786,7 +1786,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2052,13 +2052,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Blocks placed
+  m_Text: -- Wins!
 --- !u!114 &114199777295018390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3070,18 +3070,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ee4ddaf2ad3be5848bf465ec4deec4e9, type: 3}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 2
-    m_MaxSize: 94
+    m_MinSize: 1
+    m_MaxSize: 90
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \n\n"
+  m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \nBust through
+    the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins to buy
+    skips and purchase new shapes.\n\nIf the block falls off the platform you lose!"
 --- !u!114 &114515602100481380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3839,7 +3841,7 @@ MonoBehaviour:
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 3
+    m_MinSize: 6
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
@@ -4031,13 +4033,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New High Score!
+  m_Text: "New \nHigh Score!"
 --- !u!114 &114876843128221288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5304,8 +5306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.024963379, y: 37.582}
-  m_SizeDelta: {x: 429.5, y: 69.235}
+  m_AnchoredPosition: {x: -7.36, y: 63.2}
+  m_SizeDelta: {x: 440.5, y: 126.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224063620482624198
 RectTransform:
@@ -5553,17 +5555,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656194750027364}
-  m_LocalRotation: {x: -0.00981863, y: -0.020080017, z: 0.0502314, w: -0.9984875}
-  m_LocalPosition: {x: 0, y: 0, z: -18.7}
+  m_LocalRotation: {x: 0.012679284, y: 0.018407984, z: 0.09792678, w: 0.9949426}
+  m_LocalPosition: {x: 0, y: 0, z: 24}
   m_LocalScale: {x: 0.999994, y: 0.999994, z: 0.999994}
   m_Children: []
   m_Father: {fileID: 224781797679273870}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 1.2390001, y: 2.242, z: -365.736}
+  m_LocalEulerAnglesHint: {x: 1.2390001, y: 2.242, z: -348.733}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 496.8, y: 16.9}
-  m_SizeDelta: {x: 530.9, y: 110.6}
+  m_AnchoredPosition: {x: -502, y: 102}
+  m_SizeDelta: {x: 347.6, y: 180.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224211278814419420
 RectTransform:
@@ -5769,7 +5771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: -54.449993}
+  m_AnchoredPosition: {x: -0.000068962, y: -189}
   m_SizeDelta: {x: 540.2, y: 108.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224441592575215248
@@ -5901,7 +5903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019895, y: -219}
+  m_AnchoredPosition: {x: 0.000079585, y: -335}
   m_SizeDelta: {x: 540.2, y: 108.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224554899745920732
@@ -6285,8 +6287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: 113.53}
-  m_SizeDelta: {x: 429.5, y: 82.65}
+  m_AnchoredPosition: {x: -0.92998, y: -41.498}
+  m_SizeDelta: {x: 431.36, y: 82.997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224826480681397922
 RectTransform:
@@ -6359,7 +6361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200.8}
+  m_AnchoredPosition: {x: -1.86, y: 172.35}
   m_SizeDelta: {x: 429.5, y: 91.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224861466794557918

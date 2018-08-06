@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641162, b: 0.5748184, a: 1}
+  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641138, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,6 +280,10 @@ Prefab:
       propertyPath: m_Name
       value: Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 1230436882055956, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}
   m_IsPrefabAsset: 0
@@ -352,18 +356,29 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099501619}
-    - target: {fileID: 114699081651108432, guid: 6aba69442fac18d4294316dfda150bdb,
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3f30170e5b91ea442b20b3071381d8d6,
-        type: 3}
-    - target: {fileID: 114937753655850804, guid: 6aba69442fac18d4294316dfda150bdb,
+      propertyPath: m_FontData.m_MaxSize
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a55f51dcdd533f7479075acf21fa569f,
-        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_Text
+      value: "Objectives\n<b><color=#ffd400>---------------</color></b> \nBust through
+        the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins
+        to buy skips and purchase new shapes.\n\nIf the block falls off the platform
+        you lose!"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
@@ -412,6 +427,11 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114064797937617644, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: gameOverUIPrefab
+      value: 
+      objectReference: {fileID: 720856638}
+    - target: {fileID: 114834850166550144, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
       propertyPath: gameOverUIPrefab
       value: 
