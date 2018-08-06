@@ -24,6 +24,8 @@ public class GameOverScript : MonoBehaviour
     public Text highScoreText;
     public Text highScoreWords;
 
+    public GameObject tryHarderText; // Text for tutorial
+
 
     private string winner;
 
@@ -35,8 +37,13 @@ public class GameOverScript : MonoBehaviour
     #region Gameover
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(DataBase.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
+        {
+            StartCoroutine(ShowMessage());
+        }
+
         //Create Game Over If 
-        if (!DataBase.isGameOver)
+       else if (!DataBase.isGameOver)
         {
             if (collision.tag == "Block")
             {
@@ -155,4 +162,11 @@ public class GameOverScript : MonoBehaviour
 
     }
     #endregion
+
+    IEnumerator ShowMessage()
+    {
+        tryHarderText.SetActive(true);
+        yield return new WaitForSeconds(3);
+        tryHarderText.SetActive(false);
+    }
 }
