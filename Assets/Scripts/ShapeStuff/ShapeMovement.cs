@@ -42,6 +42,11 @@ public class ShapeMovement : MonoBehaviour
         if (canBeControlled == true)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
+
+            if (DataBase.isGameOver == true)
+            {
+                Destroy(this.gameObject);
+            }
         }
         
         // slows block down 
@@ -116,8 +121,12 @@ public class ShapeMovement : MonoBehaviour
     IEnumerator Freeze()
     {
         yield return new WaitForSeconds(3);
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        isFrozen = true;
+        if (DataBase.isGameOver == false)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            isFrozen = true;
+        }
+        
     }
 
     void PlaceBlockFollowSpawn()
