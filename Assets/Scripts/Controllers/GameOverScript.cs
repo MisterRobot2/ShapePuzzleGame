@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameOverScript : MonoBehaviour
 {
     public GameObject gameOverUIPrefab;
+    [SerializeField]
     private AudioSource gameOverSound;
 
     private float totalScore = 0;
@@ -61,7 +62,7 @@ public class GameOverScript : MonoBehaviour
             {
                 if (DataBase.isGameOver == true)
                 {
-                    gameOverUIPrefab.SetActive(true);
+                    gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(true);
                     gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
                     gameOverSound.Play();
                     DataBase.gameSpeed = 0.3f;
@@ -140,6 +141,8 @@ public class GameOverScript : MonoBehaviour
     #region debugCheckFunctions
     void Getvaribles()
     {
+        gameOverUIPrefab = GameObject.Find("Game Over");
+        gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(true);
         heightLine = GameObject.Find("HeightLine");
         heightLineScript = heightLine.GetComponent<HeightLine>();
         mainCamera = GameObject.Find("Main Camera");
@@ -148,6 +151,7 @@ public class GameOverScript : MonoBehaviour
         highScoreWords = GameObject.Find("Game Over Words").GetComponent<Text>();
         highScoreText = GameObject.Find("High Score Text").GetComponent<Text>();
         newHighScoreText = GameObject.Find("New High Score Text").GetComponent<Text>();
+        gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(false);
 
     }
     #endregion
