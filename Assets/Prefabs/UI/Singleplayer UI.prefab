@@ -979,7 +979,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \n\n"
+  m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \n\nBust through
+    the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins to buy
+    skips and purchase new shapes.\n\nIf the block falls off the platform you lose!\n"
 --- !u!222 &222023769470250550
 CanvasRenderer:
   m_ObjectHideFlags: 1
