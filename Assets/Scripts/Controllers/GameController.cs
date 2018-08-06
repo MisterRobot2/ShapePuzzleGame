@@ -209,6 +209,7 @@ public class GameController : MonoBehaviour
                 if (DataBase.isFirstTime && DataBase.selectedMode == GameMode.PassAndPlay)
                 {
                     GameObject.Find("Instructions Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
+                    GameObject.Find("Objective Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
                     DataBase.isFirstTime = false;
                 }
                 DataBase.namesExist = true;
