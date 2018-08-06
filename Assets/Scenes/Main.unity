@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641162, b: 0.5748184, a: 1}
+  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641138, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4967177920831428, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114515602100481380, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
@@ -285,11 +285,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f46c6af7477dbc848a701b4e5f5f5d36, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &132381765 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1443528801424824, guid: 6fe93cfa9f8755c46a34c3861ec6a762,
-    type: 2}
-  m_PrefabInternal: {fileID: 631102909}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,11 +351,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -180, z: 0}
---- !u!1 &370938831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1220661756292354, guid: f46c6af7477dbc848a701b4e5f5f5d36,
-    type: 2}
-  m_PrefabInternal: {fileID: 64183468}
 --- !u!4 &548338974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4474810460656128, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
@@ -523,7 +513,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4063530967670402, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114812088242321646, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
@@ -637,6 +627,19 @@ Prefab:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1373331953926684, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335836861968894, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_Text
+      value: "How to Play\n<b><color=#ffd400>---------------</color></b> \nUse Keys
+        to move\n\nLeft: <b><color=#ffd400>A  <color=#000>or</color>  <-</color></b>\n\nRight:
+        <b><color=#ffd400>D  <color=#000>or</color>  -></color></b>\n\nDrop Block:
+        \n<b><color=#ffd400>S <color=#000> or </color><i>(DOWN ARROW)</i><color=#000>
+        or </color> SPACE</color></b>\n\nPause Game: <b><color=#ffd400>ESC</color></b>"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
@@ -683,7 +686,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4790706806601696, guid: 9dfbfaeb0108f234795dcd504b0d0191, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114391300862313204, guid: 9dfbfaeb0108f234795dcd504b0d0191,
         type: 2}
