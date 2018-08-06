@@ -37,7 +37,9 @@ public class GameOverScript : MonoBehaviour
     #region Gameover
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(DataBase.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
+        shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
+
+        if (DataBase.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
         {
             StartCoroutine(ShowMessage());
         }
@@ -47,8 +49,6 @@ public class GameOverScript : MonoBehaviour
         {
             if (collision.tag == "Block")
             {
-                shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
-
                 //real game over sequence
                 if (shapeMovementScript.isFrozen == false)
                 {

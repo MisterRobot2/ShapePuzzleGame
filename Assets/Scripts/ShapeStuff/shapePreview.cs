@@ -297,7 +297,10 @@ public class shapePreview : MonoBehaviour {
             nextShape.GetComponent<MeshObjL>().meshCreatorL();
         }
 
-        DataBase.firstSkip = true;
+        if (DataBase.firstGoalLine == true)
+        {
+            DataBase.firstSkip = true;
+        }
     }
 
 

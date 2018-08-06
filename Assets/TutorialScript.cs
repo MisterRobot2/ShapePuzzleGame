@@ -15,8 +15,6 @@ public class TutorialScript : MonoBehaviour {
     public GameObject NextShapeArrow;
     public GameObject SkipArrow;
 
-    public GameObject skipButton;
-
     public GameObject backToMainMenuButton;
 
     private bool step1 = false;
@@ -24,9 +22,15 @@ public class TutorialScript : MonoBehaviour {
     private bool step3 = false;
 
     void Start () {
+        DataBase.selectedMode = GameMode.SinglePlayer;
+
         DataBase.isTutorial = true;
+        DataBase.firstDrop = false;
+        DataBase.firstGoalLine = false;
+        DataBase.firstSkip = false;
+        DataBase.firstSlowDown = false;
+
         MovementText.SetActive(true);
-        skipButton.SetActive(false);
     }
 	
 	void Update () {
@@ -79,7 +83,6 @@ public class TutorialScript : MonoBehaviour {
         NextShapeText.SetActive(false);
         NextShapeArrow.SetActive(false);
 
-        skipButton.SetActive(true);
         SkipText.SetActive(true);
         SkipArrow.SetActive(true);
     }
