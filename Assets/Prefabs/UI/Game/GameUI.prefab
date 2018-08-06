@@ -106,14 +106,13 @@ GameObject:
   - component: {fileID: 224781797679273870}
   - component: {fileID: 222731315440748932}
   - component: {fileID: 114283514623028702}
-  - component: {fileID: 82749501856620818}
   m_Layer: 5
   m_Name: Game Over Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1095954565252736
 GameObject:
   m_ObjectHideFlags: 1
@@ -326,6 +325,7 @@ GameObject:
   - component: {fileID: 223511387544115250}
   - component: {fileID: 114981619754395156}
   - component: {fileID: 114159444599782406}
+  - component: {fileID: 82416436479047092}
   m_Layer: 5
   m_Name: Game Over
   m_TagString: Untagged
@@ -1399,12 +1399,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82749501856620818
+--- !u!82 &82416436479047092
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061418765712190}
+  m_GameObject: {fileID: 1249551144632380}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
