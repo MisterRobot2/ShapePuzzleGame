@@ -56,6 +56,7 @@ public class ShapeMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             {
                 DataBase.speed = DataBase.oldSpeed;
+                DataBase.firstSlowDown = true;
             }
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -104,6 +105,7 @@ public class ShapeMovement : MonoBehaviour
         {
             blockLanding.Play();
             DataBase.blocksPlacedInGame++;
+            DataBase.firstDrop = true;
             hasCollided = true;
         }
     }
