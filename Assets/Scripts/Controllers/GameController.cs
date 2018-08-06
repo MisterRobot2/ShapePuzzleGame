@@ -499,4 +499,9 @@ public class GameController : MonoBehaviour
     #endregion
 
 
+    public void nextBtnClick(){
+        GameObject.Find("Singleplayer UI(Clone)").transform.Find("Objective").gameObject.SetActive(false);
+    }
+
 }
+
