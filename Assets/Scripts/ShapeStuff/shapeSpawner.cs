@@ -13,7 +13,7 @@ public class shapeSpawner : MonoBehaviour
     private GameObject shapePreview;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (parent == null)
         {

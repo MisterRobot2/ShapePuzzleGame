@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shapePreview : MonoBehaviour {
 
@@ -21,14 +22,34 @@ public class shapePreview : MonoBehaviour {
 
     public MeshCreator MeshObjL;
 
+    private void Awake()
+    {
+        addEnableShapes();
+    }
+
     private void Start()
     {
         previewCamera = this.gameObject.transform.parent.gameObject.GetComponent<Camera>();
+    }
 
+    private void Update()
+    {
+        if (destroyBlock == true)
+        {
+            newObject.transform.position = nextShape.transform.position;
+            destroyBlock = false;
+        }
+    }
+
+    void addEnableShapes()
+    {
         //Check toggle in store to figure out which shapes to include
-        if(DataBase.iceBlockToggleIsOn == true){
+        if (DataBase.iceBlockToggleIsOn == true)
+        {
             shapes[2].gameObject.tag = "Block";
-        }else{
+        }
+        else
+        {
             shapes[2].gameObject.tag = "Untagged";
         }
 
@@ -84,21 +105,12 @@ public class shapePreview : MonoBehaviour {
             shapes[9].gameObject.tag = "Untagged";
         }
 
-        foreach (GameObject shape in shapes){
-            if(shape.gameObject.tag == "Block"){
+        foreach (GameObject shape in shapes)
+        {
+            if (shape.gameObject.tag == "Block")
+            {
                 includedShapes.Add(shape);
             }
-        }
-
-
-    }
-
-    private void Update()
-    {
-        if (destroyBlock == true)
-        {
-            newObject.transform.position = nextShape.transform.position;
-            destroyBlock = false;
         }
     }
 
@@ -106,9 +118,6 @@ public class shapePreview : MonoBehaviour {
     {
 
         //Creates Preview
-        Debug.Log(includedShapes.Count);
-        Debug.Log("S");
-        Debug.LogWarning("FIX THIS NOW >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         nextShape = GameObject.Instantiate(includedShapes[Random.Range(0, includedShapes.Count)], parent.transform);
         nextShape.transform.position = this.gameObject.transform.position;
         //Get Mesh Creator
