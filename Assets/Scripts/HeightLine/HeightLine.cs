@@ -60,7 +60,6 @@ public class HeightLine : MonoBehaviour
         UpSequence();
         DownSequence();
         CalculateHeight();
-        GameOverTriggerFollow();
 	}
 
     #region debugCheckFunctions
@@ -207,23 +206,6 @@ public class HeightLine : MonoBehaviour
         }
         
     }
-    #endregion
-
-    #region GameOverCollider
-
-    void GameOverTriggerFollow()
-    {
-        if (height <= 0)
-        {
-            totalHeightText.text = "How Did you lose with " + height + "Ft "+" Are you even trying?";
-        }
-        else
-        {
-            totalHeightText.text = "You Reached " + height + "Ft!";
-        }
-        
-    }
-
     #endregion
 
     #region UpdateHeightText
