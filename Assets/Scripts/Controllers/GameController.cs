@@ -139,7 +139,6 @@ public class GameController : MonoBehaviour
             singlePlayerObject.SetActive(true);
             if (CurrentData.gameData.isFirstTime)
             {
-                Debug.Log("here");
                 singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(true);
                 singlePlayerObject.transform.Find("Objective").gameObject.SetActive(true);
                 CurrentData.gameData.isFirstTime = false;
