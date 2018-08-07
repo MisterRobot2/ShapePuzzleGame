@@ -376,9 +376,9 @@ public class GameController : MonoBehaviour
             //Pink
             case 6:
                 return new Color32(255, 0, 204, 255);
-            //Grey
+            //Gray
             case 7:
-                return new Color32(218, 218, 218, 255);
+                return new Color32(109, 109, 109, 255);
             default:
                 return new Color32(255, 0, 135, 255);
         }
