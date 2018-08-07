@@ -107,7 +107,7 @@ public class GameOverScript : MonoBehaviour
 
         if(GameData.selectedMode == GameMode.SinglePlayer)
         {
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff>" + GameData.blocksPlacedInGame+"</color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Winner Text").GetComponent<Text>().text = "Blocks Placed: " + GameData.blocksPlacedInGame;
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff>" + CurrentData.gameData.highScore + "</color>";
         }
         else if(GameData.selectedMode == GameMode.PassAndPlay)
@@ -126,7 +126,7 @@ public class GameOverScript : MonoBehaviour
         //Updates the words of your score
         if (GameData.currentHeight <= 1)
         {
-            highScoreWords.GetComponent<Text>().text = "How Did you lose with " + GameData.currentHeight + "Ft " + " Are you even trying?";
+            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff>How Did you lose with " + GameData.currentHeight + "Ft " + " Are you even trying?</color>";
         }
         else
         {
