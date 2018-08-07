@@ -21,6 +21,11 @@ public class ChangeScene : MonoBehaviour
 
     public void LoadTitleScene()
     {
+        if (DataBase.isTutorial == true)
+        {
+            DataBase.isTutorial = false;
+        }
+
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Title"); 
         DataBase.team1coins = 0;

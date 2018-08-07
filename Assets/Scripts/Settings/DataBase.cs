@@ -87,7 +87,9 @@ public static class DataBase
     public static bool firstDrop = false;
     public static bool firstGoalLine = false;
     public static bool firstSkip = false;
+    public static bool firstCoin = false;
     public static bool firstSlowDown = false;
+    public static bool canCollectCoin = false;
 
     #endregion
 
