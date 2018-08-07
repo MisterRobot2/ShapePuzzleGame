@@ -37,8 +37,16 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        movementSpeed = DataBase.speed;
-
+        if (DataBase.ScreenWidth >= 10)
+        {
+            movementSpeed = DataBase.speed;
+        }
+        else
+        {
+            movementSpeed = DataBase.speed/2;
+        }
+        
+        
         if (canBeControlled == true)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
@@ -52,6 +60,7 @@ public class ShapeMovement : MonoBehaviour
         // slows block down 
         if (canBeControlled == true && DataBase.isPlayerPlaying)
         {
+
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
                 DataBase.oldSpeed = movementSpeed;
@@ -82,7 +91,17 @@ public class ShapeMovement : MonoBehaviour
             }
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && DataBase.canSpawnShape == true)
             {
-                rb.gravityScale = 2;
+                //rb.gravityScale = 2;
+
+                if (DataBase.ScreenWidth >= 10)
+                {
+                    rb.gravityScale = 2;
+                }
+                else
+                {
+                    rb.gravityScale = 1;
+                }
+                
                 canBeControlled = false;
                 StartCoroutine(Freeze());
                 rb.constraints = RigidbodyConstraints2D.None;

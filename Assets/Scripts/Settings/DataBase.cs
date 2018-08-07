@@ -10,6 +10,8 @@ public static class DataBase
     public static GameObject nextShape;
     public static GameMode selectedMode = GameMode.PassAndPlay;
 
+    public static float ScreenWidth;
+
     #region GameVaribles
 
     public static int blocksPlacedInGame = 0;
