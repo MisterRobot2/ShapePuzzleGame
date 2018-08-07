@@ -75,7 +75,6 @@ public class TutorialScript : MonoBehaviour {
                 SlowDownText.SetActive(false);
                 ReadyText.SetActive(true);
                 backToMainMenuButton.SetActive(true);
-                GameData.isTutorial = false;
             }
         }
 	}
