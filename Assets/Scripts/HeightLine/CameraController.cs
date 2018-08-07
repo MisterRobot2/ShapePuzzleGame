@@ -51,17 +51,14 @@ public class CameraController : MonoBehaviour
         if (freeze == false && UpAmount > 0)
         {
             transform.Translate(new Vector2(0, Speed));
+            background.transform.localPosition = new Vector3(0.0f, background.transform.localPosition.y + Speed, 0.0f);
             UpAmount -= Speed;
-
-            background.transform.position = new Vector3(0.0f, background.transform.position.y, 0.0f);
             DataBase.canGameOver = false;
         }
         else if (UpAmount <= 0)
         {
             DataBase.canGameOver = true;
         }
-
-        
     }
 
     void MoveCameraDown()
