@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61222417625705012}
   - component: {fileID: 114663598971026090}
   - component: {fileID: 82075585638457006}
+  - component: {fileID: 114722360741318276}
   m_Layer: 9
   m_Name: Test Block
   m_TagString: Block
@@ -202,6 +203,22 @@ MonoBehaviour:
   movementSpeed: 14.899647
   boxCollider: {fileID: 61222417625705012}
   polycollider2D: {fileID: 0}
+--- !u!114 &114722360741318276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595548648208530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92bee522309f7054fac17b1566ee5b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  XScailFactor: 0.1
+  yScailFactor: 0.1
+  isObject: 1
+  checkWidth: 1
 --- !u!212 &212780674673071588
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -37,16 +37,30 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        movementSpeed = CurrentData.gameData.speed;
-
+        if (DataBase.ScreenWidth >= 10)
+        {
+            movementSpeed = CurrentData.gameData.speed;
+        }
+        else
+        {
+            movementSpeed = CurrentData.gameData.speed/2;
+        }
+        
+        
         if (canBeControlled == true)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
+
+            if (DataBase.isGameOver == true)
+            {
+                Destroy(this.gameObject);
+            }
         }
         
         // slows block down 
         if (canBeControlled == true && GameData.isPlayerPlaying)
         {
+
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
                 GameData.oldSpeed = movementSpeed;
@@ -77,7 +91,17 @@ public class ShapeMovement : MonoBehaviour
             }
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && GameData.canSpawnShape == true)
             {
-                rb.gravityScale = 2;
+                //rb.gravityScale = 2;
+
+                if (DataBase.ScreenWidth >= 10)
+                {
+                    rb.gravityScale = 2;
+                }
+                else
+                {
+                    rb.gravityScale = 1;
+                }
+                
                 canBeControlled = false;
                 StartCoroutine(Freeze());
                 rb.constraints = RigidbodyConstraints2D.None;
@@ -116,8 +140,12 @@ public class ShapeMovement : MonoBehaviour
     IEnumerator Freeze()
     {
         yield return new WaitForSeconds(3);
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        isFrozen = true;
+        if (DataBase.isGameOver == false)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            isFrozen = true;
+        }
+        
     }
 
     void PlaceBlockFollowSpawn()

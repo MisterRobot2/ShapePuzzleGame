@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 50098859892116864}
   - component: {fileID: 114815403880770738}
   - component: {fileID: 82767291084833508}
+  - component: {fileID: 114902954278439984}
   m_Layer: 9
   m_Name: Ice Cube
   m_TagString: Block
@@ -295,6 +296,22 @@ MonoBehaviour:
   movementSpeed: 5
   boxCollider: {fileID: 61775983390673942}
   polycollider2D: {fileID: 0}
+--- !u!114 &114902954278439984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674289691882778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92bee522309f7054fac17b1566ee5b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  XScailFactor: 0.035
+  yScailFactor: 0.035
+  isObject: 1
+  checkWidth: 1
 --- !u!198 &198425173009592868
 ParticleSystem:
   m_ObjectHideFlags: 1

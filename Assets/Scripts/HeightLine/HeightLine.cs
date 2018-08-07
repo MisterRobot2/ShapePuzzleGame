@@ -211,7 +211,17 @@ public class HeightLine : MonoBehaviour
 
     void CalculateHeight()
     {
-        height = (Mathf.Round((this.transform.position.y - initalHeight) * 10)) / 10;
+
+        if (DataBase.ScreenWidth >= 10)
+        {
+            height = (Mathf.Round((this.transform.position.y - initalHeight) * 10) / 10);
+            moveTextScript.UpdateText(height + "Ft");
+        }
+        else
+        {
+            height = (Mathf.Round((this.transform.position.y / DataBase.ScreenWidth * 10 - initalHeight / DataBase.ScreenWidth * 10) * 10)) / 10;
+            moveTextScript.UpdateText(height + "Ft");
+        }
         moveTextScript.UpdateText(height + "Ft");
         text.text = height + "Ft";
         GameData.currentHeight = height; 
