@@ -114,7 +114,6 @@ public class GameController : MonoBehaviour
 
         #region Start Game
         //Pass and Play
-        //WORKING HERE
         if (GameData.selectedMode == GameMode.PassAndPlay)
         {
             if(GameData.namesExist){
@@ -138,7 +137,16 @@ public class GameController : MonoBehaviour
         if(GameData.selectedMode == GameMode.SinglePlayer)
         {
             singlePlayerObject.SetActive(true);
-            GameObject.Find("Play Button").GetComponent<Button>().onClick.AddListener(delegate { startSingleplayerGame(); });
+            if (CurrentData.gameData.isFirstTime)
+            {
+                singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(true);
+                singlePlayerObject.transform.Find("Objective").gameObject.SetActive(true);
+                CurrentData.gameData.isFirstTime = false;
+                GameObject.Find("Play Button").GetComponent<Button>().onClick.AddListener(delegate { startSingleplayerGame(); });
+            } else{
+                startSingleplayerGame();
+            }
+
         }
         #endregion
     }
@@ -409,18 +417,11 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region singleplayer
+
     void startSingleplayerGame()
     {
         currentTeamNumber = 1;
-        if(CurrentData.gameData.isFirstTime)
-        {
 
-        }else
-        {
-            singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(false);
-            singlePlayerObject.transform.Find("Objective").gameObject.SetActive(false);
-        }
-        CurrentData.gameData.isFirstTime = false;
         GameData.isPlayerPlaying = true;
         GameData.isGameOver = false;
         GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
