@@ -115,7 +115,7 @@ public class GameOverScript : MonoBehaviour
         }
         else if(DataBase.selectedMode == GameMode.PassAndPlay)
         {
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = winner + " Wins!";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Winner Text").GetComponent<Text>().text = winner + " Wins!";
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
         }
         
