@@ -107,8 +107,8 @@ public class GameOverScript : MonoBehaviour
 
         if(GameData.selectedMode == GameMode.SinglePlayer)
         {
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff><b>" + GameData.blocksPlacedInGame+"</b></color>";
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + CurrentData.gameData.highScore + "</b></color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff>" + GameData.blocksPlacedInGame+"</color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff>" + CurrentData.gameData.highScore + "</color>";
         }
         else if(GameData.selectedMode == GameMode.PassAndPlay)
         {
@@ -130,7 +130,7 @@ public class GameOverScript : MonoBehaviour
         }
         else
         {
-            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff><b>" + "You Reached: " + GameData.currentHeight + " Ft!" + "</b></color>";
+            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff>" + "You Reached: " + GameData.currentHeight + " Ft!" + "</color>";
         }
 
 

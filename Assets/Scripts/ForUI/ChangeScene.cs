@@ -22,7 +22,11 @@ public class ChangeScene : MonoBehaviour
 
     public void LoadTitleScene()
     {
-        SaveAndLoad.save();
+        if (GameData.isTutorial == true)
+        {
+            GameData.isTutorial = false;
+        }
+
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Title");
         GameData.team1coins = 0;
