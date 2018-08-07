@@ -110,7 +110,7 @@ public class GameOverScript : MonoBehaviour
 
         if(DataBase.selectedMode == GameMode.SinglePlayer)
         {
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff><b>" + DataBase.blocksPlacedInGame+"</b></color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Winner Text").GetComponent<Text>().text = "Blocks Placed: " + DataBase.blocksPlacedInGame;
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore + "</b></color>";
         }
         else if(DataBase.selectedMode == GameMode.PassAndPlay)
@@ -131,11 +131,11 @@ public class GameOverScript : MonoBehaviour
         //Updates the words of your score
         if (DataBase.currentHeight <= 1)
         {
-            highScoreWords.GetComponent<Text>().text = "How Did you lose with " + DataBase.currentHeight + "Ft " + " Are you even trying?";
+            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff>How Did you lose with " + DataBase.currentHeight + "Ft " + " Are you even trying?</color>";
         }
         else
         {
-            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff><b>" + "You Reached: " + DataBase.currentHeight + " Ft!" + "</b></color>";
+            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff>" + "You Reached: " + DataBase.currentHeight + " Ft!" + "</color>";
         }
 
 
