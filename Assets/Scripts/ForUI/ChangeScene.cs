@@ -40,7 +40,10 @@ public class ChangeScene : MonoBehaviour
         {
             GameData.namesExist = false;
         }
-        CurrentData.gameData.isFirstTime = true;
+        if(CurrentData.gameData.showTipsEveryGame)
+        {
+            CurrentData.gameData.isFirstTime = true;
+        }
         Time.timeScale = 1.0f;
         GameData.selectedMode = selectGameMode;
         SceneManager.LoadScene(indexOfSceneToLoad); 

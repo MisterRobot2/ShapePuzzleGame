@@ -412,7 +412,15 @@ public class GameController : MonoBehaviour
     void startSingleplayerGame()
     {
         currentTeamNumber = 1;
-        singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(false);
+        if(CurrentData.gameData.isFirstTime)
+        {
+
+        }else
+        {
+            singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(false);
+            singlePlayerObject.transform.Find("Objective").gameObject.SetActive(false);
+        }
+        CurrentData.gameData.isFirstTime = false;
         GameData.isPlayerPlaying = true;
         GameData.isGameOver = false;
         GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();

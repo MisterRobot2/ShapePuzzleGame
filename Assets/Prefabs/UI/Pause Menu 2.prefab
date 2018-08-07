@@ -915,7 +915,7 @@ MonoBehaviour:
   windowModeToggle: {fileID: 114338097752473146}
   soundToggle: {fileID: 114272912301361530}
   speedSlider: {fileID: 114285848836697460}
-  showControlsEveryGameToggle: {fileID: 114869774182461094}
+  ShowTipsEveryGame: {fileID: 0}
 --- !u!114 &114041676265104214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224581548887136816}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3180,11 +3180,11 @@ RectTransform:
   - {fileID: 224159037102080538}
   - {fileID: 224163225806870538}
   m_Father: {fileID: 224705252951996848}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 452.55, y: -233.79999}
+  m_AnchoredPosition: {x: 452.55, y: -318.4}
   m_SizeDelta: {x: 905.1, y: 129.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224341979492607666
@@ -3462,11 +3462,11 @@ RectTransform:
   m_Children:
   - {fileID: 224980746771513136}
   m_Father: {fileID: 224705252951996848}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 452.55, y: -341.19998}
+  m_AnchoredPosition: {x: 452.55, y: -211}
   m_SizeDelta: {x: 905.1, y: 83.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224686130576177418
@@ -3502,8 +3502,8 @@ RectTransform:
   m_Children:
   - {fileID: 224262583648068892}
   - {fileID: 224971924388425964}
-  - {fileID: 224320084601987892}
   - {fileID: 224614138301072860}
+  - {fileID: 224320084601987892}
   m_Father: {fileID: 224460235942524906}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

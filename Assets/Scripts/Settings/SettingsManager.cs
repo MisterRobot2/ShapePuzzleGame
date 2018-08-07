@@ -20,7 +20,7 @@ public class SettingsManager : MonoBehaviour
     #endregion
 
     public Slider speedSlider;
-    public Toggle showControlsEveryGameToggle;
+    public Toggle ShowTipsEveryGame;
 
     void Start()
     {

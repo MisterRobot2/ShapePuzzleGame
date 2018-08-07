@@ -127,5 +127,6 @@ public class DataBase
     public bool isFirstTime = true;
     public bool isFullscreen;
     public bool isAudioOn = true;
+    public bool showTipsEveryGame = false;
 
 }
