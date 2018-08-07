@@ -24,6 +24,8 @@ public class CameraController : MonoBehaviour
     GoalLine goalLineScript;
     HeightLine HeightLineScript;
 
+    public GameObject background;
+
     
 
     // Use this for initialization
@@ -50,7 +52,9 @@ public class CameraController : MonoBehaviour
         {
             transform.Translate(new Vector2(0, Speed));
             UpAmount -= Speed;
-            GameData.canGameOver = false;
+
+            background.transform.position = new Vector3(0.0f, background.transform.position.y, 0.0f);
+            DataBase.canGameOver = false;
         }
         else if (UpAmount <= 0)
         {
