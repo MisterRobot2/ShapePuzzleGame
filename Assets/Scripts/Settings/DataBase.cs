@@ -58,6 +58,8 @@ public static class SaveAndLoad
                 File.Delete(Application.dataPath + "/Saves/save.CloudBuster");
             }
         }
+        CurrentData.gameData = new DataBase();
+        save();
     }
 }
 // Does not get saved

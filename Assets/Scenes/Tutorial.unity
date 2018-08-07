@@ -655,7 +655,7 @@ Prefab:
         type: 2}
       propertyPath: singlePlayerPrefab
       value: 
-      objectReference: {fileID: 1390653726657022, guid: 11a8da1c6ccee294dbcfff8af819ac2b,
+      objectReference: {fileID: 1261809663550498, guid: 5a4206c7e80ea5441829eeb6ace8bcd4,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dfbfaeb0108f234795dcd504b0d0191, type: 2}
