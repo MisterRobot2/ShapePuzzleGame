@@ -326,22 +326,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114949421590562326, guid: 6aba69442fac18d4294316dfda150bdb,
+    - target: {fileID: 114141591380777686, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1310259977}
-    - target: {fileID: 114515602100481380, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1915203548}
     - target: {fileID: 114391925394717360, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1713448354}
-    - target: {fileID: 114141591380777686, guid: 6aba69442fac18d4294316dfda150bdb,
+    - target: {fileID: 114515602100481380, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1915203548}
+    - target: {fileID: 114949421590562326, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -356,91 +356,6 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099501619}
-    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_FontData.m_MaxSize
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114510225287578384, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_Text
-      value: "Objectives\n<b><color=#ffd400>---------------</color></b> \nBust through
-        the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins
-        to buy skips and purchase new shapes.\n\nIf the block falls off the platform
-        you lose!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 224057139688937018, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 554.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 224057139688937018, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 126.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114937753655850804, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a55f51dcdd533f7479075acf21fa569f,
-        type: 3}
-    - target: {fileID: 114699081651108432, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3f30170e5b91ea442b20b3071381d8d6,
-        type: 3}
-    - target: {fileID: 224110238967729694, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -168
-      objectReference: {fileID: 0}
-    - target: {fileID: 224084139913812608, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 117
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
