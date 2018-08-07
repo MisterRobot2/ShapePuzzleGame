@@ -56,7 +56,7 @@ public class ScaleObject : MonoBehaviour
             if (width >= 10)
             {
                 width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
-                DataBase.ScreenWidth = width;
+                GameData.ScreenWidth = width;
 
                 transform.localScale = new Vector2(width * XScailFactor, this.transform.localScale.y);
                 transform.localScale = new Vector2(this.transform.localScale.x, width * yScailFactor);
@@ -65,7 +65,7 @@ public class ScaleObject : MonoBehaviour
             else
             {
                 width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
-                DataBase.ScreenWidth = width;
+                GameData.ScreenWidth = width;
 
                 transform.localScale = new Vector2(width * XScailFactor*2 , this.transform.localScale.y);
                 transform.localScale = new Vector2(this.transform.localScale.x, width * yScailFactor*2 );
@@ -74,7 +74,7 @@ public class ScaleObject : MonoBehaviour
         else
         {
             width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
-            DataBase.ScreenWidth = width;
+            GameData.ScreenWidth = width;
 
             transform.localScale = new Vector2(width * XScailFactor, this.transform.localScale.y);
             transform.localScale = new Vector2(this.transform.localScale.x, width * yScailFactor);

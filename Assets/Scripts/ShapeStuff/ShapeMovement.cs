@@ -37,7 +37,7 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        if (DataBase.ScreenWidth >= 10)
+        if (GameData.ScreenWidth >= 10)
         {
             movementSpeed = CurrentData.gameData.speed;
         }
@@ -51,7 +51,7 @@ public class ShapeMovement : MonoBehaviour
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
 
-            if (DataBase.isGameOver == true)
+            if (GameData.isGameOver == true)
             {
                 Destroy(this.gameObject);
             }
@@ -93,7 +93,7 @@ public class ShapeMovement : MonoBehaviour
             {
                 //rb.gravityScale = 2;
 
-                if (DataBase.ScreenWidth >= 10)
+                if (GameData.ScreenWidth >= 10)
                 {
                     rb.gravityScale = 2;
                 }
@@ -140,7 +140,7 @@ public class ShapeMovement : MonoBehaviour
     IEnumerator Freeze()
     {
         yield return new WaitForSeconds(3);
-        if (DataBase.isGameOver == false)
+        if (GameData.isGameOver == false)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isFrozen = true;

@@ -399,66 +399,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114064797937617644, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: gameOverUIPrefab
-      value: 
-      objectReference: {fileID: 720856638}
     - target: {fileID: 114834850166550144, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
       propertyPath: gameOverUIPrefab
       value: 
       objectReference: {fileID: 720856638}
-    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 92.05973
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114629112717943964, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+    - target: {fileID: 114064797937617644, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
-      propertyPath: background
+      propertyPath: gameOverUIPrefab
       value: 
-      objectReference: {fileID: 1905113079}
-    - target: {fileID: 20339664918359744, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 20339664918359744, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20339664918359744, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.9882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 20339664918359744, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20339664918359744, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650726774096182, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356068318037512, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 720856638}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
   m_IsPrefabAsset: 0
@@ -527,11 +477,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 780279430}
   m_Script: {fileID: 11500000, guid: 96bf895b0a674314693bcadd2544e025, type: 3}
---- !u!1 &1905113079 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1304733025204578, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-    type: 2}
-  m_PrefabInternal: {fileID: 780279430}
 --- !u!1 &1915203548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1618454959044842, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,

@@ -15,11 +15,11 @@ public class MoveText : MonoBehaviour
         if (revrseTextSide == false)
         {
                                                                           //V Change this number for tweek
-            this.transform.position = new Vector3(DataBase.ScreenWidth*.34f + (newString.Length * (DataBase.ScreenWidth * .011f)), parent.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3(GameData.ScreenWidth*.34f + (newString.Length * (GameData.ScreenWidth * .011f)), parent.transform.position.y, this.transform.position.z);
         }
         else if (revrseTextSide == true)
         {
-            this.transform.position = new Vector3((DataBase.ScreenWidth * .34f + (newString.Length * (DataBase.ScreenWidth * .011f)))*-1, parent.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3((GameData.ScreenWidth * .34f + (newString.Length * (GameData.ScreenWidth * .011f)))*-1, parent.transform.position.y, this.transform.position.z);
         }
     }
 }

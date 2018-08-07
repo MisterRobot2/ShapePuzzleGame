@@ -39,13 +39,13 @@ public class GoalLine : MonoBehaviour
         initalHeight = heightScript.initalHeight;
         goalHeight += Random.Range(Mathf.Round(goalHeightMin),Mathf.Round(GoalHeightMax));
 
-        if (DataBase.ScreenWidth >= 10)
+        if (GameData.ScreenWidth >= 10)
         {
             goalHeight += Random.Range(Mathf.Round(goalHeightMin), Mathf.Round(GoalHeightMax));
         }
         else
         {
-            goalHeight += Random.Range(Mathf.Round(goalHeightMin/DataBase.ScreenWidth), Mathf.Round(DataBase.ScreenWidth));
+            goalHeight += Random.Range(Mathf.Round(goalHeightMin/ GameData.ScreenWidth), Mathf.Round(GameData.ScreenWidth));
         }
 
         SetLineHeight();
@@ -66,15 +66,15 @@ public class GoalLine : MonoBehaviour
         
 
         //Finds the height to display
-        if (DataBase.ScreenWidth >= 10)
+        if (GameData.ScreenWidth >= 10)
         {
             transform.Translate(new Vector2(0, goalHeightIncrement));
             height = (Mathf.Round((this.transform.position.y - initalHeight) * 10) / 10);
         }
         else
         {
-            transform.Translate(new Vector2(0, goalHeightIncrement / DataBase.ScreenWidth* 3.333f));
-            height = ((Mathf.Round(((this.transform.position.y / DataBase.ScreenWidth * 10) - (initalHeight / DataBase.ScreenWidth * 10)) * 10)) / 10);
+            transform.Translate(new Vector2(0, goalHeightIncrement / GameData.ScreenWidth* 3.333f));
+            height = ((Mathf.Round(((this.transform.position.y / GameData.ScreenWidth * 10) - (initalHeight / GameData.ScreenWidth * 10)) * 10)) / 10);
             moveTextScript.UpdateText(height + "Ft");
         }
         text.text = height+ "Ft";

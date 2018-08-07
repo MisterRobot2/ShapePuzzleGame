@@ -83,15 +83,15 @@ public class MeshObjL : MonoBehaviour
         Renderer rend = GetComponent<Renderer>();
 
 
-        if (DataBase.currentTeamNumber == 1)
+        if (GameData.currentTeamNumber == 1)
         {
             rend.material.shader = Shader.Find("Unlit/Color");
-            rend.material.SetColor("Main Color", DataBase.team2Color);
+            rend.material.SetColor("Main Color", GameData.team2Color);
         }
-        if (DataBase.currentTeamNumber == 2)
+        if (GameData.currentTeamNumber == 2)
         {
             rend.material.shader = Shader.Find("Unlit/Color");
-            rend.material.SetColor("Main Color", DataBase.team1Color);
+            rend.material.SetColor("Main Color", GameData.team1Color);
         }
         /*
         //Set the main Color of the Material to green
