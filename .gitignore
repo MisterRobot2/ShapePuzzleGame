@@ -45,3 +45,5 @@ Library/assetDatabase3
 # strange files from Visual Studio :D 
 .vs/slnx.sqlite
 *.sqlite
+/Assets/Saves
+/Assets/Saves.meta

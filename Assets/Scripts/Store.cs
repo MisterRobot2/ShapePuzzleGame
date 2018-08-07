@@ -19,7 +19,7 @@ public class Store : MonoBehaviour {
         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = false;
 
         totalCoinsText = GameObject.Find("Total Coins Text").gameObject.GetComponent<Text>();
-        totalCoinsText.text = DataBase.totalCoins.ToString();
+        totalCoinsText.text = CurrentData.gameData.totalCoins.ToString();
         
         this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#af6f01>$"+cost+"</color>";
         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().onValueChanged.AddListener(delegate { toggleChange(); });
@@ -34,13 +34,13 @@ public class Store : MonoBehaviour {
         switch (item)
         {
             case ItemType.Phone:
-                if (DataBase.phoneBought)
+                if (CurrentData.gameData.phoneBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.phoneToggleIsOn)
+                    if (CurrentData.gameData.phoneToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -50,13 +50,13 @@ public class Store : MonoBehaviour {
                 }
                 break;
             case ItemType.IceCube:
-                if (DataBase.iceBlockBought)
+                if (CurrentData.gameData.iceBlockBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.iceBlockToggleIsOn)
+                    if (CurrentData.gameData.iceBlockToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -66,13 +66,13 @@ public class Store : MonoBehaviour {
                 }
                 break;
             case ItemType.Book:
-                if (DataBase.bookBought)
+                if (CurrentData.gameData.bookBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.bookToggleIsOn)
+                    if (CurrentData.gameData.bookToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -82,13 +82,13 @@ public class Store : MonoBehaviour {
                 }
                 break;
             case ItemType.Bookshelf:
-                if (DataBase.bookShelfBought)
+                if (CurrentData.gameData.bookShelfBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.bookShelfToggleIsOn)
+                    if (CurrentData.gameData.bookShelfToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -99,13 +99,13 @@ public class Store : MonoBehaviour {
 
                 break;
             case ItemType.WaterGun:
-                if (DataBase.waterGunBought)
+                if (CurrentData.gameData.waterGunBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.waterGunToggleIsOn)
+                    if (CurrentData.gameData.waterGunToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -115,13 +115,13 @@ public class Store : MonoBehaviour {
                 }
                 break;
             case ItemType.Orb:
-                if (DataBase.orbBought)
+                if (CurrentData.gameData.orbBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.orbToggleIsOn)
+                    if (CurrentData.gameData.orbToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -131,13 +131,13 @@ public class Store : MonoBehaviour {
                 }
                 break;
             case ItemType.Table:
-                if (DataBase.tableBought)
+                if (CurrentData.gameData.tableBought)
                 {
                     this.gameObject.transform.Find("Text").GetComponent<Text>().text = "<color=#4b9b00>Purchased</color>";
                     this.gameObject.GetComponent<Image>().enabled = false;
                     this.gameObject.transform.Find("Image").GetComponent<Image>().enabled = false;
                     this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().interactable = true;
-                    if (DataBase.tableToggleIsOn)
+                    if (CurrentData.gameData.tableToggleIsOn)
                     {
                         this.gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn = true;
                     }else
@@ -155,7 +155,7 @@ public class Store : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (DataBase.totalCoins >= cost)
+        if (CurrentData.gameData.totalCoins >= cost)
         {
             this.gameObject.GetComponent<Button>().enabled = true;
         }
@@ -170,40 +170,40 @@ public class Store : MonoBehaviour {
         switch (item)
         {
             case ItemType.Phone:
-                DataBase.phoneBought = true;
+                CurrentData.gameData.phoneBought = true;
                 buyItem();
-                DataBase.phoneToggleIsOn = true;
+                CurrentData.gameData.phoneToggleIsOn = true;
                 break;
             case ItemType.IceCube:
-                DataBase.iceBlockBought = true;
+                CurrentData.gameData.iceBlockBought = true;
                 buyItem();
-                DataBase.iceBlockToggleIsOn = true;
+                CurrentData.gameData.iceBlockToggleIsOn = true;
                 break;
             case ItemType.Book:
-                DataBase.bookBought = true;
+                CurrentData.gameData.bookBought = true;
                 buyItem();
-                DataBase.bookToggleIsOn = true;
+                CurrentData.gameData.bookToggleIsOn = true;
                 break;
             case ItemType.Bookshelf:
-                DataBase.bookShelfBought = true;
+                CurrentData.gameData.bookShelfBought = true;
                 buyItem();
-                DataBase.bookShelfToggleIsOn = true;
+                CurrentData.gameData.bookShelfToggleIsOn = true;
 
                 break;
             case ItemType.WaterGun:
-                DataBase.waterGunBought = true;
+                CurrentData.gameData.waterGunBought = true;
                 buyItem();
-                DataBase.waterGunToggleIsOn = true;
+                CurrentData.gameData.waterGunToggleIsOn = true;
                 break;
             case ItemType.Orb:
-                DataBase.orbBought = true;
+                CurrentData.gameData.orbBought = true;
                 buyItem();
-                DataBase.orbToggleIsOn = true;
+                CurrentData.gameData.orbToggleIsOn = true;
                 break;
             case ItemType.Table:
-                DataBase.tableBought = true;
+                CurrentData.gameData.tableBought = true;
                 buyItem();
-                DataBase.tableToggleIsOn = true;
+                CurrentData.gameData.tableToggleIsOn = true;
                 break;
 
             default:
@@ -212,8 +212,8 @@ public class Store : MonoBehaviour {
     }
 
     public void updateCoins(){
-        DataBase.totalCoins -= cost;
-        totalCoinsText.text = DataBase.totalCoins.ToString();  
+        CurrentData.gameData.totalCoins -= cost;
+        totalCoinsText.text = CurrentData.gameData.totalCoins.ToString();  
     }
 
     void toggleChange()
@@ -223,72 +223,72 @@ public class Store : MonoBehaviour {
             case ItemType.Phone:
                 if(gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.phoneToggleIsOn = true;
+                    CurrentData.gameData.phoneToggleIsOn = true;
                 }else
                 {
-                    DataBase.phoneToggleIsOn = false;
+                    CurrentData.gameData.phoneToggleIsOn = false;
                 }
                 
                 break;
             case ItemType.IceCube:
                 if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.iceBlockToggleIsOn = true;
+                    CurrentData.gameData.iceBlockToggleIsOn = true;
                 }
                 else
                 {
-                    DataBase.iceBlockToggleIsOn = false;
+                    CurrentData.gameData.iceBlockToggleIsOn = false;
                 }
                 break;
             case ItemType.Book:
                 if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.bookToggleIsOn = true;
+                    CurrentData.gameData.bookToggleIsOn = true;
                 }
                 else
                 {
-                    DataBase.bookToggleIsOn = false;
+                    CurrentData.gameData.bookToggleIsOn = false;
                 }
                 break;
             case ItemType.Bookshelf:
                 if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.bookShelfToggleIsOn = true;
+                    CurrentData.gameData.bookShelfToggleIsOn = true;
                 }
                 else
                 {
-                    DataBase.bookShelfToggleIsOn = false;
+                    CurrentData.gameData.bookShelfToggleIsOn = false;
                 }
 
                 break;
             case ItemType.WaterGun:
                 if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.waterGunToggleIsOn = true;
+                    CurrentData.gameData.waterGunToggleIsOn = true;
                 }
                 else
                 {
-                    DataBase.waterGunToggleIsOn = false;
+                    CurrentData.gameData.waterGunToggleIsOn = false;
                 }
                 break;
             case ItemType.Orb:
                 if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.orbToggleIsOn = true;
+                    CurrentData.gameData.orbToggleIsOn = true;
                 }
                 else
                 {
-                    DataBase.orbToggleIsOn = false;
+                    CurrentData.gameData.orbToggleIsOn = false;
                 }
                 break;
             case ItemType.Table:
                 if (gameObject.transform.parent.transform.GetChild(4).GetComponent<Toggle>().isOn)
                 {
-                    DataBase.tableToggleIsOn = true;
+                    CurrentData.gameData.tableToggleIsOn = true;
                 }
                 else
                 {
-                    DataBase.tableToggleIsOn = false;
+                    CurrentData.gameData.tableToggleIsOn = false;
                 }
                 break;
 

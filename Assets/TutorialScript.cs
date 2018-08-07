@@ -20,21 +20,19 @@ public class TutorialScript : MonoBehaviour {
     private bool step3 = false;
     private bool step4 = false;
     void Start () {
-        DataBase.selectedMode = GameMode.SinglePlayer;
+        GameData.selectedMode = GameMode.SinglePlayer;
 
-        DataBase.isTutorial = true;
-        DataBase.firstDrop = false;
-        DataBase.firstGoalLine = false;
-        DataBase.firstSkip = false;
-        DataBase.canCollectCoin = false;
-        DataBase.firstCoin = false;
-        DataBase.firstSlowDown = false;
+        GameData.isTutorial = true;
+        GameData.firstDrop = false;
+        GameData.firstGoalLine = false;
+        GameData.firstSkip = false;
+        GameData.firstSlowDown = false;
 
         MovementText.SetActive(true);
     }
 	
 	void Update () {
-		if(DataBase.firstDrop == true)
+		if(GameData.firstDrop == true)
         {
             if (step1 == false)
             {
@@ -42,8 +40,8 @@ public class TutorialScript : MonoBehaviour {
                 GoalLineText.SetActive(true);
                 step1 = true;
             }
-            
-            if(DataBase.firstGoalLine == true)
+
+            if (GameData.firstGoalLine == true)
             {
                 if (step2 == false)
                 {
@@ -51,32 +49,33 @@ public class TutorialScript : MonoBehaviour {
                     StartCoroutine(NextShapeAndSkip());
                     step2 = true;
                 }
+            }
 
-                if(DataBase.firstSkip == true)
+            if (GameData.firstSkip == true)
+            {
+                if (step3 == false)
                 {
-                    if(step3 == false)
-                    {
-                        SkipText.SetActive(false);
-                        StartCoroutine(SkipsLeftAndCoins());
-                        step3 = true;
-                    }
-                    if(DataBase.firstCoin == true)
-                    {
-                        if (step4 == false)
-                        {
-                            CoinsText.SetActive(false);
-                            SlowDownText.SetActive(true);
-                            step4 = true;
-                        }
-
-                        if (DataBase.firstSlowDown == true)
-                        {
-                            SlowDownText.SetActive(false);
-                            ReadyText.SetActive(true);
-                            backToMainMenuButton.SetActive(true);
-                        }
-                    }
+                    SkipText.SetActive(false);
+                    StartCoroutine(SkipsLeftAndCoins());
+                    step3 = true;
                 }
+            }
+            if (GameData.firstCoin == true)
+            {
+                if (step4 == false)
+                {
+                    CoinsText.SetActive(false);
+                    SlowDownText.SetActive(true);
+                    step4 = true;
+                }
+            }
+
+            if(GameData.firstSlowDown == true)
+            {
+                SlowDownText.SetActive(false);
+                ReadyText.SetActive(true);
+                backToMainMenuButton.SetActive(true);
+                GameData.isTutorial = false;
             }
         }
 	}
@@ -97,6 +96,6 @@ public class TutorialScript : MonoBehaviour {
         SkipsLeftText.SetActive(false);
 
         CoinsText.SetActive(true);
-        DataBase.canCollectCoin = true;
+        GameData.canCollectCoin = true;
     }
 }

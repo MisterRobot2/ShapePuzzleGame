@@ -53,11 +53,11 @@ public class CameraController : MonoBehaviour
             transform.Translate(new Vector2(0, Speed));
             background.transform.localPosition = new Vector3(0.0f, background.transform.localPosition.y + Speed, 0.0f);
             UpAmount -= Speed;
-            DataBase.canGameOver = false;
+            GameData.canGameOver = false;
         }
         else if (UpAmount <= 0)
         {
-            DataBase.canGameOver = true;
+            GameData.canGameOver = true;
         }
     }
 
@@ -81,11 +81,11 @@ public class CameraController : MonoBehaviour
     {
         if (oldPos != this.transform.position.y)
         {
-            DataBase.canSpawnShape = false;
+            GameData.canSpawnShape = false;
         }
         else if(oldPos == this.transform.position.y)
         {
-            DataBase.canSpawnShape = true;
+            GameData.canSpawnShape = true;
         }
     }
     #endregion

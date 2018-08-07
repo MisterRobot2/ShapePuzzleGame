@@ -214,7 +214,7 @@ public class HeightLine : MonoBehaviour
         height = (Mathf.Round((this.transform.position.y - initalHeight) * 10)) / 10;
         moveTextScript.UpdateText(height + "Ft");
         text.text = height + "Ft";
-        DataBase.currentHeight = height; 
+        GameData.currentHeight = height; 
     }
 
     #endregion
