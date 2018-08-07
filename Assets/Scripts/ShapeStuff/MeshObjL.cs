@@ -82,6 +82,18 @@ public class MeshObjL : MonoBehaviour
         //COLOR
         Renderer rend = GetComponent<Renderer>();
 
+
+        if (DataBase.currentTeamNumber == 1)
+        {
+            rend.material.shader = Shader.Find("Unlit/Color");
+            rend.material.SetColor("Main Color", DataBase.team2Color);
+        }
+        if (DataBase.currentTeamNumber == 2)
+        {
+            rend.material.shader = Shader.Find("Unlit/Color");
+            rend.material.SetColor("Main Color", DataBase.team1Color);
+        }
+        /*
         //Set the main Color of the Material to green
         rend.material.shader = Shader.Find("_Color");
         rend.material.SetColor("_Color", Color.green);
@@ -89,6 +101,7 @@ public class MeshObjL : MonoBehaviour
         //Find the Specular shader and change its Color
         rend.material.shader = Shader.Find("Specular");
         rend.material.SetColor("_SpecColor", Color.green);
+        */
 
 
     }

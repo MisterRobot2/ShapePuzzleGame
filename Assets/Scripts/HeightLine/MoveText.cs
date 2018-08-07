@@ -6,16 +6,20 @@ public class MoveText : MonoBehaviour
 {
     [SerializeField]
     private bool revrseTextSide;
+    [SerializeField]
+    private GameObject parent;
 
-   public void UpdateText(string newString)
+
+    public void UpdateText(string newString)
     {
-        if (revrseTextSide == true)
+        if (revrseTextSide == false)
         {
-            this.transform.position = new Vector3(((4.8f + newString.Length * .2f) * -1) + transform.parent.transform.position.x, this.transform.position.y, this.transform.position.z);
+                                                                          //V Change this number for tweek
+            this.transform.position = new Vector3(DataBase.ScreenWidth*.34f + (newString.Length * (DataBase.ScreenWidth * .011f)), parent.transform.position.y, this.transform.position.z);
         }
-        else if (revrseTextSide == false)
+        else if (revrseTextSide == true)
         {
-            this.transform.position = new Vector3(4.8f + (newString.Length * .2f) + transform.parent.transform.position.x, this.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3((DataBase.ScreenWidth * .34f + (newString.Length * (DataBase.ScreenWidth * .011f)))*-1, parent.transform.position.y, this.transform.position.z);
         }
     }
 }

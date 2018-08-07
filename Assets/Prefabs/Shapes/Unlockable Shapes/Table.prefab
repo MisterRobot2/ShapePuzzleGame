@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 60039553031526358}
   - component: {fileID: 114011371561143668}
   - component: {fileID: 82268907545965594}
+  - component: {fileID: 114069252719516620}
   m_Layer: 9
   m_Name: Table
   m_TagString: Untagged
@@ -223,6 +224,22 @@ MonoBehaviour:
   movementSpeed: 5
   boxCollider: {fileID: 0}
   polycollider2D: {fileID: 60039553031526358}
+--- !u!114 &114069252719516620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420998318122754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92bee522309f7054fac17b1566ee5b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  XScailFactor: 0.045
+  yScailFactor: 0.045
+  isObject: 1
+  checkWidth: 1
 --- !u!212 &212666934450026668
 SpriteRenderer:
   m_ObjectHideFlags: 1

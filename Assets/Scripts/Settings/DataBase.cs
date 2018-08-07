@@ -76,6 +76,7 @@ public static class GameData
     public static int team1Skips = 3;
     public static int team2Skips = 3;
     public static float gameSpeed;
+    public static float ScreenWidth;
     public static string team1Name;
     public static string team2Name;
     public static bool canSpawnShape = true;

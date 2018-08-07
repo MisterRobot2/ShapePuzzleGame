@@ -4,25 +4,12 @@ using UnityEngine;
 
 public class MeshCreator : MonoBehaviour
 {
-    
+
 
     //public float width = 1;
     //public float height = 1;
 
-    // Use this for initialization
-    void Start()
-    {
 
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-    }
 
    public Vector3[] vertices = new Vector3[4];
 
@@ -30,6 +17,7 @@ public class MeshCreator : MonoBehaviour
 
 
     public void meshCreator(){
+
         MeshFilter mf = GetComponent<MeshFilter>();
         Mesh mesh = new Mesh();
         mf.mesh = mesh;
@@ -40,9 +28,8 @@ public class MeshCreator : MonoBehaviour
         int height = Random.Range(1, 5);
 
 
-
         vertices[0] = new Vector3(0, 0, 0);
-        vertices[1] = new Vector3(0, height, 0);
+        vertices[1] = new Vector3(0, height , 0);
         vertices[2] = new Vector3(width, height, 0);
         vertices[3] = new Vector3(width, 0, 0);
 
@@ -73,13 +60,25 @@ public class MeshCreator : MonoBehaviour
         //COLOR
         Renderer rend = GetComponent<Renderer>();
 
+        if (DataBase.currentTeamNumber == 1)
+        {
+            rend.material.shader = Shader.Find("Unlit/Color");
+            rend.material.SetColor("Main Color", DataBase.team2Color);
+        }
+        if (DataBase.currentTeamNumber == 2)
+        {
+            rend.material.shader = Shader.Find("Unlit/Color");
+            rend.material.SetColor("Main Color", DataBase.team1Color);
+        }
+      /*  
         //Set the main Color of the Material to green
         rend.material.shader = Shader.Find("_Color");
         rend.material.SetColor("_Color", Color.green);
 
         //Find the Specular shader and change its Color
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.green);
+        rend.material.shader = Shader.Find("Unlit/Color");
+        rend.material.SetColor("Main Color", Color.green);
+        */
     }
 
 
