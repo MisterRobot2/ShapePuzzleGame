@@ -41,7 +41,7 @@ public class TutorialScript : MonoBehaviour {
                 step1 = true;
             }
 
-            if(GameData.firstGoalLine == true)
+            if (GameData.firstGoalLine == true)
             {
                 if (step2 == false)
                 {
@@ -49,32 +49,33 @@ public class TutorialScript : MonoBehaviour {
                     StartCoroutine(NextShapeAndSkip());
                     step2 = true;
                 }
+            }
 
-                if(GameData.firstSkip == true)
+            if (GameData.firstSkip == true)
+            {
+                if (step3 == false)
                 {
-                    if(step3 == false)
-                    {
-                        SkipText.SetActive(false);
-                        StartCoroutine(SkipsLeftAndCoins());
-                        step3 = true;
-                    }
-                    if(DataBase.firstCoin == true)
-                    {
-                        if (step4 == false)
-                        {
-                            CoinsText.SetActive(false);
-                            SlowDownText.SetActive(true);
-                            step4 = true;
-                        }
-
-                    if(GameData.firstSlowDown == true)
-                    {
-                        SlowDownText.SetActive(false);
-                        ReadyText.SetActive(true);
-                        backToMainMenuButton.SetActive(true);
-                        GameData.isTutorial = false;
-                    }
+                    SkipText.SetActive(false);
+                    StartCoroutine(SkipsLeftAndCoins());
+                    step3 = true;
                 }
+            }
+            if (GameData.firstCoin == true)
+            {
+                if (step4 == false)
+                {
+                    CoinsText.SetActive(false);
+                    SlowDownText.SetActive(true);
+                    step4 = true;
+                }
+            }
+
+            if(GameData.firstSlowDown == true)
+            {
+                SlowDownText.SetActive(false);
+                ReadyText.SetActive(true);
+                backToMainMenuButton.SetActive(true);
+                GameData.isTutorial = false;
             }
         }
 	}

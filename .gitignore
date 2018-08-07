@@ -46,3 +46,4 @@ Library/assetDatabase3
 .vs/slnx.sqlite
 *.sqlite
 /Assets/Saves
+/Assets/Saves.meta
