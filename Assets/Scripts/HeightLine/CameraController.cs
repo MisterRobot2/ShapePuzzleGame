@@ -54,7 +54,7 @@ public class CameraController : MonoBehaviour
             UpAmount -= Speed;
 
             background.transform.position = new Vector3(0.0f, background.transform.position.y, 0.0f);
-            DataBase.canGameOver = false;
+            GameData.canGameOver = false;
         }
         else if (UpAmount <= 0)
         {

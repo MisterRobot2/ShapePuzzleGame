@@ -96,6 +96,6 @@ public class TutorialScript : MonoBehaviour {
         SkipsLeftText.SetActive(false);
 
         CoinsText.SetActive(true);
-        DataBase.canCollectCoin = true;
+        GameData.canCollectCoin = true;
     }
 }

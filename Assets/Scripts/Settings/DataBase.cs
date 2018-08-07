@@ -90,6 +90,7 @@ public static class GameData
     public static bool firstSlowDown = false;
     public static bool isGameOver = false;
     public static bool canGameOver;
+    public static bool canCollectCoin;
 }
 
 

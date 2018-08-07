@@ -21,13 +21,11 @@ public class Coin : MonoBehaviour
             {
                 collectCoinSound.Play();
                 CollectCoin();
-                if (DataBase.canCollectCoin == true) //for tutorial
+                if (GameData.canCollectCoin == true) //for tutorial
                 {
-                    DataBase.firstCoin = true;
+                    GameData.firstCoin = true;
                 }
             }
-            
-
         }
          
     }
