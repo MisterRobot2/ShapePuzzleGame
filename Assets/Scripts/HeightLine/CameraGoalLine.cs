@@ -36,6 +36,7 @@ public class CameraGoalLine : MonoBehaviour
     private void Update()
     {
         ShowLine();
+        UpdateText();
     }
 
     //moves the camera up if the height line collides

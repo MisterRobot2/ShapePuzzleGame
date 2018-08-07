@@ -432,7 +432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1896521166429280
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823343201760820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6, y: 0.01999998, z: 0}
+  m_LocalPosition: {x: 1, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4551142545816862}
@@ -1450,22 +1450,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  XScailFactor: 0.078
+  XScailFactor: 0.068
   yScailFactor: 0.06
   width: 0
-  floatWidth: 0
 --- !u!114 &114251816480898816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888822910214006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1f3187b065f08c49aeda9a48358b261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   revrseTextSide: 1
+  parent: {fileID: 0}
 --- !u!114 &114271186262062172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1525,10 +1525,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  XScailFactor: 0.1
-  yScailFactor: 0.1
+  XScailFactor: 0.055
+  yScailFactor: 0.055
   width: 0
-  floatWidth: 0
 --- !u!114 &114629112717943964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1617,6 +1616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revrseTextSide: 0
+  parent: {fileID: 1060858732845982}
 --- !u!114 &114834850166550144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1642,12 +1642,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383932568158518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1f3187b065f08c49aeda9a48358b261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   revrseTextSide: 1
+  parent: {fileID: 0}
 --- !u!114 &114946095440662840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1675,7 +1676,6 @@ MonoBehaviour:
   XScailFactor: 0.75
   yScailFactor: 0.025
   width: 0
-  floatWidth: 0
 --- !u!198 &198373063477442158
 ParticleSystem:
   m_ObjectHideFlags: 1

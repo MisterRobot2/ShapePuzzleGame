@@ -10,9 +10,7 @@ public class ScailOBject : MonoBehaviour
     [SerializeField]
     public float yScailFactor;
     [HideInInspector]
-    public double width;
-    [HideInInspector]
-    public float floatWidth;
+    public float width;
 
     // Use this for initialization
     void Start()
@@ -29,11 +27,10 @@ public class ScailOBject : MonoBehaviour
 
     void updateScreenVaribles()
     {
-        width = mainCamera.orthographicSize * 2.0 * Screen.width / Screen.height;
-        float floatWidth = (float)width;
-        transform.localScale = new Vector2(floatWidth * XScailFactor, this.transform.localScale.y);
-        transform.localScale = new Vector2(this.transform.localScale.x, floatWidth * yScailFactor);
+        width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
 
-        Debug.Log(floatWidth + "tootdle");
+        transform.localScale = new Vector2(width * XScailFactor, this.transform.localScale.y);
+        transform.localScale = new Vector2(this.transform.localScale.x, width * yScailFactor);
+
     }
 }

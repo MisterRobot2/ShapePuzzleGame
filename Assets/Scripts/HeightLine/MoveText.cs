@@ -17,19 +17,20 @@ public class MoveText : MonoBehaviour
 
     private void Update()
     {
-        this.transform.position = parent.transform.position;
+
     }
 
     public void UpdateText(string newString)
     {
+        scailobjectScript = gameObject.GetComponent<ScailOBject>();
         if (revrseTextSide == false)
         {
-           // this.transform.position = new Vector3(scailobjectScript.floatWidth, this.transform.position.y, this.transform.position.z);
-            this.transform.position = new Vector3((newString.Length * .2f)*scailobjectScript.floatWidth + transform.parent.transform.position.x, this.transform.position.y, this.transform.position.z);
+                                                                          //V Change this number for tweek
+            this.transform.position = new Vector3(scailobjectScript.width*.34f + (newString.Length * (scailobjectScript.width*.011f)), parent.transform.position.y, this.transform.position.z);
         }
-        else if (revrseTextSide == false)
+        else if (revrseTextSide == true)
         {
-           // this.transform.position = new Vector3(4.8f + (newString.Length * .2f) + transform.parent.transform.position.x, this.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3((scailobjectScript.width * .34f + (newString.Length * (scailobjectScript.width * .011f)))*-1, parent.transform.position.y, this.transform.position.z);
         }
     }
 }

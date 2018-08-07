@@ -38,7 +38,7 @@ public class GoalLine : MonoBehaviour
         heightScript = heightLine.GetComponent<HeightLine>();
         initalHeight = heightScript.initalHeight;
         goalHeight += Random.Range(Mathf.Round(goalHeightMin),Mathf.Round(GoalHeightMax));
-
+       
         SetLineHeight();
     }
 	
@@ -46,6 +46,8 @@ public class GoalLine : MonoBehaviour
 	void Update ()
     {
         GoalMatch();
+        moveTextScript.UpdateText(height + "Ft");
+
     }
 
     void SetLineHeight()
