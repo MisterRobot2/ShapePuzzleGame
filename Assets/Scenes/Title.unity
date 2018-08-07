@@ -359,6 +359,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114171961247051188, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224567780752362874, guid: ce702e1cd664a6c4fafc69d7c6053478,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -459,9 +464,53 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -28.000122
       objectReference: {fileID: 0}
+    - target: {fileID: 114171961247051188, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171961247051188, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171961247051188, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1191548368}
+    - target: {fileID: 114171961247051188, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: soloBtnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171961247051188, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1191548366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1168506506245386, guid: ce702e1cd664a6c4fafc69d7c6053478,
+    type: 2}
+  m_PrefabInternal: {fileID: 909939427}
+--- !u!114 &1191548368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191548366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748e56f8656c04d42b8a4587b7017f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamUIPrefab: {fileID: 0}
+  singlePlayerPrefab: {fileID: 0}
+  debugFeild: {fileID: 0}
 --- !u!1001 &1222287354
 Prefab:
   m_ObjectHideFlags: 0
@@ -562,6 +611,19 @@ Prefab:
     - target: {fileID: 1230436882055956, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}
       propertyPath: m_Name
       value: Pause Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230436882055956, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034311017632490, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705252951996848, guid: 6fe93cfa9f8755c46a34c3861ec6a762,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000061035156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}

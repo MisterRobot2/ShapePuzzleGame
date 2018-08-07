@@ -2368,11 +2368,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "How to Play\n<b><color=#ffd400>---------------</color></b> \nUse Keys to
-    move\n\nLeft: <b><color=#ffd400>A  <color=#000>or</color>  <-</color></b>\n\nRight:
-    <b><color=#ffd400>D  <color=#000>or</color>  -></color></b>\n\nDrop Block: \n<b><color=#ffd400>S
-    <color=#000> or </color><i>(DOWN ARROW)</i><color=#000> or </color> SPACE</color></b>\n\nPause
-    Game: <b><color=#ffd400>ESC</color></b>"
+  m_Text: "How to Play\n<b><color=#ffd400>---------------</color></b> \nLeft: <b><color=#ffd400>A
+    \ <color=#000>or</color>  <-</color></b>\n\nRight: <b><color=#ffd400>D  <color=#000>or</color>
+    \ -></color></b>\n\nSlower Block Movement: <color=#ffd400>Hold Shift</color>\n\nDrop
+    Block: \n<b><color=#ffd400>S <color=#000> or </color><i>(DOWN ARROW)</i><color=#000>
+    or </color> SPACE</color></b>\n\nPause Game: <b><color=#ffd400>ESC</color></b>"
 --- !u!114 &114340063833780092
 MonoBehaviour:
   m_ObjectHideFlags: 1
