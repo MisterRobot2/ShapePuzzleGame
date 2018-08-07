@@ -12,14 +12,14 @@ public class GameSpeedController : MonoBehaviour
 
     public void UpdateGameSpeed()
     {
-        DataBase.gameSpeed = speedSlider.value;
+        CurrentData.gameData.gameSpeed = speedSlider.value;
         speedText.text = (Mathf.Round(Time.timeScale * 100)/100).ToString();
     }
 
     private void Start()
     {
-        DataBase.freezeGameSpeed = false;
+        GameData.freezeGameSpeed = false;
         Time.timeScale = 1;
-        DataBase.gameSpeed = Time.time;
+        //CurrentData.gameData.gameSpeed = Time.time;
     }
 }

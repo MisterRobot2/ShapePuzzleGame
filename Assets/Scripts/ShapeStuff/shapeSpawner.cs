@@ -22,13 +22,13 @@ public class shapeSpawner : MonoBehaviour
             parent.name = "ShapeHolder";
         }
         shapePreview = GameObject.FindGameObjectWithTag("ShapePreview");
-        DataBase.currentTeamNumber = 1;
+        GameData.currentTeamNumber = 1;
     }
 
     //Spawn Shapes
     public void SpawnShape()
     {
-        if (DataBase.currentTeamNumber != 0)
+        if (GameData.currentTeamNumber != 0)
         {
             shapePreview.GetComponent<shapePreview>().calculatePreview(false);
         }

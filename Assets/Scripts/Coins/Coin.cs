@@ -46,12 +46,12 @@ public class Coin : MonoBehaviour
     void CollectCoin()
     {
         GameObject.Destroy(this.gameObject);
-        if(DataBase.currentTeamNumber == 1){
-            DataBase.team1coins++;
+        if(GameData.currentTeamNumber == 1){
+            GameData.team1coins++;
         } 
-        else if (DataBase.currentTeamNumber == 2)
+        else if (GameData.currentTeamNumber == 2)
         {
-            DataBase.team2coins++;
+            GameData.team2coins++;
         }
     }
 

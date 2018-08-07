@@ -49,13 +49,13 @@ public class GameController : MonoBehaviour
     {
         #region Create Objects
         //Pass and Play
-        if(DataBase.selectedMode == GameMode.PassAndPlay)
+        if(GameData.selectedMode == GameMode.PassAndPlay)
         {
             teamUIObject = Instantiate(teamUIPrefab);
             teamUIObject.transform.position = Vector3.zero;
         }
         //Singleplayer
-        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        if(GameData.selectedMode == GameMode.SinglePlayer)
         {
             singlePlayerObject = Instantiate(singlePlayerPrefab);
             singlePlayerObject.transform.position = Vector3.zero;
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
 
         #region Get Objects
         //Pass and Play
-        if(DataBase.selectedMode == GameMode.PassAndPlay)
+        if(GameData.selectedMode == GameMode.PassAndPlay)
         {
             enterNamePannel = teamUIObject.transform.Find("Enter Name Pannel").gameObject;
             submitButton = enterNamePannel.transform.Find("Submit Buttion").gameObject.GetComponent<Button>();
@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
         }
         
         //SinglePlayer
-        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        if(GameData.selectedMode == GameMode.SinglePlayer)
         {
             singlePlayerCoinText = GameObject.Find("Coin Text").GetComponent<Text>();
         }
@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
 
         #region Setup Objects
         //pass and play
-        if(DataBase.selectedMode == GameMode.PassAndPlay)
+        if(GameData.selectedMode == GameMode.PassAndPlay)
         {
             team1Arrow.SetActive(false);
             team2Arrow.SetActive(false);
@@ -106,27 +106,27 @@ public class GameController : MonoBehaviour
 
         //Game Setup
         buySkipButton.gameObject.SetActive(false);
-        DataBase.blocksPlacedInGame = 0;
-        DataBase.isGameOver = true;
-        DataBase.team1Skips = 3;
-        DataBase.team2Skips = 3;
+        GameData.blocksPlacedInGame = 0;
+        GameData.isGameOver = true;
+        GameData.team1Skips = 3;
+        GameData.team2Skips = 3;
         #endregion
 
         #region Start Game
         //Pass and Play
         //WORKING HERE
-        if (DataBase.selectedMode == GameMode.PassAndPlay)
+        if (GameData.selectedMode == GameMode.PassAndPlay)
         {
-            if(DataBase.namesExist){
+            if(GameData.namesExist){
                 currentTeamNumber = 1;
                 team1Arrow.SetActive(true);
                 team2Arrow.SetActive(false);
-                team1NameText.text = DataBase.team1Name;
-                team1Background.color = DataBase.team1Color;
-                team2NameText.text = DataBase.team2Name;
-                team2Background.color = DataBase.team2Color;
-                DataBase.isPlayerPlaying = true;
-                DataBase.isGameOver = false;
+                team1NameText.text = GameData.team1Name;
+                team1Background.color = GameData.team1Color;
+                team2NameText.text = GameData.team2Name;
+                team2Background.color = GameData.team2Color;
+                GameData.isPlayerPlaying = true;
+                GameData.isGameOver = false;
                 GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
                 spawner.GetComponent<shapeSpawner>().SpawnShape();
             } else{
@@ -135,7 +135,7 @@ public class GameController : MonoBehaviour
 
         }
         //SinglePlayer
-        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        if(GameData.selectedMode == GameMode.SinglePlayer)
         {
             singlePlayerObject.SetActive(true);
             GameObject.Find("Play Button").GetComponent<Button>().onClick.AddListener(delegate { startSingleplayerGame(); });
@@ -153,7 +153,7 @@ public class GameController : MonoBehaviour
         //Pass and Play
         testIfShouldShowSkips();
 
-        if (DataBase.selectedMode == GameMode.PassAndPlay)
+        if (GameData.selectedMode == GameMode.PassAndPlay)
         {
 
             updateTeamValues();
@@ -161,9 +161,9 @@ public class GameController : MonoBehaviour
             
         }
 
-        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        if(GameData.selectedMode == GameMode.SinglePlayer)
         {
-            singlePlayerCoinText.text = DataBase.team1coins.ToString();
+            singlePlayerCoinText.text = GameData.team1coins.ToString();
         }
         #endregion
     }
@@ -175,7 +175,7 @@ public class GameController : MonoBehaviour
             //Team 1
             if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
             {
-                DataBase.team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+                GameData.team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
                 enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
                 openNamePannel(2);
                 changeTeamColor(1);
@@ -195,24 +195,24 @@ public class GameController : MonoBehaviour
             //Team 2
             else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
             {
-                DataBase.team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+                GameData.team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
                 enterNamePannel.SetActive(false);
                 changeTeamColor(2);
-                DataBase.isGameOver = false;
-                StartCoroutine(showNotificationPannel("Go first " + DataBase.team1Name, 2));
+                GameData.isGameOver = false;
+                StartCoroutine(showNotificationPannel("Go first " + GameData.team1Name, 2));
                 currentTeamNumber = 1;
                 team1Arrow.SetActive(true);
                 team2Arrow.SetActive(false);
-                DataBase.isPlayerPlaying = true;
+                GameData.isPlayerPlaying = true;
                 GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
                 spawner.GetComponent<shapeSpawner>().SpawnShape();
-                if (DataBase.isFirstTime && DataBase.selectedMode == GameMode.PassAndPlay)
+                if (CurrentData.gameData.isFirstTime && GameData.selectedMode == GameMode.PassAndPlay)
                 {
                     GameObject.Find("Instructions Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
                     GameObject.Find("Objective Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
-                    DataBase.isFirstTime = false;
+                    CurrentData.gameData.isFirstTime = false;
                 }
-                DataBase.namesExist = true;
+            GameData.namesExist = true;
             }
 
     }
@@ -221,8 +221,8 @@ public class GameController : MonoBehaviour
     void updateTeamValues()
     {
         //Set Values
-        team1CoinText.text = DataBase.team1coins.ToString();
-        team2CoinText.text = DataBase.team2coins.ToString();
+        team1CoinText.text = GameData.team1coins.ToString();
+        team2CoinText.text = GameData.team2coins.ToString();
     }
     void testForSameColor()
     {
@@ -246,12 +246,12 @@ public class GameController : MonoBehaviour
         //When skips are zero then show buy skips
         if (currentTeamNumber == 1)
         {
-            skipButtonText.text = "Skips Left: " + DataBase.team1Skips;
-            if (DataBase.team1Skips == 0)
+            skipButtonText.text = "Skips Left: " + GameData.team1Skips;
+            if (GameData.team1Skips == 0)
             {
                 skipButton.enabled = false;
                 buySkipButton.gameObject.SetActive(true);
-                if (DataBase.team1coins >= 3)
+                if (GameData.team1coins >= 3)
                 {
                     buySkipButton.enabled = true;
                 }
@@ -268,12 +268,12 @@ public class GameController : MonoBehaviour
         }
         else if (currentTeamNumber == 2)
         {
-            skipButtonText.text = "Skips Left: " + DataBase.team2Skips;
-            if (DataBase.team2Skips == 0)
+            skipButtonText.text = "Skips Left: " + GameData.team2Skips;
+            if (GameData.team2Skips == 0)
             {
                 skipButton.enabled = false;
                 buySkipButton.gameObject.SetActive(true);
-                if (DataBase.team2coins >= 3)
+                if (GameData.team2coins >= 3)
                 {
                     buySkipButton.enabled = true;
                 }
@@ -321,23 +321,23 @@ public class GameController : MonoBehaviour
     }
     void Turns()
     {
-        if(!DataBase.isGameOver){
+        if(!GameData.isGameOver){
             if (currentTeamNumber == 1)
             {
                 team2Arrow.SetActive(true);
                 team1Arrow.SetActive(false);
-                StartCoroutine(showNotificationPannel("Your Turn, " + DataBase.team2Name + "!", 2));
+                StartCoroutine(showNotificationPannel("Your Turn, " + GameData.team2Name + "!", 2));
                 currentTeamNumber = 2;
             }
             else if (currentTeamNumber == 2)
             {
                 team1Arrow.SetActive(true);
                 team2Arrow.SetActive(false);
-                StartCoroutine(showNotificationPannel("Your Turn, " + DataBase.team1Name + "!", 2));
+                StartCoroutine(showNotificationPannel("Your Turn, " + GameData.team1Name + "!", 2));
                 currentTeamNumber = 1;
             }
-            DataBase.currentTeamNumber = currentTeamNumber;
-            DataBase.isPlayerPlaying = true;
+            GameData.currentTeamNumber = currentTeamNumber;
+            GameData.isPlayerPlaying = true;
             spawner.GetComponent<shapeSpawner>().SpawnShape();
         }
     }
@@ -391,9 +391,9 @@ public class GameController : MonoBehaviour
         if (teamNumber == 1)
         {
             team1Color = detectPlayerColorChoice();
-            team1NameText.text = DataBase.team1Name;
+            team1NameText.text = GameData.team1Name;
             team1Background.color = team1Color;
-            DataBase.team1Color = team1Color;
+            GameData.team1Color = team1Color;
 
             //for team 2
 
@@ -401,9 +401,9 @@ public class GameController : MonoBehaviour
         else if (teamNumber == 2)
         {
             team2Color = detectPlayerColorChoice();
-            team2NameText.text = DataBase.team2Name;
+            team2NameText.text = GameData.team2Name;
             team2Background.color = team2Color;
-            DataBase.team2Color = team2Color;
+            GameData.team2Color = team2Color;
         }
     }
     #endregion
@@ -413,10 +413,10 @@ public class GameController : MonoBehaviour
     {
         currentTeamNumber = 1;
         singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(false);
-        DataBase.isPlayerPlaying = true;
-        DataBase.isGameOver = false;
+        GameData.isPlayerPlaying = true;
+        GameData.isGameOver = false;
         GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
-        DataBase.team1Color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
+        GameData.team1Color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
         spawner.GetComponent<shapeSpawner>().SpawnShape();
     }
     #endregion
@@ -424,7 +424,7 @@ public class GameController : MonoBehaviour
     #region Game Functions
     IEnumerator placeBlockCountDown(int time)
     {
-        DataBase.isPlayerPlaying = false;
+        GameData.isPlayerPlaying = false;
         #region countdown
         for (int i = time; i >= 0; i--)
         {
@@ -435,32 +435,32 @@ public class GameController : MonoBehaviour
         #region end of turn
         
         //Pass and Play
-        if (DataBase.selectedMode == GameMode.PassAndPlay)
+        if (GameData.selectedMode == GameMode.PassAndPlay)
         {
-            if (currentTeamNumber == 1 && !DataBase.isGameOver)
+            if (currentTeamNumber == 1 && !GameData.isGameOver)
             {
-                StartCoroutine(showNotificationPannel("Good Job " + DataBase.team1Name, 2));
+                StartCoroutine(showNotificationPannel("Good Job " + GameData.team1Name, 2));
                 yield return new WaitForSeconds(waitTime);
-                StartCoroutine(showNotificationPannel("Now go " + DataBase.team2Name + "!", 2));
+                StartCoroutine(showNotificationPannel("Now go " + GameData.team2Name + "!", 2));
                 Turns();
             }
-            else if (currentTeamNumber == 2 && !DataBase.isGameOver)
+            else if (currentTeamNumber == 2 && !GameData.isGameOver)
             {
-                StartCoroutine(showNotificationPannel("Good Job " + DataBase.team2Name, 2));
+                StartCoroutine(showNotificationPannel("Good Job " + GameData.team2Name, 2));
                 yield return new WaitForSeconds(waitTime);
-                StartCoroutine(showNotificationPannel("Now go " + DataBase.team1Name + "!", 2));
+                StartCoroutine(showNotificationPannel("Now go " + GameData.team1Name + "!", 2));
                 Turns();
 
             } 
             //SinglePlayer
-        }else if(DataBase.selectedMode == GameMode.SinglePlayer)
+        }else if(GameData.selectedMode == GameMode.SinglePlayer)
         {
-            if (!DataBase.isGameOver)
+            if (!GameData.isGameOver)
             {
                 yield return new WaitForSeconds(waitTime);
-                DataBase.team1Color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
-                DataBase.currentTeamNumber = 1;
-                DataBase.isPlayerPlaying = true;
+                GameData.team1Color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
+                GameData.currentTeamNumber = 1;
+                GameData.isPlayerPlaying = true;
                 spawner.GetComponent<shapeSpawner>().SpawnShape();
 
             }
@@ -473,12 +473,12 @@ public class GameController : MonoBehaviour
 
     public void SpawnNewBlock()
     {
-        if (DataBase.isPlayerPlaying && DataBase.canSpawnShape == true)
+        if (GameData.isPlayerPlaying && GameData.canSpawnShape == true)
         {
             isDueForBlock = false;
             StartCoroutine(placeBlockCountDown(0));
         }
-        else if (DataBase.canSpawnShape == false)
+        else if (GameData.canSpawnShape == false)
         {
             isDueForBlock = true;
         }

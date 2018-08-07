@@ -12,7 +12,7 @@ public class ShapeMovement : MonoBehaviour
 
     [SerializeField]
     [Range(0, 20)]
-    public float movementSpeed = DataBase.speed;
+    public float movementSpeed = CurrentData.gameData.speed;
     
     
     private bool hasSpawn = false;
@@ -37,7 +37,7 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
-        movementSpeed = DataBase.speed;
+        movementSpeed = CurrentData.gameData.speed;
 
         if (canBeControlled == true)
         {
@@ -45,20 +45,20 @@ public class ShapeMovement : MonoBehaviour
         }
         
         // slows block down 
-        if (canBeControlled == true && DataBase.isPlayerPlaying)
+        if (canBeControlled == true && GameData.isPlayerPlaying)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
-                DataBase.oldSpeed = movementSpeed;
-                DataBase.speed = movementSpeed / 2;
+                GameData.oldSpeed = movementSpeed;
+                CurrentData.gameData.speed = movementSpeed / 2;
 
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             {
-                DataBase.speed = DataBase.oldSpeed;
-                if (DataBase.firstSkip == true)
+                CurrentData.gameData.speed = GameData.oldSpeed;
+                if (GameData.firstSkip == true)
                 {
-                    DataBase.firstSlowDown = true;
+                    GameData.firstSlowDown = true;
                 }
             }
 
@@ -75,7 +75,7 @@ public class ShapeMovement : MonoBehaviour
                 this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9), this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
-            else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && DataBase.canSpawnShape == true)
+            else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && GameData.canSpawnShape == true)
             {
                 rb.gravityScale = 2;
                 canBeControlled = false;
@@ -107,8 +107,8 @@ public class ShapeMovement : MonoBehaviour
         if(hasCollided == false)
         {
             blockLanding.Play();
-            DataBase.blocksPlacedInGame++;
-            DataBase.firstDrop = true;
+            GameData.blocksPlacedInGame++;
+            GameData.firstDrop = true;
             hasCollided = true;
         }
     }
@@ -122,7 +122,7 @@ public class ShapeMovement : MonoBehaviour
 
     void PlaceBlockFollowSpawn()
     {
-        if (DataBase.canSpawnShape == false)
+        if (GameData.canSpawnShape == false)
         {
             if (canBeControlled == true)
             {
@@ -135,9 +135,8 @@ public class ShapeMovement : MonoBehaviour
 
     void destoryBlockOnGameOver()
     {
-        if (DataBase.isGameOver == true && canBeControlled == true)
+        if (GameData.isGameOver == true && canBeControlled == true)
         {
-            Debug.Log(DataBase.isGameOver);
             Destroy(this.gameObject);
 
         }

@@ -41,25 +41,23 @@ public class GameOverScript : MonoBehaviour
     {
         shapeMovementScript = collision.gameObject.GetComponent<ShapeMovement>();
 
-        if (DataBase.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
+        if (GameData.isTutorial == true && collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
         {
             StartCoroutine(ShowMessage());
         }
 
         //Create Game Over If 
-       else if (!DataBase.isGameOver)
+       else if (!GameData.isGameOver)
         {
             if (collision.tag == "Block")
             {
                 //real game over sequence
-                if (shapeMovementScript.isFrozen == false && DataBase.canGameOver == true)
+                if (shapeMovementScript.isFrozen == false && GameData.canGameOver == true)
                 {
                     lossCounter++;
-                    DataBase.canSpawnShape = false;
+                    GameData.canSpawnShape = false;
                     totalScore = heightLineScript.height;
-                    DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
-                    PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
-                    
+                    CurrentData.gameData.totalBlocksPlaced += GameData.blocksPlacedInGame;
 
                     SetGameOverVaribles();
                     UpdateDataBase();
@@ -68,10 +66,9 @@ public class GameOverScript : MonoBehaviour
                 if (forceGameOver == true && shapeMovementScript.isFrozen == false)
                 {
                     lossCounter++;
-                    DataBase.canSpawnShape = false;
+                    GameData.canSpawnShape = false;
                     totalScore = heightLineScript.height;
-                    DataBase.totalBlocksPlaced = DataBase.totalBlocksPlaced + DataBase.blocksPlacedInGame;
-                    PlayerPrefs.SetInt("Total Blocks Placed", PlayerPrefs.GetInt("Total Blocks Placed") + DataBase.blocksPlacedInGame);
+                    CurrentData.gameData.totalBlocksPlaced += GameData.blocksPlacedInGame;
 
 
                     SetGameOverVaribles();
@@ -81,13 +78,13 @@ public class GameOverScript : MonoBehaviour
 
             if (collision.gameObject.tag == "Block" && shapeMovementScript.isFrozen == false)
             {
-                if (DataBase.isGameOver == true)
+                if (GameData.isGameOver == true)
                 {
                     gameOverUIPrefab.transform.GetChild(0).gameObject.SetActive(true);
                     gameOverSound = gameOverUIPrefab.GetComponent<AudioSource>();
                     gameOverSound.Play();
-                    DataBase.gameSpeed = 0.3f;
-                    DataBase.freezeGameSpeed = true;
+                    GameData.gameSpeed = 0.3f;
+                    GameData.freezeGameSpeed = true;
                 }
             }
 
@@ -96,60 +93,57 @@ public class GameOverScript : MonoBehaviour
 
     void SetGameOverVaribles()
     {
-        DataBase.isGameOver = true;
+        GameData.isGameOver = true;
         camController.goDown = true;
 
-        if (DataBase.currentTeamNumber == 1)
+        if (GameData.currentTeamNumber == 1)
         {
-            winner = DataBase.team2Name;
+            winner = GameData.team2Name;
         }
-        else if (DataBase.currentTeamNumber == 2)
+        else if (GameData.currentTeamNumber == 2)
         {
-            winner = DataBase.team1Name;
+            winner = GameData.team1Name;
         }
 
-        if(DataBase.selectedMode == GameMode.SinglePlayer)
+        if(GameData.selectedMode == GameMode.SinglePlayer)
         {
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff><b>" + DataBase.blocksPlacedInGame+"</b></color>";
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore + "</b></color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Blocks Placed Text").GetComponent<Text>().text = "Blocks Placed: <color=#d1e53bff><b>" + GameData.blocksPlacedInGame+"</b></color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + CurrentData.gameData.highScore + "</b></color>";
         }
-        else if(DataBase.selectedMode == GameMode.PassAndPlay)
+        else if(GameData.selectedMode == GameMode.PassAndPlay)
         {
             GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("Winner Text").GetComponent<Text>().text = winner + " Wins!";
-            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + DataBase.highScore+"</b></color>";
+            GameObject.Find("Game Over").transform.Find("Game Over Panel").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + "<color=#d1e53bff><b>" + CurrentData.gameData.highScore+"</b></color>";
         }
         
     }
 
     void UpdateDataBase()
     {
-        PlayerPrefs.SetInt("Total Blocks Lost", PlayerPrefs.GetInt("Total Blocks Lost") + lossCounter);
-        DataBase.totalBlocksLost = PlayerPrefs.GetInt("Total Blocks Lost", lossCounter);
-        DataBase.totalCoins += (DataBase.team1coins + DataBase.team2coins);
-        DataBase.highScore = PlayerPrefs.GetFloat("High Score");
+        CurrentData.gameData.totalBlocksLost += lossCounter;
+        CurrentData.gameData.totalCoins += (GameData.team1coins + GameData.team2coins);
 
         //Updates the words of your score
-        if (DataBase.currentHeight <= 1)
+        if (GameData.currentHeight <= 1)
         {
-            highScoreWords.GetComponent<Text>().text = "How Did you lose with " + DataBase.currentHeight + "Ft " + " Are you even trying?";
+            highScoreWords.GetComponent<Text>().text = "How Did you lose with " + GameData.currentHeight + "Ft " + " Are you even trying?";
         }
         else
         {
-            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff><b>" + "You Reached: " + DataBase.currentHeight + " Ft!" + "</b></color>";
+            highScoreWords.GetComponent<Text>().text = "<color=#d1e53bff><b>" + "You Reached: " + GameData.currentHeight + " Ft!" + "</b></color>";
         }
 
 
-        if (totalScore > PlayerPrefs.GetFloat("High Score"))
+        if (totalScore > CurrentData.gameData.highScore)
         {
-            DataBase.highScore = totalScore;
-            PlayerPrefs.SetFloat("High Score", DataBase.highScore);
+            CurrentData.gameData.highScore = totalScore;
             newHighScoreText.gameObject.SetActive(true);
         }
         else
         {
             newHighScoreText.gameObject.SetActive(false);
         }
-        highScoreText.GetComponent<Text>().text = "High Score: " + DataBase.highScore + " Ft!";
+        highScoreText.GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore + " Ft!";
 
 
     }

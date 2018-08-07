@@ -11,28 +11,33 @@ public class StatisticsScript : MonoBehaviour
     private void Awake()
     {
         statsUI.SetActive(true);
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetFloat("High Score")+"Ft";
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + PlayerPrefs.GetInt("Total Blocks Placed");
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + PlayerPrefs.GetInt("Total Blocks Lost");
+        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore+"Ft";
+        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + CurrentData.gameData.totalBlocksPlaced;
+        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + CurrentData.gameData.totalBlocksLost;
         statsUI.SetActive(false);
     }
 
     public void ClearHighScore()
     {
-        PlayerPrefs.SetFloat("High Score", 0);
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetFloat("High Score") + "Ft";
+        CurrentData.gameData.highScore = 0;
+        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore + "Ft";
     }
 
     public void ClearTotalBlocksPlaced()
     {
-        PlayerPrefs.SetInt("Total Blocks Placed", 0);
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + PlayerPrefs.GetInt("Total Blocks Placed");
+        CurrentData.gameData.totalBlocksPlaced = 0;
+        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + CurrentData.gameData.totalBlocksPlaced;
     }
 
     public void ClearTotalBlocksLost()
     {
-        PlayerPrefs.SetInt("Total Blocks Lost", 0);
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + PlayerPrefs.GetInt("Total Blocks Lost");
+        CurrentData.gameData.totalBlocksLost = 0;
+        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + CurrentData.gameData.totalBlocksLost;
+    }
+
+    public void clearAllData()
+    {
+        SaveAndLoad.Delete();
     }
 
 }

@@ -12,36 +12,52 @@ public class ChangeScene : MonoBehaviour
     public void LoadGameScene()
     {
         Time.timeScale = 1.0f;
-        DataBase.team1coins = 0;
-        DataBase.team2coins = 0;
-        DataBase.team1Skips = 3;
-        DataBase.team2Skips = 3;
+        GameData.team1coins = 0;
+        GameData.team2coins = 0;
+        GameData.team1Skips = 3;
+        GameData.team2Skips = 3;
         SceneManager.LoadScene("Main");
+        SaveAndLoad.save();
     }
 
     public void LoadTitleScene()
     {
+        SaveAndLoad.save();
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Title"); 
-        DataBase.team1coins = 0;
-        DataBase.team2coins = 0;
+        SceneManager.LoadScene("Title");
+        GameData.team1coins = 0;
+        GameData.team2coins = 0;
     }
 
     public void LoadSceneWithIndex()
     {
+        SaveAndLoad.Load();
+        if(selectGameMode == GameMode.PassAndPlay)
+        {
+            GameData.namesExist = false;
+        }
+        CurrentData.gameData.isFirstTime = true;
         Time.timeScale = 1.0f;
-        DataBase.selectedMode = selectGameMode;
+        GameData.selectedMode = selectGameMode;
         SceneManager.LoadScene(indexOfSceneToLoad); 
     }
     public void LoadSceneWithName()
     {
+        SaveAndLoad.Load();
+        if (selectGameMode == GameMode.PassAndPlay)
+        {
+            GameData.namesExist = false;
+        }
+
+        CurrentData.gameData.isFirstTime = true;
         Time.timeScale = 1.0f;
-        DataBase.selectedMode = selectGameMode;
+        GameData.selectedMode = selectGameMode;
         SceneManager.LoadScene(nameOfSceneToLoad);
     }
 
     public void QuitGame()
-    {     
+    {
+       SaveAndLoad.save();
        Application.Quit();
     }
 }

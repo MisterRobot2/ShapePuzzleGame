@@ -22,19 +22,19 @@ public class TutorialScript : MonoBehaviour {
     private bool step3 = false;
 
     void Start () {
-        DataBase.selectedMode = GameMode.SinglePlayer;
+        GameData.selectedMode = GameMode.SinglePlayer;
 
-        DataBase.isTutorial = true;
-        DataBase.firstDrop = false;
-        DataBase.firstGoalLine = false;
-        DataBase.firstSkip = false;
-        DataBase.firstSlowDown = false;
+        GameData.isTutorial = true;
+        GameData.firstDrop = false;
+        GameData.firstGoalLine = false;
+        GameData.firstSkip = false;
+        GameData.firstSlowDown = false;
 
         MovementText.SetActive(true);
     }
 	
 	void Update () {
-		if(DataBase.firstDrop == true)
+		if(GameData.firstDrop == true)
         {
             if (step1 == false)
             {
@@ -43,8 +43,8 @@ public class TutorialScript : MonoBehaviour {
                 GoalLineArrow.SetActive(true);
                 step1 = true;
             }
-            
-            if(DataBase.firstGoalLine == true)
+
+            if(GameData.firstGoalLine == true)
             {
                 if (step2 == false)
                 {
@@ -54,7 +54,7 @@ public class TutorialScript : MonoBehaviour {
                     step2 = true;
                 }
 
-                if(DataBase.firstSkip == true)
+                if(GameData.firstSkip == true)
                 {
                     if(step3 == false)
                     {
@@ -64,12 +64,12 @@ public class TutorialScript : MonoBehaviour {
                         step3 = true;
                     }
 
-                    if(DataBase.firstSlowDown == true)
+                    if(GameData.firstSlowDown == true)
                     {
                         SlowDownText.SetActive(false);
                         ReadyText.SetActive(true);
                         backToMainMenuButton.SetActive(true);
-                        DataBase.isTutorial = false;
+                        GameData.isTutorial = false;
                     }
                 }
             }

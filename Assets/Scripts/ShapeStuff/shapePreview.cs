@@ -44,7 +44,7 @@ public class shapePreview : MonoBehaviour {
     void addEnableShapes()
     {
         //Check toggle in store to figure out which shapes to include
-        if (DataBase.iceBlockToggleIsOn == true)
+        if (CurrentData.gameData.iceBlockToggleIsOn == true)
         {
             shapes[2].gameObject.tag = "Block";
         }
@@ -53,7 +53,7 @@ public class shapePreview : MonoBehaviour {
             shapes[2].gameObject.tag = "Untagged";
         }
 
-        if (DataBase.phoneToggleIsOn == true)
+        if (CurrentData.gameData.phoneToggleIsOn == true)
         {
             shapes[5].gameObject.tag = "Block";
         }
@@ -62,7 +62,7 @@ public class shapePreview : MonoBehaviour {
             shapes[5].gameObject.tag = "Untagged";
         }
 
-        if (DataBase.waterGunToggleIsOn == true)
+        if (CurrentData.gameData.waterGunToggleIsOn == true)
         {
             shapes[4].gameObject.tag = "Block";
         }
@@ -71,7 +71,7 @@ public class shapePreview : MonoBehaviour {
             shapes[4].gameObject.tag = "Untagged";
         }
 
-        if (DataBase.orbToggleIsOn == true)
+        if (CurrentData.gameData.orbToggleIsOn == true)
         {
             shapes[6].gameObject.tag = "Block";
         }
@@ -80,7 +80,7 @@ public class shapePreview : MonoBehaviour {
             shapes[6].gameObject.tag = "Untagged";
         }
 
-        if (DataBase.tableToggleIsOn == true)
+        if (CurrentData.gameData.tableToggleIsOn == true)
         {
             shapes[7].gameObject.tag = "Block";
         }
@@ -88,7 +88,7 @@ public class shapePreview : MonoBehaviour {
         {
             shapes[7].gameObject.tag = "Untagged";
         }
-        if (DataBase.bookToggleIsOn == true)
+        if (CurrentData.gameData.bookToggleIsOn == true)
         {
             shapes[8].gameObject.tag = "Block";
         }
@@ -96,7 +96,7 @@ public class shapePreview : MonoBehaviour {
         {
             shapes[8].gameObject.tag = "Untagged";
         }
-        if (DataBase.bookShelfToggleIsOn == true)
+        if (CurrentData.gameData.bookShelfToggleIsOn == true)
         {
             shapes[9].gameObject.tag = "Block";
         }
@@ -143,24 +143,24 @@ public class shapePreview : MonoBehaviour {
         if (newObject.GetComponent<SpriteRenderer>())
         {
 
-            if (DataBase.currentTeamNumber == 1)
+            if (GameData.currentTeamNumber == 1)
             {
-                newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
+                newObject.GetComponent<SpriteRenderer>().color = GameData.team1Color;
             }
-            else if (DataBase.currentTeamNumber == 2)
+            else if (GameData.currentTeamNumber == 2)
             {
-                newObject.GetComponent<SpriteRenderer>().color = DataBase.team2Color;
+                newObject.GetComponent<SpriteRenderer>().color = GameData.team2Color;
             }
         }
         else if (newObject.GetComponent<MeshRenderer>())
         {
-            if (DataBase.currentTeamNumber == 1)
+            if (GameData.currentTeamNumber == 1)
             {
-                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", GameData.team1Color);
             }
-            else if (DataBase.currentTeamNumber == 2)
+            else if (GameData.currentTeamNumber == 2)
             {
-                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team2Color);
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", GameData.team2Color);
             }
         }
 
@@ -219,10 +219,10 @@ public class shapePreview : MonoBehaviour {
 
     public void ShapeSkip()
     {
-        if(DataBase.currentTeamNumber == 1){
-            DataBase.team1Skips--;
-        } else if(DataBase.currentTeamNumber == 2){
-            DataBase.team2Skips--;
+        if(GameData.currentTeamNumber == 1){
+            GameData.team1Skips--;
+        } else if(GameData.currentTeamNumber == 2){
+            GameData.team2Skips--;
         }
 
 
@@ -235,24 +235,24 @@ public class shapePreview : MonoBehaviour {
         if (newObject.GetComponent<SpriteRenderer>())
         {
 
-            if (DataBase.currentTeamNumber == 1)
+            if (GameData.currentTeamNumber == 1)
             {
-                newObject.GetComponent<SpriteRenderer>().color = DataBase.team1Color;
+                newObject.GetComponent<SpriteRenderer>().color = GameData.team1Color;
             }
-            else if (DataBase.currentTeamNumber == 2)
+            else if (GameData.currentTeamNumber == 2)
             {
-                newObject.GetComponent<SpriteRenderer>().color = DataBase.team2Color;
+                newObject.GetComponent<SpriteRenderer>().color = GameData.team2Color;
             }
         }
         else if (newObject.GetComponent<MeshRenderer>())
         {
-            if (DataBase.currentTeamNumber == 1)
+            if (GameData.currentTeamNumber == 1)
             {
-                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", GameData.team1Color);
             }
-            else if (DataBase.currentTeamNumber == 2)
+            else if (GameData.currentTeamNumber == 2)
             {
-                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", DataBase.team1Color);
+                newObject.GetComponent<MeshRenderer>().material.SetColor("_Color", GameData.team1Color);
             }
         }
 
@@ -297,23 +297,23 @@ public class shapePreview : MonoBehaviour {
             nextShape.GetComponent<MeshObjL>().meshCreatorL();
         }
 
-        if (DataBase.firstGoalLine == true)
+        if (GameData.firstGoalLine == true)
         {
-            DataBase.firstSkip = true;
+            GameData.firstSkip = true;
         }
     }
 
 
     public void buySkips(){
-        if (DataBase.currentTeamNumber == 1)
+        if (GameData.currentTeamNumber == 1)
         {
-            DataBase.team1coins -= 3;
-            DataBase.team1Skips++;
+            GameData.team1coins -= 3;
+            GameData.team1Skips++;
         }
-        else if (DataBase.currentTeamNumber == 2)
+        else if (GameData.currentTeamNumber == 2)
         {
-            DataBase.team2coins -= 3;
-            DataBase.team2Skips++;
+            GameData.team2coins -= 3;
+            GameData.team2Skips++;
         }
     }
 
