@@ -54,7 +54,6 @@ public class GameOverScript : MonoBehaviour
                 //real game over sequence
                 if (shapeMovementScript.isFrozen == false && GameData.canGameOver == true)
                 {
-                    Debug.Log("gameover");
                     lossCounter++;
                     GameData.canSpawnShape = false;
                     totalScore = heightLineScript.height;
@@ -66,7 +65,6 @@ public class GameOverScript : MonoBehaviour
                 }
                 if (forceGameOver == true && shapeMovementScript.isFrozen == false)
                 {
-                    Debug.Log("Fgameover");
                     lossCounter++;
                     GameData.canSpawnShape = false;
                     totalScore = heightLineScript.height;
@@ -125,6 +123,7 @@ public class GameOverScript : MonoBehaviour
         CurrentData.gameData.totalBlocksLost += lossCounter;
         CurrentData.gameData.totalCoins += (GameData.team1coins + GameData.team2coins);
 
+
         //Updates the words of your score
         if (GameData.currentHeight <= 1)
         {
@@ -147,7 +146,7 @@ public class GameOverScript : MonoBehaviour
         }
         highScoreText.GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore + " Ft!";
 
-
+        SaveAndLoad.save();
     }
 
 
