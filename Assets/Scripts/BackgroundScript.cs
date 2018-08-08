@@ -27,31 +27,38 @@ public class BackgroundScript : MonoBehaviour {
     }
 	
 	void Update () {
-
-        if (GameData.currentHeight >= 40)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.Lerp(currentColor, Color.black, progress);
-            clouds.Stop();
-            cloudsGameObject.SetActive(false);
-
-            if (progress < 1)
-            {
-                progress += Time.deltaTime / duration;
-            }
-            else if(progress >= 1)
-            {
-                starsGameObject.SetActive(true);
-                stars.Play();
-
-                heightText.GetComponent<TextMesh>().color = Color.white;
-                goalLineText.GetComponent<TextMesh>().color = Color.white;
-                cameraGoalLineText.GetComponent<TextMesh>().color = Color.white;
-            }
-        }
-        else if(GameData.currentHeight < 40)
+        if (GameData.isGameOver == true)
         {
             stars.Stop();
             starsGameObject.SetActive(false);
         }
-}
+        else
+        {
+            if (GameData.currentHeight >= 40)
+            {
+                gameObject.GetComponent<Renderer>().material.color = Color.Lerp(currentColor, Color.black, progress);
+                clouds.Stop();
+                cloudsGameObject.SetActive(false);
+
+                if (progress < 1)
+                {
+                    progress += Time.deltaTime / duration;
+                }
+                else if (progress >= 1)
+                {
+                    starsGameObject.SetActive(true);
+                    stars.Play();
+
+                    heightText.GetComponent<TextMesh>().color = Color.white;
+                    goalLineText.GetComponent<TextMesh>().color = Color.white;
+                    cameraGoalLineText.GetComponent<TextMesh>().color = Color.white;
+                }
+            }
+            else if (GameData.currentHeight < 40)
+            {
+                stars.Stop();
+                starsGameObject.SetActive(false);
+            }
+        }
     }
+}
