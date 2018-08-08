@@ -110,9 +110,9 @@ public class DataBase
     public float gameSpeed = 1f;
     public float blockSpeed = 20;
 
-    public float highScore;
-    public float totalBlocksLost;
-    public float totalBlocksPlaced;
+    public float highScore = 0;
+    public float totalBlocksLost = 0;
+    public float totalBlocksPlaced = 0;
     public int totalCoins = 0;
 
     //is Toggle on
