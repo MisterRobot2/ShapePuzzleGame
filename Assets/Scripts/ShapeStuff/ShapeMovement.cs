@@ -24,6 +24,9 @@ public class ShapeMovement : MonoBehaviour
     [Tooltip("Put it in if it has it ")]
     public PolygonCollider2D polycollider2D;
 
+    // Touch controlls
+
+
     void Start()
     {
         gamecontroller = GameObject.Find("Game Controller").gameObject.GetComponent<GameController>();
@@ -37,6 +40,8 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
+
+
         if (GameData.ScreenWidth >= 10)
         {
             movementSpeed = CurrentData.gameData.speed;
@@ -89,34 +94,51 @@ public class ShapeMovement : MonoBehaviour
                 this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9), this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
+
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && GameData.canSpawnShape == true)
             {
                 //rb.gravityScale = 2;
-
-                if (GameData.ScreenWidth >= 10)
-                {
-                    rb.gravityScale = 2;
-                }
-                else
-                {
-                    rb.gravityScale = 1;
-                }
+                DropBlock();
                 
-                canBeControlled = false;
-                StartCoroutine(Freeze());
-                rb.constraints = RigidbodyConstraints2D.None;
-
-                if (polycollider2D != null)
-                {
-                    polycollider2D.enabled = true;
-                }
-                else if (boxCollider != null)
-                {
-                    boxCollider.enabled = true;
-                }
-
-                gamecontroller.SpawnNewBlock();
             }
+
+            
+
+            //Touch Input
+            if (Input.touchSupported == true)
+            {
+                Touch touchZero = Input.GetTouch(0);
+                if (Input.touchCount == 1)
+                {
+                    if (touchZero.phase == TouchPhase.Began)
+                    {
+                        Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+                        this.transform.position = new Vector3(cam.ScreenToWorldPoint(touchZero.position).x, this.transform.position.y, this.transform.position.z);
+                    }
+
+                    if (touchZero.phase == TouchPhase.Canceled || touchZero.phase == TouchPhase.Ended)
+                    {
+                        DropBlock();
+                    }
+                }
+            }
+
+            if (Input.mousePresent == true)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+                    this.transform.position = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, this.transform.position.y, this.transform.position.z);
+
+                    
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    DropBlock();
+                }
+            }
+
+
         }
         else
         {
@@ -125,6 +147,39 @@ public class ShapeMovement : MonoBehaviour
 
         PlaceBlockFollowSpawn();
     }
+
+
+    #region Block Controlls
+
+    //Drops the block
+    void DropBlock()
+    {
+        if (GameData.ScreenWidth >= 10)
+        {
+            rb.gravityScale = 2;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
+
+        canBeControlled = false;
+        StartCoroutine(Freeze());
+        rb.constraints = RigidbodyConstraints2D.None;
+
+        if (polycollider2D != null)
+        {
+            polycollider2D.enabled = true;
+        }
+        else if (boxCollider != null)
+        {
+            boxCollider.enabled = true;
+        }
+
+        gamecontroller.SpawnNewBlock();
+    }
+
+    #endregion
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

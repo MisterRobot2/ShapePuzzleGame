@@ -18,19 +18,23 @@ public class ScaleObject : MonoBehaviour
 
     private void Awake()
     {
-        if (isObject == true)
-        {
-            mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-            updateScreenVaribles();
-        }
-        else
-        {
-            width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
-        }
+        StartSequence();
+    }
+
+    private void OnPreRender()
+    {
+        StartSequence();
     }
 
     private void Update()
     {
+        StartSequence();
+        
+    }
+
+    void StartSequence()
+    {
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
 
         if (isObject == true)
@@ -40,13 +44,12 @@ public class ScaleObject : MonoBehaviour
                 mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
                 updateScreenVaribles();
             }
-            
+
         }
         else
         {
             width = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
         }
-        
     }
 
     void updateScreenVaribles()
