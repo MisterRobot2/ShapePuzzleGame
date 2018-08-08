@@ -25,7 +25,7 @@ public class HeightLine : MonoBehaviour
     private TextMesh text;
     private GameObject Spawner;
     private MoveText moveTextScript;
-    private float gameOverTriggerOffset = -5;
+    private float gameOverTriggerOffset = -10;
     private Text totalHeightText;
 
     //Camera movement

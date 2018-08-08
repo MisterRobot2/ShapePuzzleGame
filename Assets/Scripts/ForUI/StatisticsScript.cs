@@ -42,9 +42,9 @@ public class StatisticsScript : MonoBehaviour
     {
         SaveAndLoad.Delete();
         SaveAndLoad.Load();
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("High Score Text").GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore + "Ft";
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + CurrentData.gameData.totalBlocksPlaced;
-        GameObject.Find("Title UI").transform.Find("Stats Panel").transform.Find("Stats Text").transform.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + CurrentData.gameData.totalBlocksLost;
+        GameObject.Find("High Score Text").GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore + "Ft";
+        GameObject.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + CurrentData.gameData.totalBlocksPlaced;
+        GameObject.Find("Total Blocks Lost Text").GetComponent<Text>().text = "Total Blocks Lost: " + CurrentData.gameData.totalBlocksLost;
     }
 
 }

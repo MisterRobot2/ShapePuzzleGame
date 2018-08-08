@@ -8,7 +8,10 @@ public class ChangeScene : MonoBehaviour
     public int indexOfSceneToLoad;
     public string nameOfSceneToLoad;
     public GameMode selectGameMode;
-
+    public void Start()
+    {
+        CurrentData.gameData.isFullscreen = Screen.fullScreen;
+    }
     public void LoadGameScene()
     {
         SaveAndLoad.Load();

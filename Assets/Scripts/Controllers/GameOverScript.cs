@@ -32,7 +32,7 @@ public class GameOverScript : MonoBehaviour
     private string winner;
 
 
-    private void Awake()
+	private void Awake()
     {
         Getvaribles();
     }
@@ -54,6 +54,7 @@ public class GameOverScript : MonoBehaviour
                 //real game over sequence
                 if (shapeMovementScript.isFrozen == false && GameData.canGameOver == true)
                 {
+                    Debug.Log("gameover");
                     lossCounter++;
                     GameData.canSpawnShape = false;
                     totalScore = heightLineScript.height;
@@ -65,6 +66,7 @@ public class GameOverScript : MonoBehaviour
                 }
                 if (forceGameOver == true && shapeMovementScript.isFrozen == false)
                 {
+                    Debug.Log("Fgameover");
                     lossCounter++;
                     GameData.canSpawnShape = false;
                     totalScore = heightLineScript.height;
