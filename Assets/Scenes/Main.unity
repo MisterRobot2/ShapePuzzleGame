@@ -4810,6 +4810,14 @@ Prefab:
       propertyPath: waitButton
       value: 
       objectReference: {fileID: 149329438}
+    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 26.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 118.204704
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
   m_IsPrefabAsset: 0
