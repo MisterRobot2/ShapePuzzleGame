@@ -53,8 +53,8 @@ public class CameraController : MonoBehaviour
         if (freeze == false && UpAmount > 0)
         {
             transform.Translate(new Vector2(0, Speed));
-            background.transform.localPosition = new Vector3(0.0f, background.transform.localPosition.y + Speed, 0.0f);
             UpAmount -= Speed;
+            background.transform.localScale = new Vector3(background.transform.localScale.x, background.transform.localScale.y + Speed, 0.0f);
             GameData.canGameOver = false;
 
         }
