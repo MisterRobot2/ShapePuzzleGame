@@ -85,15 +85,16 @@ public static class GameData
     public static float oldSpeed;
     public static bool freezeGameSpeed = false;
     public static bool namesExist = false;
-    public static bool isTutorial = false;
-    public static bool firstDrop = false;
-    public static bool firstGoalLine = false;
-    public static bool firstSkip = false;
-    public static bool firstCoin = false;
-    public static bool firstSlowDown = false;
+    public static bool isTutorial;
+    public static bool firstDrop;
+    public static bool firstGoalLine;
+    public static bool firstSkip;
+    public static bool firstCoin;
+    public static bool firstSlowDown;
     public static bool isGameOver = false;
     public static bool canGameOver;
     public static bool canCollectCoin;
+    public static bool canSkip;
 }
 
 
