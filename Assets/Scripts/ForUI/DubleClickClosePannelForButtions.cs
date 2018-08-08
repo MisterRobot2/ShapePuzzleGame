@@ -70,7 +70,6 @@ public class DubleClickClosePannelForButtions : MonoBehaviour
         {
             if (Input.GetKeyDown(keyToTrigger))
             {
-                SaveAndLoad.save();
                 ClosePannel();
                 PauseGame();
             }
