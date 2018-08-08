@@ -179,6 +179,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -180, z: 0}
+--- !u!1 &280636844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1235639107254024, guid: 6aba69442fac18d4294316dfda150bdb,
+    type: 2}
+  m_PrefabInternal: {fileID: 634908065}
+--- !u!114 &280636846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 280636844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 3
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &399709029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304733025204578, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+    type: 2}
+  m_PrefabInternal: {fileID: 780279430}
+--- !u!65 &399709033
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 399709029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000001, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 4.14}
 --- !u!1001 &634908065
 Prefab:
   m_ObjectHideFlags: 0
@@ -248,7 +286,10 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099501619}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114927944311077524, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
+    - {fileID: 114150671700865092, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
+    - {fileID: 114716142091788880, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &720856638 stripped
@@ -330,6 +371,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 780279431}
+--- !u!1 &897769780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1230436882055956, guid: 6fe93cfa9f8755c46a34c3861ec6a762,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580484166}
+--- !u!114 &897769787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897769780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ca769432b9378419c713f3ddd49882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &897769788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897769780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 897769787}
+          m_MethodName: DisableBlockMovmenet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 897769787}
+          m_MethodName: EnableBlockMovmenet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &1099501619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114391300862313204, guid: 9dfbfaeb0108f234795dcd504b0d0191,
@@ -383,12 +487,53 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dfbfaeb0108f234795dcd504b0d0191, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1112432147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1228929671329412, guid: 9dfbfaeb0108f234795dcd504b0d0191,
+    type: 2}
+  m_PrefabInternal: {fileID: 1106003579}
+--- !u!114 &1112432150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112432147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d51e16fd707946aac5dfbd9302adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1310259977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114271186262062172, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
     type: 2}
   m_PrefabInternal: {fileID: 780279430}
   m_Script: {fileID: 11500000, guid: 7df0e44c1dbc74455b71d2d70c614118, type: 3}
+--- !u!1 &1452344930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1843615306476274, guid: 6aba69442fac18d4294316dfda150bdb,
+    type: 2}
+  m_PrefabInternal: {fileID: 634908065}
+--- !u!223 &1452344935
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452344930}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1001 &1580484166
 Prefab:
   m_ObjectHideFlags: 0

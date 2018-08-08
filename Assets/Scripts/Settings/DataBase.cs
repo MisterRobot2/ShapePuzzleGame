@@ -97,6 +97,8 @@ public static class GameData
     public static bool canGameOver;
     public static bool canCollectCoin;
     public static bool canSkip;
+    public static bool isMobile;
+    public static bool canTouchMoveBlock = true;
 }
 
 
