@@ -306,7 +306,8 @@ GameObject:
   - component: {fileID: 224785028525574984}
   - component: {fileID: 223173973598994634}
   - component: {fileID: 114024856640468094}
-  - component: {fileID: 114673430033125090}
+  - component: {fileID: 114927944311077524}
+  - component: {fileID: 114150671700865092}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -412,7 +413,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4967177920831428}
-  m_Layer: 0
+  - component: {fileID: 114716142091788880}
+  m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +519,7 @@ GameObject:
   - component: {fileID: 114391411638046022}
   - component: {fileID: 114604635604268458}
   - component: {fileID: 114926305163517990}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Debug Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +934,7 @@ GameObject:
   - component: {fileID: 4658056875468430}
   - component: {fileID: 114480523594642732}
   - component: {fileID: 114612852266667732}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,7 +1710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2019,6 +2021,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114150671700865092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235639107254024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ca769432b9378419c713f3ddd49882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114159444599782406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3775,22 +3788,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114673430033125090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1235639107254024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &114699081651108432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3845,6 +3842,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114716142091788880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298662592630390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ca769432b9378419c713f3ddd49882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114749663190517242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4410,6 +4418,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedSlider: {fileID: 114340063833780092}
   speedText: {fileID: 114386031279158216}
+--- !u!114 &114927944311077524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235639107254024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114150671700865092}
+          m_MethodName: DisableBlockMovmenet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114150671700865092}
+          m_MethodName: EnableBlockMovmenet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114933148717919784
 MonoBehaviour:
   m_ObjectHideFlags: 1
