@@ -25,16 +25,22 @@ public class ChangeScene : MonoBehaviour
 
     public void LoadTitleScene()
     {
-        SaveAndLoad.Load();
+        
         if (GameData.isTutorial == true)
         {
             GameData.isTutorial = false;
         }
 
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Title");
         GameData.team1coins = 0;
         GameData.team2coins = 0;
+
+        if(SceneManager.GetActiveScene().name == "Store Scene"){
+            SaveAndLoad.save();
+        }
+
+        SceneManager.LoadScene("Title");
+        SaveAndLoad.Load();
     }
 
     public void LoadSceneWithIndex()

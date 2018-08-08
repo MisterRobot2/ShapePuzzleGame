@@ -184,6 +184,9 @@ public class GameController : MonoBehaviour
             if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 1")
             {
                 GameData.team1Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+                if(GameData.team1Name == ""){
+                GameData.team1Name = "Player 1";
+                }
                 enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text = "";
                 openNamePannel(2);
                 changeTeamColor(1);
@@ -204,6 +207,10 @@ public class GameController : MonoBehaviour
             else if (enterNamePannel.transform.Find("Team 1 or 2").gameObject.GetComponent<Text>().text == "Player 2")
             {
                 GameData.team2Name = enterNamePannel.transform.Find("enterNameInputField").GetComponent<TMP_InputField>().text;
+                if (GameData.team2Name == "")
+                {
+                    GameData.team2Name = "Player 2";
+                }
                 enterNamePannel.SetActive(false);
                 changeTeamColor(2);
                 GameData.isGameOver = false;
