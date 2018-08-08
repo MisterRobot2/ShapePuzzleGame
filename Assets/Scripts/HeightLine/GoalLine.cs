@@ -31,6 +31,15 @@ public class GoalLine : MonoBehaviour
     public float height;
 
 
+    //game over trigger setup
+    public int numOfPlatforms;
+    public GameObject newestPlatform;
+    public float newestPlatformPosition;
+    public GameObject gameOverTrigger;
+    public GameObject forceGameOverTrigger;
+
+
+
     // Use this for initialization
     void Start ()
     {
@@ -113,6 +122,37 @@ public class GoalLine : MonoBehaviour
         
         platformCount++;
         GameData.firstGoalLine = true;
+
+        StartCoroutine(moveTriggerDelay());
+
+    }
+
+
+    IEnumerator moveTriggerDelay()
+    {
+        yield return new WaitForSeconds(2f);
+
+        //setting up game over trigger
+        numOfPlatforms = GameObject.Find("Platforms").transform.childCount;
+        newestPlatform = GameObject.Find("Platforms").transform.GetChild(numOfPlatforms - 1).gameObject;
+
+        if (numOfPlatforms == 1)
+        {
+            newestPlatformPosition = 0;
+        }
+        else
+        {
+            newestPlatformPosition = newestPlatform.transform.Find("PlatformFlyIn").transform.position.y;
+        }
+
+        gameOverTrigger = GameObject.Find("GameOverTrigger").transform.gameObject;
+        gameOverTrigger.transform.position = new Vector3(0, newestPlatformPosition - 2, 0);
+
+        forceGameOverTrigger = GameObject.Find("ForceGameOverTrigger").transform.gameObject;
+        forceGameOverTrigger.transform.position = new Vector3(0, newestPlatformPosition - 12, 0);
+
+        //end setting up game over trigger
+
     }
     #endregion
 

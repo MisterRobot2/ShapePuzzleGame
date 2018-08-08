@@ -27,13 +27,7 @@ public class CameraController : MonoBehaviour
     public GameObject background;
 
 
-    //game over trigger setup
-    public int numOfPlatforms;
-    public GameObject newestPlatform;
-    public float newestPlatformPosition;
-    public GameObject gameOverTrigger;
-    public GameObject forceGameOverTrigger;
-
+  
 
 
     // Use this for initialization
@@ -62,29 +56,6 @@ public class CameraController : MonoBehaviour
             background.transform.localPosition = new Vector3(0.0f, background.transform.localPosition.y + Speed, 0.0f);
             UpAmount -= Speed;
             GameData.canGameOver = false;
-
-            //setting up game over trigger
-            numOfPlatforms = GameObject.Find("Platforms").transform.childCount;
-            newestPlatform = GameObject.Find("Platforms").transform.GetChild(numOfPlatforms - 1).gameObject;
-
-            if (numOfPlatforms == 1)
-            {
-                newestPlatformPosition = 0;
-            }
-            else
-            {
-                newestPlatformPosition = newestPlatform.transform.Find("PlatformFlyIn").transform.position.y;
-            }
-            Debug.Log(newestPlatformPosition);
-
-            gameOverTrigger = GameObject.Find("GameOverTrigger").transform.gameObject;
-            gameOverTrigger.transform.position = new Vector3(0, newestPlatformPosition-2, 0);
-
-            forceGameOverTrigger = GameObject.Find("ForceGameOverTrigger").transform.gameObject;
-            forceGameOverTrigger.transform.position = new Vector3(0, newestPlatformPosition-12, 0);
-
-            //end setting up game over trigger
-
 
         }
         else if (UpAmount <= 0)
