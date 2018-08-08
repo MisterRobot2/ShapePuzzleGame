@@ -10,6 +10,7 @@ public class StatisticsScript : MonoBehaviour
 
     private void Awake()
     {
+        SaveAndLoad.Load();
         statsUI.SetActive(true);
         GameObject.Find("High Score Text").GetComponent<Text>().text = "High Score: " + CurrentData.gameData.highScore+"Ft";
         GameObject.Find("Total Blocks Placed Text").GetComponent<Text>().text = "Total Blocks Placed: " + CurrentData.gameData.totalBlocksPlaced;
