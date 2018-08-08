@@ -43,6 +43,8 @@ public class ChangeScene : MonoBehaviour
         if(CurrentData.gameData.showTipsEveryGame)
         {
             CurrentData.gameData.isFirstTime = true;
+        } else{
+            CurrentData.gameData.isFirstTime = false;
         }
         Time.timeScale = 1.0f;
         GameData.selectedMode = selectGameMode;
@@ -55,8 +57,12 @@ public class ChangeScene : MonoBehaviour
         {
             GameData.namesExist = false;
         }
-
-        CurrentData.gameData.isFirstTime = true;
+        if (CurrentData.gameData.showTipsEveryGame)
+        {
+            CurrentData.gameData.isFirstTime = true;
+        } else{
+            CurrentData.gameData.isFirstTime = false;
+        }
         Time.timeScale = 1.0f;
         GameData.selectedMode = selectGameMode;
         SceneManager.LoadScene(nameOfSceneToLoad);
