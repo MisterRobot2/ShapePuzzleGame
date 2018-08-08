@@ -22,6 +22,8 @@ public class shapePreview : MonoBehaviour {
 
     public MeshCreator MeshObjL;
 
+    public GameObject waitButton;
+
     private void Awake()
     {
         addEnableShapes();
@@ -38,6 +40,16 @@ public class shapePreview : MonoBehaviour {
         {
             newObject.transform.position = nextShape.transform.position;
             destroyBlock = false;
+        }
+
+        if (GameData.blockIsFalling == true)
+        {
+            waitButton.SetActive(true);
+
+        }
+        else if (GameData.blockIsFalling == false)
+        {
+            waitButton.SetActive(false);
         }
     }
 
@@ -316,5 +328,4 @@ public class shapePreview : MonoBehaviour {
             GameData.team2Skips++;
         }
     }
-
 }

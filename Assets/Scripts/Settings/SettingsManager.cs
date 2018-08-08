@@ -9,8 +9,6 @@ public class SettingsManager : MonoBehaviour
     private GameObject optionsPannel;
     [SerializeField]
     private Toggle windowModeToggle;
-    [SerializeField]
-    private Toggle soundToggle;
     public Slider volumeSlider;
     public Slider speedSlider;
     public Toggle ShowTipsEveryGame;
@@ -20,11 +18,8 @@ public class SettingsManager : MonoBehaviour
         SaveAndLoad.Load();
         speedSlider.value = CurrentData.gameData.blockSpeed;
         windowModeToggle.isOn = CurrentData.gameData.isFullscreen;
-        soundToggle.isOn = CurrentData.gameData.isAudioOn;
-        Debug.Log(CurrentData.gameData.isAudioOn);
         ShowTipsEveryGame.isOn = CurrentData.gameData.showTipsEveryGame;
         volumeSlider.value = CurrentData.gameData.volume;
-
     }
     void OnDisable()
     {
@@ -37,7 +32,6 @@ public class SettingsManager : MonoBehaviour
         CurrentData.gameData.blockSpeed = speedSlider.value;
         CurrentData.gameData.isFullscreen = windowModeToggle.isOn;
         Screen.fullScreen = CurrentData.gameData.isFullscreen;
-        CurrentData.gameData.isAudioOn = soundToggle.isOn;
         CurrentData.gameData.showTipsEveryGame = ShowTipsEveryGame.isOn;
         CurrentData.gameData.volume = volumeSlider.value;
     }

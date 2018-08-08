@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114607153903733660}
   - component: {fileID: 82580064995539500}
   - component: {fileID: 114181394981185094}
+  - component: {fileID: 114222228881231734}
   m_Layer: 9
   m_Name: MeshObjL
   m_TagString: Block
@@ -219,6 +220,17 @@ MonoBehaviour:
   yScailFactor: 0.04
   isObject: 1
   checkWidth: 1
+--- !u!114 &114222228881231734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1898138333694052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114607153903733660
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -347,12 +347,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!1 &886672261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1034311017632490, guid: 6fe93cfa9f8755c46a34c3861ec6a762,
-    type: 2}
-  m_PrefabInternal: {fileID: 1222287354}
---- !u!1001 &1222287354
+--- !u!1001 &655268503
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -456,6 +451,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe93cfa9f8755c46a34c3861ec6a762, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &886672261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1034311017632490, guid: 6fe93cfa9f8755c46a34c3861ec6a762,
+    type: 2}
+  m_PrefabInternal: {fileID: 655268503}
 --- !u!1 &1553403104
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1553403106}
   - component: {fileID: 1553403105}
   - component: {fileID: 1553403108}
+  - component: {fileID: 1553403109}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -547,7 +548,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -629,6 +630,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1553403109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1553403104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1634551685
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,11 +5378,6 @@ Prefab:
       propertyPath: ToggleObject.Array.data[0]
       value: 
       objectReference: {fileID: 886672261}
-    - target: {fileID: 224960713641123752, guid: ce702e1cd664a6c4fafc69d7c6053478,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
   m_IsPrefabAsset: 0
