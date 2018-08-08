@@ -91,6 +91,8 @@ public class ShapeMovement : MonoBehaviour
             }
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && GameData.canSpawnShape == true)
             {
+                GameData.blockIsFalling = true;
+
                 //rb.gravityScale = 2;
 
                 if (GameData.ScreenWidth >= 10)
@@ -133,6 +135,7 @@ public class ShapeMovement : MonoBehaviour
             blockLanding.Play();
             GameData.blocksPlacedInGame++;
             GameData.firstDrop = true;
+            GameData.blockIsFalling = false;
             hasCollided = true;
         }
     }

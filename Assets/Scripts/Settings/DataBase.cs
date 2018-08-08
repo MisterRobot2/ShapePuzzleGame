@@ -83,6 +83,7 @@ public static class GameData
     public static string team2Name;
     public static bool canSpawnShape = true;
     public static float oldSpeed;
+    public static bool blockIsFalling = false;
     public static bool freezeGameSpeed = false;
     public static bool namesExist = false;
     public static bool isTutorial;
