@@ -12,7 +12,7 @@ public class ShapeMovement : MonoBehaviour
 
     [SerializeField]
     [Range(0, 20)]
-    public float movementSpeed = CurrentData.gameData.speed;
+    public float movementSpeed = CurrentData.gameData.blockSpeed;
     
     
     private bool hasSpawn = false;
@@ -39,11 +39,11 @@ public class ShapeMovement : MonoBehaviour
     {
         if (GameData.ScreenWidth >= 10)
         {
-            movementSpeed = CurrentData.gameData.speed;
+            movementSpeed = CurrentData.gameData.blockSpeed;
         }
         else
         {
-            movementSpeed = CurrentData.gameData.speed/2;
+            movementSpeed = CurrentData.gameData.blockSpeed/2;
         }
         
         
@@ -64,12 +64,12 @@ public class ShapeMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
                 GameData.oldSpeed = movementSpeed;
-                CurrentData.gameData.speed = movementSpeed / 2;
+                CurrentData.gameData.blockSpeed = movementSpeed / 2;
 
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             {
-                CurrentData.gameData.speed = GameData.oldSpeed;
+                CurrentData.gameData.blockSpeed = GameData.oldSpeed;
                 if (GameData.firstSkip == true)
                 {
                     GameData.firstSlowDown = true;

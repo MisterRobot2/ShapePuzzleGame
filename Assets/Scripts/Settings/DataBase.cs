@@ -44,7 +44,8 @@ public static class SaveAndLoad
             }
         }else
         {
-            save();
+            Debug.LogWarning("CANT FIND FILE SAVING");
+            //save();
         }
     }
 
@@ -55,6 +56,7 @@ public static class SaveAndLoad
             //check for file
             if (File.Exists(Application.dataPath + "/Saves/save.CloudBuster"))
             {
+                Debug.Log("Deleted from " + Application.dataPath + "/Saves/save.CloudBuster");
                 File.Delete(Application.dataPath + "/Saves/save.CloudBuster");
             }
         }
@@ -102,11 +104,12 @@ public class DataBase
 {
 
     public float gameSpeed = 1f;
+    public float blockSpeed = 20;
 
     public float highScore;
     public float totalBlocksLost;
-    public float speed = 15;
     public float totalBlocksPlaced;
+    public float volume;
     public int totalCoins = 0;
 
     //is Toggle on
