@@ -32,7 +32,7 @@ public class GameOverScript : MonoBehaviour
     private string winner;
 
 
-    private void Awake()
+	private void Awake()
     {
         Getvaribles();
     }
