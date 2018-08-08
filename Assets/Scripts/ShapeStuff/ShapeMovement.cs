@@ -100,7 +100,7 @@ public class ShapeMovement : MonoBehaviour
 
 
             //Touch Input
-            if (Input.touchSupported == true && GameData.isMobile == true)
+            if (true)
             {
                 Touch touchZero = Input.GetTouch(0);
                 if (Input.touchCount == 1 && GameData.canTouchMoveBlock == true)
