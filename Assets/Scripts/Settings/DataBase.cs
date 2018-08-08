@@ -44,7 +44,8 @@ public static class SaveAndLoad
             }
         }else
         {
-            save();
+            Debug.LogWarning("CANT FIND FILE SAVING");
+            //save();
         }
     }
 
@@ -55,6 +56,7 @@ public static class SaveAndLoad
             //check for file
             if (File.Exists(Application.dataPath + "/Saves/save.CloudBuster"))
             {
+                Debug.Log("Deleted from " + Application.dataPath + "/Saves/save.CloudBuster");
                 File.Delete(Application.dataPath + "/Saves/save.CloudBuster");
             }
         }
@@ -85,15 +87,16 @@ public static class GameData
     public static float oldSpeed;
     public static bool freezeGameSpeed = false;
     public static bool namesExist = false;
-    public static bool isTutorial = false;
-    public static bool firstDrop = false;
-    public static bool firstGoalLine = false;
-    public static bool firstSkip = false;
-    public static bool firstCoin = false;
-    public static bool firstSlowDown = false;
+    public static bool isTutorial;
+    public static bool firstDrop;
+    public static bool firstGoalLine;
+    public static bool firstSkip;
+    public static bool firstCoin;
+    public static bool firstSlowDown;
     public static bool isGameOver = false;
     public static bool canGameOver;
     public static bool canCollectCoin;
+    public static bool canSkip;
 }
 
 
@@ -102,11 +105,12 @@ public class DataBase
 {
 
     public float gameSpeed = 1f;
+    public float blockSpeed = 20;
 
     public float highScore;
     public float totalBlocksLost;
-    public float speed = 15;
     public float totalBlocksPlaced;
+    public float volume;
     public int totalCoins = 0;
 
     //is Toggle on

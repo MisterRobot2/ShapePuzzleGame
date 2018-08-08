@@ -11,17 +11,18 @@ public class ChangeScene : MonoBehaviour
 
     public void LoadGameScene()
     {
+        SaveAndLoad.Load();
         Time.timeScale = 1.0f;
         GameData.team1coins = 0;
         GameData.team2coins = 0;
         GameData.team1Skips = 3;
         GameData.team2Skips = 3;
         SceneManager.LoadScene("Main");
-        SaveAndLoad.save();
     }
 
     public void LoadTitleScene()
     {
+        SaveAndLoad.Load();
         if (GameData.isTutorial == true)
         {
             GameData.isTutorial = false;
@@ -43,6 +44,8 @@ public class ChangeScene : MonoBehaviour
         if(CurrentData.gameData.showTipsEveryGame)
         {
             CurrentData.gameData.isFirstTime = true;
+        } else{
+            CurrentData.gameData.isFirstTime = false;
         }
         Time.timeScale = 1.0f;
         GameData.selectedMode = selectGameMode;
@@ -55,8 +58,12 @@ public class ChangeScene : MonoBehaviour
         {
             GameData.namesExist = false;
         }
-
-        CurrentData.gameData.isFirstTime = true;
+        if (CurrentData.gameData.showTipsEveryGame)
+        {
+            CurrentData.gameData.isFirstTime = true;
+        } else{
+            CurrentData.gameData.isFirstTime = false;
+        }
         Time.timeScale = 1.0f;
         GameData.selectedMode = selectGameMode;
         SceneManager.LoadScene(nameOfSceneToLoad);
@@ -64,7 +71,6 @@ public class ChangeScene : MonoBehaviour
 
     public void QuitGame()
     {
-       SaveAndLoad.save();
        Application.Quit();
     }
 }
