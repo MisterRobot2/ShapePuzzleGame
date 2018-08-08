@@ -13,8 +13,7 @@ public class ShapeMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 20)]
     public float movementSpeed = CurrentData.gameData.blockSpeed;
-    
-    
+     
     private bool hasSpawn = false;
     private bool hasCollided;
     private AudioSource blockLanding;
@@ -23,9 +22,6 @@ public class ShapeMovement : MonoBehaviour
     public BoxCollider2D boxCollider;
     [Tooltip("Put it in if it has it ")]
     public PolygonCollider2D polycollider2D;
-
-    // Touch controlls
-
 
     void Start()
     {
@@ -40,8 +36,9 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
+        destoryBlockOnGameOver();
 
-
+        //Changes game speed with diffrent screen reslutions
         if (GameData.ScreenWidth >= 10)
         {
             movementSpeed = CurrentData.gameData.blockSpeed;
@@ -51,15 +48,10 @@ public class ShapeMovement : MonoBehaviour
             movementSpeed = CurrentData.gameData.blockSpeed/2;
         }
         
-        
+        // Fixes the Block From Disspearing
         if (canBeControlled == true)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
-
-            if (GameData.isGameOver == true)
-            {
-                Destroy(this.gameObject);
-            }
         }
         
         // slows block down 
@@ -81,6 +73,7 @@ public class ShapeMovement : MonoBehaviour
                 }
             }
 
+            //Block Controlls
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0),Space.World);
@@ -97,12 +90,8 @@ public class ShapeMovement : MonoBehaviour
 
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && GameData.canSpawnShape == true)
             {
-                //rb.gravityScale = 2;
                 DropBlock();
-                
             }
-
-            
 
             //Touch Input
             if (Input.touchSupported == true)
@@ -123,6 +112,8 @@ public class ShapeMovement : MonoBehaviour
                 }
             }
 
+            //Touch Debug
+            /*
             if (Input.mousePresent == true)
             {
                 if (Input.GetMouseButton(0))
@@ -136,9 +127,7 @@ public class ShapeMovement : MonoBehaviour
                 {
                     DropBlock();
                 }
-            }
-
-
+            } */
         }
         else
         {
@@ -148,8 +137,16 @@ public class ShapeMovement : MonoBehaviour
         PlaceBlockFollowSpawn();
     }
 
-
-    #region Block Controlls
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (hasCollided == false)
+        {
+            blockLanding.Play();
+            GameData.blocksPlacedInGame++;
+            GameData.firstDrop = true;
+            hasCollided = true;
+        }
+    }
 
     //Drops the block
     void DropBlock()
@@ -179,19 +176,7 @@ public class ShapeMovement : MonoBehaviour
         gamecontroller.SpawnNewBlock();
     }
 
-    #endregion
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(hasCollided == false)
-        {
-            blockLanding.Play();
-            GameData.blocksPlacedInGame++;
-            GameData.firstDrop = true;
-            hasCollided = true;
-        }
-    }
-
+    // Freeze block after so mutch seconds
     IEnumerator Freeze()
     {
         yield return new WaitForSeconds(3);
@@ -199,10 +184,10 @@ public class ShapeMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isFrozen = true;
-        }
-        
+        } 
     }
 
+    //Bug Fixes 
     void PlaceBlockFollowSpawn()
     {
         if (GameData.canSpawnShape == false)
@@ -216,24 +201,29 @@ public class ShapeMovement : MonoBehaviour
         }
     }
 
+    // Destroys block when its game over
     void destoryBlockOnGameOver()
     {
         if (GameData.isGameOver == true && canBeControlled == true)
         {
             Destroy(this.gameObject);
-
         }
     }
 
+    //Removes the colliders when block is being controlled
     public void RemoveColliders()
     {
-        if (polycollider2D != null)
+        if (canBeControlled == true)
         {
-            polycollider2D.enabled = false;
+            if (polycollider2D != null)
+            {
+                polycollider2D.enabled = false;
+            }
+            else if (boxCollider != null)
+            {
+                boxCollider.enabled = false;
+            }
         }
-        else if (boxCollider != null)
-        {
-            boxCollider.enabled = false;
-        }
+        
     }
 }
