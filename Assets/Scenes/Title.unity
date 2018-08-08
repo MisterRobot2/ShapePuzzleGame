@@ -5366,6 +5366,16 @@ Prefab:
       propertyPath: ToggleObject.Array.data[0]
       value: 
       objectReference: {fileID: 886672261}
+    - target: {fileID: 224572379023737516, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224986303476830076, guid: ce702e1cd664a6c4fafc69d7c6053478,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.58981186
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
   m_IsPrefabAsset: 0
