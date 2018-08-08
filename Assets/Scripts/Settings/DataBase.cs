@@ -111,7 +111,6 @@ public class DataBase
     public float highScore;
     public float totalBlocksLost;
     public float totalBlocksPlaced;
-    public float volume;
     public int totalCoins = 0;
 
     //is Toggle on
@@ -134,7 +133,7 @@ public class DataBase
     //tutorial + first time things
     public bool isFirstTime = true;
     public bool isFullscreen;
-    public bool isAudioOn = true;
     public bool showTipsEveryGame = false;
+    public float volume = 1;
 
 }
