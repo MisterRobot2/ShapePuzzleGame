@@ -85,6 +85,7 @@ public static class GameData
     public static string team2Name;
     public static bool canSpawnShape = true;
     public static float oldSpeed;
+    public static bool blockIsFalling = false;
     public static bool freezeGameSpeed = false;
     public static bool namesExist = false;
     public static bool isTutorial;
@@ -97,6 +98,8 @@ public static class GameData
     public static bool canGameOver;
     public static bool canCollectCoin;
     public static bool canSkip;
+    public static bool isMobile;
+    public static bool canTouchMoveBlock = true;
 }
 
 
