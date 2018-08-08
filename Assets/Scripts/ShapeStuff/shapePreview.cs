@@ -297,7 +297,7 @@ public class shapePreview : MonoBehaviour {
             nextShape.GetComponent<MeshObjL>().meshCreatorL();
         }
 
-        if (GameData.firstGoalLine == true)
+        if (GameData.canSkip == true)
         {
             GameData.firstSkip = true;
         }
