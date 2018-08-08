@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641138, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641162, b: 0.5748184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -432,77 +432,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc9b0c695837e94f89738bc19d04ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 780279431}
---- !u!1 &897769780 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1230436882055956, guid: 6fe93cfa9f8755c46a34c3861ec6a762,
-    type: 2}
-  m_PrefabInternal: {fileID: 1580484166}
---- !u!114 &897769787
-MonoBehaviour:
+  gameOverUIPrefab: {fileID: 720856638}
+  gameOverSound: {fileID: 0}
+  forceGameOver: 0
+  mainCamera: {fileID: 780279431}
+  newHighScoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
+  highScoreWords: {fileID: 0}
+  tryHarderText: {fileID: 0}
+--- !u!61 &1202394000
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 897769780}
+  m_GameObject: {fileID: 1202393997}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ca769432b9378419c713f3ddd49882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &897769788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 897769780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 897769787}
-          m_MethodName: DisableBlockMovmenet
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 897769787}
-          m_MethodName: EnableBlockMovmenet
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
---- !u!114 &1099501619 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114391300862313204, guid: 9dfbfaeb0108f234795dcd504b0d0191,
-    type: 2}
-  m_PrefabInternal: {fileID: 1106003579}
-  m_Script: {fileID: 11500000, guid: 748e56f8656c04d42b8a4587b7017f96, type: 3}
---- !u!1001 &1106003579
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0787354, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 50, y: 1}
+  m_EdgeRadius: 0
+--- !u!1001 &1284839298
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -549,53 +512,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1112432147 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1228929671329412, guid: 9dfbfaeb0108f234795dcd504b0d0191,
-    type: 2}
-  m_PrefabInternal: {fileID: 1106003579}
---- !u!114 &1112432150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1112432147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf3d51e16fd707946aac5dfbd9302adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1310259977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114271186262062172, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
     type: 2}
   m_PrefabInternal: {fileID: 1284839298}
   m_Script: {fileID: 11500000, guid: 7df0e44c1dbc74455b71d2d70c614118, type: 3}
---- !u!1 &1452344930 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1843615306476274, guid: 6aba69442fac18d4294316dfda150bdb,
-    type: 2}
-  m_PrefabInternal: {fileID: 634908065}
---- !u!223 &1452344935
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1452344930}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1001 &1580484166
 Prefab:
   m_ObjectHideFlags: 0
