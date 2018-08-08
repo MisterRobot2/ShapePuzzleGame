@@ -55,7 +55,7 @@ public class HeightLine : MonoBehaviour
         SetVaribles();
     }
 	
-	void Update ()
+	void FixedUpdate ()
     {
         UpSequence();
         DownSequence();

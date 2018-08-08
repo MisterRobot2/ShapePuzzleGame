@@ -185,7 +185,9 @@ public class shapePreview : MonoBehaviour {
         //Add Colliders
         if (newObject.GetComponent<MeshCreator>() == true){
             newObject.AddComponent<BoxCollider2D>();
-        }else if (newObject.GetComponent<MeshObjL>() == true){
+            newObject.GetComponent<ShapeMovement>().boxCollider2D = newObject.GetComponent<BoxCollider2D>();
+        }
+        else if (newObject.GetComponent<MeshObjL>() == true){
             newObject.AddComponent<PolygonCollider2D>();
             newObject.GetComponent<ShapeMovement>().polycollider2D = newObject.GetComponent<PolygonCollider2D>();
             newObject.GetComponent<ShapeMovement>().RemoveColliders();
@@ -275,7 +277,7 @@ public class shapePreview : MonoBehaviour {
         if (newObject.GetComponent<MeshCreator>() == true)
         {
             newObject.AddComponent<BoxCollider2D>();
-            newObject.GetComponent<ShapeMovement>().boxCollider = newObject.GetComponent<BoxCollider2D>();
+            newObject.GetComponent<ShapeMovement>().boxCollider2D = newObject.GetComponent<BoxCollider2D>();
             newObject.GetComponent<ShapeMovement>().RemoveColliders();
         }
         else if (newObject.GetComponent<MeshObjL>() == true)

@@ -11,13 +11,13 @@ public class UpdateGameSpeed : MonoBehaviour
         {
             FirstRun();
         }
-        Time.timeScale = CurrentData.gameData.gameSpeed;
+        Time.timeScale = GameData.gameSpeed;
 	}
 
     void FirstRun()
     {
         GameData.freezeGameSpeed = false;
-        CurrentData.gameData.gameSpeed = 1f;
+        GameData.gameSpeed = 1f;
         Time.timeScale = 1f;
         iscalled = true;
     }

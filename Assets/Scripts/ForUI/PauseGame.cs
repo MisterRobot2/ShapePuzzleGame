@@ -8,7 +8,7 @@ public class PauseGame : MonoBehaviour
     {
         if (GameData.freezeGameSpeed == false)
         {
-            Time.timeScale = 0;
+            GameData.gameSpeed = 0;
         }
         
     }
@@ -17,7 +17,7 @@ public class PauseGame : MonoBehaviour
     {
         if (GameData.freezeGameSpeed == false)
         {
-            Time.timeScale = 1;
+            GameData.gameSpeed = 1;
         }
         
     }

@@ -15,6 +15,8 @@ public class ScaleObject : MonoBehaviour
     private bool isObject = true;
     [SerializeField]
     private bool checkWidth = false;
+    [SerializeField]
+    private bool UpdateSize = true;
 
     private void Awake()
     {
@@ -28,7 +30,10 @@ public class ScaleObject : MonoBehaviour
 
     private void Update()
     {
-        StartSequence();
+        if (UpdateSize == true)
+        {
+            StartSequence();
+        }
         
     }
 
