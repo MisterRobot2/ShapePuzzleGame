@@ -1608,6 +1608,7 @@ MonoBehaviour:
   newObject: {fileID: 0}
   parent: {fileID: 1412713581619464}
   MeshObjL: {fileID: 0}
+  waitButton: {fileID: 0}
 --- !u!114 &114277127736706704
 MonoBehaviour:
   m_ObjectHideFlags: 1
