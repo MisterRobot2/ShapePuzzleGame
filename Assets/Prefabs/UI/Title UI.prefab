@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 224572379023737516}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 2
   m_Elasticity: 0.1
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224986303476830076}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5932493
+  m_Size: 0.5932494
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
