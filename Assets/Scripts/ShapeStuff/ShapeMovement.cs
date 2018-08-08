@@ -39,6 +39,7 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(rb.gravityScale);
         RemoveColliders();
         destoryBlockOnGameOver();
         //Changes game speed with diffrent screen reslutions
