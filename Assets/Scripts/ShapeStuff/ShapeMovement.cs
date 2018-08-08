@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ShapeMovement : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class ShapeMovement : MonoBehaviour
     public BoxCollider2D boxCollider;
     [Tooltip("Put it in if it has it ")]
     public PolygonCollider2D polycollider2D;
+    private Camera cam;
 
     void Start()
     {
@@ -30,6 +32,7 @@ public class ShapeMovement : MonoBehaviour
         rb.gravityScale = 0;
         hasCollided = false;
         blockLanding = this.GetComponent<AudioSource>();
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         RemoveColliders();
     }
@@ -37,7 +40,6 @@ public class ShapeMovement : MonoBehaviour
     void Update()
     {
         destoryBlockOnGameOver();
-
         //Changes game speed with diffrent screen reslutions
         if (GameData.ScreenWidth >= 10)
         {
@@ -96,39 +98,40 @@ public class ShapeMovement : MonoBehaviour
                 DropBlock();
             }
 
+
             //Touch Input
-            if (Input.touchSupported == true)
+            if (Input.touchSupported == true && GameData.isMobile == true)
             {
                 Touch touchZero = Input.GetTouch(0);
-                if (Input.touchCount == 1)
+                if (Input.touchCount == 1 && GameData.canTouchMoveBlock == true)
                 {
-                    if (touchZero.phase == TouchPhase.Began)
+                    if (touchZero.phase == TouchPhase.Began || touchZero.phase == TouchPhase.Moved || touchZero.phase == TouchPhase.Stationary)
                     {
-                        Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
                         this.transform.position = new Vector3(cam.ScreenToWorldPoint(touchZero.position).x, this.transform.position.y, this.transform.position.z);
                     }
 
-                    if (touchZero.phase == TouchPhase.Canceled || touchZero.phase == TouchPhase.Ended)
+                    if ((touchZero.phase == TouchPhase.Canceled || touchZero.phase == TouchPhase.Ended) && GameData.canTouchMoveBlock == true)
                     {
                         DropBlock();
                     }
                 }
             }
+            else if(GameData.isMobile == true && Input.touchSupported == false)
+            {
+                Debug.Log("What are you playing with mobile with no touch support?");
+            }
 
-            //Touch Debug
+            //Touch Debug  
             /*
             if (Input.mousePresent == true)
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && GameData.canTouchMoveBlock == true)
                 {
-                    Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
                     this.transform.position = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, this.transform.position.y, this.transform.position.z);
-
-                    
                 }
-                if (Input.GetMouseButtonUp(0))
+                if (Input.GetMouseButtonUp(0) && GameData.canTouchMoveBlock == true)
                 {
-                    DropBlock();
+                    DropBlock(); 
                 }
             } */
         }

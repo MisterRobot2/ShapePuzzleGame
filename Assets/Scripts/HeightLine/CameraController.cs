@@ -26,7 +26,9 @@ public class CameraController : MonoBehaviour
 
     public GameObject background;
 
-    
+
+  
+
 
     // Use this for initialization
     void Start()
@@ -54,6 +56,7 @@ public class CameraController : MonoBehaviour
             background.transform.localPosition = new Vector3(0.0f, background.transform.localPosition.y + Speed, 0.0f);
             UpAmount -= Speed;
             GameData.canGameOver = false;
+
         }
         else if (UpAmount <= 0)
         {

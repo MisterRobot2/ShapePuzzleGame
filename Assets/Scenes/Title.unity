@@ -5378,6 +5378,10 @@ Prefab:
       propertyPath: ToggleObject.Array.data[0]
       value: 
       objectReference: {fileID: 886672261}
+    - target: {fileID: 1718039427284360, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce702e1cd664a6c4fafc69d7c6053478, type: 2}
   m_IsPrefabAsset: 0
