@@ -206,6 +206,7 @@ MonoBehaviour:
   yScailFactor: 0.1
   isObject: 1
   checkWidth: 1
+  UpdateSize: 1
 --- !u!114 &114703247272289828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,7 +223,7 @@ MonoBehaviour:
   canBeControlled: 1
   rb: {fileID: 0}
   movementSpeed: 20
-  boxCollider: {fileID: 0}
+  boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 0}
 --- !u!212 &212439700357988556
 SpriteRenderer:

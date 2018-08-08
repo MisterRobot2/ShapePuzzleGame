@@ -84,11 +84,13 @@ public class DubleClickClosePannelForButtions : MonoBehaviour
             {
                 if (Object.activeInHierarchy == true)
                 {
+                    GameData.gameSpeed = 0;
                     Time.timeScale = 0;
 
                 }
                 else
                 {
+                    GameData.gameSpeed = 1;
                     Time.timeScale = 1;
                 }
             }

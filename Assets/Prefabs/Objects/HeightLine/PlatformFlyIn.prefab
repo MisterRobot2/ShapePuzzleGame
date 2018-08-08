@@ -175,7 +175,9 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   XScailFactor: 0.75
   yScailFactor: 0.025
-  width: 0
+  isObject: 1
+  checkWidth: 0
+  UpdateSize: 0
 --- !u!114 &114479360090741238
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -20,7 +20,7 @@ public class ShapeMovement : MonoBehaviour
     private AudioSource blockLanding;
     private GameController gamecontroller;
     [Tooltip("Put it in if it has it ")]
-    public BoxCollider2D boxCollider;
+    public BoxCollider2D boxCollider2D;
     [Tooltip("Put it in if it has it ")]
     public PolygonCollider2D polycollider2D;
     private Camera cam;
@@ -39,6 +39,7 @@ public class ShapeMovement : MonoBehaviour
 
     void Update()
     {
+        RemoveColliders();
         destoryBlockOnGameOver();
         //Changes game speed with diffrent screen reslutions
         if (GameData.ScreenWidth >= 10)
@@ -100,7 +101,7 @@ public class ShapeMovement : MonoBehaviour
 
 
             //Touch Input
-            if (true)
+            if (Input.touchCount > 0)
             {
                 Touch touchZero = Input.GetTouch(0);
                 if (Input.touchCount == 1 && GameData.canTouchMoveBlock == true)
@@ -115,10 +116,6 @@ public class ShapeMovement : MonoBehaviour
                         DropBlock();
                     }
                 }
-            }
-            else if(GameData.isMobile == true && Input.touchSupported == false)
-            {
-                Debug.Log("What are you playing with mobile with no touch support?");
             }
 
             //Touch Debug  
@@ -175,9 +172,10 @@ public class ShapeMovement : MonoBehaviour
         {
             polycollider2D.enabled = true;
         }
-        else if (boxCollider != null)
+
+        if (boxCollider2D != null)
         {
-            boxCollider.enabled = true;
+            boxCollider2D.enabled = true;
         }
 
         gamecontroller.SpawnNewBlock();
@@ -226,9 +224,10 @@ public class ShapeMovement : MonoBehaviour
             {
                 polycollider2D.enabled = false;
             }
-            else if (boxCollider != null)
+
+            if (boxCollider2D != null)
             {
-                boxCollider.enabled = false;
+                boxCollider2D.enabled = false;
             }
         }
         

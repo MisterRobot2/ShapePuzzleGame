@@ -380,7 +380,7 @@ MonoBehaviour:
   canBeControlled: 1
   rb: {fileID: 0}
   movementSpeed: 5
-  boxCollider: {fileID: 0}
+  boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 60142172617203202}
 --- !u!114 &114391946952774146
 MonoBehaviour:
@@ -398,6 +398,7 @@ MonoBehaviour:
   yScailFactor: 0.04
   isObject: 1
   checkWidth: 1
+  UpdateSize: 1
 --- !u!198 &198051808816608296
 ParticleSystem:
   m_ObjectHideFlags: 1
