@@ -25,6 +25,9 @@ public class ShapeMovement : MonoBehaviour
     public PolygonCollider2D polycollider2D;
     private Camera cam;
 
+    private Vector3 oldPosition;
+    private Quaternion oldRotation;
+
     void Start()
     {
         gamecontroller = GameObject.Find("Game Controller").gameObject.GetComponent<GameController>();
@@ -37,8 +40,15 @@ public class ShapeMovement : MonoBehaviour
         RemoveColliders();
     }
 
+    private void FixedUpdate()
+    {
+        oldPosition = this.transform.position;
+        oldRotation = this.transform.rotation;
+    }
+
     void Update()
     {
+
         RemoveColliders();
         destoryBlockOnGameOver();
         //Changes game speed with diffrent screen reslutions
@@ -144,6 +154,7 @@ public class ShapeMovement : MonoBehaviour
     {
         if (hasCollided == false)
         {
+            StartCoroutine(Freeze());
             blockLanding.Play();
             GameData.blocksPlacedInGame++;
             GameData.firstDrop = true;
@@ -184,12 +195,16 @@ public class ShapeMovement : MonoBehaviour
     // Freeze block after so mutch seconds
     IEnumerator Freeze()
     {
-        yield return new WaitForSeconds(3);
-        if (GameData.isGameOver == false)
+        yield return new WaitForSeconds(.1f);
+        if (GameData.isGameOver == false && oldPosition == this.transform.position && oldRotation == this.transform.rotation)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isFrozen = true;
-        } 
+        }
+        else
+        {
+            StartCoroutine(Freeze());
+        }
     }
 
     //Bug Fixes 
