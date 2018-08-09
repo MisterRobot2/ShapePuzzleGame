@@ -224,6 +224,7 @@ MonoBehaviour:
   movementSpeed: 5
   boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 60039553031526358}
+  parent: {fileID: 0}
 --- !u!114 &114069252719516620
 MonoBehaviour:
   m_ObjectHideFlags: 1

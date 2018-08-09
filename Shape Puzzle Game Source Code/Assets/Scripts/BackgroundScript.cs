@@ -6,8 +6,9 @@ public class BackgroundScript : MonoBehaviour {
 
     private Color currentColor;
     private float duration = 5;
+    private float durationDown = 1.5f;
     private float progress = 0;
-
+    private float progressDown = 0;
     public GameObject starsGameObject;
     ParticleSystem stars;
 
@@ -17,6 +18,9 @@ public class BackgroundScript : MonoBehaviour {
     public GameObject heightText;
     public GameObject goalLineText;
     public GameObject cameraGoalLineText;
+    public GameObject mainCamera;
+
+    private bool reachedSpace = false;
 
     void Start()
     {
@@ -31,10 +35,23 @@ public class BackgroundScript : MonoBehaviour {
         {
             stars.Stop();
             starsGameObject.SetActive(false);
+
+            if(reachedSpace == true)
+            {
+                if(mainCamera.transform.position.y <= 20)
+                {
+                    gameObject.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, currentColor, progressDown);
+
+                    if(progressDown < 1)
+                    {
+                        progressDown += Time.deltaTime / durationDown;
+                    }
+                }
+            }
         }
         else
         {
-            if (GameData.currentHeight >= 40)
+            if (GameData.currentHeight >= 20)
             {
                 gameObject.GetComponent<Renderer>().material.color = Color.Lerp(currentColor, Color.black, progress);
                 clouds.Stop();
@@ -48,13 +65,14 @@ public class BackgroundScript : MonoBehaviour {
                 {
                     starsGameObject.SetActive(true);
                     stars.Play();
+                    reachedSpace = true;
 
                     heightText.GetComponent<TextMesh>().color = Color.white;
                     goalLineText.GetComponent<TextMesh>().color = Color.white;
                     cameraGoalLineText.GetComponent<TextMesh>().color = Color.white;
                 }
             }
-            else if (GameData.currentHeight < 40)
+            else if (GameData.currentHeight < 20)
             {
                 stars.Stop();
                 starsGameObject.SetActive(false);

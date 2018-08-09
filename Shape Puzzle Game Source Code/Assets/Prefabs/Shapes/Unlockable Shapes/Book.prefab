@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114676591987453738}
   m_Layer: 9
   m_Name: Book
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,6 +225,7 @@ MonoBehaviour:
   movementSpeed: 20
   boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 60326626073413702}
+  parent: {fileID: 0}
 --- !u!212 &212439700357988556
 SpriteRenderer:
   m_ObjectHideFlags: 1

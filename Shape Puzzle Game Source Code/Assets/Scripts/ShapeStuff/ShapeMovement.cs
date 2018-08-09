@@ -28,6 +28,8 @@ public class ShapeMovement : MonoBehaviour
     private Vector3 oldPosition;
     private Quaternion oldRotation;
 
+    public GameObject parent;
+
     void Start()
     {
         gamecontroller = GameObject.Find("Game Controller").gameObject.GetComponent<GameController>();
@@ -174,6 +176,9 @@ public class ShapeMovement : MonoBehaviour
         {
             rb.gravityScale = 1;
         }
+
+        parent = GameObject.Find("Blocks");
+        this.transform.parent = parent.transform;
 
         canBeControlled = false;
         StartCoroutine(Freeze());
