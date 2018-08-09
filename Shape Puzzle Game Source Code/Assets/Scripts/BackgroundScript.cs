@@ -38,7 +38,7 @@ public class BackgroundScript : MonoBehaviour {
 
             if(reachedSpace == true)
             {
-                if(mainCamera.transform.position.y <= 20)
+                if(mainCamera.transform.position.y <= 50)
                 {
                     gameObject.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, currentColor, progressDown);
 
@@ -51,7 +51,7 @@ public class BackgroundScript : MonoBehaviour {
         }
         else
         {
-            if (GameData.currentHeight >= 20)
+            if (GameData.currentHeight >= 50)
             {
                 gameObject.GetComponent<Renderer>().material.color = Color.Lerp(currentColor, Color.black, progress);
                 clouds.Stop();
@@ -72,7 +72,7 @@ public class BackgroundScript : MonoBehaviour {
                     cameraGoalLineText.GetComponent<TextMesh>().color = Color.white;
                 }
             }
-            else if (GameData.currentHeight < 20)
+            else if (GameData.currentHeight < 50)
             {
                 stars.Stop();
                 starsGameObject.SetActive(false);
