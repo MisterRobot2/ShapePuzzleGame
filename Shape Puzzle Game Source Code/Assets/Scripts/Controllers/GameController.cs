@@ -137,11 +137,12 @@ public class GameController : MonoBehaviour
         if(GameData.selectedMode == GameMode.SinglePlayer)
         {
             singlePlayerObject.SetActive(true);
-            if (CurrentData.gameData.isFirstTime)
+            if (CurrentData.gameData.isFirstTime || CurrentData.gameData.showHowTo)
             {
                 singlePlayerObject.transform.Find("Instructions").gameObject.SetActive(true);
                 singlePlayerObject.transform.Find("Objective").gameObject.SetActive(true);
-                CurrentData.gameData.isFirstTime = false;
+                CurrentData.gameData.showHowTo = false;
+                SaveAndLoad.save();
                 GameObject.Find("Play Button").GetComponent<Button>().onClick.AddListener(delegate { startSingleplayerGame(); });
             } else{
                 startSingleplayerGame();
@@ -221,11 +222,12 @@ public class GameController : MonoBehaviour
                 GameData.isPlayerPlaying = true;
                 GameObject.FindGameObjectWithTag("ShapePreview").GetComponent<shapePreview>().SpawnFirstShape();
                 spawner.GetComponent<shapeSpawner>().SpawnShape();
-                if (CurrentData.gameData.isFirstTime && GameData.selectedMode == GameMode.PassAndPlay)
+            if ((CurrentData.gameData.isFirstTime || CurrentData.gameData.showHowTo) && GameData.selectedMode == GameMode.PassAndPlay)
                 {
                     GameObject.Find("Instructions Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
                     GameObject.Find("Objective Canvas").transform.GetChild(1).transform.gameObject.SetActive(true);
-                    CurrentData.gameData.isFirstTime = false;
+                    CurrentData.gameData.showHowTo = false;
+                    SaveAndLoad.save();
                 }
             GameData.namesExist = true;
             }
