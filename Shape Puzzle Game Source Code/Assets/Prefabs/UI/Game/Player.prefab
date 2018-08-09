@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 114629112717943964}
   - component: {fileID: 61592235634173074}
   - component: {fileID: 81407001626186536}
+  - component: {fileID: 114239201849040960}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Camera
@@ -607,8 +608,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304733025204578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 40, z: 0}
-  m_LocalScale: {x: 25.928751, y: 92.05973, z: 1}
+  m_LocalPosition: {x: 0, y: 26.98, z: 0}
+  m_LocalScale: {x: 25.928751, y: 118.204704, z: 1}
   m_Children:
   - {fileID: 4356068318037512}
   m_Father: {fileID: 4840683693288298}
@@ -1556,6 +1557,18 @@ MonoBehaviour:
   yScailFactor: 0.068
   isObject: 1
   checkWidth: 0
+  UpdateSize: 1
+--- !u!114 &114239201849040960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240798040464426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114251816480898816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1585,6 +1598,7 @@ MonoBehaviour:
   yScailFactor: 0.068
   isObject: 1
   checkWidth: 0
+  UpdateSize: 1
 --- !u!114 &114271186262062172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1649,6 +1663,7 @@ MonoBehaviour:
   yScailFactor: 0
   isObject: 0
   checkWidth: 0
+  UpdateSize: 1
 --- !u!114 &114377683523529584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1678,6 +1693,7 @@ MonoBehaviour:
   yScailFactor: 0.07
   isObject: 0
   checkWidth: 0
+  UpdateSize: 1
 --- !u!114 &114503222746052016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1694,6 +1710,7 @@ MonoBehaviour:
   yScailFactor: 0.068
   isObject: 1
   checkWidth: 0
+  UpdateSize: 1
 --- !u!114 &114629112717943964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1741,6 +1758,7 @@ MonoBehaviour:
   yScailFactor: 0.055
   isObject: 0
   checkWidth: 0
+  UpdateSize: 1
 --- !u!114 &114775995518219812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1846,6 +1864,7 @@ MonoBehaviour:
   yScailFactor: 0.025
   isObject: 1
   checkWidth: 0
+  UpdateSize: 1
 --- !u!198 &198373063477442158
 ParticleSystem:
   m_ObjectHideFlags: 1
