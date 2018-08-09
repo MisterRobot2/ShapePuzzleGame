@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641138, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641162, b: 0.5748184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -195,6 +195,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &92769099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1249551144632380, guid: 6aba69442fac18d4294316dfda150bdb,
+    type: 2}
+  m_PrefabInternal: {fileID: 92769098}
+--- !u!114 &92769100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92769099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &149329438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532938600055712, guid: 6aba69442fac18d4294316dfda150bdb,
@@ -521,14 +537,6 @@ Prefab:
       propertyPath: waitButton
       value: 
       objectReference: {fileID: 149329438}
-    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 26.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431930043112816, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 118.204704
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
   m_IsPrefabAsset: 0
