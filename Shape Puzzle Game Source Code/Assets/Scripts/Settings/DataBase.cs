@@ -102,7 +102,7 @@ public static class GameData
     public static bool canTouchMoveBlock = true;
 }
 
-
+//This saves
 [System.Serializable]
 public class DataBase
 {
@@ -133,9 +133,10 @@ public class DataBase
     public bool bookShelfBought = false;
 
     //tutorial + first time things
-    public bool isFirstTime = true;
+    public bool isFirstTime = true; //turns how to pop up off and on with options toggle
     public bool isFullscreen;
     public bool showTipsEveryGame = false;
     public float volume = 1;
+    public bool showHowTo = true; //shows how to very first time
 
 }

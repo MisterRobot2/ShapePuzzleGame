@@ -14,7 +14,7 @@ public class ShapeMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 20)]
     public float movementSpeed = CurrentData.gameData.blockSpeed;
-     
+
     private bool hasSpawn = false;
     private bool hasCollided;
     private AudioSource blockLanding;
@@ -27,6 +27,8 @@ public class ShapeMovement : MonoBehaviour
 
     private Vector3 oldPosition;
     private Quaternion oldRotation;
+
+    public GameObject parent;
 
     void Start()
     {
@@ -58,15 +60,15 @@ public class ShapeMovement : MonoBehaviour
         }
         else
         {
-            movementSpeed = CurrentData.gameData.blockSpeed/2;
+            movementSpeed = CurrentData.gameData.blockSpeed / 2;
         }
-        
+
         // Fixes the Block From Disspearing
         if (canBeControlled == true)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
         }
-        
+
         // slows block down 
         if (canBeControlled == true && GameData.isPlayerPlaying)
         {
@@ -89,8 +91,8 @@ public class ShapeMovement : MonoBehaviour
             //Block Controlls
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0),Space.World);
-                this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9),this.transform.position.y, this.transform.position.z);
+                this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0), Space.World);
+                this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9), this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             }
@@ -175,6 +177,9 @@ public class ShapeMovement : MonoBehaviour
             rb.gravityScale = 1;
         }
 
+        parent = GameObject.Find("Blocks");
+        this.transform.parent = parent.transform;
+
         canBeControlled = false;
         StartCoroutine(Freeze());
         rb.constraints = RigidbodyConstraints2D.None;
@@ -215,9 +220,9 @@ public class ShapeMovement : MonoBehaviour
             if (canBeControlled == true)
             {
                 GameObject spawner = GameObject.Find("Spawner");
-                this.transform.position = new Vector3(this.transform.position.x, spawner.transform.position.y,-1);
+                this.transform.position = new Vector3(this.transform.position.x, spawner.transform.position.y, -1);
             }
-            
+
         }
     }
 
@@ -245,6 +250,6 @@ public class ShapeMovement : MonoBehaviour
                 boxCollider2D.enabled = false;
             }
         }
-        
+
     }
 }
