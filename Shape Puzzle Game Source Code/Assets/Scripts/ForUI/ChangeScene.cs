@@ -41,6 +41,7 @@ public class ChangeScene : MonoBehaviour
 
         SceneManager.LoadScene("Title");
         SaveAndLoad.Load();
+
     }
 
     public void LoadSceneWithIndex()
@@ -59,6 +60,7 @@ public class ChangeScene : MonoBehaviour
         Time.timeScale = 1.0f;
         GameData.selectedMode = selectGameMode;
         SceneManager.LoadScene(indexOfSceneToLoad); 
+
     }
     public void LoadSceneWithName()
     {

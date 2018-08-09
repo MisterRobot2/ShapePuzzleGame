@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 114255574046746834}
   - component: {fileID: 82518346824137512}
   - component: {fileID: 114391946952774146}
+  - component: {fileID: 114348600846132502}
   m_Layer: 9
   m_Name: Water Gun
   m_TagString: Untagged
@@ -382,6 +383,17 @@ MonoBehaviour:
   movementSpeed: 5
   boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 60142172617203202}
+--- !u!114 &114348600846132502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518463489967666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114391946952774146
 MonoBehaviour:
   m_ObjectHideFlags: 1

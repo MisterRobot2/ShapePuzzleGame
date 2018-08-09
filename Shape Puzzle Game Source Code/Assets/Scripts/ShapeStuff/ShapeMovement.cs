@@ -14,7 +14,7 @@ public class ShapeMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 20)]
     public float movementSpeed = CurrentData.gameData.blockSpeed;
-     
+
     private bool hasSpawn = false;
     private bool hasCollided;
     private AudioSource blockLanding;
@@ -24,6 +24,9 @@ public class ShapeMovement : MonoBehaviour
     [Tooltip("Put it in if it has it ")]
     public PolygonCollider2D polycollider2D;
     private Camera cam;
+
+    private Vector3 oldPosition;
+    private Quaternion oldRotation;
 
     void Start()
     {
@@ -37,8 +40,15 @@ public class ShapeMovement : MonoBehaviour
         RemoveColliders();
     }
 
+    private void FixedUpdate()
+    {
+        oldPosition = this.transform.position;
+        oldRotation = this.transform.rotation;
+    }
+
     void Update()
     {
+
         RemoveColliders();
         destoryBlockOnGameOver();
         //Changes game speed with diffrent screen reslutions
@@ -48,15 +58,15 @@ public class ShapeMovement : MonoBehaviour
         }
         else
         {
-            movementSpeed = CurrentData.gameData.blockSpeed/2;
+            movementSpeed = CurrentData.gameData.blockSpeed / 2;
         }
-        
+
         // Fixes the Block From Disspearing
         if (canBeControlled == true)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
         }
-        
+
         // slows block down 
         if (canBeControlled == true && GameData.isPlayerPlaying)
         {
@@ -79,8 +89,8 @@ public class ShapeMovement : MonoBehaviour
             //Block Controlls
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0),Space.World);
-                this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9),this.transform.position.y, this.transform.position.z);
+                this.gameObject.transform.Translate(new Vector3(-movementSpeed * Time.deltaTime, 0, 0), Space.World);
+                this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -9, 9), this.transform.position.y, this.transform.position.z);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             }
@@ -144,6 +154,7 @@ public class ShapeMovement : MonoBehaviour
     {
         if (hasCollided == false)
         {
+            StartCoroutine(Freeze());
             blockLanding.Play();
             GameData.blocksPlacedInGame++;
             GameData.firstDrop = true;
@@ -184,12 +195,16 @@ public class ShapeMovement : MonoBehaviour
     // Freeze block after so mutch seconds
     IEnumerator Freeze()
     {
-        yield return new WaitForSeconds(3);
-        if (GameData.isGameOver == false)
+        yield return new WaitForSeconds(.1f);
+        if (GameData.isGameOver == false && oldPosition == this.transform.position && oldRotation == this.transform.rotation)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             isFrozen = true;
-        } 
+        }
+        else
+        {
+            StartCoroutine(Freeze());
+        }
     }
 
     //Bug Fixes 
@@ -200,9 +215,9 @@ public class ShapeMovement : MonoBehaviour
             if (canBeControlled == true)
             {
                 GameObject spawner = GameObject.Find("Spawner");
-                this.transform.position = new Vector3(this.transform.position.x, spawner.transform.position.y,-1);
+                this.transform.position = new Vector3(this.transform.position.x, spawner.transform.position.y, -1);
             }
-            
+
         }
     }
 
@@ -230,6 +245,6 @@ public class ShapeMovement : MonoBehaviour
                 boxCollider2D.enabled = false;
             }
         }
-        
+
     }
 }
