@@ -118,9 +118,9 @@ public class GoalLine : MonoBehaviour
         GameObject spawnedPlatform = Instantiate(platform, parent.transform);
         GameObject chiled = spawnedPlatform.transform.GetChild(0).gameObject;
         chiled.transform.position = (new Vector2(0, heightLine.transform.position.y+.25f));
-        if (chiled.transform.localScale.x - platformCount * .5f > 1)
+        if (chiled.transform.localScale.x - platformCount * 1 > 1)
         {
-            chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount * .01f), chiled.transform.localScale.y, chiled.transform.localScale.z));
+            chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount * 1f), chiled.transform.localScale.y, chiled.transform.localScale.z));
         }
         else
         {
@@ -151,13 +151,13 @@ public class GoalLine : MonoBehaviour
         {
             newestPlatformPosition = newestPlatform.transform.Find("PlatformFlyIn").transform.position.y;
         }
-
+/*
         gameOverTrigger = GameObject.Find("GameOverTrigger").transform.gameObject;
         gameOverTrigger.transform.position = new Vector3(0, newestPlatformPosition - 2, 0);
 
         forceGameOverTrigger = GameObject.Find("ForceGameOverTrigger").transform.gameObject;
         forceGameOverTrigger.transform.position = new Vector3(0, newestPlatformPosition - 12, 0);
-
+        */
         //end setting up game over trigger
 
     }
