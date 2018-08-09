@@ -3,7 +3,7 @@
 To download 
 1 go to the download folder then open it
 2 Find the folder with your operating system on it for example... Windows/
-3 Download the folder and all of its contents for example .... Windows/Windows.zip
+3 Download the folder and all of its contents for example .... Windows/Cloud Buster.zip
 4 Wait for it to download
 5 Find the exe (or OS equivalent)
 6 Play!
