@@ -108,7 +108,7 @@ public class DataBase
 {
 
     public float gameSpeed = 1f;
-    public float blockSpeed = 20;
+    public float blockSpeed = 6;
 
     public float highScore = 0;
     public float totalBlocksLost = 0;
