@@ -118,7 +118,7 @@ public class GoalLine : MonoBehaviour
         GameObject spawnedPlatform = Instantiate(platform, parent.transform);
         GameObject chiled = spawnedPlatform.transform.GetChild(0).gameObject;
         chiled.transform.position = (new Vector2(0, heightLine.transform.position.y+.25f));
-        if (chiled.transform.localScale.x - platformCount * .1f > 1)
+        if (chiled.transform.localScale.x - platformCount * .5f > 1)
         {
             chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount * .01f), chiled.transform.localScale.y, chiled.transform.localScale.z));
         }
