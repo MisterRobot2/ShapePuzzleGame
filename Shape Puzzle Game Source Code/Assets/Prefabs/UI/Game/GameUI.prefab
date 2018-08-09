@@ -2701,7 +2701,7 @@ MonoBehaviour:
   m_Text: "How to Play\n<b><color=#ffd400>---------------</color></b> \nLeft: <b><color=#ffd400>A
     \ <color=#000>or</color>  <-</color></b>\n\nRight: <b><color=#ffd400>D  <color=#000>or</color>
     \ -></color></b>\n\nSlower Block Movement: <color=#ffd400>Hold Shift</color>\n\nDrop
-    Block: \n<b><color=#ffd400>S <color=#000> or </color><i>(DOWN ARROW)</i><color=#000>
+    Block: \n<b><color=#ffd400>S <color=#000> , </color> \u2193 \u2B9F\u2B63\u2B9F\u2B8B<color=#000>
     or </color> SPACE</color></b>\n\nPause Game: <b><color=#ffd400>ESC</color></b>"
 --- !u!114 &114340063833780092
 MonoBehaviour:
@@ -6671,8 +6671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 21.199951, y: -179.19995}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 20, y: -179.19995}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224638943146420260
 RectTransform:
