@@ -48,6 +48,7 @@ public class HeightLine : MonoBehaviour
     private void Awake()
     {
         initalHeight = this.transform.position.y;
+        SetVaribles();
     }
 
     void Start ()

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 82295246182466906}
   - component: {fileID: 114193630947909216}
   - component: {fileID: 114721979488260208}
+  - component: {fileID: 114518600489968412}
   m_Layer: 9
   m_Name: Phone
   m_TagString: Block
@@ -268,7 +269,17 @@ MonoBehaviour:
   movementSpeed: 5
   boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 60672990726517102}
-  parent: {fileID: 0}
+--- !u!114 &114518600489968412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890792804275456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114585615265010494
 MonoBehaviour:
   m_ObjectHideFlags: 1
