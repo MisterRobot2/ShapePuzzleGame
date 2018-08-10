@@ -3540,7 +3540,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \nBust through
     the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins to buy
-    skips and purchase new shapes.\n\nIf the block falls off the platform you lose!"
+    skips and purchase new shapes.\n\nIf the block falls out of the screen you lose!"
 --- !u!114 &114515602100481380
 MonoBehaviour:
   m_ObjectHideFlags: 1
