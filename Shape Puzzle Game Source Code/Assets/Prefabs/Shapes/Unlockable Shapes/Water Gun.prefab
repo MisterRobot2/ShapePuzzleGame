@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 114348600846132502}
   m_Layer: 9
   m_Name: Water Gun
-  m_TagString: Block
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +383,7 @@ MonoBehaviour:
   movementSpeed: 5
   boxCollider2D: {fileID: 0}
   polycollider2D: {fileID: 60142172617203202}
+  parent: {fileID: 0}
 --- !u!114 &114348600846132502
 MonoBehaviour:
   m_ObjectHideFlags: 1

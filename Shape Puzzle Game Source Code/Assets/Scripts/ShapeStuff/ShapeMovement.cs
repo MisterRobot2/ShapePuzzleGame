@@ -131,8 +131,8 @@ public class ShapeMovement : MonoBehaviour
             }
 
             //Touch Debug  
-            /*
-            if (Input.mousePresent == true)
+            
+            if (Input.mousePresent == true && GameData.canMouseMoveBlock == true)
             {
                 if (Input.GetMouseButton(0) && GameData.canTouchMoveBlock == true)
                 {
@@ -142,7 +142,7 @@ public class ShapeMovement : MonoBehaviour
                 {
                     DropBlock(); 
                 }
-            } */
+            } 
         }
         else
         {

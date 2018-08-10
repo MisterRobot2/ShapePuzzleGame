@@ -100,6 +100,7 @@ public static class GameData
     public static bool canSkip;
     public static bool isMobile;
     public static bool canTouchMoveBlock = true;
+    public static bool canMouseMoveBlock = false;
 }
 
 //This saves
