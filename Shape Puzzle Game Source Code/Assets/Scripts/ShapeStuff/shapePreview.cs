@@ -185,10 +185,12 @@ public class shapePreview : MonoBehaviour {
         //Add Colliders
         if (newObject.GetComponent<MeshCreator>() == true){
             newObject.AddComponent<BoxCollider2D>();
+            newObject.GetComponent<BoxCollider2D>().isTrigger = true;
             newObject.GetComponent<ShapeMovement>().boxCollider2D = newObject.GetComponent<BoxCollider2D>();
         }
         else if (newObject.GetComponent<MeshObjL>() == true){
             newObject.AddComponent<PolygonCollider2D>();
+            newObject.GetComponent<PolygonCollider2D>().isTrigger = true;
             newObject.GetComponent<ShapeMovement>().polycollider2D = newObject.GetComponent<PolygonCollider2D>();
             newObject.GetComponent<ShapeMovement>().RemoveColliders();
             Vector3[] temp = new Vector3[8];

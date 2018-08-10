@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641138, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641162, b: 0.5748184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -484,21 +484,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114271186262062172, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: waitButton
-      value: 
-      objectReference: {fileID: 149329438}
-    - target: {fileID: 114624842334530522, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
-        type: 2}
-      propertyPath: gameOverUIPrefab
-      value: 
-      objectReference: {fileID: 720856638}
     - target: {fileID: 114532013175812344, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
       propertyPath: gameOverUIPrefab
       value: 
       objectReference: {fileID: 720856638}
+    - target: {fileID: 114624842334530522, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: gameOverUIPrefab
+      value: 
+      objectReference: {fileID: 720856638}
+    - target: {fileID: 114271186262062172, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: waitButton
+      value: 
+      objectReference: {fileID: 149329438}
     - target: {fileID: 114210474272565686, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
       propertyPath: DebugToggle

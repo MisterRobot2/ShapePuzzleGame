@@ -187,11 +187,13 @@ public class ShapeMovement : MonoBehaviour
         if (polycollider2D != null)
         {
             polycollider2D.enabled = true;
+            polycollider2D.isTrigger = false;
         }
 
         if (boxCollider2D != null)
         {
             boxCollider2D.enabled = true;
+            boxCollider2D.isTrigger = false;
         }
 
         gamecontroller.SpawnNewBlock();

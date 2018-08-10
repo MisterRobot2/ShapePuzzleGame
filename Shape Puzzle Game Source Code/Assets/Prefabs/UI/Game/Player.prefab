@@ -1875,7 +1875,7 @@ MonoBehaviour:
   heightText: {fileID: 1731757856380802}
   goalLineText: {fileID: 1007089748292406}
   cameraGoalLineText: {fileID: 1383932568158518}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1240798040464426}
 --- !u!114 &114656411066988858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11193,7 +11193,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -11201,7 +11201,7 @@ ParticleSystemRenderer:
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
-  m_SortingFudge: -1
+  m_SortingFudge: -10
   m_NormalDirection: 1
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
@@ -11294,7 +11294,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 05d87a5b74eee4cbe9e017a71ee00d18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
