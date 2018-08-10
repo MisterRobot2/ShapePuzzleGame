@@ -16,6 +16,3 @@
 3. Hit Extract All...
 4. Hit next
 5. Find the .exe
-
-
-**NOTE: only Windows has been tested.**

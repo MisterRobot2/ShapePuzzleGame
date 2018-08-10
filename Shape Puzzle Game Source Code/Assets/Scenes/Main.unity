@@ -192,6 +192,16 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1099501619}
+    - target: {fileID: 114610073405566166, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646549619884440, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aba69442fac18d4294316dfda150bdb, type: 2}
   m_IsPrefabAsset: 0
@@ -266,6 +276,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -180, z: 0}
+--- !u!114 &333759117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114871018771651664, guid: 6aba69442fac18d4294316dfda150bdb,
+    type: 2}
+  m_PrefabInternal: {fileID: 36912341}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &352406290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114391925394717360, guid: 6aba69442fac18d4294316dfda150bdb,
@@ -498,12 +514,27 @@ Prefab:
         type: 2}
       propertyPath: waitButton
       value: 
+      objectReference: {fileID: 720856638}
+    - target: {fileID: 114532013175812344, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: newHighScoreText
+      value: 
+      objectReference: {fileID: 333759117}
+    - target: {fileID: 114271186262062172, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: waitButton
+      value: 
       objectReference: {fileID: 149329438}
     - target: {fileID: 114210474272565686, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
         type: 2}
-      propertyPath: DebugToggle
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114647478480959968, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+        type: 2}
+      propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 352406290}
+      objectReference: {fileID: 1322395670}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
   m_IsPrefabAsset: 0
