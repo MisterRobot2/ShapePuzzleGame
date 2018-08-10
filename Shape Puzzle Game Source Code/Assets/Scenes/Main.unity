@@ -152,6 +152,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114770855833141422, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1930636516}
+    - target: {fileID: 114688519073190146, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 439932588}
+    - target: {fileID: 114255182633282646, guid: 6aba69442fac18d4294316dfda150bdb,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1930636516}
     - target: {fileID: 114208297846673660, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
       propertyPath: ToggleObject.Array.data[0]
@@ -167,11 +182,6 @@ Prefab:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2006445459}
-    - target: {fileID: 114688519073190146, guid: 6aba69442fac18d4294316dfda150bdb,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 439932588}
     - target: {fileID: 114945400944193094, guid: 6aba69442fac18d4294316dfda150bdb,
         type: 2}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -738,6 +748,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8f0ee8418d93e4eb66aa8c67f62699, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1930636516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114271186262062172, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,
+    type: 2}
+  m_PrefabInternal: {fileID: 1930636515}
+  m_Script: {fileID: 11500000, guid: 7df0e44c1dbc74455b71d2d70c614118, type: 3}
 --- !u!114 &2006445459 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114210474272565686, guid: 1a8f0ee8418d93e4eb66aa8c67f62699,

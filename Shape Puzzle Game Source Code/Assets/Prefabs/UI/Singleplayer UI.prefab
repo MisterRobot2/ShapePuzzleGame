@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Text: "How to Play\n<b><color=#ffd400>---------------</color></b> \nLeft: <b><color=#ffd400>A
     \ <color=#000>or</color>  <-</color></b>\n\nRight: <b><color=#ffd400>D  <color=#000>or</color>
     \ -></color></b>\n\nSlower Block Movement: <color=#ffd400>Hold Shift</color>\n\nDrop
-    Block: \n<b><color=#ffd400>S <color=#000> or </color><i>(DOWN ARROW)</i><color=#000>
+    Block: \n<b><color=#ffd400>S <color=#000> , </color> \u2193 \u2B9F\u2B63\u2B9F\u2B8B<color=#000>
     or </color> SPACE</color></b>\n\nPause Game: <b><color=#ffd400>ESC</color></b>"
 --- !u!114 &114426808492168148
 MonoBehaviour:
@@ -992,7 +992,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Objectives\n<b><color=#ffd400>---------------</color></b> \n\nBust through
     the clouds!\n\n1. Stack the blocks as high as possible.\n2. Collect coins to buy
-    skips and purchase new shapes.\n\nIf the block falls off the platform you lose!\n"
+    skips and purchase new shapes.\n\nIf the block falls out of the screen you lose!"
 --- !u!222 &222023769470250550
 CanvasRenderer:
   m_ObjectHideFlags: 1
