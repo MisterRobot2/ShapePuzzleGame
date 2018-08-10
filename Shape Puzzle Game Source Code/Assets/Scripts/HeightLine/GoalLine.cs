@@ -118,14 +118,33 @@ public class GoalLine : MonoBehaviour
         GameObject spawnedPlatform = Instantiate(platform, parent.transform);
         GameObject chiled = spawnedPlatform.transform.GetChild(0).gameObject;
         chiled.transform.position = (new Vector2(0, heightLine.transform.position.y+.25f));
-        if (chiled.transform.localScale.x - platformCount * 1 > 1)
+        if (GameData.ScreenWidth < 10)
         {
-            chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount * 1f), chiled.transform.localScale.y, chiled.transform.localScale.z));
+            if (chiled.transform.localScale.x - platformCount * 1/GameData.ScreenWidth > 1)
+            {
+                chiled.transform.localScale = (new Vector3((chiled.transform.localScale.x - platformCount * 1f / GameData.ScreenWidth), chiled.transform.localScale.y, chiled.transform.localScale.z));
+            }
+            else
+            {
+                chiled.transform.localScale = (new Vector3((1), chiled.transform.localScale.y, chiled.transform.localScale.z));
+            }
         }
-        else
+
+        else if (GameData.ScreenWidth > 10)
         {
-            chiled.transform.localScale = (new Vector3((3), chiled.transform.localScale.y, chiled.transform.localScale.z));
+            if (chiled.transform.localScale.x - platformCount * 1 > 1)
+            {
+                Debug.Log(platformCount * 1 / GameData.ScreenWidth*8);
+
+                chiled.transform.localScale = (new Vector3(chiled.transform.localScale.x - platformCount * 1f, chiled.transform.localScale.y, chiled.transform.localScale.z));
+            }
+            else
+            {
+                chiled.transform.localScale = (new Vector3((1), chiled.transform.localScale.y, chiled.transform.localScale.z));
+            }
         }
+
+        
         
         platformCount++;
         GameData.firstGoalLine = true;

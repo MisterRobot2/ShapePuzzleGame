@@ -11,6 +11,11 @@ public class SliderController : MonoBehaviour
     [SerializeField]
     private Text Text;
 
+    public void Awake()
+    {
+        UpdateText();
+    }
+
     public void UpdateText()
     {
         Text.text = (Mathf.Round(Slider.value * 100) / 100).ToString();

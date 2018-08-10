@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
 
     private void Start()
     {
-        collectCoinSound = this.GetComponent<AudioSource>();
+        collectCoinSound = GameObject.Find("CoinGenerator").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +39,10 @@ public class Coin : MonoBehaviour
             {
                 collectCoinSound.Play();
                 CollectCoin();
+                if (GameData.canCollectCoin == true)
+                {
+                    GameData.firstCoin = true;
+                }
             }
 
 

@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 222649004450519246}
   - component: {fileID: 114858251828187298}
   - component: {fileID: 82365260573669804}
+  - component: {fileID: 114700140100496966}
   m_Layer: 5
   m_Name: Pause Panel
   m_TagString: Untagged
@@ -908,7 +909,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4c0f5beecaafde498d72b52d54f3f79, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2412,6 +2413,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585902fc4ccdf3b4f9b787755a92ce9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114700140100496966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497414336708758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doCutVolumeInHalf: 0
 --- !u!114 &114707018713675880
 MonoBehaviour:
   m_ObjectHideFlags: 1
