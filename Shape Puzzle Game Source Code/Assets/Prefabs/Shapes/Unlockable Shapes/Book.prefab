@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8efc22e9e978641bafb3c80a54a06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doCutVolumeInHalf: 0
 --- !u!114 &114676591987453738
 MonoBehaviour:
   m_ObjectHideFlags: 1

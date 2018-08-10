@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
+    [SerializeField]
+    private bool doCutVolumeInHalf;
+
     AudioSource audio;
 
 	// Use this for initialization
@@ -15,6 +18,12 @@ public class AudioManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        audio.volume = CurrentData.gameData.volume;
+        if (!doCutVolumeInHalf)
+        {
+            audio.volume = CurrentData.gameData.volume; 
+        }else
+        {
+            audio.volume = (CurrentData.gameData.volume/2);
+        }
     }
 }
