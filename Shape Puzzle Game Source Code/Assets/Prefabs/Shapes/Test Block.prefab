@@ -213,8 +213,9 @@ MonoBehaviour:
   canBeControlled: 1
   rb: {fileID: 0}
   movementSpeed: 14.899647
-  boxCollider2D: {fileID: 0}
+  boxCollider2D: {fileID: 61222417625705012}
   polycollider2D: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!114 &114722360741318276
 MonoBehaviour:
   m_ObjectHideFlags: 1
